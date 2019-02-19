@@ -1,0 +1,20 @@
+.container{
+    font-family: 'Poppins', sans-serif;
+}
+.form-control{
+    width:20%;
+    
+}
+.fa-search{
+    /* color:rgb(16, 144, 204);  */
+   color:white;
+}
+
+.btn-outline{
+    background:rgb(16, 144, 204);
+   
+}
+.thead{
+    background-color: rgb(16, 144, 204);
+}
+

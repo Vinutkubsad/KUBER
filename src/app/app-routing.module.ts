@@ -3,12 +3,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { CharityUserComponent } from './charity-user/charity-user.component';
 import { SignInComponent } from './charity-user/sign-in/sign-in.component';
 import { SignUpComponent } from './charity-user/sign-up/sign-up.component';
-import { CharityPanalComponent } from './charity-panal/charity-panal.component';
+import { PaymentReportComponent } from './charity-panel/payment-report/payment-report.component';
+import { CharityPanelComponent } from './charity-panel/charity-panel.component';
 
 export const routes: Routes = [
-  { path: 'charity', component: CharityPanalComponent },
-  {
-    path: 'charitySignUp', component: CharityUserComponent,
+   { path: 'charity', component: CharityPanelComponent},
+   { path: 'paymentreport', component: PaymentReportComponent },
+   
+    {path: 'charitySignUp', component: CharityUserComponent,
     children: [{path : '', component : SignUpComponent }],
   },
   {
