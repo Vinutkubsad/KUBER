@@ -10,14 +10,14 @@
           <div class="form-group">
             <div class="row padding ml-auto">
               <select class="form-control">
-                <option>Recent</option>
+                <option>Recent payments</option>
                 <option>Current-month</option>
                 <option>Last-month</option>
                 <option>Last 3 months</option>
                 <option>Last 6 months</option>
                 <option>Select date-range</option>
               </select>
-             <input type="text" class="form-control ml-auto" placeholder="Search">
+             <input type="text" class="form-control ml-auto"[(ngModel)]="searchText" placeholder="Search">
              <button type="button" class="btn btn-outline"><i class="fa fa-search" aria-hidden="true"></i></button>
             
             </div>
@@ -35,33 +35,18 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>22-Feb-2019</td>
-                  <td>Name1</td>
-                  <td>Charity1</td>
-                  <td>name1@gmail.com</td>
-                  <td>2000</td>
-                  <td>Pending</td>
-                </tr>
-                <tr>
-                  <td>21-Feb-2019</td>
-                  <td>Name2</td>
-                  <td>Charity2</td>
-                  <td>name2@gmail.com</td>
-                  <td>2500</td>
-                  <td>Succeeded</td>
-                </tr>
-                <tr>
-                  <td>21-Jan-2019</td>
-                  <td>Name3</td>
-                  <td>Charity3</td>
-                  <td>name3@gmail.com</td>
-                  <td>4000</td>
-                  <td>Succeeded</td>
+                <tr *ngFor=" let p of payments | filter : 'email' : searchText | paginate: { itemsPerPage: 7, currentPage: p };">
+                  <td>{{p.Date}}</td>
+                  <td>{{p.DonarName}}</td>
+                  <td>{{p.CharityName}}</td>
+                  <td>{{p.email}}</td>
+                  <td>{{p.amount}}</td>
+                  <td>{{p.status}}</td>
                 </tr>
               </tbody>
             </table>
           </div>
+          <pagination-controls class="pagination" (pageChange)="p = $event"></pagination-controls>
         </div>
       </div>
     </div>
