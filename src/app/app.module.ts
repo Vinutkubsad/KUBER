@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { FormsModule } from '@angular/forms';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { AppRoutingModule, routes } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +15,7 @@ import { RouterModule } from '@angular/router';
 import { CharityPanelComponent } from './charity-panel/charity-panel.component';
 import { PaymentReportComponent } from './charity-panel/payment-report/payment-report.component';
 import { FilterPipe } from '../app/filter.pipe';
+import { DataService } from '../app/data.service';
 
 
 
@@ -34,9 +37,11 @@ import { FilterPipe } from '../app/filter.pipe';
     RouterModule.forRoot(routes),
     HttpClientModule,
     NgxPaginationModule,
-    FormsModule
+    FormsModule,
+    BsDatepickerModule.forRoot(),
+    ModalModule.forRoot()
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

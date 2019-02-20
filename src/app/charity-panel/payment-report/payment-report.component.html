@@ -9,38 +9,30 @@
         <div class="col-12">
           <div class="form-group">
             <div class="row padding ml-auto">
-              <select class="form-control">
-                <option>Recent payments</option>
-                <option>Current-month</option>
-                <option>Last-month</option>
-                <option>Last 3 months</option>
-                <option>Last 6 months</option>
-                <option>Select date-range</option>
-              </select>
-             <input type="text" class="form-control ml-auto"[(ngModel)]="searchText" placeholder="Search">
-             <button type="button" class="btn btn-outline"><i class="fa fa-search" aria-hidden="true"></i></button>
-            
+              <input type="text" class="form-control " [(ngModel)]="searchText" placeholder="Search">
+              <!-- <button type="button" class="btn btn-outline"><i class="fa fa-search" aria-hidden="true"></i></button> -->
+              <!-- <input type="text" placeholder="Select date-range" class="date form-control" bsDaterangepicker>
+              <button type="button" class="btn btn-outline">Go</button> -->
             </div>
           </div>
           <div class="table-responsive">
             <table class="table">
               <thead class="thead">
                 <tr>
-                  <th>Date</th>
                   <th>Donar Name</th>
-                  <th>Charity Name</th>
                   <th>Email ID</th>
                   <th>Amount</th>
+                  <th>Date</th>
                   <th>Status</th>
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor=" let p of payments | filter : 'email' : searchText | paginate: { itemsPerPage: 7, currentPage: p };">
-                  <td>{{p.Date}}</td>
+                <tr
+                  *ngFor=" let p of payments | filter : 'DonarName' : searchText | paginate: { itemsPerPage: 7, currentPage: p };">
                   <td>{{p.DonarName}}</td>
-                  <td>{{p.CharityName}}</td>
                   <td>{{p.email}}</td>
                   <td>{{p.amount}}</td>
+                  <td>{{p.Date}}</td>
                   <td>{{p.status}}</td>
                 </tr>
               </tbody>

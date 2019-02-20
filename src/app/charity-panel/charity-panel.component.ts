@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-charity-panel',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CharityPanelComponent implements OnInit {
 
-  constructor() { }
+  public id:any;
+
+  constructor( private rout:Router, private service:DataService ) { }
 
   ngOnInit() {
   }
+  payments(){
 
+    var data = { 'charityId':this.id }
+    this.service.getReport(data).subscribe((res:any)=>{
+      console.log(res)
+    });
+    this.rout.navigate(["paymentreport"]);
+
+    
+  }
 }
