@@ -6,8 +6,9 @@ import { AppComponent } from './app.component';
 import { CharityUserComponent } from './charity-user/charity-user.component';
 import { SignInComponent } from './charity-user/sign-in/sign-in.component';
 import { SignUpComponent } from './charity-user/sign-up/sign-up.component';
-import { CharityPanalComponent } from './charity-panal/charity-panal.component';
+import { CharityPanelComponent } from './charity-panel/charity-panal.component'
 import { RouterModule } from '@angular/router';
+import { StartPageComponent } from './start-page/start-page.component' 
 
 
 
@@ -17,7 +18,8 @@ import { RouterModule } from '@angular/router';
     CharityUserComponent,
     SignInComponent,
     SignUpComponent, 
-    CharityPanalComponent
+    CharityPanelComponent,
+    StartPageComponent
   ],
   imports: [
     BrowserModule,

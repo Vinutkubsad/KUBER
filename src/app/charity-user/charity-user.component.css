@@ -1,0 +1,10 @@
+.wrap-btn {
+  display: flex;
+  border: none;
+  justify-content: center;
+  margin: 35px;
+}
+
+.wrap-btn button {
+  
+}
