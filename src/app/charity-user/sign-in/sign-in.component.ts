@@ -12,7 +12,7 @@ export class SignInComponent implements OnInit {
 
   loginForm: FormGroup;
 
-  constructor( private service: DataService, private router: Router, private fb: FormBuilder ) { }
+  constructor(private service: DataService, private router: Router, private fb: FormBuilder) { }
 
   ngOnInit() {
     this.resetForm();
@@ -25,18 +25,20 @@ export class SignInComponent implements OnInit {
   resetForm(form?: NgForm) {
     if (form) form.reset();
     this.service.charityLogin = {
-      email:'',
-      password:''
+      email: '',
+      password: ''
     }
   }
 
-  loginSubmit(){
-    console.log(this.loginForm.value);
-    this.service.CharityLogin(this.loginForm.value).subscribe((Response)=>{
-      if(Response) {
-        this.router.navigate(['/charity']);
-      }
-    })
-  }
+  loginSubmit() {
 
+    var data = { "email": this.service.charityLogin.email, "password": this.service.charityLogin.password }
+    console.log(data);
+    this.service.CharityLogin(data).subscribe((response: any) => {
+      console.log(response);
+      localStorage.setItem('_id', response.result._id);
+      this.router.navigate(['charity']);
+    });
+
+  }
 }
