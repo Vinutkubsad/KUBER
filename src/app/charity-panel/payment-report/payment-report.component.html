@@ -10,7 +10,7 @@
           <div class="form-group">
             <div class="row padding ml-auto">
               <input type="text" class="form-control " [(ngModel)]="searchText" placeholder="Search">
-              <!-- <button type="button" class="btn btn-outline"><i class="fa fa-search" aria-hidden="true"></i></button> -->
+              <button type="button" class="btn btn-outline"><i class="fa fa-search" aria-hidden="true"></i></button>
               <!-- <input type="text" placeholder="Select date-range" class="date form-control" bsDaterangepicker>
               <button type="button" class="btn btn-outline">Go</button> -->
             </div>
@@ -28,17 +28,16 @@
               </thead>
               <tbody>
                 <tr
-                  *ngFor=" let p of payments | filter : 'DonarName' : searchText | paginate: { itemsPerPage: 7, currentPage: p };">
-                  <td>{{p.DonarName}}</td>
+                  *ngFor=" let p of payments | filter : 'date' : searchText ">
+                  <td>{{p.userName}}</td>
                   <td>{{p.email}}</td>
                   <td>{{p.amount}}</td>
-                  <td>{{p.Date}}</td>
+                  <td>{{p.date | date:"dd MMM y"}}</td>
                   <td>{{p.status}}</td>
-                </tr>
+                </tr> 
               </tbody>
             </table>
           </div>
-          <pagination-controls class="pagination" (pageChange)="p = $event"></pagination-controls>
         </div>
       </div>
     </div>

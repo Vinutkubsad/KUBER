@@ -9,16 +9,7 @@ import { CharityPanelComponent } from './charity-panel/charity-panel.component';
 export const routes: Routes = [
    { path: 'charity', component: CharityPanelComponent},
    { path: 'paymentreport', component: PaymentReportComponent },
-   
-    {path: 'charitySignUp', component: CharityUserComponent,
-    children: [{path : '', component : SignUpComponent }],
-  },
-  {
-    path: 'charitysignIn', component: CharityUserComponent,
-    children: [{path : '', component : SignInComponent }],
-  },
-  { path : '', redirectTo: 'charitysignIn', pathMatch : 'full' }
-
+   { path: 'signin', component: SignInComponent}
 ];
 
 @NgModule({

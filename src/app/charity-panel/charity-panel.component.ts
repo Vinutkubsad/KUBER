@@ -9,20 +9,23 @@ import { DataService } from '../data.service';
 })
 export class CharityPanelComponent implements OnInit {
 
+  public data;
   public id:any;
+  public userName:any;
+  public page;
+  
 
   constructor( private rout:Router, private service:DataService ) { }
 
   ngOnInit() {
   }
+
+
   payments(){
-
-    var data = { 'charityId':this.id }
-    this.service.getReport(data).subscribe((res:any)=>{
-      console.log(res)
-    });
+    // console.log(_id);
     this.rout.navigate(["paymentreport"]);
-
-    
+  //  this.service.getReport(this.id).subscribe((response:any)=>{
+  //   console.log(response);
+  // });
   }
 }
