@@ -5,6 +5,8 @@ import { SignInComponent } from "./charity-user/sign-in/sign-in.component";
 import { SignUpComponent } from "./charity-user/sign-up/sign-up.component";
 import { CharityPanelComponent } from "./charity-panel/charity-panal.component";
 import { StartPageComponent } from './start-page/start-page.component';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { AdminComponent } from './adminpanel/admin.component';
 
 export const routes: Routes = [
   { path: 'home', component:StartPageComponent },
@@ -17,6 +19,8 @@ export const routes: Routes = [
       { path: 'signin', component: SignInComponent }
     ]
   },
+  { path:'adminlogin', component: AdminLoginComponent },
+  { path: 'adminpanel', component: AdminComponent },
   { path: "", redirectTo: "home", pathMatch: "full" }
 ];
 

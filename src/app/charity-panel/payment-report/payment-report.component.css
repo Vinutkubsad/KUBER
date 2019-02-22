@@ -1,0 +1,29 @@
+.container-fluid{
+    margin-top:15px;
+ }
+ .container{
+     font-family: 'Poppins', sans-serif;
+ }
+ .form-control{
+     width:20%;
+     
+ }
+ .fa-search{
+     /* color:rgb(16, 144, 204);  */
+    color:white;
+ }
+ 
+ .btn-outline{
+     background:rgb(16, 144, 204);
+     color: white;
+    
+ }
+ .date{
+     margin-left: 400px;
+ }
+ .thead{
+     background-color: rgb(16, 144, 204);
+     color: white;
+ }
+ 
+ 
