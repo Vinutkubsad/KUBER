@@ -17,6 +17,8 @@ import { RouterModule } from '@angular/router';
 import { StartPageComponent } from './start-page/start-page.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AdminComponent } from './adminpanel/admin.component'; 
+import { AuthGaurd } from './services/AuthGuard.Admin';
+import { AuthGaurd1 } from './services/AuthGuard.Charity';
 
 
 
@@ -42,7 +44,7 @@ import { AdminComponent } from './adminpanel/admin.component';
     BsDatepickerModule.forRoot(),
     ModalModule.forRoot()
   ],
-  providers: [DataService],
+  providers: [DataService,AuthGaurd,AuthGaurd1],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

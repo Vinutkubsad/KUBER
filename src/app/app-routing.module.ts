@@ -7,6 +7,7 @@ import { CharityPanelComponent } from "./charity-panel/charity-panal.component";
 import { StartPageComponent } from './start-page/start-page.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AdminComponent } from './adminpanel/admin.component';
+import {AuthGaurd}from './services/AuthGuard.Admin'
 
 export const routes: Routes = [
   { path: 'home', component:StartPageComponent },
@@ -20,7 +21,7 @@ export const routes: Routes = [
     ]
   },
   { path:'adminlogin', component: AdminLoginComponent },
-  { path: 'adminpanel', component: AdminComponent },
+  { path: 'adminpanel', component: AdminComponent,canActivate: [AuthGaurd]},
   { path: "", redirectTo: "home", pathMatch: "full" }
 ];
 
