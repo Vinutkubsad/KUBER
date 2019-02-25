@@ -28,12 +28,16 @@ export class AdminComponent implements OnInit {
     this.service.approveCharity(data).subscribe((res)=>{
       if(res){
         alert("Charity Approved")
+        this.refresh();
       }
       else{
         alert("CouldNot approved")
       }
     })
-    
+  }
+
+  refresh(){
+    window.location.reload();
   }
 
 }

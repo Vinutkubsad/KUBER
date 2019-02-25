@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { DataService } from './services/data.service'
+import { DataTablesModule } from 'angular-datatables';
 
 import { AppRoutingModule, routes } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +20,8 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AdminComponent } from './adminpanel/admin.component'; 
 import { AuthGaurd } from './services/AuthGuard.Admin';
 import { AuthGaurd1 } from './services/AuthGuard.Charity';
+import { PaymentReportComponent } from './charity-panel/payment-report/payment-report.component';
+import { FilterPipe } from '../app/filter.pipe';
 
 
 
@@ -31,7 +34,8 @@ import { AuthGaurd1 } from './services/AuthGuard.Charity';
     CharityPanelComponent,
     StartPageComponent,
     AdminLoginComponent,
-    AdminComponent
+    AdminComponent,PaymentReportComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
@@ -42,7 +46,8 @@ import { AuthGaurd1 } from './services/AuthGuard.Charity';
     NgxPaginationModule,
     FormsModule,
     BsDatepickerModule.forRoot(),
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    DataTablesModule
   ],
   providers: [DataService,AuthGaurd,AuthGaurd1],
   bootstrap: [AppComponent]
