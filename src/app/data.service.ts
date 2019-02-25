@@ -17,7 +17,7 @@ export class DataService {
     const httpOption = {
       headers: new HttpHeaders({ 'Content-type': 'application/json' })
       };
-    let url = AppSettings.BASE_URL + AppSettings.LOGIN;
+    let url = AppSettings.BASE_URL + AppSettings.CHARITY_LOGIN;
     return this.http.post(url,data,httpOption);
   }
 

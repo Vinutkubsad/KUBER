@@ -1,0 +1,39 @@
+import { Component, OnInit } from '@angular/core';
+import { DataService } from '../services/data.service';
+import { Router } from '@angular/router';
+
+@Component({
+  selector: 'app-admin',
+  templateUrl: './admin.component.html',
+  styleUrls: ['./admin.component.css']
+})
+export class AdminComponent implements OnInit {
+
+  public charityResult = [];
+  constructor( public service: DataService, public router: Router) { }
+ 
+  ngOnInit() {
+    this.getCharitydetails();
+  }
+
+  getCharitydetails() {
+    this.service.getCharitydetails().subscribe((res) => {
+      console.log(res)
+      this.charityResult = res['result'];
+    })
+  }
+  ApproveCharity(_id){
+    console.log(_id);
+    var data={"approved": true,"id":_id};
+    this.service.approveCharity(data).subscribe((res)=>{
+      if(res){
+        alert("Charity Approved")
+      }
+      else{
+        alert("CouldNot approved")
+      }
+    })
+    
+  }
+
+}

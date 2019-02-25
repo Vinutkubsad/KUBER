@@ -1,0 +1,16 @@
+.title {
+  text-align: center;
+  text-transform: uppercase;
+  padding: 2rem;
+}
+
+.main-form {
+  width: 700px;
+  margin: auto;
+  border: none;
+  padding: 2rem;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+  font-family: 'Lora', serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+}

@@ -1,0 +1,8 @@
+.wrap-btn{
+  padding: 2rem;
+  margin: 50px;
+  display: grid;
+  grid-auto-rows: 1fr 1fr;
+  grid-gap: 10px;
+  width: 30%;;
+}

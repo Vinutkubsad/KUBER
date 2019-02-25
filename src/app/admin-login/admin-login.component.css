@@ -1,0 +1,105 @@
+/* @import url('https://fonts.googleapis.com/css?family=Ubuntu'); */
+
+.container {
+  font-family: 'Lora', serif;
+}
+
+.title {
+  text-align: center;
+  text-transform: uppercase;
+  padding: 2rem;
+}
+
+.card {
+  box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 400px;
+}
+
+.card > .left {
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQd5anFzzt2HAflP_aG8o6AYDRrvDtByspYTEM3OgNXDcBXD9I-');
+  background-position: bottom;
+  background-size: cover; 
+}
+
+
+.card > .right {
+  display: flex;
+  align-items: center;
+  padding: 3rem;
+}
+
+form {
+  width: 100%;
+}
+
+.form-input {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.form-input > label {
+  color: #2C3A47;
+  font-weight: bold;
+  margin: 0;
+  text-transform: uppercase;
+  transition: color 0.3s ease-in-out;
+}
+
+.form-input > input[type="text"]:focus + label,
+.form-input > input[type="password"]:focus + label {
+  color: #3E3ED9;
+}
+
+form input {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.form-input > input[type="text"],
+.form-input > input[type="password"] {
+  border: none;
+  border-bottom: 2px solid #2C3A47;
+  height: 30px;
+  outline: none;
+  transition: border-bottom .3s ease-in-out;
+}
+
+.form-input > input[type="text"]:focus,
+.form-input > input[type="password"]:focus {
+  border-bottom: 2px solid #FD7272;
+}
+
+.btn {
+  margin-top: 35px;
+  background-color: #2C3A47;
+  border: none;
+  color: #FFF;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 40px;
+  transition: background-color 0.3s ease-in-out,
+              box-shadow .3s ease-in-out,
+              transform .3s ease-in-out;
+}
+
+.btn:hover {
+  background-color: #FD7272;
+  box-shadow: 0 5px 10px rgba(0,0,0,.3);
+  transform: translateY(-3px);
+}
+
+.forgot-password {
+  color: #000;
+  font-size: .8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: letter-spacing .3s ease-in-out;
+  float: right;
+  padding-right: 2rem;
+}
+
+.forgot-password:hover {
+letter-spacing: 1px;
+}

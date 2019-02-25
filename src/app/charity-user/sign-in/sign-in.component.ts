@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from 'src/app/data.service';
+import { DataService } from 'src/app/services/data.service';
 import { Router } from '@angular/router';
+import { FormGroup, FormBuilder, Validators, FormControl, NgForm, FormGroupDirective } from '@angular/forms';
 
 @Component({
   selector: 'app-sign-in',
@@ -9,24 +10,35 @@ import { Router } from '@angular/router';
 })
 export class SignInComponent implements OnInit {
 
-  public display;
-  public id : string;
-  public data : any;
-  public Email : string;
-  public Password:string;
-  public payments: any[];
-  constructor(private service:DataService, private rout:Router ) { }
+  loginForm: FormGroup;
+
+  constructor(private service: DataService, private router: Router, private fb: FormBuilder) { }
 
   ngOnInit() {
+    this.resetForm();
+    this.loginForm = this.fb.group({
+      email: new FormControl(null, [Validators.required, Validators.pattern(/^[a-z0-9_.]+$/i)]),
+      password: new FormControl(null, Validators.required)
+    });
   }
 
-  signin(){
-    var data = { "email" : this.Email, "password" : this.Password }
+  resetForm(form?: NgForm) {
+    if (form) form.reset();
+    this.service.charityLogin = {
+      email: '',
+      password: ''
+    }
+  }
+
+  loginSubmit() {
+
+    var data = { "email": this.service.charityLogin.email, "password": this.service.charityLogin.password }
     console.log(data);
-    this.service.login(data).subscribe((response:any)=>{
+    this.service.CharityLogin(data).subscribe((response: any) => {
       console.log(response);
       localStorage.setItem('_id', response.result._id);
-        this.rout.navigate(['charity']);   
-   });
-   }
+      this.router.navigate(['charity']);
+    });
+
+  }
 }

@@ -1,24 +1,24 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import {NgxPaginationModule} from 'ngx-pagination';
-import { FormsModule } from '@angular/forms';
+import { NgxPaginationModule}  from 'ngx-pagination';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { ModalModule } from 'ngx-bootstrap/modal';
-import { DataTablesModule } from 'angular-datatables';
+import { DataService } from './services/data.service';
 
 import { AppRoutingModule, routes } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CharityUserComponent } from './charity-user/charity-user.component';
 import { SignInComponent } from './charity-user/sign-in/sign-in.component';
 import { SignUpComponent } from './charity-user/sign-up/sign-up.component';
+import { CharityPanelComponent } from './charity-panel/charity-panal.component'
 import { RouterModule } from '@angular/router';
-import { CharityPanelComponent } from './charity-panel/charity-panel.component';
+import { StartPageComponent } from './start-page/start-page.component';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { AdminComponent } from './adminpanel/admin.component'; 
 import { PaymentReportComponent } from './charity-panel/payment-report/payment-report.component';
-import { FilterPipe } from '../app/filter.pipe';
-import { DataService } from '../app/data.service';
-
-
+import { FilterPipe } from './filter.pipe';
 
 
 @NgModule({
@@ -26,22 +26,24 @@ import { DataService } from '../app/data.service';
     AppComponent,
     CharityUserComponent,
     SignInComponent,
-    SignUpComponent,
+    SignUpComponent, 
     CharityPanelComponent,
-    PaymentReportComponent, 
+    StartPageComponent,
+    AdminLoginComponent,
+    AdminComponent,
+    PaymentReportComponent,
     FilterPipe
-    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routes),
     HttpClientModule,
     NgxPaginationModule,
     FormsModule,
     BsDatepickerModule.forRoot(),
-    ModalModule.forRoot(),
-    DataTablesModule
+    ModalModule.forRoot()
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

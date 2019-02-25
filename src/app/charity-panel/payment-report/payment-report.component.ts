@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../data.service';
-import { ActivatedRoute,Params, Router } from '@angular/router';
+import { Router } from '@angular/router';
+// import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-payment-report',
@@ -16,7 +17,7 @@ export class PaymentReportComponent implements OnInit {
   public id;
   
 
-  constructor(private router:ActivatedRoute,private service: DataService, private rout: Router) { }
+  constructor(private service: DataService, private rout: Router) { }
 
   ngOnInit() {
     this.service.getReport().subscribe((response:any)=>{

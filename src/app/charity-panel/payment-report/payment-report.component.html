@@ -27,19 +27,24 @@
                 </tr>
               </thead>
               <tbody>
-                <tr
-                  *ngFor=" let p of payments | filter : 'date' : searchText ">
+                <tr *ngFor= "let p of payments | filter : 'date' : searchText ">
                   <td>{{p.userName}}</td>
                   <td>{{p.email}}</td>
                   <td>{{p.amount}}</td>
                   <td>{{p.date | date:"dd MMM y"}}</td>
                   <td>{{p.status}}</td>
-                </tr> 
+                </tr>
               </tbody>
             </table>
+            <hr>
+            <!-- <ul class="nav nav-pills">
+              <li class="nav-item" *ngFor="let page of pages; let i = index; ">
+                <a class="nav-link" href="" >{{i}}</a>
+              </li>
+            </ul> -->
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+  </div>
