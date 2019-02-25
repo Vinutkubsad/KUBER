@@ -26,4 +26,7 @@
      color: white;
  }
  
- 
+ .btn-info {
+     float: right;
+     margin-left: 1500px;
+ }

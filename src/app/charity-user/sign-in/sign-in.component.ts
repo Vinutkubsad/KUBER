@@ -35,10 +35,11 @@ export class SignInComponent implements OnInit {
     var data = { "email": this.service.charityLogin.email, "password": this.service.charityLogin.password }
     console.log(data);
     this.service.CharityLogin(data).subscribe((response: any) => {
-      console.log(response);
+      if(response) {
+        this.router.navigate(['paymentreport']);
+      }
       localStorage.setItem('_id', response.result._id);
-      this.router.navigate(['charity']);
+      // this.router.navigate(['paymentreport']);
     });
-
   }
 }

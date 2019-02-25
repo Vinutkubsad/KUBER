@@ -13,7 +13,7 @@ export class StartPageComponent implements OnInit {
   }
 
   navigateAdmin = function() {
-    this.router.navigate(['/adminlogin']);
+    this.router.navigate(['/adminpanel']);
   }
 
   navigateCharity = function() {

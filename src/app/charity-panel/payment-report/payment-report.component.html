@@ -1,3 +1,17 @@
+<nav class="navbar navbar-expand-lg bg-dark">
+    <a class="navbar-brand" href="#">Kuber Application</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link-right active " href="#">Logout <span class="sr-only">(current)</span></a>
+      </div>
+    </div> -->
+    <button class="btn btn-info btn-md pull-right " (click)="logout()">Logout</button>
+  </nav>
+
+
 <div class="container-fluid padding">
   <div class="container">
     <div class="row welcome ">
@@ -10,9 +24,9 @@
           <div class="form-group">
             <div class="row padding ml-auto">
               <input type="text" class="form-control " [(ngModel)]="searchText" placeholder="Search">
-              <!-- <button type="button" class="btn btn-outline"><i class="fa fa-search" aria-hidden="true"></i></button> -->
+              <button type="button" class="btn btn-outline"><i class="fa fa-search" aria-hidden="true"></i></button>
               <!-- <input type="text" placeholder="Select date-range" class="date form-control" bsDaterangepicker>
-              <button type="button" class="btn btn-outline">Go</button> -->
+    <button type="button" class="btn btn-outline">Go</button> -->
             </div>
           </div>
           <div class="table-responsive">
@@ -27,18 +41,16 @@
                 </tr>
               </thead>
               <tbody>
-                <tr
-                  *ngFor=" let p of payments | filter : 'DonarName' : searchText | paginate: { itemsPerPage: 7, currentPage: p };">
-                  <td>{{p.DonarName}}</td>
+                <tr *ngFor=" let p of payments | filter : 'date' : searchText ">
+                  <td>{{p.userName}}</td>
                   <td>{{p.email}}</td>
                   <td>{{p.amount}}</td>
-                  <td>{{p.Date}}</td>
+                  <td>{{p.date | date:"dd MMM y"}}</td>
                   <td>{{p.status}}</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <pagination-controls class="pagination" (pageChange)="p = $event"></pagination-controls>
         </div>
       </div>
     </div>

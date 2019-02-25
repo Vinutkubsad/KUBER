@@ -7,10 +7,10 @@ import { CharityPanelComponent } from "./charity-panel/charity-panal.component";
 import { StartPageComponent } from './start-page/start-page.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AdminComponent } from './adminpanel/admin.component';
+import { PaymentReportComponent } from './charity-panel/payment-report/payment-report.component';
 
 export const routes: Routes = [
   { path: 'home', component:StartPageComponent },
-  { path: "charity", component: CharityPanelComponent },
   { path: 'signup', component: SignUpComponent },
   {
     path: "charityUser",
@@ -21,7 +21,11 @@ export const routes: Routes = [
   },
   { path:'adminlogin', component: AdminLoginComponent },
   { path: 'adminpanel', component: AdminComponent },
-  { path: "", redirectTo: "home", pathMatch: "full" }
+  { path: "", redirectTo: "home", pathMatch: "full" },
+  { path: 'charity', component: CharityPanelComponent},
+
+  { path: 'paymentreport', component: PaymentReportComponent }
+  //  { path: 'signin', component: SignInComponent}
 ];
 
 @NgModule({

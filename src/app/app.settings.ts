@@ -9,3 +9,4 @@ export class AppSettings{
     public static APPROVE_CHARITY = '/v1/admin/approveCharity';
     public static CHARITY_LOGIN = '/charities/login';
 }
+// /5c6d0e9d677a4e2a2140b966?page&limit
