@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../data.service';
 import { Router } from '@angular/router';
-import { Response } from 'selenium-webdriver/http';
 
 @Component({
   selector: 'app-payment-report',
@@ -41,7 +40,7 @@ export class PaymentReportComponent implements OnInit {
     var data = { "userName": this.DonarName }
     this.service.searchReport(data).subscribe((response: any) => {
       console.log(response);
-      this.searchResults = response.result;
+      this.payments = response.results;
     });
   }
 }

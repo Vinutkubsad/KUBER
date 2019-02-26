@@ -20,15 +20,16 @@
             <table class="table">
               <thead class="thead">
                 <tr>
-                  <th>Donar Name</th>
-                  <th>Email ID</th>
-                  <th>Amount</th>
-                  <th>Date</th>
-                  <th>Status</th>
+                  <th>Donar Name<button class="btn btn-outline"><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                  <th>Email ID<button class="btn btn-outline"><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                  <th>Amount<button class="btn btn-outline"><i class="fa fa-sort" aria-hidden="true"></i>
+                  </button></th>
+                  <th>Date<button class="btn btn-outline"><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                  <th>Status<button class="btn btn-outline"><i class="fa fa-sort" aria-hidden="true"></i></button></th>
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor=" let p of payments | filter : 'userName': DonarName ;">
+                <tr *ngFor=" let p of payments">
                   <td>{{p.userName}}</td>
                   <td>{{p.email}}</td>
                   <td>{{p.amount}}</td>
@@ -38,11 +39,13 @@
               </tbody>
             </table>
             <hr>
-            <ul class="nav nav-pills">
+            <div class="pagination">
+           <div class="nav-pills pagination">
               <li class="nav-item" *ngFor="let page of pages; let i=index">
-                <a class="nav-link" href="" (click)="setPage(i+1,$event)">{{i}}</a>
+                <a class="nav-link-active" href="" (click)="setPage(i+1,$event)">{{i+1}}</a>
               </li>
-            </ul>
+            </div>
+          </div>
           </div>
         </div>
       </div>
