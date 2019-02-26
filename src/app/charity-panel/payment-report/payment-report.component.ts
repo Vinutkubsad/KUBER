@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../data.service';
-import { ActivatedRoute,Params, Router } from '@angular/router';
+import { Router } from '@angular/router';
+import { Response } from 'selenium-webdriver/http';
 
 @Component({
   selector: 'app-payment-report',
@@ -9,19 +10,38 @@ import { ActivatedRoute,Params, Router } from '@angular/router';
 })
 export class PaymentReportComponent implements OnInit {
 
-  private page =1;
-  private limit =10;
-  p: number = 1;
+  private page: number = 1;
   public payments: any[];
+  public searchResults: any[]
   public id;
-  
+  public DonarName;
+  public pages: Array<number>;
 
-  constructor(private router:ActivatedRoute,private service: DataService, private rout: Router) { }
+
+  constructor(private service: DataService, private rout: Router) { }
+  setPage(i, event: any) {
+    event.preventDefault();
+    this.page = i;
+    this.getReports();
+
+  }
 
   ngOnInit() {
-    this.service.getReport().subscribe((response:any)=>{
+    this.getReports();
+  }
+
+  getReports() {
+    this.service.getReport(this.page).subscribe((response: any) => {
       console.log(response);
-      this.payments = response.result;
-    })
+      this.payments = response.result.paginatedItems;
+      this.pages = new Array(response.result.total_pages);
+    });
+  }
+  search() {
+    var data = { "userName": this.DonarName }
+    this.service.searchReport(data).subscribe((response: any) => {
+      console.log(response);
+      this.searchResults = response.result;
+    });
   }
 }

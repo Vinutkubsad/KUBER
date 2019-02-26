@@ -5,7 +5,10 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { FormsModule } from '@angular/forms';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { ModalModule } from 'ngx-bootstrap/modal';
-import { DataTablesModule } from 'angular-datatables';
+// import { DataTablesModule } from 'angular-datatables';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbPaginationModule} from '@ng-bootstrap/ng-bootstrap';
+
 
 import { AppRoutingModule, routes } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -41,7 +44,8 @@ import { DataService } from '../app/data.service';
     FormsModule,
     BsDatepickerModule.forRoot(),
     ModalModule.forRoot(),
-    DataTablesModule
+    NgbModule,
+    NgbPaginationModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

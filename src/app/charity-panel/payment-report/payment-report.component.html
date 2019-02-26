@@ -9,8 +9,9 @@
         <div class="col-12">
           <div class="form-group">
             <div class="row padding ml-auto">
-              <input type="text" class="form-control " [(ngModel)]="searchText" placeholder="Search">
-              <button type="button" class="btn btn-outline"><i class="fa fa-search" aria-hidden="true"></i></button>
+              <input type="text" class="form-control" placeholder="Search Donar" [(ngModel)]="DonarName">
+              <button type="button" class="btn btn-outline" (click)="search()"><i class="fa fa-search"
+                  aria-hidden="true"></i></button>
               <!-- <input type="text" placeholder="Select date-range" class="date form-control" bsDaterangepicker>
               <button type="button" class="btn btn-outline">Go</button> -->
             </div>
@@ -27,16 +28,21 @@
                 </tr>
               </thead>
               <tbody>
-                <tr
-                  *ngFor=" let p of payments | filter : 'date' : searchText ">
+                <tr *ngFor=" let p of payments | filter : 'userName': DonarName ;">
                   <td>{{p.userName}}</td>
                   <td>{{p.email}}</td>
                   <td>{{p.amount}}</td>
                   <td>{{p.date | date:"dd MMM y"}}</td>
                   <td>{{p.status}}</td>
-                </tr> 
+                </tr>
               </tbody>
             </table>
+            <hr>
+            <ul class="nav nav-pills">
+              <li class="nav-item" *ngFor="let page of pages; let i=index">
+                <a class="nav-link" href="" (click)="setPage(i+1,$event)">{{i}}</a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
