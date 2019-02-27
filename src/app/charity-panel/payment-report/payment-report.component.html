@@ -8,35 +8,49 @@
       <div class="container padding">
         <div class="col-12">
           <div class="form-group">
+              <div class="searchBar">
             <div class="row padding ml-auto">
-              <input type="text" class="form-control " [(ngModel)]="searchText" placeholder="Search">
-              <button type="button" class="btn btn-outline"><i class="fa fa-search" aria-hidden="true"></i></button>
-              <!-- <input type="text" placeholder="Select date-range" class="date form-control" bsDaterangepicker>
-              <button type="button" class="btn btn-outline">Go</button> -->
+                <input type="text" class="form-control" placeholder="Search Donar" [(ngModel)]="DonarName">
+                <button type="button" class="btn btn-outline" (click)="search()"><i class="fa fa-search"
+                    aria-hidden="true"></i></button>
+                <!-- <input type="text" placeholder="Select date-range" class="date form-control" bsDaterangepicker>
+               <button type="button" class="btn btn-outline">Go</button> -->
+              </div>
             </div>
           </div>
           <div class="table-responsive">
             <table class="table">
               <thead class="thead">
                 <tr>
-                  <th>Donar Name</th>
-                  <th>Email ID</th>
-                  <th>Amount</th>
-                  <th>Date</th>
-                  <th>Status</th>
+                  <th>Donar name</th>
+                  <th>Email Id</th>
+                  <th>Amount<button class="btn btn-outline" (click)="sortAmount()"><i class="fa fa-sort"
+                        aria-hidden="true"></i>
+                    </button></th>
+                  <th>Date<button class="btn btn-outline" (click)="sortDate()"><i class="fa fa-sort"
+                        aria-hidden="true"></i></button></th>
+                  <th>Status<button class="btn btn-outline" (click)="sortStatus()"><i class="fa fa-sort"
+                        aria-hidden="true"></i></button></th>
                 </tr>
               </thead>
               <tbody>
-                <tr
-                  *ngFor=" let p of payments | filter : 'date' : searchText ">
+                <tr *ngFor=" let p of payments">
                   <td>{{p.userName}}</td>
                   <td>{{p.email}}</td>
                   <td>{{p.amount}}</td>
                   <td>{{p.date | date:"dd MMM y"}}</td>
                   <td>{{p.status}}</td>
-                </tr> 
+                </tr>
               </tbody>
             </table>
+            <hr>
+            <div class="pagination">
+              <div class="nav-pills pagination">
+                <li class="nav-item" *ngFor="let page of pages; let i=index">
+                  <a class="nav-link" href="" (click)="setPage(i+1,$event)">{{i+1}}</a>
+                </li>
+              </div>
+            </div>
           </div>
         </div>
       </div>

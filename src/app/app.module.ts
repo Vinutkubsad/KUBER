@@ -18,7 +18,9 @@ import { StartPageComponent } from './start-page/start-page.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AdminComponent } from './adminpanel/admin.component'; 
 import { PaymentReportComponent } from './charity-panel/payment-report/payment-report.component';
-import { FilterPipe } from './filter.pipe';
+// import { DataService } from '../app/data.service';
+
+
 
 
 @NgModule({
@@ -32,7 +34,7 @@ import { FilterPipe } from './filter.pipe';
     AdminLoginComponent,
     AdminComponent,
     PaymentReportComponent,
-    FilterPipe
+    
   ],
   imports: [
     BrowserModule,

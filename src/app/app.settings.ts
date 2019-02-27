@@ -8,4 +8,5 @@ export class AppSettings{
     public static CHARITY_ALL = '/v1/admin/charitiesList';
     public static APPROVE_CHARITY = '/v1/admin/approveCharity';
     public static CHARITY_LOGIN = '/charities/login';
+    public static SEARCH_REPORT='/v1/reports/searchReports';
 }
