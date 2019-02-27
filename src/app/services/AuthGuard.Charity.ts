@@ -10,7 +10,7 @@ export class AuthGaurd1 implements CanActivate{
      if(tocken){
        return true;
      }
-     this.router.navigate(['/adminlogin']);
+     this.router.navigate(['/charityUser/signin']);
       return false;
    }
 }

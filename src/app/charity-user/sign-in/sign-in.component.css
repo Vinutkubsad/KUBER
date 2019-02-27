@@ -14,12 +14,11 @@
     box-shadow: 0 5px 10px rgba(0,0,0,0.3);
     display: grid;
     grid-template-columns: 1fr 1fr;
-    height: 400px;
 }
 
 .card > .left {
     background-image: url('https://support.savethechildren.ca/image/SMALL-Shot2_1341IP.jpg');
-    background-position: bottom;
+    /* background-position: bottom; */
     background-size: cover;
 }
 

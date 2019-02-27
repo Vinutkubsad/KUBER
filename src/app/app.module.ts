@@ -13,7 +13,6 @@ import { AppComponent } from './app.component';
 import { CharityUserComponent } from './charity-user/charity-user.component';
 import { SignInComponent } from './charity-user/sign-in/sign-in.component';
 import { SignUpComponent } from './charity-user/sign-up/sign-up.component';
-import { CharityPanelComponent } from './charity-panel/charity-panal.component'
 import { RouterModule } from '@angular/router';
 import { StartPageComponent } from './start-page/start-page.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
@@ -22,6 +21,9 @@ import { AuthGaurd } from './services/AuthGuard.Admin';
 import { AuthGaurd1 } from './services/AuthGuard.Charity';
 import { PaymentReportComponent } from './charity-panel/payment-report/payment-report.component';
 import { FilterPipe } from '../app/filter.pipe';
+import { FooterComponent } from './footer/footer.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 
 
@@ -31,11 +33,13 @@ import { FilterPipe } from '../app/filter.pipe';
     CharityUserComponent,
     SignInComponent,
     SignUpComponent, 
-    CharityPanelComponent,
     StartPageComponent,
     AdminLoginComponent,
     AdminComponent,PaymentReportComponent,
-    FilterPipe
+    FilterPipe,
+    FooterComponent,
+    NavBarComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,

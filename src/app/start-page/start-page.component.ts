@@ -12,9 +12,10 @@ export class StartPageComponent implements OnInit {
   ngOnInit() {
   }
 
-  navigateAdmin = function() {
-    this.router.navigate(['/adminpanel']);
+  navLogin() {
+    this.router.navigate(['charityUser/signin']);
   }
+
 
   navigateCharity = function() {
     this.router.navigate(['charityUser/signin']);
