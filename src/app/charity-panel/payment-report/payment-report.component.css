@@ -4,6 +4,9 @@
  .container{
      font-family: 'Poppins', sans-serif;
  }
+ .searchBar{
+     
+ }
  .form-control{
      width:20%;
      
@@ -24,11 +27,14 @@
  .date{
      margin-left: 400px;
  }
+ .table-responsive{
+
+ }
  .thead{
      background-color: rgb(16, 144, 204);
      color: white;
  }
- .pagination{
+ /* .pagination{
      text-align: center
  }
  .pagination a {
@@ -46,5 +52,5 @@
     border: 1px solid rgb(16, 144, 204);
   }
   
-  .pagination a:hover:not(.active) {background-color: #ddd;}
+  .pagination a:hover:not(.active) {background-color: #ddd;} */
  
