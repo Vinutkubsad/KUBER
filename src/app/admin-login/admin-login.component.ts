@@ -36,6 +36,8 @@ export class AdminLoginComponent implements OnInit {
     // if(this.loginForm.valid){
     this.adminservices.AdminLogin(this.loginForm.value).subscribe((res)=>{
       if(res){
+        localStorage.setItem('AdminLogin', 'true');
+        this.router.navigate(['adminpanel'])
         console.log(res)
       }
     })

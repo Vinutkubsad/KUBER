@@ -30,6 +30,11 @@ export class PaymentReportComponent implements OnInit {
   ngOnInit() {
     this.getReports();
   }
+
+  logout(){
+    this.router.navigate(['/home']);
+  }
+
   getReports() {
 
     this.service.getReport(this.page).subscribe((Response: any) => {

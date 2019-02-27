@@ -38,7 +38,8 @@
         <input formControlName="email" type="text" id="email" class="form-control"  [(ngModel)]="charityServices.selectedCharity.email" autofocus required />
         <div *ngIf="
                   registerForm.controls['email'].touched &&
-                  !registerForm.controls['email'].valid
+                  !registerForm.controls['email'].valid && 
+                  registerForm.controls['email'].pattern
                 ">
           <small *ngIf="registerForm.controls['email'].hasError('required')" style="color:red;">
             Please enter the email
@@ -98,17 +99,25 @@
             <div class="col">
               <div class="form-group">
                 <label for="phoneNumber"> Contact Number </label>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+                  <div class="dropdown-menu">
+                  </div>
+                </div>
                 <input formControlName="phoneNumber" type="text" id="phoneNumber" class="form-control" [(ngModel)]="charityServices.selectedCharity.phoneNumber" autofocus required />
                 <div *ngIf="
                     registerForm.controls['phoneNumber'].touched &&
-                    !registerForm.controls['phoneNumber'].valid
+                    !registerForm.controls['phoneNumber'].valid &&
+                    !registerForm.controls['phoneNumber'].pattern
                   ">
-                  <small *ngIf="registerForm.controls['phoneNumber'].hasError('required','pattern')" style="color:red;">
+                  <small *ngIf="registerForm.controls['phoneNumber'].hasError('required')" style="color:red;">
                     please enter phone number
                   </small>
                 </div>
               </div>
             </div>
+          </div>
       
             <div class="col">
               <div class="form-group">

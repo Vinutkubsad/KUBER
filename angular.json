@@ -29,9 +29,9 @@
               "src/styles.css"
             ],
             "scripts": [
+              "src/assets/config.js",
               "node_modules/jquery/dist/jquery.js",
-              "node_modules/datatables.net/js/jquery.dataTables.js",
-              "src/assets/config.js"
+              "node_modules/datatables.net/js/jquery.dataTables.js"
             ]
           },
           "configurations": {

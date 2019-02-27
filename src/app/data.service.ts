@@ -6,16 +6,15 @@ import { AppSettings } from '../app/app.settings';
   providedIn: 'root'
 })
 export class DataService {
-
   constructor(private http: HttpClient) { }
 
 
   //login
-  public login(data) {
+  public CharityLogin(data){
     const httpOption = {
       headers: new HttpHeaders({ 'Content-type': 'application/json' })
       };
-    let url = AppSettings.BASE_URL + AppSettings.CHARITY_LOGIN;
+    let url = AppSettings.BASE_URL + AppSettings.CHARITY_LOGIN ;
     return this.http.post(url,data,httpOption);
   }
 
@@ -23,18 +22,6 @@ export class DataService {
   public getReport(page) {
     let url = AppSettings.BASE_URL + AppSettings.PAYMENT_REPORT;
     return this.http.get(url + "/" + localStorage.getItem("_id") + "?page=" + page);
-    // if (amount !== undefined) {
-    //   return this.http.get(url + "/" + localStorage.getItem("_id") + "?page=" + page + "&amount=" + amount);
-    // }
-    // else if (date !== undefined) {
-    //   return this.http.get(url + "/" + localStorage.getItem("_id") + "?page=" + page + "&date=" + date);
-    // } else if (status !== undefined) {
-    //   return this.http.get(url + "/" + localStorage.getItem("_id") + "?page=" + page + "&status=" + status);
-    // }
-    // else {
-    //   return this.http.get(url + "/" + localStorage.getItem("_id") + "?page=" + page);
-    // }
-
   }
 
   public sortAmount(page, amount) {

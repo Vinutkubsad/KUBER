@@ -1,11 +1,39 @@
+.navbar {
+    background: #256570;
+    position: sticky;
+    width: 100%;
+  }
+  
+.navbar-brand {
+    font-size: 1.8rem;
+    font-family: 'Lora', serif;
+    color :white !important;
+}  
+
+.nav-item .nav-link {
+    border: none;
+    font-family: 'Lora', serif;
+    color: white;
+    background-color: white;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: 1rem;
+    letter-spacing: 0.2rem;
+    font-weight: bold;
+  }
+  
+  .nav-item .nav-link:hover {
+    cursor: pointer;
+    background-color: cornflowerblue;
+    color: white;
+  }
+
+
 .container-fluid{
     margin-top:15px;
  }
  .container{
      font-family: 'Poppins', sans-serif;
- }
- .searchBar{
-     
  }
  .form-control{
      width:20%;

@@ -12,6 +12,9 @@ export class SignInComponent implements OnInit {
 
   loginForm: FormGroup;
 
+  passwordType: string = 'password';
+  passwordShown: boolean = false;
+
   constructor(private service: DataService, private router: Router, private fb: FormBuilder) { }
 
   ngOnInit() {
@@ -30,15 +33,28 @@ export class SignInComponent implements OnInit {
     }
   }
 
+  // toggel Password
+  togglePwd() {
+    console.log('click');
+    if(this.passwordShown){
+      this.passwordShown = false;
+      this.passwordType = 'password';
+    }else {
+      this.passwordShown = true;
+      this.passwordType = 'text';
+    }
+  }
+
   loginSubmit() {
 
     var data = { "email": this.service.charityLogin.email, "password": this.service.charityLogin.password }
     console.log(data);
     this.service.CharityLogin(data).subscribe((response: any) => {
-      console.log(response);
+      if(response) {
+        this.router.navigate(['paymentreport']);
+      }
       localStorage.setItem('_id', response.result._id);
-      this.router.navigate(['charity']);
+      // this.router.navigate(['paymentreport']);
     });
-
   }
 }

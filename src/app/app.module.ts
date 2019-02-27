@@ -12,13 +12,18 @@ import { AppComponent } from './app.component';
 import { CharityUserComponent } from './charity-user/charity-user.component';
 import { SignInComponent } from './charity-user/sign-in/sign-in.component';
 import { SignUpComponent } from './charity-user/sign-up/sign-up.component';
-import { CharityPanelComponent } from './charity-panel/charity-panal.component'
 import { RouterModule } from '@angular/router';
 import { StartPageComponent } from './start-page/start-page.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AdminComponent } from './adminpanel/admin.component'; 
+import { AuthGaurd } from './services/AuthGuard.Admin';
+import { AuthGaurd1 } from './services/AuthGuard.Charity';
 import { PaymentReportComponent } from './charity-panel/payment-report/payment-report.component';
 // import { DataService } from '../app/data.service';
+import { CharityPanelComponent } from './charity-panel/charity-panel.component';
+import { FooterComponent } from './footer/footer.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 
 
@@ -28,13 +33,18 @@ import { PaymentReportComponent } from './charity-panel/payment-report/payment-r
     AppComponent,
     CharityUserComponent,
     SignInComponent,
-    SignUpComponent, 
+    SignUpComponent,
     CharityPanelComponent,
+    PaymentReportComponent,
     StartPageComponent,
+    AdminComponent,
     AdminLoginComponent,
     AdminComponent,
     PaymentReportComponent,
     
+    FooterComponent,
+    NavBarComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
@@ -46,8 +56,9 @@ import { PaymentReportComponent } from './charity-panel/payment-report/payment-r
     FormsModule,
     BsDatepickerModule.forRoot(),
     ModalModule.forRoot()
+    
   ],
-  providers: [DataService],
+  providers: [DataService,AuthGaurd,AuthGaurd1],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

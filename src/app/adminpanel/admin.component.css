@@ -8,3 +8,9 @@ body {
   box-shadow: 0 5px 10px rgba(0,0,0,0.3);
   background: #dddd;
 }
+
+h3 {
+  margin-left: 40px;
+  margin-top: 20px;
+  font-family: 'Lora', serif;
+}
