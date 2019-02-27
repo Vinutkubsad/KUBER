@@ -18,7 +18,7 @@ export class SignUpComponent implements OnInit {
 
 
 
-  constructor( private router: Router, private fb: FormBuilder, private charityServices: DataService) { }
+  constructor( private router: Router, private fb: FormBuilder, public charityServices: DataService) { }
 
   ngOnInit(): void {
     this.resetForm();

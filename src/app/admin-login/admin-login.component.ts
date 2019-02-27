@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl, NgForm, FormGroupDirective } from '@angular/forms';
 import { DataService } from '../services/data.service';
 import { Router } from '@angular/router';
-
+import swal from 'sweetalert';
+ 
 
 @Component({
   selector: 'app-admin-login',
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class AdminLoginComponent implements OnInit {
   loginForm: FormGroup;
-  constructor(private fb: FormBuilder, private adminservices: DataService, private router: Router) { }
+  constructor(private fb: FormBuilder, public adminservices: DataService, private router: Router) { }
 
   ngOnInit() {
     this.resetForm();
@@ -32,6 +33,7 @@ export class AdminLoginComponent implements OnInit {
     }
   }
   submitForm(){
+    debugger
     console.log(this.loginForm.value,"validity",this.loginForm.valid);
     // if(this.loginForm.valid){
     this.adminservices.AdminLogin(this.loginForm.value).subscribe((res)=>{
@@ -39,6 +41,10 @@ export class AdminLoginComponent implements OnInit {
         localStorage.setItem('AdminLogin', 'true');
         this.router.navigate(['adminpanel'])
         console.log(res)
+      } 
+      else{
+        swal("Error!", "You clicked the button!", "warnning");
+
       }
     })
   // }

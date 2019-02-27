@@ -15,7 +15,7 @@ export class SignInComponent implements OnInit {
   passwordType: string = 'password';
   passwordShown: boolean = false;
 
-  constructor(private service: DataService, private router: Router, private fb: FormBuilder) { }
+  constructor(public service: DataService, public router: Router, public fb: FormBuilder) { }
 
   ngOnInit() {
     this.resetForm();

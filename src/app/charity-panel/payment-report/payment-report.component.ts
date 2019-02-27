@@ -92,7 +92,4 @@ export class PaymentReportComponent implements OnInit {
       this.pages = new Array(response.result.total_pages);
     });
   }
-
- 
-
 }

@@ -13,7 +13,7 @@
 .nav-item .nav-link {
     border: none;
     font-family: 'Lora', serif;
-    color: white;
+    color: black;
     background-color: white;
     padding-left: 1rem;
     padding-right: 1rem;
@@ -24,7 +24,7 @@
   
   .nav-item .nav-link:hover {
     cursor: pointer;
-    background-color: cornflowerblue;
+    background-color:rgb(16, 144, 204);
     color: white;
   }
 
@@ -61,6 +61,7 @@
  .thead{
      background-color: rgb(16, 144, 204);
      color: white;
+     padding: 15px;
  }
  /* .pagination{
      text-align: center

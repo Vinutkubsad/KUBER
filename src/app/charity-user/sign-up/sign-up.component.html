@@ -38,8 +38,7 @@
         <input formControlName="email" type="text" id="email" class="form-control"  [(ngModel)]="charityServices.selectedCharity.email" autofocus required />
         <div *ngIf="
                   registerForm.controls['email'].touched &&
-                  !registerForm.controls['email'].valid && 
-                  registerForm.controls['email'].pattern
+                  !registerForm.controls['email'].valid 
                 ">
           <small *ngIf="registerForm.controls['email'].hasError('required')" style="color:red;">
             Please enter the email
@@ -108,8 +107,7 @@
                 <input formControlName="phoneNumber" type="text" id="phoneNumber" class="form-control" [(ngModel)]="charityServices.selectedCharity.phoneNumber" autofocus required />
                 <div *ngIf="
                     registerForm.controls['phoneNumber'].touched &&
-                    !registerForm.controls['phoneNumber'].valid &&
-                    !registerForm.controls['phoneNumber'].pattern
+                    !registerForm.controls['phoneNumber'].valid
                   ">
                   <small *ngIf="registerForm.controls['phoneNumber'].hasError('required')" style="color:red;">
                     please enter phone number
