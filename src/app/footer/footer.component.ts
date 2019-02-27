@@ -46,6 +46,6 @@ export class FooterComponent implements OnInit {
     this.service.sendMessage(data).subscribe((Response:any)=>{
       console.log(Response);
     });
-    // this.refresh();
+   
   }
 }
