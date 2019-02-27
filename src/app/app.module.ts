@@ -5,8 +5,7 @@ import { NgxPaginationModule}  from 'ngx-pagination';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { ModalModule } from 'ngx-bootstrap/modal';
-import { DataService } from './services/data.service'
-import { DataTablesModule } from 'angular-datatables';
+// import { DataTablesModule } from 'angular-datatables';
 
 import { AppRoutingModule, routes } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,10 +19,12 @@ import { AdminComponent } from './adminpanel/admin.component';
 import { AuthGaurd } from './services/AuthGuard.Admin';
 import { AuthGaurd1 } from './services/AuthGuard.Charity';
 import { PaymentReportComponent } from './charity-panel/payment-report/payment-report.component';
-import { FilterPipe } from '../app/filter.pipe';
+import { DataService } from '../app/data.service';
+import { CharityPanelComponent } from './charity-panel/charity-panel.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+
 
 
 
@@ -32,11 +33,12 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     AppComponent,
     CharityUserComponent,
     SignInComponent,
-    SignUpComponent, 
+    SignUpComponent,
+    CharityPanelComponent,
+    PaymentReportComponent,
     StartPageComponent,
+    AdminComponent,
     AdminLoginComponent,
-    AdminComponent,PaymentReportComponent,
-    FilterPipe,
     FooterComponent,
     NavBarComponent,
     SidebarComponent
@@ -51,7 +53,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     FormsModule,
     BsDatepickerModule.forRoot(),
     ModalModule.forRoot(),
-    DataTablesModule
+    
   ],
   providers: [DataService,AuthGaurd,AuthGaurd1],
   bootstrap: [AppComponent]

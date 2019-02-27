@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../data.service';
-import { ActivatedRoute,Params, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -10,23 +10,85 @@ import { ActivatedRoute,Params, Router } from '@angular/router';
 })
 export class PaymentReportComponent implements OnInit {
 
-  private page =1;
-  private limit =10;
-  p: number = 1;
+  private page: number = 1;
   public payments: any[];
+  public searchResults: any[]
   public id;
-  
+  public DonarName;
+  public pages: Array<number>;
+  private amount: any = true;
+  private status: any = true;
+  private date: any = true;
 
-  constructor(private router:ActivatedRoute,private service: DataService, private rout: Router) { }
+
+  constructor(private service: DataService, private router: Router) { }
+  setPage(i, event: any) {
+    event.preventDefault();
+    this.page = i;
+    this.getReports();
+  }
 
   ngOnInit() {
-    this.service.getReport().subscribe((response:any)=>{
+    this.getReports();
+  }
+  getReports() {
+
+    this.service.getReport(this.page).subscribe((Response: any) => {
+      console.log(Response);
+      this.payments = Response.result.paginatedItems;
+      this.pages = new Array(Response.result.total_pages);
+    })
+  }
+  search() {
+    var data = { "userName": this.DonarName }
+    this.service.searchReport(data).subscribe((response: any) => {
       console.log(response);
-      this.payments = response.result;
+      this.payments = response.result.paginatedItems;
+      this.pages = new Array(response.result.total_pages);
+    });
+  }
+
+  sortAmount() {
+    this.amount = !this.amount;
+    let sortAmount;
+    if (this.amount === true) {
+      sortAmount = 1;
+    } else 
+      sortAmount = -1;
+    console.log(this.amount);
+    this.service.sortAmount(this.page, sortAmount).subscribe((response: any) => {
+      console.log(response);
+      this.payments = response.result.paginatedItems;
+      this.pages = new Array(response.result.total_pages);
     })
   }
 
-  logout() {
-    this.rout.navigate(['charityUser/signin'])
+  sortDate() {
+    this.date =! this.date;
+    let sortDate;
+    if(this.date === true){
+      sortDate = 1;
+    } else sortDate = -1;
+    this.service.sortDate(this.page, sortDate).subscribe((response: any) => {
+      console.log(response);
+      this.payments = response.result.paginatedItems;
+      this.pages = new Array(response.result.total_pages);
+    });
   }
+
+  sortStatus() {
+    this.status =! this.status;
+    let sortStatus;
+    if(this.status === true){
+      sortStatus = 1;
+    } else sortStatus = -1;
+    this.service.sortStatus(this.page, sortStatus).subscribe((response: any) => {
+      console.log(response);
+      this.payments = response.result.paginatedItems;
+      this.pages = new Array(response.result.total_pages);
+    });
+  }
+
+ 
+
 }

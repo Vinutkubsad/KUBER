@@ -12,6 +12,9 @@
      /* color:rgb(16, 144, 204);  */
     color:white;
  }
+ .fa-sort-numeric-asc{
+     color: black;
+ }
  
  .btn-outline{
      background:rgb(16, 144, 204);
@@ -21,12 +24,30 @@
  .date{
      margin-left: 400px;
  }
+ .table-responsive{
+
+ }
  .thead{
      background-color: rgb(16, 144, 204);
      color: white;
  }
- 
- .btn-info {
-     float: right;
-     margin-left: 1500px;
+ /* .pagination{
+     text-align: center
  }
+ .pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid #ddd;
+  }
+  
+  .pagination a.active {
+    background-color: rgb(16, 144, 204);
+    color: white;
+    border: 1px solid rgb(16, 144, 204);
+  }
+  
+  .pagination a:hover:not(.active) {background-color: #ddd;} */
+ 
