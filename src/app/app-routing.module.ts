@@ -23,7 +23,7 @@ export const routes: Routes = [
   },
   { path:'adminlogin', component: AdminLoginComponent },
   { path: 'adminpanel', component: AdminComponent,canActivate: [AuthGaurd]},
-  { path: 'paymentreport', component: PaymentReportComponent, canActivate: [AuthGaurd1] },
+  { path: 'paymentreport', component: PaymentReportComponent },
   { path: "", redirectTo: "home", pathMatch: "full" }
   //  { path: 'signin', component: SignInComponent}
 ];

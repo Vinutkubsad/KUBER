@@ -30,7 +30,8 @@ export class SignUpComponent implements OnInit {
       address: [null, [Validators.required]],
       zipcode: [null, [Validators.required]],
       city: [null, [Validators.required]],
-      state: [null, [Validators.required]]
+      state: [null, [Validators.required]],
+      charityLogos: [null],
     });
   }
 
@@ -46,7 +47,8 @@ export class SignUpComponent implements OnInit {
       city: "",
       state: "",
       zipcode: null,
-      suggested: false
+      suggested: false,
+      charityLogos: null
     };
   }
 
@@ -56,7 +58,7 @@ export class SignUpComponent implements OnInit {
       this.charityServices
         .postCharty(this.registerForm.value)
         .subscribe(res => {
-          // console.log(res);
+          console.log(res);
           if (res) {
             swal("Succefully Added", "success");
             this.registerForm.reset();
@@ -68,6 +70,8 @@ export class SignUpComponent implements OnInit {
       swal("Please enter valid data", "");
     }
   }
+
+  
 
   navigateLogin() {
     this.router.navigate(['signup']);

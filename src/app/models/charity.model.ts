@@ -9,4 +9,5 @@ export class Charity {
   zipcode: number;
   suggested: boolean;
   phoneNumber: number;
+  charityLogos: string; 
 }

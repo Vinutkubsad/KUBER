@@ -22,10 +22,12 @@ export class PaymentReportComponent implements OnInit {
 
 
   constructor(private service:DataService, private router: Router) { }
-  setPage(i, event: any) {
+  setPage(i, event: any,) {
     event.preventDefault();
     this.page = i;
     this.getReports();
+    // this.doPagination(Response.result.itemsPerPage, Response.result.total_pages, Response.result.totalCount, Response.result.pageNo)
+    
   }
 
   ngOnInit() {
@@ -33,7 +35,6 @@ export class PaymentReportComponent implements OnInit {
   }
 
   getReports() {
-
     this.service.getReport(this.page).subscribe((Response: any) => {
       console.log(Response);
       this.payments = Response.result.paginatedItems;
@@ -69,6 +70,7 @@ export class PaymentReportComponent implements OnInit {
     this.pages = new Array(total_pages).fill('');
     this.page = parseInt(pageNo);
     console.log(this.pages, itemsPerPage, total_pages, totalCount);
+    
   }
 
   // maxPages(itemsPerPage, total_pages, totalCount, pageNo){

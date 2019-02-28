@@ -55,7 +55,8 @@ export class SignInComponent implements OnInit {
       }
       localStorage.setItem('jwt', response.result.jwt); 
       console.log(response);
-      // this.router.navigate(['paymentreport']);
+      // this.router.navigate(['paymentreport']);  q qq           q  qb
     });
   }
 }
+   

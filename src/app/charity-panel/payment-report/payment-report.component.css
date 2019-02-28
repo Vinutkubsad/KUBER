@@ -22,6 +22,10 @@
      color: white;
     
  }
+ .btn-outline:onClick{ 
+    background:rgb(41, 39, 39);;
+    color: white;
+}
  .date{
      margin-left: 400px;
  }
