@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../../data.service';
 import { Router } from '@angular/router';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-payment-report',
@@ -21,7 +21,7 @@ export class PaymentReportComponent implements OnInit {
   private noOfItemsPerPage = 5;
 
 
-  constructor(private service: DataService, private router: Router) { }
+  constructor(private service:DataService, private router: Router) { }
   setPage(i, event: any) {
     event.preventDefault();
     this.page = i;
@@ -31,10 +31,6 @@ export class PaymentReportComponent implements OnInit {
   ngOnInit() {
     this.getReports();
   }
-
-  // logout(){
-  //   this.router.navigate(['/home']);
-  // }
 
   getReports() {
 
@@ -50,7 +46,6 @@ export class PaymentReportComponent implements OnInit {
     this.service.searchReport(data).subscribe((response: any) => {
       console.log(response);
       this.payments = response.result.paginatedItems;
-      // this.pages = new Array(response.result.total_pages);
       this.doPagination(response.result.itemsPerPage, response.result.total_pages, response.result.totalCount, response.result.pageNo)
     });
   }
@@ -75,6 +70,10 @@ export class PaymentReportComponent implements OnInit {
     this.page = parseInt(pageNo);
     console.log(this.pages, itemsPerPage, total_pages, totalCount);
   }
+
+  // maxPages(itemsPerPage, total_pages, totalCount, pageNo){
+  //   let maxPages = ()
+  // }
 
   sortDate() {
     this.date =! this.date;

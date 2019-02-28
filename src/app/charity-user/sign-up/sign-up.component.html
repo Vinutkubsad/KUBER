@@ -1,6 +1,6 @@
 
 <div class="signup-container"> 
-    <h2 class="title">charity Registration</h2>
+    <h2 class="title">Charity Registration</h2>
   <form class="form-horizontal" role="form" [formGroup]="registerForm" (ngSubmit)="submitForm()" class="main-form">
     <div class="form-group">
       <label for="charityName" class="">Charity Name</label>
@@ -33,7 +33,7 @@
     </div>
 
     <div class="form-group">
-      <label for="email">￼ E-mail </label>
+      <label for="email">￼ Email Id </label>
       <div class="">
         <input formControlName="email" type="text" id="email" class="form-control"  [(ngModel)]="charityServices.selectedCharity.email" autofocus required />
         <div *ngIf="
@@ -48,7 +48,7 @@
     </div>
 
     <div class="form-group">
-      <label for="address">￼ Charity addres </label>
+      <label for="address">￼ Charity address </label>
       <div class="">
         <input formControlName="address" type="text" id="address" class="form-control" [(ngModel)]="charityServices.selectedCharity.address" autofocus required />
         <div *ngIf="
@@ -112,7 +112,7 @@
       
             <div class="col">
               <div class="form-group">
-                <label for="zipcode"> Pin-code </label>
+                <label for="zipcode"> Pincode </label>
                 <input formControlName="zipcode" type="text" id="zipcode" class="form-control" [(ngModel)]="charityServices.selectedCharity.zipcode" autofocus required />
                 <div *ngIf="
                     registerForm.controls['zipcode'].touched &&
