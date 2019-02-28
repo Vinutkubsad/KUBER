@@ -71,7 +71,8 @@ form input {
 
 .btn {
     margin-top: 35px;
-    background-color: #2C3A47;
+    font-weight: bold;
+    background-color: #69d5d8;
     border: none;
     color: #FFF;
     cursor: pointer;
@@ -83,7 +84,7 @@ form input {
 }
 
 .btn:hover {
-    background-color: #FD7272;
+    background-color: rgb(8, 231, 220);
     box-shadow: 0 5px 10px rgba(0,0,0,.3);
     transform: translateY(-3px);
 }

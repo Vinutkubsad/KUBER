@@ -18,6 +18,7 @@ export class PaymentReportComponent implements OnInit {
   private amount: any = true;
   private status: any = true;
   private date: any = true;
+  private noOfItemsPerPage = 5;
 
 
   constructor(private service: DataService, private router: Router) { }
@@ -31,16 +32,17 @@ export class PaymentReportComponent implements OnInit {
     this.getReports();
   }
 
-  logout(){
-    this.router.navigate(['/home']);
-  }
+  // logout(){
+  //   this.router.navigate(['/home']);
+  // }
 
   getReports() {
 
     this.service.getReport(this.page).subscribe((Response: any) => {
       console.log(Response);
       this.payments = Response.result.paginatedItems;
-      this.pages = new Array(Response.result.total_pages);
+      // this.pages = new Array(Response.result.total_pages);
+      this.doPagination(Response.result.itemsPerPage, Response.result.total_pages, Response.result.totalCount, Response.result.pageNo)
     })
   }
   search() {
@@ -48,7 +50,8 @@ export class PaymentReportComponent implements OnInit {
     this.service.searchReport(data).subscribe((response: any) => {
       console.log(response);
       this.payments = response.result.paginatedItems;
-      this.pages = new Array(response.result.total_pages);
+      // this.pages = new Array(response.result.total_pages);
+      this.doPagination(response.result.itemsPerPage, response.result.total_pages, response.result.totalCount, response.result.pageNo)
     });
   }
 
@@ -63,8 +66,14 @@ export class PaymentReportComponent implements OnInit {
     this.service.sortAmount(this.page, sortAmount).subscribe((response: any) => {
       console.log(response);
       this.payments = response.result.paginatedItems;
-      this.pages = new Array(response.result.total_pages);
+      this.doPagination(response.result.itemsPerPage, response.result.total_pages, response.result.totalCount, response.result.pageNo)
     })
+  }
+
+  doPagination(itemsPerPage, total_pages, totalCount, pageNo) {
+    this.pages = new Array(total_pages).fill('');
+    this.page = parseInt(pageNo);
+    console.log(this.pages, itemsPerPage, total_pages, totalCount);
   }
 
   sortDate() {
@@ -76,7 +85,8 @@ export class PaymentReportComponent implements OnInit {
     this.service.sortDate(this.page, sortDate).subscribe((response: any) => {
       console.log(response);
       this.payments = response.result.paginatedItems;
-      this.pages = new Array(response.result.total_pages);
+      this.doPagination(response.result.itemsPerPage, response.result.total_pages, response.result.totalCount, response.result.pageNo)
+      // this.pages = new Array(response.result.total_pages);
     });
   }
 
@@ -89,7 +99,11 @@ export class PaymentReportComponent implements OnInit {
     this.service.sortStatus(this.page, sortStatus).subscribe((response: any) => {
       console.log(response);
       this.payments = response.result.paginatedItems;
-      this.pages = new Array(response.result.total_pages);
+      // this.pages = new Array(response.result.total_pages);
+      this.doPagination(response.result.itemsPerPage, response.result.total_pages, response.result.totalCount, response.result.pageNo)
     });
+  }
+   logout(){
+    this.router.navigate(['/home']);
   }
 }
