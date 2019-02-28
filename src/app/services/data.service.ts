@@ -22,6 +22,7 @@ export class DataService {
   adminLogin: AdminLogin;
   charityLogin: charityLogin;
   contact: Contact;
+  contacts: Contact[];
 
   constructor(private http: HttpClient) { }
 
@@ -33,12 +34,6 @@ export class DataService {
   //   let url = AppSettings.BASE_URL+AppSettings.PAYMENT_REPORT;
   //   return this.http.post(url,data);
   // }
-  sendMessage(data){
-    let url = AppSettings.BASE_URL + AppSettings.SEND_MESSAGE;
-    return this.http.post(url,data);
-  }
-
-
   postCharty(data: Charity){
     let url = AppSettings.BASE_URL + AppSettings.CHARITY_URL;
     return this.http.post(url,data)
@@ -92,6 +87,11 @@ export class DataService {
     };
     let url = AppSettings.BASE_URL + AppSettings.SEARCH_REPORT;
     return this.http.post(url, data, httpOption);
+  }
+
+  sendMessage(data: Contact){
+    let url = AppSettings.BASE_URL + AppSettings.SEND_MESSAGE;
+    return this.http.post(url,data);
   }
 }
 
