@@ -33,7 +33,6 @@ export class AdminLoginComponent implements OnInit {
     }
   }
   submitForm(){
-    debugger
     console.log(this.loginForm.value,"validity",this.loginForm.valid);
     // if(this.loginForm.valid){
     this.adminservices.AdminLogin(this.loginForm.value).subscribe((res)=>{

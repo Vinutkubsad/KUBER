@@ -14,25 +14,26 @@
     color:white;
  }
  .fa-sort-numeric-asc{
-     color: black;
+     color: rgb(41, 39, 39);;
  }
  
  .btn-outline{
-     background:black;
+     background:rgb(41, 39, 39);;
      color: white;
     
  }
  .date{
      margin-left: 400px;
  }
- .table-responsive{
-
+ .table{
  }
+
  .thead{
      /* background-color: rgb(16, 144, 204); */
      color: white;
      padding: 15px;
-     background: black
+     background: rgb(41, 39, 39);
+
  }
 
  .pagination{
@@ -40,7 +41,7 @@
  }
  
 .pagination>.nav-item.active {
-    background-color: black;
+    background-color: rgb(41, 39, 39);;
     pointer-events: none;
     color: white;
 }
