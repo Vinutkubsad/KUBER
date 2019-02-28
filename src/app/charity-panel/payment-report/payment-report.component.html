@@ -1,16 +1,16 @@
-<nav class="navbar" >
+<!-- <nav class="navbar" >
    <a class="navbar-brand">KUBER</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <!-- <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <a class="nav-item nav-link-right active " href="#">Logout <span class="sr-only">(current)</span></a>
       </div>
-    </div> -->
+    </div> 
     <button class="btn btn-info btn-md pull-right " (click)="logout()">Logout</button>
-  </nav>
-
+  </nav> -->
+<app-nav-bar></app-nav-bar>
 
 <div class="container-fluid padding">
   <div class="container">
@@ -27,8 +27,6 @@
                 <input type="text" class="form-control" placeholder="Search Donar" [(ngModel)]="DonarName">
                 <button type="button" class="btn btn-outline" (click)="search()"><i class="fa fa-search"
                     aria-hidden="true"></i></button>
-                <!-- <input type="text" placeholder="Select date-range" class="date form-control" bsDaterangepicker>
-               <button type="button" class="btn btn-outline">Go</button> -->
               </div>
             </div>
           </div>
@@ -60,8 +58,8 @@
             <hr>
             <div class="pagination">
               <div class="nav-pills pagination">
-                <li class="nav-item" *ngFor="let page of pages; let i=index">
-                  <a class="nav-link" href="" (click)="setPage(i+1,$event)">{{i+1}}</a>
+                <li class="nav-item" *ngFor="let p of pages; let i=index" [ngClass]="{'active': (page == i + 1)}">
+                  <a class="nav-link" (click)="setPage(i+1,$event)">{{i+1}}</a>
                 </li>
               </div>
             </div>

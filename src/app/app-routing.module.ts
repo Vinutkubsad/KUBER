@@ -9,9 +9,11 @@ import { AdminComponent } from './adminpanel/admin.component';
 import {AuthGaurd}from './services/AuthGuard.Admin'
 import { PaymentReportComponent } from './charity-panel/payment-report/payment-report.component';
 import { AuthGaurd1 }from './services/AuthGuard.Charity'
+
 export const routes: Routes = [
   { path: 'home', component:StartPageComponent },
   { path: 'signup', component: SignUpComponent },
+  
   {
     path: "charityUser",
     component: CharityUserComponent,
