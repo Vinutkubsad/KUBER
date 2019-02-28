@@ -56,7 +56,7 @@ export class SignUpComponent implements OnInit {
       this.charityServices
         .postCharty(this.registerForm.value)
         .subscribe(res => {
-          console.log(res);
+          // console.log(res);
           if (res) {
             swal("Succefully Added", "success");
             this.registerForm.reset();
