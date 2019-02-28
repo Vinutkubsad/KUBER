@@ -80,16 +80,37 @@ img{
 }
 
 .wrap-about {
-  display: flex;
+  background-image: url('../../assets/Images/kuber-HD.jpg');
   padding: 2rem;
-  background-color: #ddd;
   margin: 20px;
   border: none;
   box-shadow: 0 5px 10px rgba(0,0,0,0.3);
-}
-
-.wrap-about .about {
-  padding: 1.6rem;
   height: 50vh;
+  /* background-position: center; */
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
+.wrap-about .heading {
+  font-family: 'Lora', serif;
+  text-transform: capitalize;
+  text-align: center;
+  font-size: 2rem;
+
+}
+
+.wrap-about span {
+  font-size: 1.8rem;
+  font-weight: 600;
+  padding: 1rem;
+  color: white;
+  font-family: 'Lora', serif;
+  letter-spacing: 0.1rem;
+} 
+
+.wrap-about article {
+  font-size: 1.4rem;
+  color: #4D2600;
+  padding: 1rem;
+  font-family: 'PT Sans', sans-serif;
+}

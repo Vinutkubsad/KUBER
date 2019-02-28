@@ -1,6 +1,10 @@
 /* @import url('https://fonts.googleapis.com/css?family=Ubuntu'); */
 
 .container {
+  display: flex;
+  border: none;;
+  justify-content: center;
+  
   font-family: 'Lora', serif;
 }
 
@@ -12,23 +16,16 @@
 
 .card {
   box-shadow: 0 5px 10px rgba(0,0,0,0.3);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  height: 400px;
+  display: flex;
+  width: 50%;
+  padding: 3rem;
 }
 
-.card > .left {
+/* .card > .left {
   background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQd5anFzzt2HAflP_aG8o6AYDRrvDtByspYTEM3OgNXDcBXD9I-');
   background-position: bottom;
   background-size: cover; 
-}
-
-
-.card > .right {
-  display: flex;
-  align-items: center;
-  padding: 3rem;
-}
+} */
 
 form {
   width: 100%;
@@ -73,6 +70,7 @@ form input {
 
 .btn {
   margin-top: 35px;
+  width: 100%;
   background-color: #2C3A47;
   border: none;
   color: #FFF;
@@ -89,7 +87,7 @@ form input {
   box-shadow: 0 5px 10px rgba(0,0,0,.3);
   transform: translateY(-3px);
 }
-
+/* 
 .forgot-password {
   color: #000;
   font-size: .8rem;
@@ -98,8 +96,8 @@ form input {
   transition: letter-spacing .3s ease-in-out;
   float: right;
   padding-right: 2rem;
-}
+} */
 
-.forgot-password:hover {
+/* .forgot-password:hover {
 letter-spacing: 1px;
-}
+} */

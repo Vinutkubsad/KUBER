@@ -1,6 +1,6 @@
-<h2 class="title">charity Registration</h2>
 
-<div class="signup-container">
+<div class="signup-container"> 
+    <h2 class="title">charity Registration</h2>
   <form class="form-horizontal" role="form" [formGroup]="registerForm" (ngSubmit)="submitForm()" class="main-form">
     <div class="form-group">
       <label for="charityName" class="">Charity Name</label>
@@ -98,12 +98,6 @@
             <div class="col">
               <div class="form-group">
                 <label for="phoneNumber"> Contact Number </label>
-              <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                  <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
-                  <div class="dropdown-menu">
-                  </div>
-                </div>
                 <input formControlName="phoneNumber" type="text" id="phoneNumber" class="form-control" [(ngModel)]="charityServices.selectedCharity.phoneNumber" autofocus required />
                 <div *ngIf="
                     registerForm.controls['phoneNumber'].touched &&
@@ -113,7 +107,6 @@
                     please enter phone number
                   </small>
                 </div>
-              </div>
             </div>
           </div>
       
