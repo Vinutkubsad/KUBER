@@ -56,7 +56,6 @@ export class PaymentReportComponent implements OnInit {
 
   getReports() {
     this.service.getReport(this.page).subscribe((Response: any) => {
-      console.log(Response);
       this.payments = Response.result.paginatedItems;
        this.doPagination(Response.result.itemsPerPage, Response.result.total_pages, Response.result.totalCount, Response.result.pageNo, Response.result.per_page)
       })

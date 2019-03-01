@@ -18,6 +18,10 @@ export class SignInComponent implements OnInit {
   constructor(public service: DataService, public router: Router, public fb: FormBuilder) { }
 
   ngOnInit() {
+    let token = localStorage.getItem('jwt');
+    if (token) {
+      this.router.navigate(['charity/paymentreport']);
+    }
     this.resetForm();
     this.loginForm = this.fb.group({
       email: new FormControl(null, [Validators.required, Validators.pattern(/^[a-z0-9_.]+$/i)]),
@@ -35,7 +39,6 @@ export class SignInComponent implements OnInit {
 
   // toggel Password
   togglePwd() {
-    console.log('click');
     if(this.passwordShown){
       this.passwordShown = false;
       this.passwordType = 'password';
@@ -46,15 +49,14 @@ export class SignInComponent implements OnInit {
   }
 
   loginSubmit() {
-
     var data = { "email": this.service.charityLogin.email, "password": this.service.charityLogin.password }
-    console.log(data);
     this.service.CharityLogin(data).subscribe((response: any) => {
       if(response) {
-        this.router.navigate(['paymentreport']);
+        localStorage.setItem("jwt","true");
+        this.resetForm();
+        this.router.navigate(['charity/paymentreport']);
       }
       localStorage.setItem('jwt', response.result.jwt); 
-      console.log(response);
       // this.router.navigate(['paymentreport']);  q qq           q  qb
     });
   }

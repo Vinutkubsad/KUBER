@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormGroupDirective, NgForm, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { DataService } from '../../services/data.service'
 import swal from 'sweetalert';
+import { DataService } from 'src/app/services/data.service';
 
 
 
@@ -31,8 +31,8 @@ export class SignUpComponent implements OnInit {
       zipcode: [null, [Validators.required]],
       city: [null, [Validators.required]],
       state: [null, [Validators.required]],
+      country: [null,[Validators.required]],
       charityLogos: [null],
-      country: [null,[Validators.required]]
     });
   }
 
@@ -49,25 +49,23 @@ export class SignUpComponent implements OnInit {
       state: "",
       zipcode: null,
       suggested: false,
-      charityLogos: null,
-      country: ""
+      country: "",
+      charityLogos: null
     };
   }
 
   submitForm() {
-    // console.log(this.registerForm.value);
     if (this.registerForm.valid) {
       this.charityServices
         .postCharty(this.registerForm.value)
-        .subscribe(res => {
-          console.log(res);
+        .subscribe((res) => {
           if (res) {
             swal("Succefully Added", "success");
             this.registerForm.reset();
           } else {
-            swal("Something is missing", "Error");
+            swal("Email is already registerd", "Error");
           }
-        });
+        })
     } else {
       swal("Please enter valid data", "");
     }
