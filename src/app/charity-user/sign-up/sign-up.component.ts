@@ -32,6 +32,7 @@ export class SignUpComponent implements OnInit {
       city: [null, [Validators.required]],
       state: [null, [Validators.required]],
       charityLogos: [null],
+      country: [null,[Validators.required]]
     });
   }
 
@@ -48,7 +49,8 @@ export class SignUpComponent implements OnInit {
       state: "",
       zipcode: null,
       suggested: false,
-      charityLogos: null
+      charityLogos: null,
+      country: ""
     };
   }
 

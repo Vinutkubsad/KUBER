@@ -1,19 +1,7 @@
-<!-- <nav class="navbar" >
-   <a class="navbar-brand">KUBER</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-item nav-link-right active " href="#">Logout <span class="sr-only">(current)</span></a>
-      </div>
-    </div> 
-    <button class="btn btn-info btn-md pull-right " (click)="logout()">Logout</button>
-  </nav> -->
 <app-nav-bar></app-nav-bar>
 
 <div class="container-fluid padding">
-  <div class="container"> 
+  <div class="container">
     <div class="row welcome ">
       <div class="col-12">
         <h3 class="display-4.4">Payments</h3>
@@ -22,8 +10,8 @@
       <div class="container padding">
         <div class="col-12">
           <div class="form-group">
-              <div class="searchBar">
-            <div class="row padding ml-auto">
+            <div class="searchBar">
+              <div class="row padding ml-auto">
                 <input type="text" class="form-control" placeholder="Search Donar" [(ngModel)]="DonarName">
                 <button type="button" class="btn btn-outline" (click)="search()"><i class="fa fa-search"
                     aria-hidden="true"></i></button>
@@ -34,8 +22,10 @@
             <table class="table">
               <thead class="thead">
                 <tr>
-                  <th>Donar name<button class="btn btn-outline"><i class="fa fa-sort-alpha-asc" aria-hidden="true"></i></button></th>
-                  <th>Email Id<button class="btn btn-outline"><i class="fa fa-sort-alpha-asc" aria-hidden="true"></i></button></th>
+                  <th>Donar name<button class="btn btn-outline"><i class="fa fa-sort-alpha-asc"
+                        aria-hidden="true"></i></button></th>
+                  <th>Email Id<button class="btn btn-outline"><i class="fa fa-sort-alpha-asc"
+                        aria-hidden="true"></i></button></th>
                   <th>Amount<button class="btn btn-outline" (click)="sortAmount()"><i class="fa fa-sort"
                         aria-hidden="true"></i>
                     </button></th>
@@ -46,7 +36,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor=" let p of payments">
+                <tr *ngFor=" let p of payments; let i=index;">
                   <td>{{p.userName}}</td>
                   <td>{{p.email}}</td>
                   <td>{{p.amount}}</td>
@@ -56,24 +46,15 @@
               </tbody>
             </table>
             <hr>
-            <div class="pagination">
-              <div class="nav-pills pagination">
-                <li class="nav-item" *ngFor="let p of pages; let i=index" [ngClass]="{'active': (page == i + 1)}">
-                  <a class="nav-link" (click)="setPage(i+1,$event)">{{i+1}}</a>
-                </li>
-              </div>
-            </div>
-
-            <!-- <nav aria-label="Page navigation example">
-                <ul class="pagination">
-                  <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                  <li class="nav-item" *ngFor="let page of pages; let i=index">
-                      <a class="nav-link" href="" (click)="setPage(i+1,$event)">{{i+1}}</a>
-                    </li>
-                  <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                </ul>
-              </nav> -->
-
+            
+            <ngb-pagination 
+                class="d-flex justify-content-end" 
+                [(page)]="pagination.currentPage" 
+                [pageSize]="pagination.noOfItemsPerPage"
+                [collectionSize]="pagination.totalCount" 
+                aria-label="Default pagination" 
+                (pageChange)="onPageChange($event)">
+            </ngb-pagination>
           </div>
         </div>
       </div>

@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { DataService } from './services/data.service';
+import {NgbModule,NgbPaginationModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule, routes } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -55,7 +56,9 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     NgxPaginationModule,
     FormsModule,
     BsDatepickerModule.forRoot(),
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    NgbModule,
+    NgbPaginationModule
     
   ],
   providers: [DataService,AuthGaurd,AuthGaurd1],

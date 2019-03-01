@@ -9,73 +9,84 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class PaymentReportComponent implements OnInit {
 
-  private page: number = 1;
+  private page: number=1;
   public payments: any[];
   public searchResults: any[]
   public id;
   public DonarName;
   public pages: Array<number>;
-  private amount: any = true;
-  private status: any = true;
-  private date: any = true;
-  private noOfItemsPerPage = 5;
+  public amount: any = true;
+  public status: any = true;
+  public date: any = true;
+  public items: any;
+  public pageSize: number;
+
+  public pagination = {
+    currentPage: 1,
+    noOfItemsPerPage: 10,
+    ellipses: true,
+    maxSize: 10,
+    totalCount: 0
+  }
 
 
-  constructor(private service:DataService, private router: Router) { }
-  setPage(i, event: any,) {
-    event.preventDefault();
+  constructor(private service: DataService, private router: Router) { }
+  setPage(i) {
     this.page = i;
     this.getReports();
-    // this.doPagination(Response.result.itemsPerPage, Response.result.total_pages, Response.result.totalCount, Response.result.pageNo)
-    
+    // this.sortAmount();
   }
 
   ngOnInit() {
     this.getReports();
+  }
+  doPagination( itemsPerPage, total_pages, totalCount, pageNo, per_page) {
+    console.log(this.pages,itemsPerPage, total_pages, totalCount,per_page);
+    this.pagination.currentPage = parseInt(pageNo);
+    this.pagination.noOfItemsPerPage = per_page;
+    this.pagination.totalCount = totalCount;
+  }
+  // clickPage(i){
+  //   this.page=i;
+  //   console.log(i);
+  // }
+
+  onPageChange(e) {
+    console.log('onPageChange', e );
+    this.setPage(e);
   }
 
   getReports() {
     this.service.getReport(this.page).subscribe((Response: any) => {
       console.log(Response);
       this.payments = Response.result.paginatedItems;
-      // this.pages = new Array(Response.result.total_pages);
-      this.doPagination(Response.result.itemsPerPage, Response.result.total_pages, Response.result.totalCount, Response.result.pageNo)
-    })
+       this.doPagination(Response.result.itemsPerPage, Response.result.total_pages, Response.result.totalCount, Response.result.pageNo, Response.result.per_page)
+      })
   }
   search() {
     var data = { "userName": this.DonarName }
-    this.service.searchReport(data).subscribe((response: any) => {
-      console.log(response);
-      this.payments = response.result.paginatedItems;
-      this.doPagination(response.result.itemsPerPage, response.result.total_pages, response.result.totalCount, response.result.pageNo)
+    this.service.searchReport(data).subscribe((Response: any) => {
+      console.log(Response);
+      this.payments = Response.result.paginatedItems;
+      // this.doPagination(Response.result.itemsPerPage, Response.result.total_pages, Response.result.totalCount, Response.result.pageNo, Response.result.per_page)
     });
   }
 
   sortAmount() {
+
     this.amount = !this.amount;
     let sortAmount;
     if (this.amount === true) {
       sortAmount = 1;
     } else 
       sortAmount = -1;
-    console.log(this.amount);
     this.service.sortAmount(this.page, sortAmount).subscribe((response: any) => {
-      console.log(response);
       this.payments = response.result.paginatedItems;
-      this.doPagination(response.result.itemsPerPage, response.result.total_pages, response.result.totalCount, response.result.pageNo)
+      this.doPagination(response.result.itemsPerPage, response.result.total_pages, response.result.totalCount, response.result.pageNo,response.result.per_page)
     })
   }
 
-  doPagination(itemsPerPage, total_pages, totalCount, pageNo) {
-    this.pages = new Array(total_pages).fill('');
-    this.page = parseInt(pageNo);
-    console.log(this.pages, itemsPerPage, total_pages, totalCount);
-    
-  }
 
-  // maxPages(itemsPerPage, total_pages, totalCount, pageNo){
-  //   let maxPages = ()
-  // }
 
   sortDate() {
     this.date =! this.date;
@@ -84,10 +95,8 @@ export class PaymentReportComponent implements OnInit {
       sortDate = 1;
     } else sortDate = -1;
     this.service.sortDate(this.page, sortDate).subscribe((response: any) => {
-      console.log(response);
       this.payments = response.result.paginatedItems;
-      this.doPagination(response.result.itemsPerPage, response.result.total_pages, response.result.totalCount, response.result.pageNo)
-      // this.pages = new Array(response.result.total_pages);
+      this.doPagination(response.result.itemsPerPage, response.result.total_pages, response.result.totalCount, response.result.pageNo, response.result.per_page)
     });
   }
 
@@ -97,11 +106,9 @@ export class PaymentReportComponent implements OnInit {
     if(this.status === true){
       sortStatus = 1;
     } else sortStatus = -1;
-    this.service.sortStatus(this.page, sortStatus).subscribe((response: any) => {
-      console.log(response);
-      this.payments = response.result.paginatedItems;
-      // this.pages = new Array(response.result.total_pages);
-      this.doPagination(response.result.itemsPerPage, response.result.total_pages, response.result.totalCount, response.result.pageNo)
+    this.service.sortStatus(this.page, sortStatus).subscribe((Response: any) => {
+      this.payments = Response.result.paginatedItems;
+      this.doPagination(Response.result.itemsPerPage, Response.result.total_pages, Response.result.totalCount, Response.result.pageNo, Response.result.per_page)
     });
   }
    logout(){
