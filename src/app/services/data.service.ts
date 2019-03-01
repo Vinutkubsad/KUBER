@@ -7,7 +7,7 @@ import { Charity } from '../models/charity.model';
 import { AdminLogin } from '../models/adminlogin.model';
 import { charityLogin } from '../models/charitylogin.model';
 import { Contact } from '../models/contactme.model';
-import { headersToString } from 'selenium-webdriver/http';
+
 
 
 
@@ -84,7 +84,7 @@ export class DataService {
     return this.http.get(url + "/" + "?page=" + page + "&status=" + status, httpOption);
   }
 
-  //Search and sort
+  //Search 
   public searchReport(data) {
     const httpOption = {
       headers: new HttpHeaders({ 'Authorization': localStorage.getItem('jwt') })
@@ -96,6 +96,15 @@ export class DataService {
   sendMessage(data: Contact){
     let url = AppSettings.BASE_URL + AppSettings.SEND_MESSAGE;
     return this.http.post(url,data);
+  }
+
+  sort(page,date,amount,status){
+    const httpOption = {
+      headers: new HttpHeaders({ 'Authorization': localStorage.getItem('jwt') })
+    }
+    let url = AppSettings.BASE_URL + AppSettings.PAYMENT_REPORT;
+    return this.http.get(url  + "?page=" + page + "&amount=" +amount+ "&date=" +date+ "&status=" + status, httpOption);
+
   }
 }
 

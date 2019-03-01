@@ -15,9 +15,11 @@ export class PaymentReportComponent implements OnInit {
   public id;
   public DonarName;
   public pages: Array<number>;
-  public amount: any = true;
-  public status: any = true;
-  public date: any = true;
+  public amount = {
+    
+  }
+  public status: any ;
+  public date: any ;
   public items: any;
   public pageSize: number;
 
@@ -46,10 +48,6 @@ export class PaymentReportComponent implements OnInit {
     this.pagination.noOfItemsPerPage = per_page;
     this.pagination.totalCount = totalCount;
   }
-  // clickPage(i){
-  //   this.page=i;
-  //   console.log(i);
-  // }
 
   onPageChange(e) {
     console.log('onPageChange', e );
@@ -68,7 +66,7 @@ export class PaymentReportComponent implements OnInit {
     this.service.searchReport(data).subscribe((Response: any) => {
       console.log(Response);
       this.payments = Response.result.paginatedItems;
-      // this.doPagination(Response.result.itemsPerPage, Response.result.total_pages, Response.result.totalCount, Response.result.pageNo, Response.result.per_page)
+      this.doPagination(Response.result.itemsPerPage, Response.result.total_pages, Response.result.totalCount, Response.result.pageNo, Response.result.per_page)
     });
   }
 
@@ -113,5 +111,12 @@ export class PaymentReportComponent implements OnInit {
   }
    logout(){
     this.router.navigate(['/home']);
+  }
+  sort(){
+    this.service.sort(this.page,this.amount,this.date,this.status).subscribe((res:any)=>{
+      console.log(res);
+      this.payments = res.result.paginatedItems;
+      
+    })
   }
 }
