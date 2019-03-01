@@ -20,7 +20,7 @@
     <div class="form-group">
       <label for="description">￼ Charity description </label>
       <div class="">
-        <input formControlName="description" type="text" id="description" class="form-control" [(ngModel)]="charityServices.selectedCharity.description" autofocus required />
+        <textarea formControlName="description" type="text" id="description" class="form-control" rows="3" [(ngModel)]="charityServices.selectedCharity.description" autofocus required></textarea>
         <div *ngIf="
             registerForm.controls['description'].touched &&
             !registerForm.controls['description'].valid
