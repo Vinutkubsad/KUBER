@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl, NgForm, FormGroupDirective } from '@angular/forms';
-import { DataService } from '../services/data.service';
+import { DataService } from 'src/app/services/data.service';
 import { Router } from '@angular/router';
 import swal from 'sweetalert';
  
@@ -34,12 +34,11 @@ export class AdminLoginComponent implements OnInit {
   }
   submitForm(){
     console.log(this.loginForm.value,"validity",this.loginForm.valid);
-    // if(this.loginForm.valid){
     this.adminservices.AdminLogin(this.loginForm.value).subscribe((res)=>{
       if(res){
         localStorage.setItem('AdminLogin', 'true');
-        this.router.navigate(['adminpanel'])
-        console.log(res)
+        this.resetForm();
+        this.router.navigate(['dashboard'])
       } 
       else{
         swal("Error!", "You clicked the button!", "warnning");

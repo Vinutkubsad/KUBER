@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../services/data.service';
+import { DataService } from 'src/app/services/data.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,17 +9,17 @@ import { Router } from '@angular/router';
 })
 export class AdminComponent implements OnInit {
 
-  public charityResult :any [];
+  public charityResult: any[];
   constructor( public service: DataService, public router: Router) { }
  
   ngOnInit() {
     this.getCharitydetails();
   }
-
-  getCharitydetails() { 
+ 
+  getCharitydetails() {
     this.service.getCharitydetails().subscribe((res:any) => {
-      console.log(res)
-      this.charityResult =res.result.paginatedItems;
+      console.log(res);
+      this.charityResult = res.result.paginatedItems;
     })
   }
   ApproveCharity(_id){

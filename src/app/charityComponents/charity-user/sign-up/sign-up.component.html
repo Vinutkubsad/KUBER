@@ -47,52 +47,40 @@
       </div>
     </div>
 
-    <div class="form-group">
-      <label for="address">￼ Charity address </label>
-      <div class="">
-        <input formControlName="address" type="text" id="address" class="form-control" [(ngModel)]="charityServices.selectedCharity.address" autofocus required />
-        <div *ngIf="
-                  registerForm.controls['address'].touched &&
-                  !registerForm.controls['address'].valid
-                ">
-          <small *ngIf="registerForm.controls['address'].hasError('required')" style="color:red;">
-            Please provide the address
-          </small>
-        </div>
-      </div>
-    </div>
-
-    <div class="form-group">
-      <label for="country">￼ Country </label>
-      <div class="">
-        <input formControlName="country" type="text" id="country" class="form-control" [(ngModel)]="charityServices.selectedCharity.country" autofocus required />
-        <div *ngIf="
-                  registerForm.controls['country'].touched &&
-                  !registerForm.controls['country'].valid
-                ">
-          <small *ngIf="registerForm.controls['country'].hasError('required')" style="color:red;">
-            please enter country name
-          </small>
-        </div>
-      </div>
-    </div>
 
     <div class="row">
-      <div class="col">
-        <div class="form-group">
-          <label for="city"> City </label>
-          <input formControlName="city" type="text" id="city" class="form-control" [(ngModel)]="charityServices.selectedCharity.city" autofocus required />
-          <div *ngIf="
-              registerForm.controls['city'].touched &&
-              !registerForm.controls['city'].valid
-            ">
-            <small *ngIf="registerForm.controls['city'].hasError('required')" style="color:red;">
-              please enter city name
-            </small>
+        <div class="col">
+          <div class="form-group">
+            <label for="address"> Address </label>
+            <input formControlName="address" type="text" id="address" class="form-control" [(ngModel)]="charityServices.selectedCharity.address" autofocus required />
+            <div *ngIf="
+                registerForm.controls['address'].touched &&
+                !registerForm.controls['address'].valid
+              ">
+              <small *ngIf="registerForm.controls['address'].hasError('required')" style="color:red;">
+                please enter address 
+              </small>
+            </div>
+          </div>
+        </div>
+  
+        <div class="col">
+          <div class="form-group">
+            <label for="city"> City </label>
+            <input formControlName="city" type="text" id="city" class="form-control" [(ngModel)]="charityServices.selectedCharity.city" autofocus required />
+            <div *ngIf="
+                registerForm.controls['city'].touched &&
+                !registerForm.controls['city'].valid
+              ">
+              <small *ngIf="registerForm.controls['city'].hasError('required')" style="color:red;">
+               please enter city name
+              </small>
+            </div>
           </div>
         </div>
       </div>
 
+    <div class="row">
       <div class="col">
         <div class="form-group">
           <label for="state"> State </label>
@@ -102,7 +90,22 @@
               !registerForm.controls['state'].valid
             ">
             <small *ngIf="registerForm.controls['state'].hasError('required')" style="color:red;">
-             please enter state name
+              please enter state name
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="form-group">
+          <label for="country"> Country </label>
+          <input formControlName="country" type="text" id="country" class="form-control" [(ngModel)]="charityServices.selectedCharity.country" autofocus required />
+          <div *ngIf="
+              registerForm.controls['country'].touched &&
+              !registerForm.controls['country'].valid
+            ">
+            <small *ngIf="registerForm.controls['country'].hasError('required')" style="color:red;">
+             please enter country name
             </small>
           </div>
         </div>

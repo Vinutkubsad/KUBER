@@ -10,6 +10,10 @@ export class StartPageComponent implements OnInit {
   constructor( public router : Router ) { }
 
   ngOnInit() {
+    let token = localStorage.getItem('jwt');
+    if (token) {
+      this.router.navigate(['charity/paymentreport']);
+    }
   }
 
   navLogin() {

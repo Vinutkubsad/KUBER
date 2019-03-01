@@ -19,7 +19,7 @@ export class CharityUserComponent implements OnInit {
 
 
   navigateAdmin = function() {
-    this.router.navigate(['/adminpanel']);
+    this.router.navigate(['/adminlogin']);
   }
 
 

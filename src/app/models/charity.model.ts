@@ -10,4 +10,5 @@ export class Charity {
   suggested: boolean;
   phoneNumber: number;
   country: string;
+  charityLogos: string; 
 }

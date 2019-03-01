@@ -1,16 +1,15 @@
-body {
-  background: #dddd;
-}
 
 .wrap-charity-details {
-  padding: 4rem;
-  margin: 50px;
+  margin-top: 10px;
+  padding: 2rem;
+  width: 160%;
   box-shadow: 0 5px 10px rgba(0,0,0,0.3);
   background: #dddd;
 }
 
 h3 {
-  margin-left: 40px;
-  margin-top: 20px;
+  margin-left: 110px;
+  margin-top: 33px;
+  margin-bottom: 20px;
   font-family: 'Lora', serif;
 }
