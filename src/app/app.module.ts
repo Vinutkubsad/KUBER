@@ -55,7 +55,7 @@ import { AdminDasComponent } from './adminComponents/admin-das/admin-das.compone
     NgbModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes,{useHash:true}),
     HttpClientModule,
     NgxPaginationModule,
     FormsModule,
