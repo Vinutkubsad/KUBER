@@ -4,15 +4,22 @@
   display: flex;
   border: none;;
   justify-content: center;
-  
   font-family: 'Lora', serif;
 }
 
 .title {
+  
   text-align: center;
   text-transform: uppercase;
   padding: 2rem;
 }
+
+.card > .right {
+  display: flex;
+  align-items: center;
+  padding: 3rem;
+}
+
 
 .card {
   box-shadow: 0 5px 10px rgba(0,0,0,0.3);
@@ -71,7 +78,8 @@ form input {
 .btn {
   margin-top: 35px;
   width: 100%;
-  background-color: #2C3A47;
+  font-weight: bold;
+  background-color: #2c3a47;
   border: none;
   color: #FFF;
   cursor: pointer;
@@ -83,7 +91,7 @@ form input {
 }
 
 .btn:hover {
-  background-color: #FD7272;
+  background-color: rgb(8, 231, 220);
   box-shadow: 0 5px 10px rgba(0,0,0,.3);
   transform: translateY(-3px);
 }
