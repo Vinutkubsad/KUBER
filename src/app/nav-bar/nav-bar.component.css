@@ -1,6 +1,6 @@
 .navbar{
     background: #69d5d8;
-    height: 50px;
+    height: 70px;
 }
 img{
     width: 50px;
@@ -13,9 +13,8 @@ img{
     color:#ffffff;
     /* margin-left: 400px; */
 }
-.logout{
-    /* margin-right: 80px; */
-}
+
+
 .logout>.btn{
     background:#ffffff;
     color: #69d5d8;

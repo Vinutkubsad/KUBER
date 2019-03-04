@@ -1,4 +1,4 @@
-.signup-container {
+/* .signup-container {
   background: #69d5d8;
   height: 100vh;
 }
@@ -36,4 +36,8 @@ button {
   transition: background-color 0.3s ease-in-out,
               box-shadow .3s ease-in-out,
               transform .3s ease-in-out;
+} */
+
+.container{
+  width:70%;
 }

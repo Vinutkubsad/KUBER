@@ -36,7 +36,10 @@ export class PaymentReportComponent implements OnInit {
   setPage(i) {
     this.page = i;
     this.getReports();
+    // this.search();
   }
+
+
 
   ngOnInit() {
     this.getReports();
@@ -51,6 +54,7 @@ export class PaymentReportComponent implements OnInit {
   onPageChange(e) {
     console.log('onPageChange', e);
     this.setPage(e);
+    
   }
 
   getReports() {

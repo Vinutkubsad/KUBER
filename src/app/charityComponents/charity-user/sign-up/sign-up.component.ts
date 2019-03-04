@@ -14,6 +14,14 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class SignUpComponent implements OnInit {
 
+  selectedFile=null;
+
+  onFileSelected(event){
+    console.log(event);
+    this.selectedFile = event.target.files[0];
+
+  }
+
   registerForm: FormGroup;
 
 
@@ -32,7 +40,7 @@ export class SignUpComponent implements OnInit {
       city: [null, [Validators.required]],
       state: [null, [Validators.required]],
       country: [null,[Validators.required]],
-      charityLogos: [null],
+      charityLogos: [null]
     });
   }
 
