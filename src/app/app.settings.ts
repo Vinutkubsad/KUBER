@@ -9,5 +9,5 @@ export class AppSettings{
     public static APPROVE_CHARITY = '/v1/admin/approveCharity';
     public static CHARITY_LOGIN = '/v1/charities/login';
     public static SEARCH_REPORT='/v1/charityAdmin/searchReports';
-    public static SEND_MESSAGE= '/userDetails/adminhelp';
+    public static SEND_MESSAGE= '/v1/userDetails/adminhelp';
 }
