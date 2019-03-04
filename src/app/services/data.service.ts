@@ -7,11 +7,6 @@ import { Charity } from '../models/charity.model';
 import { AdminLogin } from '../models/adminlogin.model';
 import { charityLogin } from '../models/charitylogin.model';
 import { Contact } from '../models/contactme.model';
-import { headersToString } from 'selenium-webdriver/http';
-
-
-
-
 
 @Injectable({
   providedIn: 'root'
@@ -27,12 +22,18 @@ export class DataService {
 
   constructor(private http: HttpClient) { }
 
-  public getReport(page) {
+  public getReport(page, amount, date, status) {
     const httpOption = {
       headers: new HttpHeaders({ 'Authorization': localStorage.getItem('jwt') })
     }
     let url = AppSettings.BASE_URL + AppSettings.PAYMENT_REPORT;
-    return this.http.get(url + "?page=" + page, httpOption);
+    if (amount !== undefined && date === undefined && status === undefined)
+      return this.http.get(url + "?page=" + page + "&amount=" + amount, httpOption);
+    else if (amount === undefined && date !== undefined && status === undefined) {
+      return this.http.get(url + "?page=" + page + "&date=" + date, httpOption);
+    } else if (amount === undefined && date === undefined && status !== undefined) {
+      return this.http.get(url + "?page=" + page + "&status=" + status, httpOption);
+    } else return this.http.get(url + "?page=" + page, httpOption);
   }
 
   postCharty(data: Charity) {
@@ -60,42 +61,20 @@ export class DataService {
     return this.http.post(url, data);
   }
 
-  public sortAmount(page, amount) {
-    const httpOption = {
-      headers: new HttpHeaders({ 'Authorization': localStorage.getItem('jwt') })
-    }
-    let url = AppSettings.BASE_URL + AppSettings.PAYMENT_REPORT;
-    return this.http.get(url + "/" + "?page=" + page + "&amount=" + amount, httpOption);
-  }
-
-  public sortDate(page, date) {
-    const httpOption = {
-      headers: new HttpHeaders({ 'Authorization': localStorage.getItem('jwt') })
-    }
-    let url = AppSettings.BASE_URL + AppSettings.PAYMENT_REPORT;
-    return this.http.get(url + "/" + "?page=" + page + "&date=" + date, httpOption);
-  }
-
-  public sortStatus(page, status) {
-    const httpOption = {
-      headers: new HttpHeaders({ 'Authorization': localStorage.getItem('jwt') })
-    }
-    let url = AppSettings.BASE_URL + AppSettings.PAYMENT_REPORT;
-    return this.http.get(url + "/" + "?page=" + page + "&status=" + status, httpOption);
-  }
-
-  //Search and sort
-  public searchReport(data) {
+  //Search 
+  public searchReport(data, page) {
     const httpOption = {
       headers: new HttpHeaders({ 'Authorization': localStorage.getItem('jwt') })
     }
     let url = AppSettings.BASE_URL + AppSettings.SEARCH_REPORT;
-    return this.http.post(url, data, httpOption);
+    return this.http.post(url + "?page=" + page, data, httpOption);
   }
 
-  sendMessage(data: Contact){
+  sendMessage(data: Contact) {
     let url = AppSettings.BASE_URL + AppSettings.SEND_MESSAGE;
-    return this.http.post(url,data);
+    return this.http.post(url, data);
   }
+
+  
 }
 
