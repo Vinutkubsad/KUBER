@@ -7,7 +7,7 @@ export class AppSettings{
     public static ADMIN_LOGIN = '/v1/authenticate/login?role=admin';
     public static CHARITY_ALL = '/v1/admin/charitiesList';
     public static APPROVE_CHARITY = '/v1/admin/approveCharity';
-    public static CHARITY_LOGIN = '/charities/login';
+    public static CHARITY_LOGIN = '/v1/charities/login';
     public static SEARCH_REPORT='/v1/charityAdmin/searchReports';
-    public static SEND_MESSAGE= '/userDetails/adminhelp';
+    public static SEND_MESSAGE= '/v1/userDetails/adminhelp';
 }
