@@ -40,7 +40,7 @@ export class FooterComponent implements OnInit {
     if(this.contactForm.valid) {
       this.service.sendMessage(this.contactForm.value).subscribe(res =>{
         if(res) {
-          swal("Thank you, We will be contacting you shortly.", "success");
+          swal("Thank you, We will contact you shortly.", "success");
           this.contactForm.reset();
         }else {
           swal("Something is missing", "Error");
