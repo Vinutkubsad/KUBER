@@ -18,44 +18,46 @@
               </div>
             </div>
           </div>
-          <div class="table-responsive">
-            <table class="table">
-              <thead class="thead">
-                <tr>
-                  <th>Donar name<button class="btn btn-outline"><i class="fa fa-sort-alpha-asc"
-                        aria-hidden="true"></i></button></th>
-                  <th>Email Id<button class="btn btn-outline"><i class="fa fa-sort-alpha-asc"
-                        aria-hidden="true"></i></button></th>
-                  <th>Amount<button class="btn btn-outline" (click)="sortAmount()"><i class="fa fa-sort"
-                        aria-hidden="true"></i>
-                    </button></th>
-                  <th>Date<button class="btn btn-outline" (click)="sortDate()"><i class="fa fa-sort"
-                        aria-hidden="true"></i></button></th>
-                  <th>Status<button class="btn btn-outline" (click)="sortStatus()"><i class="fa fa-sort"
-                        aria-hidden="true"></i></button></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor=" let p of payments; let i=index;">
-                  <td>{{p.userName}}</td>
-                  <td>{{p.email}}</td>
-                  <td>{{p.amount}}</td>
-                  <td>{{p.date | date:"dd MMM y"}}</td>
-                  <td>{{p.status}}</td>
-                </tr>
-              </tbody>
-            </table>
-            <hr>
-            
-            <ngb-pagination 
-                class="d-flex justify-content-end" 
-                [(page)]="pagination.currentPage" 
-                [pageSize]="pagination.noOfItemsPerPage"
-                [collectionSize]="pagination.totalCount" 
-                aria-label="Default pagination" 
-                (pageChange)="onPageChange($event)">
-            </ngb-pagination>
-          </div>
+          <!-- <div *ngIf="displayData; else noData"> -->
+            <div class="table-responsive">
+              <table class="table">
+                <thead class="thead">
+                  <tr>
+                    <th>Donar name<button class="btn btn-outline"><i class="fa fa-sort-alpha-asc"
+                          aria-hidden="true"></i></button></th>
+                    <th>Email Id<button class="btn btn-outline"><i class="fa fa-sort-alpha-asc"
+                          aria-hidden="true"></i></button></th>
+                    <th>Amount<button class="btn btn-outline" (click)="sortAmount()"><i class="fa fa-sort"
+                          aria-hidden="true"></i>
+                      </button></th>
+                    <th>Date<button class="btn btn-outline" (click)="sortDate()"><i class="fa fa-sort"
+                          aria-hidden="true"></i></button></th>
+                    <th>Status<button class="btn btn-outline" (click)="sortStatus()"><i class="fa fa-sort"
+                          aria-hidden="true"></i></button></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor=" let p of payments; let i=index;">
+                    <td>{{p.userName}}</td>
+                    <td>{{p.email}}</td>
+                    <td>{{p.amount}}</td>
+                    <td>{{p.date | date:"dd MMM y"}}</td>
+                    <td>{{p.status}}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <hr>
+
+              <ngb-pagination class="d-flex justify-content-end" [(page)]="pagination.currentPage"
+                [pageSize]="pagination.noOfItemsPerPage" [collectionSize]="pagination.totalCount"
+                aria-label="Default pagination" (pageChange)="onPageChange($event)">
+              </ngb-pagination>
+            </div>
+          <!-- </div> -->
+          <!-- <ng-template #noData>
+            <p>No payments yet!</p>
+
+          </ng-template> -->
         </div>
       </div>
     </div>

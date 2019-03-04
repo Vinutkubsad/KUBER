@@ -29,6 +29,7 @@ export class PaymentReportComponent implements OnInit {
     maxSize: 10,
     totalCount: 0
   }
+  displayData= false;
 
 
   constructor(private service: DataService, private router: Router) { }
@@ -54,8 +55,7 @@ export class PaymentReportComponent implements OnInit {
 
   getReports() {
     this.service.getReport(this.page, this.amount, this.date, this.status).subscribe((Response: any) => {
-      console.log(Response);
-      
+      // this.displayData = true;
       this.payments = Response.result.paginatedItems;
       this.doPagination(Response.result.itemsPerPage, Response.result.total_pages, Response.result.totalCount, Response.result.pageNo, Response.result.per_page)
     })
