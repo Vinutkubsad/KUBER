@@ -1,14 +1,22 @@
+
 export class Charity {
   _id: string;
   charityName: string;
-  email:string;
+  charityLogos: string; 
   description:string; 
+  email:string;
+  phoneNumber: number;
+  taxId: string;
   address:string;
-  city:string;
+  country: string;
   state:string;
+  city:string;
   zipcode: number;
   suggested: boolean;
-  phoneNumber: number;
-  country: string;
-  charityLogos: string; 
+  userAddress:string;
+  firstName:string;
+  lastName:string; 
+  contact:number;
+  userEmail:string;
+  pincode:number;
 }

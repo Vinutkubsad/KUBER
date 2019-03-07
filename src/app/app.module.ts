@@ -7,6 +7,7 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { DataService } from './services/data.service';
 import {NgbModule,NgbPaginationModule} from '@ng-bootstrap/ng-bootstrap';
+// import { NgbdDatepickerPopup } from './datepicker-popup';
 
 
 import { AppRoutingModule, routes } from './app-routing.module';
@@ -44,7 +45,7 @@ import { AdminDasComponent } from './adminComponents/admin-das/admin-das.compone
     AdminLoginComponent,
     AdminComponent,
     PaymentReportComponent,
-    
+    // NgbdDatepickerPopup,
     FooterComponent,
     NavBarComponent,
     SidebarComponent,

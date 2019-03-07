@@ -36,8 +36,8 @@ export class DataService {
     } else return this.http.get(url + "?page=" + page, httpOption);
   }
 
-  postCharty(data: Charity) {
-    let url = AppSettings.BASE_URL + AppSettings.CHARITY_URL;
+  registerCharity(data: Charity) {
+    let url = AppSettings.BASE_URL + AppSettings.CHARITY_REGISTER;
     return this.http.post(url, data)
   }
 

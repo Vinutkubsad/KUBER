@@ -3,8 +3,8 @@
 <div class="container-fluid padding">
   <div class="container">
     <div class="row welcome ">
-      <div class="col-12">
-        <h3 class="display-4.4">Payments</h3>
+      <div class="col-12" style="color:rgb(106, 208, 226);">
+        <h4 class="display-4.4">Donations</h4>
         <hr>
       </div>
       <div class="container padding">
@@ -17,7 +17,41 @@
                     aria-hidden="true"></i></button>
               </div>
             </div>
+            <br>
+            <div class="container padding">
+            <div class="row">
+              <div class="Date-picker">
+                <form class="form-inline">
+                  <div class="form-group">
+                    <div class="input-group">
+                      <input class="form-control" placeholder="From date" name="dp" ngbDatepicker #d="ngbDatepicker">
+                      <div class="input-group-append">
+                        <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"><i
+                            class="far fa-calendar"></i></button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              &nbsp;
+              <div class="Date-picker">
+                <form class="form-inline">
+                  <div class="form-group">
+                    <div class="input-group">
+                      <input class="form-control" placeholder="To date" name="dp" ngbDatepicker #c="ngbDatepicker">
+                      <div class="input-group-append">
+                        <button class="btn btn-outline-secondary calendar" (click)="c.toggle()" type="button"><i
+                            class="far fa-calendar"></i></button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              &nbsp;&nbsp;
+              <button type="button" class="btn btn-outline-secondary" (click)="dateRange()" >Go</button>
+            </div>
           </div>
+        </div>
           <div class="table-responsive">
             <table class="table">
               <thead class="thead">
@@ -46,14 +80,10 @@
               </tbody>
             </table>
             <hr>
-            
-            <ngb-pagination 
-                class="d-flex justify-content-end" 
-                [(page)]="pagination.currentPage" 
-                [pageSize]="pagination.noOfItemsPerPage"
-                [collectionSize]="pagination.totalCount" 
-                aria-label="Default pagination" 
-                (pageChange)="onPageChange($event)">
+
+            <ngb-pagination class="d-flex justify-content-end" [(page)]="pagination.currentPage"
+              [pageSize]="pagination.noOfItemsPerPage" [collectionSize]="pagination.totalCount"
+              aria-label="Default pagination" (pageChange)="onPageChange($event)">
             </ngb-pagination>
           </div>
         </div>

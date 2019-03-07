@@ -12,20 +12,20 @@ export class SignInComponent implements OnInit {
 
   loginForm: FormGroup;
 
-  passwordType: string = 'password';
-  passwordShown: boolean = false;
+  // passwordType: string = 'password';
+  // passwordShown: boolean = false;
 
   constructor(public service: DataService, public router: Router, public fb: FormBuilder) { }
 
   ngOnInit() {
-    let token = localStorage.getItem('jwt');
-    if (token) {
-      this.router.navigate(['charity/paymentreport']);
-    }
+    // let token = localStorage.getItem('jwt');
+    // if (token) {
+    //   this.router.navigate(['charity/paymentreport']);
+    // }
     this.resetForm();
     this.loginForm = this.fb.group({
-      email: new FormControl(null, [Validators.required, Validators.pattern(/^[a-z0-9_.]+$/i)]),
-      password: new FormControl(null, Validators.required)
+      email: new FormControl(null, [Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]),
+      password: new FormControl(null, [Validators.required,Validators.pattern('^[a-zA-Z0-9]+$/i')])
     });
   }
 
@@ -38,15 +38,15 @@ export class SignInComponent implements OnInit {
   }
 
   // toggel Password
-  togglePwd() {
-    if(this.passwordShown){
-      this.passwordShown = false;
-      this.passwordType = 'password';
-    }else {
-      this.passwordShown = true;
-      this.passwordType = 'text';
-    }
-  }
+  // togglePwd() {
+  //   if(this.passwordShown){
+  //     this.passwordShown = false;
+  //     this.passwordType = 'password';
+  //   }else {
+  //     this.passwordShown = true;
+  //     this.passwordType = 'text';
+  //   }
+  // }
 
   loginSubmit() {
     var data = { "email": this.service.charityLogin.email, "password": this.service.charityLogin.password }
@@ -57,7 +57,7 @@ export class SignInComponent implements OnInit {
         this.router.navigate(['charity/paymentreport']);
       }
       localStorage.setItem('jwt', response.result.jwt); 
-      // this.router.navigate(['paymentreport']);  q qq           q  qb
+      // this.router.navigate(['paymentreport']);  
     });
   }
 }

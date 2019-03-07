@@ -1,77 +1,53 @@
-<!-- <nav id="navbar" class="navbar">
-    <a class="navbar-brand" href="#">Kuber</a>
-    <ul class="nav nav-pills">
-      <li class="nav-item">
-        <a class="nav-link" href="#header">About</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#contact">Contact</a>
-      </li> 
-      <li class="nav-item">
-          <a class="nav-link" (click)="navLogin()">Login</a>
-        </li>
-    </ul>
-  </nav> -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand"> 
-          <img src="../../../assets/Images/kuber-HD.jpg" alt="">
-          <p>Kuber</p>
-        </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+<div class="container-fluid">
+  <nav class="navbar navbar-expand-lg navbar-dark static-top">
+    <a class="navbar-brand" href="#"> <img src="../../assets/Images/kuber-HD.jpg" width="65" height="65"> Kuber Charities</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarText">
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <!-- <li class="nav-item active">
+        <li class="nav-item active">
           <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-        </li> -->
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Contact us</a>
+          </li>
       </ul>
-      <span class="navbar-text">
-          <button type="button" class="btn btn-outline-primary" (click)="navLogin()" >Log In</button>
-      </span>
+      <form class="form-inline my-2 my-lg-0 ">
+        <button class="btn btn-outline-success my-2 my-sm-0 pull-right" type="submit" (click)="Login()">Login</button>
+      </form>
     </div>
-  </nav> 
- 
-  <div data-spy="scroll" data-target="#navbar-example2" data-offset="0">
-      <section id=header class="wrap-header">
-          <div class="image-layout">
-            <img src="../../assets/Images/charity-initiatives-fundacion-clc-world-slider-2.jpg" alt="">
-          </div>
-        </section>
-        <section class="wrap-about">
-          <div class="heading">
-            <p>about us</p>
-          </div>
-          <!-- <img src="../../assets/Images/kuber-HD.jpg" alt=""> -->
-          <div class="wrap-details">
-            <div class="wrap-div">
-                <span>Kuber Owner</span>
-                <article>Kuber Charities Inc. is a US corporation which owns the technology platform to digitally transform the process of gifting to charities worldwide.</article>
-            </div>
-            <div class="wrap-div">
-                <span>Kuber Registered Office</span>
-                <article>Kuber Charities is headquartered in the US with its registered office in Pennsylvania. </article>
-            </div>
-            <div class="wrap-div">
-                <span>Motto and Purpose</span>
-                <article>Kuber’s mission is to leverage technology to its highest potential to enable its users to make donation gifts to charities of their choice with complete ease and track their gifts all year round.</article>
-            </div>
-          </div>
-        </section>
-      <section id="contact" class="footer">
-        <app-footer></app-footer>
-      </section>
+  </nav>
+  <!-- <pre>
+
+
+
+
+
+  </pre> -->
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <h2 class="title">Kuber Charities</h2>
+        <pre class="description">Kuber’s mission is to leverage technology
+to its highest potential to enable its users 
+to make donation gifts to charities of their choice
+with complete ease and track their gifts all year round. </pre>
+      </div>
+    </div>
   </div>
+  <div class="col text-center">
+      <!-- <app-sign-up></app-sign-up> -->
+      <button class="btn btn-outline-info" (click)="register()"> Register your charity</button>
+      <pre>
 
-
-
-
-  <!-- <article> Kuber Charities Inc. is a US corporation which owns the technology platform to digitally transform the process of gifting to charities worldwide. </article>
-
-
-            <p>Kuber Registered Office</p>
-            <p>Kuber Charities is headquartered in the US with its registered office in Pennsylvania. </p>
-
-            <p>Motto and Purpose</p>
-            <span> Kuber’s mission is to leverage technology to its highest potential to enable its users to make donation gifts to charities of their choice with complete ease and track their gifts all year round. </span> -->
-
+      </pre>
+  </div>
+</div>
+<app-footer></app-footer>
+<!-- registration form -->

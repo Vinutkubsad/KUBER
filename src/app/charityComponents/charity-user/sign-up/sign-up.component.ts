@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup,FormGroupDirective, NgForm, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormGroupDirective, NgForm, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import swal from 'sweetalert';
 import { DataService } from 'src/app/services/data.service';
@@ -18,21 +18,28 @@ export class SignUpComponent implements OnInit {
 
 
 
-  constructor( private router: Router, private fb: FormBuilder, public charityServices: DataService) { }
+  constructor(private router: Router, private fb: FormBuilder, public charityServices: DataService) { }
 
   ngOnInit(): void {
     this.resetForm();
     this.registerForm = this.fb.group({
       charityName: [null, [Validators.required]],
       description: [null, [Validators.required]],
-      email: [null,  [Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]],
-      phoneNumber: [null,[Validators.required, Validators.pattern('^[0-9]{10}$')]],
+      email: [null, [Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]],
+      phoneNumber: [null, [Validators.required, Validators.pattern('^[0-9]{10}$')]],
       address: [null, [Validators.required]],
-      zipcode: [null, [Validators.required]],
-      city: [null, [Validators.required]],
-      state: [null, [Validators.required]],
-      country: [null,[Validators.required]],
+      userAddress: [null, [Validators.required]],
+      zipcode: [null, [Validators.required, Validators.pattern('^[0-9]{6}$')]],
+      city: [null, [Validators.required,Validators.pattern('^[a-zA-Z]{2,20}$')]],
+      state: [null, [Validators.required,Validators.pattern('^[a-zA-Z]{3,20}$')]],
+      country: [null, [Validators.required,Validators.pattern('^[a-zA-Z]{2,30}$')]],
+      firstName: [null, [Validators.required]],
+      lastName: [null, [Validators.required]],
       charityLogos: [null],
+      pincode:[null, [Validators.required, Validators.pattern('^[0-9]{6}$')]],
+      contact: [null, [Validators.required,Validators.pattern('^[0-9]{10}$')]],
+      taxId: [null, [Validators.required, Validators.pattern('^[A-Z0-9]{10}$')]],
+      userEmail: [null,[Validators.required]]
     });
   }
 
@@ -41,23 +48,30 @@ export class SignUpComponent implements OnInit {
     this.charityServices.selectedCharity = {
       _id: "",
       charityName: "",
+      firstName: "",
+      lastName: "",
       email: "",
-      phoneNumber:null,
+      phoneNumber: null,
       description: "",
       address: "",
+      userAddress: "",
       city: "",
       state: "",
       zipcode: null,
       suggested: false,
       country: "",
-      charityLogos: null
+      charityLogos: null,
+      taxId: "",
+      contact: null,
+      userEmail: "",
+      pincode:null
     };
   }
 
   submitForm() {
     if (this.registerForm.valid) {
       this.charityServices
-        .postCharty(this.registerForm.value)
+        .registerCharity(this.registerForm.value)
         .subscribe((res) => {
           if (res) {
             swal("Succefully Added", "success");
@@ -71,11 +85,38 @@ export class SignUpComponent implements OnInit {
     }
   }
 
-  
+  // submitForm(){
+  //   var data = {
+  //     "charityName":this.charityServices.selectedCharity.charityName,
+  //     "description":this.charityServices.selectedCharity.description,
+  //     "email":this.charityServices.selectedCharity.email,
+  //     "phoneNumber":this.charityServices.selectedCharity.phoneNumber,
+  //     "taxId":this.charityServices.selectedCharity.taxId,
+  //     "address":this.charityServices.selectedCharity.address,
+  //     "country":this.charityServices.selectedCharity.country,
+  //     "state":this.charityServices.selectedCharity.state,
+  //     "city":this.charityServices.selectedCharity.city,
+  //     "zipcode":this.charityServices.selectedCharity.zipcode,
+  //     "firstName":this.charityServices.selectedCharity.firstName,
+  //     "lastName":this.charityServices.selectedCharity.lastName,
+  //     "userEmail":this.charityServices.selectedCharity.userEmail,
+  //     "contact":this.charityServices.selectedCharity.contact,
+  //     "userAddress":this.charityServices.selectedCharity.userAddress,
+  //     "pincode":this.charityServices.selectedCharity.pincode
+  // }
+  // this.charityServices.registerCharity(data).subscribe((Response:any)=>{
+  //   console.log(Response); 
+  // });
+  // }
 
-  navigateLogin() {
-    this.router.navigate(['signup']);
+  Login() {
+    this.router.navigate(['charityUser/signin'])
   }
+
+
+  // navigateLogin() {
+  //   this.router.navigate(['signup']);
+  // }
 
 }
 
