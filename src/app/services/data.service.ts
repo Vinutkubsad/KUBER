@@ -36,7 +36,7 @@ export class DataService {
     } else return this.http.get(url + "?page=" + page, httpOption);
   }
 
-  postCharty(data: Charity) {
+  postCharty(data: any) {
     let url = AppSettings.BASE_URL + AppSettings.CHARITY_URL;
     return this.http.post(url, data)
   }
@@ -47,13 +47,19 @@ export class DataService {
   }
 
   getCharitydetails() {
+    const httpOption = {
+      headers: new HttpHeaders({ 'Authorization': localStorage.getItem('jwt') })
+    }
     let url = AppSettings.BASE_URL + AppSettings.CHARITY_ALL;
-    return this.http.get(url).map((data) => { return data })
+    return this.http.get(url, httpOption).map((data) => { return data })
   }
 
   approveCharity(data) {
+    const httpOption = {
+      headers: new HttpHeaders({ 'Authorization': localStorage.getItem('jwt') })
+    }
     let url = AppSettings.BASE_URL + AppSettings.APPROVE_CHARITY;
-    return this.http.post(url, data);
+    return this.http.post(url, data,httpOption);
   }
 
   CharityLogin(data) {
@@ -74,7 +80,5 @@ export class DataService {
     let url = AppSettings.BASE_URL + AppSettings.SEND_MESSAGE;
     return this.http.post(url, data);
   }
-
-  
 }
 

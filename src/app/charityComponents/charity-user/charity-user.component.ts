@@ -13,14 +13,4 @@ export class CharityUserComponent implements OnInit {
   ngOnInit() {
   }
 
-  navigateRegister = function() {
-    this.router.navigate(['signup'])
-  }
-
-
-  navigateAdmin = function() {
-    this.router.navigate(['/adminlogin']);
-  }
-
-
 }

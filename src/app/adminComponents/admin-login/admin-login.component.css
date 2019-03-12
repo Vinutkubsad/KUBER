@@ -1,6 +1,33 @@
 /* @import url('https://fonts.googleapis.com/css?family=Ubuntu'); */
 
+.navbar-brand {
+  margin: 10px;
+  float: left;
+  border:none;
+  width: 10%;
+  display: flex;
+  flex-direction: row;
+  background: #fff
+}
+.navbar-brand img {
+  padding-left: 0.5rem;
+  width: 55px;
+  height: 40px;
+}
+
+.navbar-brand p {
+  margin-top: 4px;
+  margin-bottom: 0;
+  padding-left: 1rem;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  font-family: 'Lora', serif;
+  font-weight: 500;
+}
+
+
 .container {
+  margin-top: 40px;
   display: flex;
   border: none;;
   justify-content: center;

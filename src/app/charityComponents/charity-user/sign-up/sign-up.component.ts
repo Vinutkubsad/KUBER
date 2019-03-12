@@ -15,8 +15,13 @@ import { DataService } from 'src/app/services/data.service';
 export class SignUpComponent implements OnInit {
 
   registerForm: FormGroup;
-
-
+  // charityLogoFile: any;
+  charityLogoFile: File = null;
+  
+  charityLogos(event){
+    // console.log(event.target.files);
+    this.charityLogoFile = event.target.files[0];
+  }
 
   constructor( private router: Router, private fb: FormBuilder, public charityServices: DataService) { }
 
@@ -28,11 +33,11 @@ export class SignUpComponent implements OnInit {
       email: [null,  [Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]],
       phoneNumber: [null,[Validators.required, Validators.pattern('^[0-9]{10}$')]],
       address: [null, [Validators.required]],
-      zipcode: [null, [Validators.required]],
+      zipcode: [null, [Validators.required, Validators.pattern('^[0-9]{6}$')]],
       city: [null, [Validators.required]],
       state: [null, [Validators.required]],
       country: [null,[Validators.required]],
-      charityLogos: [null],
+      charityLogos: [null]
     });
   }
 
@@ -40,6 +45,7 @@ export class SignUpComponent implements OnInit {
     if (form) form.reset();
     this.charityServices.selectedCharity = {
       _id: "",
+      charityLogos: null,
       charityName: "",
       email: "",
       phoneNumber:null,
@@ -49,20 +55,22 @@ export class SignUpComponent implements OnInit {
       state: "",
       zipcode: null,
       suggested: false,
-      country: "",
-      charityLogos: null
+      country: ""
     };
   }
 
   submitForm() {
     if (this.registerForm.valid) {
+      const formData = this.createFormData(this.registerForm.value);
       this.charityServices
-        .postCharty(this.registerForm.value)
-        .subscribe((res) => {
+        .postCharty(formData)
+        .subscribe((res,) => {
+          // console.log(res);
           if (res) {
             swal("Succefully Added", "success");
             this.registerForm.reset();
-          } else {
+            // console.log("res",res);
+          } else{
             swal("Email is already registerd", "Error");
           }
         })
@@ -70,11 +78,14 @@ export class SignUpComponent implements OnInit {
       swal("Please enter valid data", "");
     }
   }
-
-  
-
-  navigateLogin() {
-    this.router.navigate(['signup']);
+  createFormData(formValues) {
+    const formData = new FormData();
+    Object.keys(formValues).map((key) => {
+      formData.append(key, formValues[key]);
+    });
+    formData.append('charityLogos', this.charityLogoFile);
+    console.log('formData', formData);
+    return formData;
   }
 
 }

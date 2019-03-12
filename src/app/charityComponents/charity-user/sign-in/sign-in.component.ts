@@ -60,5 +60,14 @@ export class SignInComponent implements OnInit {
       // this.router.navigate(['paymentreport']);  q qq           q  qb
     });
   }
+
+  navigateAdmin = function() {
+    this.router.navigate(['/adminlogin']);
+  }
+
+  navRegister() {
+    this.router.navigate(['signup']);
+  }
+
 }
    
