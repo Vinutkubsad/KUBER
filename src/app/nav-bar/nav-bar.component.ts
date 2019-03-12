@@ -13,9 +13,22 @@ export class NavBarComponent implements OnInit {
   ngOnInit() {
   }
 
- 
- logout(){
-   localStorage.removeItem("jwt");
-    this.router.navigate(['/home']);
+  summary(){
+    this.router.navigate(['dashboard/summary']);
+  }
+  activities(){
+    this.router.navigate(['dashboard/activities']);
+  }
+  pledges(){
+    this.router.navigate(['dashboard/pledges']);
+  }
+  help(){
+    this.router.navigate(['dashboard/help']);
+  }
+  profile(){
+    this.router.navigate(['dashboard/profile']);
+  }
+  logout(){
+    this.router.navigate(['home']);
   }
 }

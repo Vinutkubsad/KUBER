@@ -1,15 +1,54 @@
-<div>
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container">
-            <div class="navbar-brand row text-center">
-                <div class="row text-center">
-                    <img src="../../assets/Images/kuber-HD.jpg">
-                    <h5 class="title">Kuber</h5>
-                </div>
+<nav class="navbar navbar-expand-md navbar-light static-top">
+    <a class="navbar-brand" href="#"><img src="./assets/Images/kuber-HD.jpg" width="60" height="60"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" role="button" (click)="summary()">Summary</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" role="button" (click)="activities()" >Activity</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" role="button" (click)="pledges()">Pledges</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" role="button" (click)="help()">Help</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <!-- <a class="nav-link" href=""><i class="fa fa-bell" aria-hidden="true"></i></a> -->
+          <div ngbDropdown placement="bottom-right" class="d-inline-block">
+            <button class="btn btn-outline" id="dropdownBasic2" ngbDropdownToggle><i class="fa fa-bell" aria-hidden="true"></i></button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic2">
+              <button ngbDropdownItem>Notifications</button>
+              <button ngbDropdownItem>Message</button>
             </div>
-        </div>
-        <div class="logout">
-            <button type="button" class=" btn btn-outline btn-sm" (click)="logout()">Logout</button>
-        </div>
-    </nav>
-</div>
+          </div>
+        </li>
+        <li class="nav-item">
+          <!-- <a class="nav-link" href="#"><i class="fa fa-cog" aria-hidden="true"></i></a> -->
+          <div ngbDropdown placement="bottom-right" class="d-inline-block">
+            <button class="btn btn-outline" id="dropdownBasic1" ngbDropdownToggle><i class="fa fa-cog" aria-hidden="true"></i></button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+              <button ngbDropdownItem><i class="fa fa-user" aria-hidden="true"></i> Profile</button>
+              <button ngbDropdownItem (click)="logout()"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Logout</button>
+              <!-- <button ngbDropdownItem>Refunds</button> -->
+            </div>
+          </div>
+        </li>
+      </ul>
+      <!-- <form class="form-inline my-2 my-lg-0 ">
+        <button class="btn btn-outline my-2 my-sm-0 pull-right" type="submit" (click)="Logout()">Logout</button>
+      </form> -->
+    </div>
+  </nav>
+  <div class="container-fluid">
+    <router-outlet></router-outlet>
+  </div>
+  <app-footer></app-footer>

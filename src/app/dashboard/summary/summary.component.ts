@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { DataService } from 'src/app/services/data.service';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-payment-report',
-  templateUrl: './payment-report.component.html',
-  styleUrls: ['./payment-report.component.css']
+  selector: 'app-summary',
+  templateUrl: './summary.component.html',
+  styleUrls: ['./summary.component.css']
 })
-export class PaymentReportComponent implements OnInit {
+export class SummaryComponent implements OnInit {
 
   private page: number = 1;
   public payments: any[];
@@ -41,14 +41,14 @@ export class PaymentReportComponent implements OnInit {
     this.getReports();
   }
   doPagination(itemsPerPage, total_pages, totalCount, pageNo, per_page) {
-    console.log(this.pages, itemsPerPage, total_pages, totalCount, per_page);
+    // console.log(this.pages, itemsPerPage, total_pages, totalCount, per_page);
     this.pagination.currentPage = parseInt(pageNo);
     this.pagination.noOfItemsPerPage = per_page;
     this.pagination.totalCount = totalCount;
   }
 
   onPageChange(e) {
-    console.log('onPageChange', e);
+    // console.log('onPageChange', e);
     this.setPage(e);
   }
 
@@ -64,7 +64,7 @@ export class PaymentReportComponent implements OnInit {
   search() {
     var data = { "userName": this.DonarName }
     this.service.searchReport(data, this.page).subscribe((Response: any) => {
-      console.log(Response);
+      // console.log(Response);
       this.payments = Response.result.paginatedItems;
       this.doPagination(Response.result.itemsPerPage, Response.result.total_pages, Response.result.totalCount, Response.result.pageNo, Response.result.per_page)
     });
@@ -115,8 +115,5 @@ export class PaymentReportComponent implements OnInit {
       this.date = undefined;
       this.getReports();
     }
-  }
-  logout() {
-    this.router.navigate(['/home']);
   }
 }

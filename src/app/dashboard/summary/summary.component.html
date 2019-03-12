@@ -1,0 +1,93 @@
+<div class="container-fluid padding">
+    <div class="container">
+      <div class="row welcome ">
+        <div class="col-12" style="color:rgb(106, 208, 226);">
+          <h4 class="title">Recent Donations</h4>
+          <hr>
+        </div>
+        <div class="container padding">
+          <div class="col-12">
+            <div class="form-group">
+              <!-- <div class="searchBar">
+                <div class="row padding ml-auto">
+                  <input type="text" class="form-control" placeholder="Search " [(ngModel)]="DonarName">
+                  <button type="button" class="btn btn-outline" (click)="search()"><i class="fa fa-search"
+                      aria-hidden="true"></i></button>
+                </div>
+              </div> -->
+              <!-- <br> -->
+              <!-- <div class="container padding">
+                <div class="row">
+                  <div class="Date-picker">
+                    <form class="form-inline">
+                      <div class="form-group">
+                        <div class="input-group">
+                          <input class="form-control" placeholder="From date" name="dp" ngbDatepicker #d="ngbDatepicker">
+                          <div class="input-group-append">
+                            <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"><i
+                                class="far fa-calendar"></i></button>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                  &nbsp;
+                  <div class="Date-picker">
+                    <form class="form-inline">
+                      <div class="form-group">
+                        <div class="input-group">
+                          <input class="form-control" placeholder="To date" name="dp" ngbDatepicker #c="ngbDatepicker">
+                          <div class="input-group-append">
+                            <button class="btn btn-outline-secondary calendar" (click)="c.toggle()" type="button"><i
+                                class="far fa-calendar"></i></button>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div> 
+                  &nbsp;&nbsp;
+                  <button type="button" class="btn btn-outline-secondary" (click)="dateRange()">Go</button> -->
+                <!-- </div>  -->
+              <!-- </div> -->
+            </div>
+            <div class="table-responsive">
+              <table class="table">
+                <thead class="thead">
+                  <tr>
+                    <th>Date<button class="btn btn-outline" (click)="sortDate()"><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                    <th>Name<button class="btn btn-outline" (click)="sortStatus()"><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                    <th>Amount <br>(Including fees)<button class="btn btn-outline" (click)="sortAmount()"><i class="fa fa-sort"
+                          aria-hidden="true"></i>
+                      </button></th>
+                    <!-- <th>Date<button class="btn btn-outline" (click)="sortDate()"><i class="fa fa-sort"
+                           aria-hidden="true"></i></button></th> 
+                    <th>Total amount<button class="btn btn-outline" (click)="sortStatus()"><i class="fa fa-sort"
+                          aria-hidden="true"></i></button></th>
+                    <th>Fees<button class="btn btn-outline" (click)="sortStatus()"><i class="fa fa-sort"
+                          aria-hidden="true"></i></button></th>
+                    <th>Net amount<button class="btn btn-outline" (click)="sortStatus()"><i class="fa fa-sort"
+                          aria-hidden="true"></i></button></th>
+                  </tr> -->
+                </thead>
+                <tbody>
+                  <tr *ngFor=" let p of payments; let i=index;">
+                    <td>{{p.date | date}}</td>
+                    <td>{{p.userName}}</td>
+                    <td>{{p.amount}}</td>
+                    <!-- <td>{{p.date | date:"dd MMM y"}}</td> -->
+                    <!-- <td>{{p.status}}</td> -->
+                  </tr>
+                </tbody>
+              </table>
+              <hr>
+  
+              <ngb-pagination class="d-flex justify-content-end" [(page)]="pagination.currentPage"
+                [pageSize]="pagination.noOfItemsPerPage" [collectionSize]="pagination.totalCount"
+                aria-label="Default pagination" (pageChange)="onPageChange($event)">
+              </ngb-pagination>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

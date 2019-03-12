@@ -1,43 +1,76 @@
-/* .signup-container {
-  background: #69d5d8;
-  height: 100vh;
+.container-fluid{
+  background-image: url('../../../../assets/Images/HomePage.jpeg');
+  /* height: 100vh; */
+  /* background-position: center; */
+  background-size: cover;
+  opacity: .9;
+  font-family: 'lato', sans-serif;
+  border-radius: 0%;
+  background-position-x: center
 }
 
-.title {
-  text-align: center;
+.navbar{
   text-transform: uppercase;
-  padding: 2rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: .1rem;
+  background-color: transparent !important;
+  /* background: rgba(0,0,0,0.6) !important; */
+  /* opacity: .9; */
+}
+.navbar-brand img{
+  height: 6rem;
+  width: 6rem;
+  border-radius: 50%;
+}
+.navbar-nav li{
+padding-right: .7rem;
+}
+.navbar-dark .navbar-nav .nav-link{
+  /* color: white; */
+  padding-top: .8rem;
 }
 
-.main-form {
-  border-radius: 10px;
-  background: white;
-  width: 700px;
-  margin: auto;
-  border: none;
-  padding: 2rem;
-  box-shadow: 0 5px 10px rgba(0,0,0,0.3);
-  font-family: 'Lora', serif;
-  font-size: 1.2rem;
-  font-weight: 500;
+.btn-lg{
+  border-radius: 0;
+  border-width: medium;
+  padding: .6rem 1.3rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: white;
+  background: rgb(15, 221, 228)
 }
+.card{
+  font-family: 'lato',sans-serif;
+  
+}
+.card h3{
+  font-size: 2rem;
+  font-weight: 700;
+  color: rgb(20, 197, 197);
+  text-shadow: 2rem  rgb(14, 204, 141);
+  padding: 2rem;
+}
+.card h5{
+  font-size: 1.5rem;
+  font-weight: 700;
+  padding:.1rem;
 
-button {
-  margin-top: 35px;
-  width: 40%;
-  text-align: center;
-  margin-left: 31%;
-  background-color: #69d5d8;
-  border: none;
+}
+small{
+  color: rgb(219, 24, 24);
+}
+.form-control{
+  border-radius: 0%;
+  padding: .1rem;
+}
+.form-group{
+  color: rgb(243, 240, 240);
+  font-weight: 600;
+  outline: white;
+  letter-spacing: 0.5px;
+  border-radius: 0%;
+}
+.label{
   color: black;
-  cursor: pointer;
-  font-size: 1.2rem;
-  line-height: 40px;
-  transition: background-color 0.3s ease-in-out,
-              box-shadow .3s ease-in-out,
-              transform .3s ease-in-out;
-} */
-
-.container{
-  width:70%;
 }

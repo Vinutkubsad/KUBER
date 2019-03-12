@@ -7,6 +7,7 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { DataService } from './services/data.service';
 import {NgbModule,NgbPaginationModule} from '@ng-bootstrap/ng-bootstrap';
+// import { NgbdDatepickerPopup } from './datepicker-popup';
 
 
 import { AppRoutingModule, routes } from './app-routing.module';
@@ -27,6 +28,12 @@ import { FooterComponent } from './footer/footer.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { AdminDasComponent } from './adminComponents/admin-das/admin-das.component';
+import { AboutComponent } from './about/about.component';
+import { SummaryComponent } from './dashboard/summary/summary.component';
+import { ActivitiesComponent } from './dashboard/activities/activities.component';
+import { PledgesComponent } from './dashboard/pledges/pledges.component';
+import { HelpComponent } from './dashboard/help/help.component';
+import { ProfileComponent } from './dashboard/profile/profile.component';
 
 
 
@@ -44,11 +51,17 @@ import { AdminDasComponent } from './adminComponents/admin-das/admin-das.compone
     AdminLoginComponent,
     AdminComponent,
     PaymentReportComponent,
-    
+    // NgbdDatepickerPopup,
     FooterComponent,
     NavBarComponent,
     SidebarComponent,
-    AdminDasComponent
+    AdminDasComponent,
+    AboutComponent,
+    SummaryComponent,
+    ActivitiesComponent,
+    PledgesComponent,
+    HelpComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
 import { Router } from '@angular/router';
+import swal from 'sweetalert';
 import { FormGroup, FormBuilder, Validators, FormControl, NgForm, FormGroupDirective } from '@angular/forms';
+import { error } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'app-sign-in',
@@ -18,14 +20,14 @@ export class SignInComponent implements OnInit {
   constructor(public service: DataService, public router: Router, public fb: FormBuilder) { }
 
   ngOnInit() {
-    let token = localStorage.getItem('jwt');
-    if (token) {
-      this.router.navigate(['charity/paymentreport']);
-    }
+    // let token = localStorage.getItem('jwt');
+    // if (token) {
+    //   this.router.navigate(['charity/paymentreport']);
+    // }
     this.resetForm();
     this.loginForm = this.fb.group({
-      email: new FormControl(null, [Validators.required, Validators.pattern(/^[a-z0-9_.]+$/i)]),
-      password: new FormControl(null, Validators.required)
+      email: new FormControl(null, [Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]),
+      password: new FormControl(null, [Validators.required])
     });
   }
 
@@ -54,11 +56,19 @@ export class SignInComponent implements OnInit {
       if(response) {
         localStorage.setItem("jwt","true");
         this.resetForm();
-        this.router.navigate(['charity/paymentreport']);
+        // this.router.navigate(['dashboard/summary']);
       }
       localStorage.setItem('jwt', response.result.jwt); 
-      // this.router.navigate(['paymentreport']);  q qq           q  qb
+      this.router.navigate(['dashboard/summary']);  
     });
+    if(error){
+     
+      this.router.navigate(['signin']);
+      // swal("Oops!", "Please enter valid email or password!", "warning");
+    }
+  }
+  register(){
+    this.router.navigate(['signup']);
   }
 }
    

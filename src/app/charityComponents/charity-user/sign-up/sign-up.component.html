@@ -1,336 +1,396 @@
-<!-- 
-<div class="container-fluid">
-    <h2 class="title">Charity Registration</h2>
-  <form class="form-horizontal" role="form" [formGroup]="registerForm" (ngSubmit)="submitForm()" class="main-form">
-    <div class="form-group">
-      <label for="charityName" class="">Charity Name</label>
-      <div class="">
-        <input formControlName="charityName" type="text" id="charityName" class="form-control" [(ngModel)]="charityServices.selectedCharity.charityName" autofocus required />
-        <div *ngIf="
-            registerForm.controls['charityName'].touched &&
-            !registerForm.controls['charityName'].valid
-          ">
-          <small *ngIf="registerForm.controls['charityName'].hasError('required')" style="color:red;">
-            Please enter Charity Name
-          </small>
-        </div>
-      </div>
+<div class="container-fluid ">
+  <nav class="navbar navbar-expand-md navbar-dark bg-light fixed-top">
+    <a class="navbar-brand" href="#"><img src="./assets/Images/kuber-HD.jpg" width="60" height="60"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+      <!-- aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"> -->
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+
+        <li class="nav-item ">
+          <button type="button" class="btn btn-outline-light btn-lg" (click)="login() ">LOGIN</button>
+        </li>
+      </ul>
     </div>
+  </nav>
+  <pre>
 
-    <div class="form-group">
-      <label for="description">￼ Charity description </label>
-      <div class="">
-        <textarea formControlName="description" type="text" id="description" class="form-control" rows="3" [(ngModel)]="charityServices.selectedCharity.description" autofocus required></textarea>
-        <div *ngIf="
-            registerForm.controls['description'].touched &&
-            !registerForm.controls['description'].valid
-          ">
-          <small *ngIf="registerForm.controls['description'].hasError('required')" style="color:red;">
-            Please provide some description
-          </small>
-        </div>
-      </div>
-    </div>
 
-    <div class="form-group">
-      <label for="email">￼ Email Id </label>
-      <div class="">
-        <input formControlName="email" type="text" id="email" class="form-control"  [(ngModel)]="charityServices.selectedCharity.email" autofocus required />
-        <div *ngIf="
-                  registerForm.controls['email'].touched &&
-                  !registerForm.controls['email'].valid 
-                ">
-          <small *ngIf="registerForm.controls['email'].hasError('required')" style="color:red;">
-            Please enter the email
-          </small>
-        </div>
-      </div>
-    </div>
 
-    <div class="form-group">
-      <label for="address">￼ Charity address </label>
-      <div class="">
-        <input formControlName="address" type="text" id="address" class="form-control" [(ngModel)]="charityServices.selectedCharity.address" autofocus required />
-        <div *ngIf="
-                  registerForm.controls['address'].touched &&
-                  !registerForm.controls['address'].valid
-                ">
-          <small *ngIf="registerForm.controls['address'].hasError('required')" style="color:red;">
-            Please provide the address
-          </small>
-        </div>
-      </div>
-    </div>
 
-    <div class="form-group">
-      <label for="country">￼ Country </label>
-      <div class="">
-        <input formControlName="country" type="text" id="country" class="form-control" [(ngModel)]="charityServices.selectedCharity.country" autofocus required />
-        <div *ngIf="
-                  registerForm.controls['country'].touched &&
-                  !registerForm.controls['country'].valid
-                ">
-          <small *ngIf="registerForm.controls['country'].hasError('required')" style="color:red;">
-            please enter country name
-          </small>
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col">
-        <div class="form-group">
-          <label for="city"> City </label>
-          <input formControlName="city" type="text" id="city" class="form-control" [(ngModel)]="charityServices.selectedCharity.city" autofocus required />
-          <div *ngIf="
-              registerForm.controls['city'].touched &&
-              !registerForm.controls['city'].valid
-            ">
-            <small *ngIf="registerForm.controls['city'].hasError('required')" style="color:red;">
-              please enter city name
-            </small>
-          </div>
-        </div>
-      </div>
-
-      <div class="col">
-        <div class="form-group">
-          <label for="state"> State </label>
-          <input formControlName="state" type="text" id="state" class="form-control" [(ngModel)]="charityServices.selectedCharity.state" autofocus required />
-          <div *ngIf="
-              registerForm.controls['state'].touched &&
-              !registerForm.controls['state'].valid
-            ">
-            <small *ngIf="registerForm.controls['state'].hasError('required')" style="color:red;">
-             please enter state name
-            </small>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-            <div class="col">
-              <div class="form-group">
-                <label for="phoneNumber"> Contact Number </label>
-                <input formControlName="phoneNumber" type="text" id="phoneNumber" class="form-control" [(ngModel)]="charityServices.selectedCharity.phoneNumber" autofocus required />
-                <div *ngIf="
-                    registerForm.controls['phoneNumber'].touched &&
-                    !registerForm.controls['phoneNumber'].valid
-                  ">
-                  <small *ngIf="registerForm.controls['phoneNumber'].hasError('required')" style="color:red;">
-                    please enter phone number
-                  </small>
-                </div>
-            </div>
-          </div>
-      
-            <div class="col">
-              <div class="form-group">
-                <label for="zipcode"> Pincode </label>
-                <input formControlName="zipcode" type="text" id="zipcode" class="form-control" [(ngModel)]="charityServices.selectedCharity.zipcode" autofocus required />
-                <div *ngIf="
-                    registerForm.controls['zipcode'].touched &&
-                    !registerForm.controls['zipcode'].valid
-                  ">
-                  <small *ngIf="registerForm.controls['zipcode'].hasError('required')" style="color:red;">
-                    Pincode required
-                  </small>
-                </div>
-              </div>
-            </div>
-          </div>
-        <button type="submit" class="btn btn-outline-primary" > Register  </button>
-  </form>
-</div>
- -->
-<div class="container-fluid">
-  <div class="welcome-text text-center">
-    <!-- <div class="col-xs-12"> -->
-    <h2>Register Here</h2>
-    <!-- </div> -->
-  </div>
-  <hr>
+ </pre>
   <div class="container">
-    <form class="form-horizontal" role="form" [formGroup]="registerForm" (ngSubmit)="submitForm()" class="main-form">
-      <div class="row">
-        <div class="col">
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <div class="container">
+            <br>
 
-       
-      <div class="form-group">
-        <label for="charityName" class="">Charity Name</label>
-        <div class="">
-          <input formControlName="charityName" type="text" id="charityName" class="form-control"
-            [(ngModel)]="charityServices.selectedCharity.charityName" autofocus required />
-          <div *ngIf="
-                      registerForm.controls['charityName'].touched &&
-                      !registerForm.controls['charityName'].valid
-                    ">
-            <small *ngIf="registerForm.controls['charityName'].hasError('required')" style="color:red;">
-              Please enter Charity Name
-            </small>
-          </div>
-        </div>
-      </div>
-        </div>
-      
-       <div class="col">
-          <div class="form-group">
-              <label>Charity Logo</label>
-              <div class="form-group">
-                  <span class="input-group-btn">
-                      <span class="btn btn-default btn-file">
-                          Browse… <input type="file" id="imgInp" [(ngModel)]="charityServices.selectedCharity.charityLogos" (change)="onFileSelected($event)">
-                      </span>
-                  </span>
-                  <!-- <input type="text" class="form-control" readonly> -->
+            <h3 class="welcome text-center">Register your charity</h3>
+            <hr>
+            <h5>Charity details</h5>
+            <small>All fields are mandatory</small>
+            <br>
+            <form class="form-horizontal" role="form" [formGroup]="registerForm" (ngSubmit)="submitForm()"
+              class="main-form">
+              <div class="row">
+                <div class="col">
+                  <div class="form-group">
+                    <input formControlName="charityName" placeholder="Charity Name" type="text" id="charityName"
+                      class="form-control" [(ngModel)]="charityServices.selectedCharity.charityName" autofocus
+                      required />
+                    <div *ngIf="
+                registerForm.controls['charityName'].touched &&
+                !registerForm.controls['charityName'].valid
+              ">
+                      <small *ngIf="registerForm.controls['charityName'].hasError('required')" style="color:red;">
+                        Please enter the charity name!
+                      </small>
+                      <!-- <small *ngIf="registerForm.controls['charityName'].hasError('pattern')" style="color:red;">
+                Charity name must contain minimum only 10 and maximum 50 characters!
+                </small> -->
+                    </div>
+                  </div>
+                </div>
               </div>
-              <!-- <img id='img-upload'/> -->
-          </div>
-    </div>
-  </div>
-      <div class="form-group">
-        <label for="description">￼ Charity description </label>
-        <div class="">
-          <textarea formControlName="description" type="text" id="description" class="form-control" rows="3"
-            [(ngModel)]="charityServices.selectedCharity.description" autofocus required></textarea>
-          <div *ngIf="
-                        registerForm.controls['description'].touched &&
-                        !registerForm.controls['description'].valid
+              <div class="row">
+                <div class="col">
+                  <div class="form-group">
+                    <textarea formControlName="description" type="text" placeholder="Description" id="description"
+                      class="form-control" rows="3" [(ngModel)]="charityServices.selectedCharity.description" autofocus
+                      required></textarea>
+                    <div *ngIf="
+                  registerForm.controls['description'].touched &&
+                  !registerForm.controls['description'].valid
+                ">
+                      <small *ngIf="registerForm.controls['description'].hasError('required')" style="color:red;">
+                        Please enter the description!
+                      </small>
+                      <small *ngIf="registerForm.controls['description'].hasError('pattern')" style="color:red;">
+                        Description must contain minimum 50 and maximum 250 characters!
+                      </small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col">
+                  <div class="form-group">
+                    <div class="">
+                      <input formControlName="email" type="text" id="email" placeholder="Email Id" class="form-control"
+                        [(ngModel)]="charityServices.selectedCharity.email" autofocus required />
+                      <div *ngIf="
+                        registerForm.controls['email'].touched &&
+                        !registerForm.controls['email'].valid 
                       ">
-            <small *ngIf="registerForm.controls['description'].hasError('required')" style="color:red;">
-              Please provide some description
-            </small>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col">
-            <div class="form-group">
-                <label for="email">￼ Email Id </label>
-                <div class="">
-                  <input formControlName="email" type="text" id="email" class="form-control"
-                    [(ngModel)]="charityServices.selectedCharity.email" autofocus required />
-                  <div *ngIf="
-                                      registerForm.controls['email'].touched &&
-                                      !registerForm.controls['email'].valid 
-                                    ">
-                    <small *ngIf="registerForm.controls['email'].hasError('required')" style="color:red;">
-                      Please enter the email
-                    </small>
+                        <small *ngIf="registerForm.controls['email'].hasError('required')" style="color:red;">
+                          Please enter the email Id!
+                        </small>
+                        <small *ngIf="registerForm.controls['email'].hasError('pattern')" style="color:red;">
+                          Please enter valid email Id!
+                        </small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-group">
+                    <input formControlName="phoneNumber" type="text" placeholder="Phone number" id="phoneNumber"
+                      class="form-control" [(ngModel)]="charityServices.selectedCharity.phoneNumber" autofocus
+                      required />
+                    <div *ngIf="
+                  registerForm.controls['phoneNumber'].touched &&
+                  !registerForm.controls['phoneNumber'].valid
+                ">
+                      <small *ngIf="registerForm.controls['phoneNumber'].hasError('required')" style="color:red;">
+                        please enter contact number!
+                      </small>
+                      <small *ngIf="registerForm.controls['phoneNumber'].hasError('pattern')" style="color:red;">
+                        please enter valid contact number!
+                      </small>
+                    </div>
                   </div>
                 </div>
               </div>
-        </div>
-        <div class="col">
-            <div class="form-group">
-              <label for="phoneNumber"> Contact Number </label>
-              <input formControlName="phoneNumber" type="text" id="phoneNumber" class="form-control"
-                [(ngModel)]="charityServices.selectedCharity.phoneNumber" autofocus required />
-              <div *ngIf="
-                                  registerForm.controls['phoneNumber'].touched &&
-                                  !registerForm.controls['phoneNumber'].valid
-                                ">
-                <small *ngIf="registerForm.controls['phoneNumber'].hasError('required')" style="color:red;">
-                  please enter phone number
-                </small>
-              </div>
-            </div>
-          </div>
-      </div>
-      
-
-      <div class="form-group">
-        <label for="address">￼ Charity address </label>
-        <div class="">
-          <textarea formControlName="address" type="text" id="address" class="form-control"
-            [(ngModel)]="charityServices.selectedCharity.address" autofocus required rows="3"></textarea>
-          <div *ngIf="
-                              registerForm.controls['address'].touched &&
-                              !registerForm.controls['address'].valid
-                            ">
-            <small *ngIf="registerForm.controls['address'].hasError('required')" style="color:red;">
-              Please provide the address
-            </small>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col">
-            <div class="form-group">
-                <label for="country">￼ Country </label>
-                <div class="">
-                  <input formControlName="country" type="text" id="country" class="form-control"
-                    [(ngModel)]="charityServices.selectedCharity.country" autofocus required />
-                  <div *ngIf="
-                                      registerForm.controls['country'].touched &&
-                                      !registerForm.controls['country'].valid
-                                    ">
-                    <small *ngIf="registerForm.controls['country'].hasError('required')" style="color:red;">
-                      please enter country name
-                    </small>
-                  </div>
-                </div>
-              </div>
-        </div>
-        <div class="col">
-            <div class="form-group">
-              <label for="state"> State </label>
-              <input formControlName="state" type="text" id="state" class="form-control"
-                [(ngModel)]="charityServices.selectedCharity.state" autofocus required />
-              <div *ngIf="
-                            registerForm.controls['state'].touched &&
-                            !registerForm.controls['state'].valid
-                          ">
-                <small *ngIf="registerForm.controls['state'].hasError('required')" style="color:red;">
-                  please enter state name
-                </small>
-              </div>
-            </div>
-          </div>
-      </div>
-
-      
-
-      <div class="row">
-        <div class="col">
-          <div class="form-group">
-            <label for="city"> City </label>
-            <input formControlName="city" type="text" id="city" class="form-control"
-              [(ngModel)]="charityServices.selectedCharity.city" autofocus required />
-            <div *ngIf="
-                          registerForm.controls['city'].touched &&
-                          !registerForm.controls['city'].valid
+              <div class="row">
+                <div class="col">
+                  <div class="form-group">
+                    <div class="">
+                      <input formControlName="taxId" type="text" id="taxId" placeholder="Tax Id" class="form-control"
+                        [(ngModel)]="charityServices.selectedCharity.taxId" autofocus required />
+                      <div *ngIf="
+                          registerForm.controls['taxId'].touched &&
+                          !registerForm.controls['taxId'].valid 
                         ">
-              <small *ngIf="registerForm.controls['city'].hasError('required')" style="color:red;">
-                please enter city name
-              </small>
-            </div>
-          </div>
-        </div>
+                        <small *ngIf="registerForm.controls['taxId'].hasError('required')" style="color:red;">
+                          Please enter the tax Id!
+                        </small>
+                        <small *ngIf="registerForm.controls['taxId'].hasError('pattern')" style="color:red;">
+                          Please enter valid tax Id!
+                        </small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <div class="form-group">
+                    <div class="">
+                      <textarea formControlName="address" type="text" id="address" placeholder="Address "
+                        class="form-control" [(ngModel)]="charityServices.selectedCharity.address" autofocus
+                        required></textarea>
+                      <div *ngIf="
+                          registerForm.controls['address'].touched &&
+                          !registerForm.controls['address'].valid 
+                        ">
+                        <small *ngIf="registerForm.controls['address'].hasError('required')" style="color:red;">
+                          Please enter the address!
+                        </small>
+                        <small *ngIf="registerForm.controls['address'].hasError('pattern')" style="color:red;">
+                          Address must contain minimum 20 characters!
+                        </small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-        <div class="col">
-          <div class="form-group">
-            <label for="zipcode"> Pincode </label>
-            <input formControlName="zipcode" type="text" id="zipcode" class="form-control"
-              [(ngModel)]="charityServices.selectedCharity.zipcode" autofocus required />
-            <div *ngIf="
-                                registerForm.controls['zipcode'].touched &&
-                                !registerForm.controls['zipcode'].valid
-                              ">
-              <small *ngIf="registerForm.controls['zipcode'].hasError('required')" style="color:red;">
-                Pincode required
-              </small>
-            </div>
+              <div class="row">
+                <div class="col">
+                  <div class="form-group">
+                    <div class="">
+                      <input formControlName="country" type="text" id="country" placeholder="Country"
+                        class="form-control" [(ngModel)]="charityServices.selectedCharity.country" autofocus required />
+                      <div *ngIf="
+                            registerForm.controls['country'].touched &&
+                            !registerForm.controls['country'].valid 
+                          ">
+                        <small *ngIf="registerForm.controls['country'].hasError('required')" style="color:red;">
+                          Please enter the country!
+                        </small>
+                        <small *ngIf="registerForm.controls['country'].hasError('pattern')" style="color:red;">
+                          Please enter the valid country!
+                        </small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-group">
+                    <input formControlName="state" type="text" id="state" placeholder="State" class="form-control"
+                      [(ngModel)]="charityServices.selectedCharity.state" autofocus required />
+                    <div *ngIf="
+                      registerForm.controls['state'].touched &&
+                      !registerForm.controls['state'].valid
+                    ">
+                      <small *ngIf="registerForm.controls['state'].hasError('required')" style="color:red;">
+                        Please enter the state!
+                      </small>
+                      <small *ngIf="registerForm.controls['state'].hasError('pattern')" style="color:red;">
+                        Please enter valid state!
+                      </small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <div class="form-group">
+                    <div class="">
+                      <input formControlName="city" type="text" id="city" class="form-control" placeholder="City"
+                        [(ngModel)]="charityServices.selectedCharity.city" autofocus required />
+                      <div *ngIf="
+                              registerForm.controls['city'].touched &&
+                              !registerForm.controls['city'].valid 
+                            ">
+                        <small *ngIf="registerForm.controls['city'].hasError('required')" style="color:red;">
+                          Please enter the city!
+                        </small>
+                        <small *ngIf="registerForm.controls['city'].hasError('pattern')" style="color:red;">
+                          Please enter valid city!
+                        </small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-group">
+                    <input formControlName="zipcode" type="text" id="zipcode" placeholder="Zipcode" class="form-control"
+                      [(ngModel)]="charityServices.selectedCharity.zipcode" autofocus required />
+                    <div *ngIf="
+                        registerForm.controls['zipcode'].touched &&
+                        !registerForm.controls['zipcode'].valid
+                      ">
+                      <small *ngIf="registerForm.controls['zipcode'].hasError('required')" style="color:red;">
+                        Please enter the zipcode!
+                      </small>
+                      <small *ngIf="registerForm.controls['zipcode'].hasError('pattern')" style="color:red;">
+                        Please enter valid zipcode!
+                      </small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <h5>Primary contact details</h5>
+                  <small>All fields are mandatory</small>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <div class="form-group">
+                    <input formControlName="firstName" type="text" placeholder="First name" id="firstName"
+                      class="form-control" [(ngModel)]="charityServices.selectedCharity.firstName" autofocus required />
+                    <div *ngIf="
+                    registerForm.controls['firstName'].touched &&
+                    !registerForm.controls['firstName'].valid
+                  ">
+                      <small *ngIf="registerForm.controls['firstName'].hasError('required')" style="color:red;">
+                        Please enter the first name!
+                      </small>
+                      <!-- <small *ngIf="registerForm.controls['firstName'].hasError('pattern')" style="color:red;">
+                  Please enter valid first name!
+                </small> -->
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-group">
+                    <input formControlName="lastName" type="text" placeholder="Last name" id="lastName"
+                      class="form-control" [(ngModel)]="charityServices.selectedCharity.lastName" autofocus required />
+                    <div *ngIf="
+                        registerForm.controls['lastName'].touched &&
+                        !registerForm.controls['lastName'].valid
+                      ">
+                      <small *ngIf="registerForm.controls['lastName'].hasError('required')" style="color:red;">
+                        Please enter the last name!
+                      </small>
+                      <!-- <small *ngIf="registerForm.controls['lastName'].hasError('pattern')" style="color:red;">
+                  Please enter valid last name!
+                </small> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <div class="form-group">
+
+                    <input formControlName="userEmail" type="text" id="userEmail" placeholder="Email Id"
+                      class="form-control" [(ngModel)]="charityServices.selectedCharity.userEmail" autofocus required />
+                    <div *ngIf="
+                        registerForm.controls['userEmail'].touched &&
+                        !registerForm.controls['userEmail'].valid
+                      ">
+                      <small *ngIf="registerForm.controls['userEmail'].hasError('required')" style="color:red;">
+                        Please enter the email!
+                      </small>
+                      <!-- <small *ngIf="registerForm.controls['userEmail'].hasError('pattern')" style="color:red;">
+                  Please enter the valid email!
+                </small> -->
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-group">
+
+                    <input formControlName="contact" type="text" id="contact" placeholder="Phone Number"
+                      class="form-control" [(ngModel)]="charityServices.selectedCharity.contact" autofocus required />
+                    <div *ngIf="
+                            registerForm.controls['contact'].touched &&
+                            !registerForm.controls['contact'].valid
+                          ">
+                      <small *ngIf="registerForm.controls['contact'].hasError('required')" style="color:red;">
+                        Please enter the phone number!
+                      </small>
+                      <small *ngIf="registerForm.controls['contact'].hasError('pattern')" style="color:red;">
+                        Please enter the valid phone number!
+                      </small>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <div class="row">
+                <div class="col">
+                  <div class="form-group">
+
+                    <textarea formControlName="userAddress" type="text" id="userAddress" placeholder="Address"
+                      class="form-control" [(ngModel)]="charityServices.selectedCharity.userAddress" autofocus
+                      required></textarea>
+                    <div *ngIf="
+                          registerForm.controls['userAddress'].touched &&
+                          !registerForm.controls['userAddress'].valid
+                        ">
+                      <small *ngIf="registerForm.controls['userAddress'].hasError('required')" style="color:red;">
+                        Please enter the address!
+                      </small>
+                      <!-- <small *ngIf="registerForm.controls['userAddress'].hasError('pattern')" style="color:red;">
+                  Address must contain minimum 20 characters!
+                </small> -->
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="col">
+                  <div class="form-group">
+
+                    <input formControlName="pincode" type="text" id="pincode" placeholder="Zipcode" class="form-control"
+                      [(ngModel)]="charityServices.selectedCharity.pincode" autofocus required />
+                    <div *ngIf="
+                            registerForm.controls['pincode'].touched &&
+                            !registerForm.controls['pincode'].valid
+                          ">
+                      <small *ngIf="registerForm.controls['pincode'].hasError('required')" style="color:red;">
+                        Please enter the pincode!
+                      </small>
+                      <small *ngIf="registerForm.controls['pincode'].hasError('pattern')" style="color:red;">
+                        Please enter valid pincode!
+                      </small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <hr>
+              <div class="form-group">
+                <div class="form-check">
+                  <input formControlName="check" class="form-check-input is-invalid" type="checkbox" value="" id="check"
+                    autofocus required>
+                  <label class="form-check-label" for="invalidCheck3">
+                    Agree to terms and conditions
+                  </label>
+                  <div *ngIf="
+                  registerForm.controls['check'].touched &&
+                  registerForm.controls['check'].touched &&
+                  !registerForm.controls['check'].valid
+                ">
+                    <small *ngIf="registerForm.controls['check'].hasError('required')" style="color:red;">
+                      You must agree before submitting.
+                    </small>
+                  </div>
+                    <!-- <div class="invalid-feedback">
+                    You must agree before submitting.
+                  </div> -->
+                  </div>
+                </div>
+                <div class="text-center">
+                  <button type="button" class="btn btn-lg btn-outline-light" (click)="back()">BACK</button>
+                  <input type="submit" class="btn btn-lg btn-outline-light" [disabled]='registerForm.invalid'
+                    value="REGISTER">
+
+                </div>
+            </form>
+            <br>
           </div>
         </div>
       </div>
-      <div class="col text-center">
-      <button type="submit" class="btn btn-outline-primary"> Register </button>
     </div>
-    </form>
-    <hr>
   </div>
 </div>
+
+<app-footer></app-footer>

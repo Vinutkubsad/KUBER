@@ -3,7 +3,11 @@
     margin-top:15px;
  }
  .container{
-     font-family: 'Poppins', sans-serif;
+     font-family: 'lato', sans-serif;
+ }
+ .title{
+     font-size: 2rem;
+     font-weight: 700;
  }
  .form-control{
      width:20%;
@@ -36,6 +40,7 @@
      color: white;
      padding: 15px;
      background: rgb(106, 208, 226);
+     background-image: linear-gradient(to left top(rgb(106, 208, 226), to bottom(rgb(45, 238, 196))));
 
  }
 
