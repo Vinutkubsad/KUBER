@@ -74,6 +74,11 @@ small{
 .form-check-label{
   color: black !important;
 }
+.image-upload img
+{
+width: 80px;
+cursor: pointer;
+}
 .image-upload > input
 {
     display: none;

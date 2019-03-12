@@ -58,3 +58,15 @@
     color:rgb(106, 208, 226);
     font-family: 'poppins';
 }
+.btn-outline-light{
+    border-radius: 0%;
+    border-color: rgb(106, 208, 226);
+}
+.btn-outline-light:hover{
+    border-radius: 0%;
+    border-color: rgb(106, 208, 226);
+    background: rgb(106, 208, 226);
+}
+.btn-outline:onClick{
+    border-color: rgb(106, 208, 226);
+}
