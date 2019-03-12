@@ -16,7 +16,13 @@ export class SignUpComponent implements OnInit {
 
   registerForm: FormGroup;
 
-
+  
+  // charityLogoFile: any;
+  charityLogoFile: File = null;
+  charityLogos(event){
+  // console.log(event.target.files);
+  this.charityLogoFile = event.target.files[0];
+  }
 
   constructor(private router: Router, private fb: FormBuilder, public charityServices: DataService) { 
 
@@ -75,6 +81,7 @@ export class SignUpComponent implements OnInit {
 
   submitForm() {
     if (this.registerForm.valid) {
+      const formData = this.createFormData(this.registerForm.value);
       this.charityServices
         .registerCharity(this.registerForm.value)
         .subscribe((res) => {
@@ -92,29 +99,15 @@ export class SignUpComponent implements OnInit {
     }
   }
 
-  // submitForm(){
-  //   var data = {
-  //     "charityName":this.charityServices.selectedCharity.charityName,
-  //     "description":this.charityServices.selectedCharity.description,
-  //     "email":this.charityServices.selectedCharity.email,
-  //     "phoneNumber":this.charityServices.selectedCharity.phoneNumber,
-  //     "taxId":this.charityServices.selectedCharity.taxId,
-  //     "address":this.charityServices.selectedCharity.address,
-  //     "country":this.charityServices.selectedCharity.country,
-  //     "state":this.charityServices.selectedCharity.state,
-  //     "city":this.charityServices.selectedCharity.city,
-  //     "zipcode":this.charityServices.selectedCharity.zipcode,
-  //     "firstName":this.charityServices.selectedCharity.firstName,
-  //     "lastName":this.charityServices.selectedCharity.lastName,
-  //     "userEmail":this.charityServices.selectedCharity.userEmail,
-  //     "contact":this.charityServices.selectedCharity.contact,
-  //     "userAddress":this.charityServices.selectedCharity.userAddress,
-  //     "pincode":this.charityServices.selectedCharity.pincode
-  // }
-  // this.charityServices.registerCharity(data).subscribe((Response:any)=>{
-  //   console.log(Response); 
-  // });
-  // }
+  createFormData(formValues) {
+    const formData = new FormData();
+    Object.keys(formValues).map((key) => {
+    formData.append(key, formValues[key]);
+    });
+    formData.append('charityLogos', this.charityLogoFile);
+    console.log('formData', formData);
+    return formData;
+    }
 
   login() {
     this.router.navigate(['/signin']);
