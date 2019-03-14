@@ -53,8 +53,10 @@ export class SignInComponent implements OnInit {
   loginSubmit() {
     var data = { "email": this.service.charityLogin.email, "password": this.service.charityLogin.password }
     this.service.CharityLogin(data).subscribe((response: any) => {
+      console.log(response);
       if(response) {
         localStorage.setItem("jwt","true");
+        localStorage.setItem('user',response.result.resp['_id']); 
         this.resetForm();
         // this.router.navigate(['dashboard/summary']);
       }

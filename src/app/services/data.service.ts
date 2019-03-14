@@ -75,6 +75,20 @@ export class DataService {
     return this.http.post(url, data);
   }
 
-  
+  getCharityById(id) {
+    const httpOption = {
+      headers: new HttpHeaders({ 'Authorization': localStorage.getItem('jwt'), 'Content-Type': 'application/json' })
+    }
+    let url = AppSettings.BASE_URL + AppSettings.GET_CHARITY_ID + id;
+    return this.http.get(url, httpOption);
+  }
+
+  editProfile(data, id) {
+    const httpOption = {
+      headers: new HttpHeaders({  'Authorization': localStorage.getItem('jwt')  })
+    }
+    let url = AppSettings.BASE_URL + AppSettings.EDIT_CHARITY + id;
+    return this.http.post(url,data,httpOption);
+  }
 }
 

@@ -49,7 +49,6 @@ export class SignUpComponent implements OnInit {
       taxId: [null, [Validators.required, Validators.pattern('^[A-Z0-9]{10}$')]],
       userEmail: [null,[Validators.required]],
       check:[null,Validators.required]
-
     });
   }
 

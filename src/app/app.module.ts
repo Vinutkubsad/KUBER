@@ -61,7 +61,7 @@ import { ProfileComponent } from './dashboard/profile/profile.component';
     ActivitiesComponent,
     PledgesComponent,
     HelpComponent,
-    ProfileComponent
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,

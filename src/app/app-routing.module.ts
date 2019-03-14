@@ -32,7 +32,7 @@ children:[
 { path:'activities', component:ActivitiesComponent },
 { path: 'pledges', component:PledgesComponent },
 { path: 'help', component:HelpComponent },
-{ path: 'profile', component:ProfileComponent }
+{ path: 'profile/:id', component:ProfileComponent }
 ] },
   
   { path: "", redirectTo: "home", pathMatch: "full" }
