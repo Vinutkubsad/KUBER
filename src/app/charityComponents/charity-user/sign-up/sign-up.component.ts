@@ -15,8 +15,8 @@ import { DataService } from 'src/app/services/data.service';
 export class SignUpComponent implements OnInit {
 
   registerForm: FormGroup;
+  path: any;
 
-  
   // charityLogoFile: any;
   charityLogoFile: File = null;
   charityLogos(event){
@@ -24,8 +24,9 @@ export class SignUpComponent implements OnInit {
   this.charityLogoFile = event.target.files[0];
   }
 
-  constructor(private router: Router, private fb: FormBuilder, public charityServices: DataService) { 
-
+  constructor(private router: Router, private fb: FormBuilder, public charityServices: DataService) {
+    this.path = this.router.url;
+    console.log(this.path);
   }
 
   ngOnInit(): void {
@@ -86,6 +87,8 @@ export class SignUpComponent implements OnInit {
         .subscribe((res) => {
           if (res) {
             console.log(res);
+            // if(this.flag){
+            // }
             swal("Great!","Succefully registered your charity", "success");
             this.registerForm.reset();
           } else {
@@ -118,6 +121,11 @@ export class SignUpComponent implements OnInit {
   // navigateLogin() {
   //   this.router.navigate(['signup']);
   // }
+  Setup() {
+    this.charityServices.setupStripe().subscribe((res)=>{
+      console.log(res,'stripe');
+    })
+  }
 
 }
 

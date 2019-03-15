@@ -61,7 +61,7 @@ export class SignInComponent implements OnInit {
         // this.router.navigate(['dashboard/summary']);
       }
       localStorage.setItem('jwt', response.result.jwt); 
-      this.router.navigate(['dashboard/summary']);  
+      this.router.navigate(['dashboard/stripePayment']);  
     });
     if(error){
      

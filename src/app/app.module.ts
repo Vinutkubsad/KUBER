@@ -34,6 +34,8 @@ import { ActivitiesComponent } from './dashboard/activities/activities.component
 import { PledgesComponent } from './dashboard/pledges/pledges.component';
 import { HelpComponent } from './dashboard/help/help.component';
 import { ProfileComponent } from './dashboard/profile/profile.component';
+import { StripePaymentComponent } from './charityComponents/charity-user/stripe-payment/stripe-payment.component';
+import { StripeRespondComponent } from './charityComponents/charity-user/stripe-respond/stripe-respond.component';
 
 
 
@@ -62,6 +64,8 @@ import { ProfileComponent } from './dashboard/profile/profile.component';
     PledgesComponent,
     HelpComponent,
     ProfileComponent,
+    StripePaymentComponent,
+    StripeRespondComponent,
   ],
   imports: [
     BrowserModule,
