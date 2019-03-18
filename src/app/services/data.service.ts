@@ -91,18 +91,26 @@ export class DataService {
     return this.http.post(url,data,httpOption);
   }
 
-  stipeDetail(data, code){
+  stipeDetail(code){
     const httpOption = {
       headers: new HttpHeaders({  'Authorization': localStorage.getItem('jwt')  })
     }
     let url = AppSettings.BASE_URL + AppSettings.STIPE_ID + "?code=" + code;
-    return this.http.post(url + "?code" + code, data)
+    return this.http.post(url + "?code" + code, httpOption)
   }
   
-  setupStripe() {
-    let url = "https://connect.stripe.com/express/oauth/authorize?redirect_uri=https://stripe.com/connect/default/oauth/test&client_id=ca_EeCnGZY8hOVM2FWVI5sKxCS2gsXPZm1I&state={STATE_VALUE}";
-    return this.http.get(url);
-  }
+
+  // stipeDetail(stripe_id){
+  //   const httpOption = {
+  //     headers: new HttpHeaders({  'Authorization': localStorage.getItem('jwt')  })
+  //   }
+  //   let url = AppSettings.BASE_URL + AppSettings.STIPE_ID;
+  //   return this.http.post(url,stripe_id);
+  // }
+  // setupStripe() {
+  //   let url = "https://connect.stripe.com/express/oauth/authorize?redirect_uri=https://stripe.com/connect/default/oauth/test&client_id=ca_EeCnGZY8hOVM2FWVI5sKxCS2gsXPZm1I&state={STATE_VALUE}";
+  //   return this.http.get(url);
+  // }
   // localhost:3001/v1/charities/authorize?code=ac_Eh0zUZOG8ahHzZ6QgzQqPsho7ZZW350r 
 }
 

@@ -121,11 +121,11 @@ export class SignUpComponent implements OnInit {
   // navigateLogin() {
   //   this.router.navigate(['signup']);
   // }
-  Setup() {
-    this.charityServices.setupStripe().subscribe((res)=>{
-      console.log(res,'stripe');
-    })
-  }
+  // Setup() {
+  //   this.charityServices.setupStripe().subscribe((res)=>{
+  //     console.log(res,'stripe');
+  //   })
+  // }
 
 }
 

@@ -7,7 +7,7 @@
       </div>
       <div class="col-12">
         <div class="row">
-          <div class="form-group form-inline col-6">
+          <div class="form-group form-inline col-4">
             <input class="form-control ml-2" type="text" [formControl]="filter" placeholder="Seach" />
           </div>
           <div class="col">
@@ -17,9 +17,9 @@
                 Payment Report
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Donations</a>
-                <a class="dropdown-item" href="#">Payouts</a>
-                <a class="dropdown-item" href="#">Refunds</a>
+                <a class="dropdown-item" (click)="donations()">Donations</a>
+                <a class="dropdown-item" (click)="payouts()">Payouts</a>
+                <a class="dropdown-item" (click)="refunds()">Refunds</a>
               </div>
             </div>
           </div>
@@ -27,11 +27,29 @@
             <div class="dropdown">
               <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
-                Search by date
+                Find by days
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Past 30 days</a>
-                <a class="dropdown-item" href="#">Past 90 days</a>
+                <a class="dropdown-item">30 days</a>
+                <a class="dropdown-item">90 days</a>
+                <a class="dropdown-item">1year</a>
+                <a class="dropdown-item">2year</a>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Find by date
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <div class="date-form">
+                  <label for="from-date"> From Date </label>
+                  <input type="date" name="" id="from-date">
+                  <label for="to-dste"> To date </label>
+                  <input type="date" name="" id="to-date">
+                </div>
               </div>
             </div>
           </div>
@@ -43,10 +61,15 @@
             <table class="table">
               <thead>
                 <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">First</th>
-                  <th scope="col">Last</th>
-                  <th scope="col">Handle</th>
+                  <th scope="col">Date</th>
+                  <th scope="col">Type</th>
+                  <th scope="col">User name</th>
+                  <th scope="col">Donation status</th>
+                  <th scope="col">Donation status</th>
+                  <th scope="col">Total amout paid</th>
+                  <th scope="col">Fees</th>
+                  <th scope="col">Net Ammount</th>
+                  <th scope="col">Balance</th>
                 </tr>
               </thead>
               <tbody>

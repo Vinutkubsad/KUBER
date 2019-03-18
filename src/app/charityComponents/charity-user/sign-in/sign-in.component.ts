@@ -60,7 +60,7 @@ export class SignInComponent implements OnInit {
         this.resetForm();
         // this.router.navigate(['dashboard/summary']);
       }
-      localStorage.setItem('jwt', response.result.jwt); 
+      localStorage.setItem('jwt', response.result.resp.jwt); 
       this.router.navigate(['dashboard/stripePayment']);  
     });
     if(error){

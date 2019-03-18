@@ -20,7 +20,7 @@
     "@angular/platform-browser": "~7.1.0",
     "@angular/platform-browser-dynamic": "~7.1.0",
     "@angular/router": "~7.1.0",
-    "@ng-bootstrap/ng-bootstrap": "^4.0.4",
+    "@ng-bootstrap/ng-bootstrap": "^4.1.0",
     "angular-datatables": "^7.0.0",
     "bootstrap": "^4.3.1",
     "bootstrap-sweetalert": "^1.0.1",
