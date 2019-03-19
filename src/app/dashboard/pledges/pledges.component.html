@@ -12,7 +12,7 @@
               <div class="col-12">
             <div class="searchBar">
               <div class="row ">
-                <input type="text" class="form-control ml-auto"[(ngModel)]="searchText" placeholder="Search">           
+                <!-- <input type="text" class="form-control ml-auto"[(ngModel)]="searchText" placeholder="Search">            -->
               </div>
             </div>
             <br>
@@ -39,7 +39,8 @@
                     </a>
                   
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                      <button class="dropdown-item" class="btn btn-outline" (click)="nextMonth()">Next Month</button>
+                      <!-- <button class="dropdown-item" class="btn btn-outline" (click)="nextMonth()">Next Month</button> -->
+                      <a class="dropdown-item" href="#">Next Month</a>
                       <a class="dropdown-item" href="#">Next Quarter</a>
                       <a class="dropdown-item" href="#">2019</a>
                       <a class="dropdown-item" href="#">2020</a>
@@ -78,11 +79,9 @@
                   </tbody>
                 </table>
                 <hr>
-
-                <ngb-pagination class="d-flex justify-content-end" [collectionSize]="70" [(page)]="page"></ngb-pagination>
               </div>
             </div>
-            <div class="col-3">
+            <!-- <div class="col-3">
               <div class="card narrow text-center">
                 <div class="card-title">
                   Total pledges
@@ -91,7 +90,7 @@
                   12678
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>

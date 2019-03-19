@@ -1,6 +1,6 @@
 .container-fluid{
     /* background-image: url('../../../../assets/Images/login.jpeg'); */
-    height: 100vh;
+    height: 70vh;
     background-position: center;
     background-size: cover;
     opacity: .9;
@@ -37,7 +37,7 @@
     padding: 3rem;
     /* background-color: rgb(8, 7, 7); */
     opacity: 0.9;
-    margin-top: 30%;
+    margin-top: 10%;
     border-radius: 0%;
     width: 450px;
 }

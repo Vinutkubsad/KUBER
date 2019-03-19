@@ -45,19 +45,19 @@ padding-right: .7rem;
   max-width: 100%;
   position: absolute;
   top: 150px;
-  height: 55vh;
+  height: 350px;
   z-index: 1;
   color: rgb(232, 238, 238);
   text-transform: uppercase;
-  border-bottom-left-radius: 100px;
-  border-bottom-right-radius: 100px;
+  border-top-left-radius: 250px;
+  border-bottom-right-radius: 350px;
   background-image:  linear-gradient(rgb(13, 184, 184), rgb(21, 201, 171), rgb(27, 208, 221)); 
 }
 .caption h1{
   font-size: 3.2rem;
   font-weight: 900;
   letter-spacing: .1rem;
-  margin-left: 50px;
+  /* margin-left: 50px; */
   margin-top: 60px;
   /* text-shadow: .1rem .1rem .8rem ; */
   /* padding-bottom: 1rem; */
@@ -67,7 +67,7 @@ padding-right: .7rem;
   font-weight: 500;
   letter-spacing: .1rem;
   padding-bottom: 1.6rem;
-  margin-left: 190px;
+  /* margin-left: 190px; */
   
 }
 .caption button {
@@ -78,7 +78,7 @@ padding-right: .7rem;
       font-weight: 700;
       background: white  !important;
       color: rgb(15, 228, 217) ;
-      margin-left: 255px;
+      /* margin-left: 255px; */
 }
 .btn-lg{
   border-radius:25px ;
@@ -187,9 +187,9 @@ margin-right: 0px!important;
     width:100%;
     max-width: 100%;
     /* position: absolute; */
-    margin-top: 20px;
+    margin-top: 100px;
     z-index: 1;
-    color:rgb(32, 32, 32);
+    color:rgb(53, 52, 52);
     text-transform: uppercase;
     /* text-shadow: .1rem .1rem .8rem ; */
     padding-bottom: 1rem;
@@ -220,7 +220,7 @@ margin-right: 0px!important;
     border-style: double ;
     background-color: rgb(255, 255, 255); */
     /* background-color: rgb(180, 29, 218); */
-    margin-top: 160px;
+    /* margin-top: 160px; */
 }
 .jumbotron{
   /* background-color: rgb(27, 223, 223); */
