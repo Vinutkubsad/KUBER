@@ -29,6 +29,9 @@ export class SignUpComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    
+
     this.resetForm();
     this.registerForm = this.fb.group({
       charityName: [null, [Validators.required]],

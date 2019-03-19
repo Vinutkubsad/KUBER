@@ -10,4 +10,7 @@ export class AppSettings{
     public static CHARITY_LOGIN = '/v1/charities/login';
     public static SEARCH_REPORT='/v1/charityAdmin/searchReports';
     public static SEND_MESSAGE= '/v1/userDetails/adminhelp';
+    public static PLEDGES_LIST='/v1/gift/pledgeDetails';
+    public static BALANCE = '/v1/charityAdmin/connectedBalance';
+
 }

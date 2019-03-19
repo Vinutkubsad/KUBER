@@ -74,7 +74,21 @@ export class DataService {
     let url = AppSettings.BASE_URL + AppSettings.SEND_MESSAGE;
     return this.http.post(url, data);
   }
-
-  
+ 
+  allPledges(){
+    const httpOption = {
+      headers: new HttpHeaders({ 'Authorization': localStorage.getItem('jwt') })
+    }
+    let url = AppSettings.BASE_URL + AppSettings.PLEDGES_LIST;
+    return this.http.get(url,httpOption);
+  }
+   
+   balance(){
+    const httpOption = {
+      headers: new HttpHeaders({ 'Authorization': localStorage.getItem('jwt') })
+    }
+    let url = AppSettings.BASE_URL + AppSettings.BALANCE;
+    return this.http.get(url,httpOption);
+   }
 }
 

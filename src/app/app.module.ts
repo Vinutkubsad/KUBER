@@ -34,6 +34,16 @@ import { ActivitiesComponent } from './dashboard/activities/activities.component
 import { PledgesComponent } from './dashboard/pledges/pledges.component';
 import { HelpComponent } from './dashboard/help/help.component';
 import { ProfileComponent } from './dashboard/profile/profile.component';
+import { MessagingService } from './services/messaging.service';
+import { AsyncPipe } from '@angular/common';
+import { AngularFireMessagingModule } from '@angular/fire/messaging';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireModule } from '@angular/fire'; 
+import { environment } from '../environments/environment';
+import { FilterPipe} from './filter.pipe';
+
+
 
 
 
@@ -61,7 +71,8 @@ import { ProfileComponent } from './dashboard/profile/profile.component';
     ActivitiesComponent,
     PledgesComponent,
     HelpComponent,
-    ProfileComponent
+    ProfileComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
@@ -75,10 +86,14 @@ import { ProfileComponent } from './dashboard/profile/profile.component';
     // BsDatepickerModule.forRoot(),
     // ModalModule.forRoot(),
     NgbModule,
-    NgbPaginationModule
+    NgbPaginationModule,
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
+    AngularFireMessagingModule,
+    AngularFireModule.initializeApp(environment.firebase),
     
   ],
-  providers: [DataService,AuthGaurd,AuthGaurd1],
+  providers: [DataService,AuthGaurd,AuthGaurd1,MessagingService,AsyncPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

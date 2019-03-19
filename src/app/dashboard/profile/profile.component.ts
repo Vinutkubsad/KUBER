@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MessagingService } from 'src/app/services/messaging.service';
+// import { MessagingService } from "../../services/";
 
 @Component({
   selector: 'app-profile',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+  message;
+
+  constructor(private messagingService: MessagingService) { }
 
   ngOnInit() {
+    const userId = 'user001';
+    this.messagingService.requestPermission(userId)
+    this.messagingService.receiveMessage()
+    this.message = this.messagingService.currentMessage;
+    console.log();
+    
   }
-
 }
+
+

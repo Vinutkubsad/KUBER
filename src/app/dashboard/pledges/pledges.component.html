@@ -1,3 +1,100 @@
-<p>
-  pledges works!
-</p>
+<div class="container-fluid padding">
+  <div class="container">
+    <div class="row welcome ">
+      <div class="col-12" style="color:rgb(106, 208, 226);">
+        <h4 class="title">Pledges</h4>
+        <hr>
+      </div>
+      <div class="container padding">
+        <div class="col-12">
+          <div class="form-group">
+            <div class="row">
+              <div class="col-12">
+            <div class="searchBar">
+              <div class="row ">
+                <input type="text" class="form-control ml-auto"[(ngModel)]="searchText" placeholder="Search">           
+              </div>
+            </div>
+            <br>
+          </div>
+          <div class="col">
+              <div class="dropdown">
+                  <button class="btn btn-outline dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Frequency
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">Weekly</a>
+                    <a class="dropdown-item" href="#">Biweekly</a>
+                    <a class="dropdown-item" href="#">Monthly</a>
+                    <a class="dropdown-item" href="#">Quarterly</a>
+                    <a class="dropdown-item" href="#">Semi-annually</a>
+                    <a class="dropdown-item" href="#">Annually</a>
+                  </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="dropdown">
+                    <a class="btn btn-outline dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Date
+                    </a>
+                  
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <button class="dropdown-item" class="btn btn-outline" (click)="nextMonth()">Next Month</button>
+                      <a class="dropdown-item" href="#">Next Quarter</a>
+                      <a class="dropdown-item" href="#">2019</a>
+                      <a class="dropdown-item" href="#">2020</a>
+                      
+                    </div>
+                  </div>
+            </div>
+        </div>
+            <br>
+            <div class="container padding">
+              <div class="row">
+               
+               
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-9">
+              <div class="table-responsive">
+                <table class="table">
+                  <thead class="thead">
+                    <tr>
+                      <th>Name</th>
+                      <th>Frequency</th>
+                      <th>Net Amount</th>
+                      <th>Date</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor=" let p of pledges ;">
+                      <td>{{p.userDetails.Name }}</td>
+                      <td>{{p.interval}}</td>
+                      <td>{{p.amount}}</td>
+                      <td>{{p.startDate | date}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <hr>
+
+                <ngb-pagination class="d-flex justify-content-end" [collectionSize]="70" [(page)]="page"></ngb-pagination>
+              </div>
+            </div>
+            <div class="col-3">
+              <div class="card narrow text-center">
+                <div class="card-title">
+                  Total pledges
+                </div>
+                <div class="card-body">
+                  12678
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

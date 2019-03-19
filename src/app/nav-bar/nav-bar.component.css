@@ -3,14 +3,13 @@
   font-weight: 700;
   font-size: 0.9rem;
   letter-spacing: .1rem;
-  background: rgba(0,0,0,0.6) !important;
-  background:transparent !important;
+  background:white !important;
   opacity: .9;
 }
 .navbar-brand img{
   height: 6rem;
   width: 6rem;
-  border-radius: 50%;
+ 
 }
 .navbar-nav li{
 padding-right: .7rem;

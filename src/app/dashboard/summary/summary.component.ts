@@ -1,11 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
 import { Router } from '@angular/router';
+import * as jsPDF from 'jspdf';
+import 'jspdf-autotable';
 
 @Component({
   selector: 'app-summary',
   templateUrl: './summary.component.html',
-  styleUrls: ['./summary.component.css']
+  styleUrls: ['./summary.component.css'],
+  providers: [
+    { provide: 'Window',  useValue: window }
+  ]
 })
 export class SummaryComponent implements OnInit {
 
@@ -22,6 +27,7 @@ export class SummaryComponent implements OnInit {
   public pageSize: number;
   public flag: any = false;
 
+
   public pagination = {
     currentPage: 1,
     noOfItemsPerPage: 10,
@@ -31,7 +37,7 @@ export class SummaryComponent implements OnInit {
   }
 
 
-  constructor(private service: DataService, private router: Router) { }
+  constructor(private service: DataService, private router: Router,@Inject('Window') private window: Window) { }
   setPage(i) {
     this.page = i;
     this.getReports();
@@ -39,6 +45,7 @@ export class SummaryComponent implements OnInit {
 
   ngOnInit() {
     this.getReports();
+    this.balance();
   }
   doPagination(itemsPerPage, total_pages, totalCount, pageNo, per_page) {
     // console.log(this.pages, itemsPerPage, total_pages, totalCount, per_page);
@@ -55,7 +62,7 @@ export class SummaryComponent implements OnInit {
   getReports() {
     this.service.getReport(this.page, this.amount, this.date, this.status).subscribe((Response: any) => {
       console.log(Response);
-      
+      // this.length = Response.result.itemsPerPage;
       this.payments = Response.result.paginatedItems;
       this.doPagination(Response.result.itemsPerPage, Response.result.total_pages, Response.result.totalCount, Response.result.pageNo, Response.result.per_page)
     })
@@ -115,5 +122,21 @@ export class SummaryComponent implements OnInit {
       this.date = undefined;
       this.getReports();
     }
+  }
+
+  balance(){
+    this.service.balance().subscribe((Response:any)=>{
+      console.log(Response);
+    })
+  }
+  download(){
+    var doc = new jsPDF();
+        doc.text(20, 20, 'Hello world!');
+        doc.text(20, 30, 'This is client-side Javascript, pumping out a PDF.');
+        doc.addPage();
+        doc.text(20, 20, 'Do you like that?');
+       doc.text(20,20,'getReports') 
+        // Save the PDF
+        doc.save('Test.pdf');
   }
 }

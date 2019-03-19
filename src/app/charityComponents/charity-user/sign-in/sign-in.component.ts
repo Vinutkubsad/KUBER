@@ -56,6 +56,7 @@ export class SignInComponent implements OnInit {
       if(response) {
         localStorage.setItem("jwt","true");
         this.resetForm();
+        console.log(response);
         // this.router.navigate(['dashboard/summary']);
       }
       localStorage.setItem('jwt', response.result.jwt); 
