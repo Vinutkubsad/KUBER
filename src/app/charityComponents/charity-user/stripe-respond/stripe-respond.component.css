@@ -1,0 +1,15 @@
+p {
+  box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+  /* border: 1px solid black; */
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 5rem;
+}
+
+
+button {
+  margin: 20px;
+  padding: 10px 20px 10px 20px;
+}

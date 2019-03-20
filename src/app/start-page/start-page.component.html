@@ -1,200 +1,207 @@
 <body data-spy="scroll" data-target="#navbarResponsive">
- 
-    <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
-      <a class="navbar-brand" href="#"><img src="../../assets/Images/Logo with Background.png" width="60"
-          height="60"></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
-        <!-- aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"> -->
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item ">
-            <a class="nav-link " href="#home">Home </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="#about">ABOUT US </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="#letstalk">Let's talk </a>
-          </li>
-          <li class="nav-item ">
-            <button type="button" class="btn btn-lg" (click)="Login() ">LOGIN</button>
-          </li>
-        </ul>
-      </div>
-    </nav>
-    <div id="home">
+
+  <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
+    <a class="navbar-brand" href="#"><img src="../../assets/Images/Logo with Background.png" width="60" height="60"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+      <!-- aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"> -->
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item ">
+          <a class="nav-link " href="#home">Home </a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="#about">ABOUT US </a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="#letstalk">Let's talk </a>
+        </li>
+        <li class="nav-item ">
+          <button type="button" class="btn btn-lg" (click)="Login() ">LOGIN</button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div id="home">
     <div class="landing">
       <div class="home-wrap">
         <div class="home-inner">
 
+          <!-- intoduction -->
+          <!-- <section id="intro" class="clearfix">
+      <div class="container">
+  
+        <div class="intro-img">
+          <img src="img/intro-img.svg" alt="" class="img-fluid">
+        </div> -->
         </div>
+      </div>
+
+      <div class="caption text-center narrow ">
+        <h1>WELCOME TO QUBER</h1>
+        <h2>GIVING MADE EASIER</h2>
+        <button class="btn btn-outline-light btn-lg" (click)="register()">REGISTER YOUR
+          CHARITY</button>
       </div>
     </div>
 
-    <div class="caption text-center narrow ">
-      <h1>WELCOME TO QUBER</h1>
-      <h2>GIVING MADE EASIER</h2>
-      <button class="btn btn-outline-light btn-lg" (click)="register()">REGISTER YOUR
-        CHARITY</button>
-    </div>
-  </div>
+    <div id="about" class="offset">
+      <div class="jumbotron-fluid">
+        <!-- <i class="fas fa-hand-holding-heart fa-7x"></i> -->
+        <div class="col narrow text-center">
+          <h1 class="head">ABOUT US</h1>
+          <div class="row">
+            <div class="col">
+              <div class="card text">
+                <p>We help you keep track of donations for financial planning and tax deductions </p>
+              </div>
+            </div>
+            <br>
+            <div class="col">
+              <div class="card text">
+                <p>We provide timelines that help you with donations so that the process does not become cumbersome</p>
+              </div>
+            </div>
+            <br>
+            <div class="col">
+              <div class="card text">
+                <p>We provide details of all different charities building trust between donar and the charity</p>
+              </div>
+            </div>
 
-  <div id="about" class="offset">
-    <div class="jumbotron-fluid">
-      <!-- <i class="fas fa-hand-holding-heart fa-7x"></i> -->
-      <div class="col narrow text-center">
-        <h1 class="head">ABOUT US</h1>
-        <div class="row">
-          <div class="col">
-            <div class="card text">
-              <p>We help you keep track of donations for financial planning and tax deductions </p>
-            </div>
           </div>
-          <br>
-          <div class="col">
-            <div class="card text">
-              <p>We provide timelines that help you with donations so that the process does not become cumbersome</p>
-            </div>
-          </div>
-          <br>
-          <div class="col">
-            <div class="card text">
-              <p>We provide details of all different charities building trust between donar and the charity</p>
-            </div>
-          </div>
-
-        </div>
-        <pre>
+          <pre>
 
 
 
 
         </pre>
-        <div class="row ">
-          <div class="col narrow text-center welcome">
-            <h1>QUBER'S DIGITAL SOLUTION</h1>
-          </div>
-        </div>
-        <div class="col narrow text-center">
-          <h2 class="sub">CHECK OUT OUR MOBILE APP</h2>
-        </div>
-        <div class="row">
-          <div class="col">
-            <p class="header">Make Donations</p>
-            <div class="card icons">
-              <i class="fas fa-hand-holding-heart fa-5x"></i>
+          <div class="row ">
+            <div class="col narrow text-center welcome">
+              <h1>QUBER'S DIGITAL SOLUTION</h1>
             </div>
           </div>
-          <div class="col">
-            <p class="header">Keep Track of Donations</p>
-            <div class="card icons">
-              <i class="fas fa-redo-alt fa-5x"></i>
+          <div class="col narrow text-center">
+            <h2 class="sub">CHECK OUT OUR MOBILE APP</h2>
+          </div>
+          <div class="row">
+            <div class="col">
+              <p class="header">Make Donations</p>
+              <div class="card icons">
+                <i class="fas fa-hand-holding-heart fa-5x"></i>
+              </div>
+            </div>
+            <div class="col">
+              <p class="header">Keep Track of Donations</p>
+              <div class="card icons">
+                <i class="fas fa-redo-alt fa-5x"></i>
+              </div>
+            </div>
+            <div class="col">
+              <p class="header">Set Goals and Reminders</p>
+              <div class="card icons">
+                <i class="fas fa-clipboard-list fa-5x"></i>
+              </div>
             </div>
           </div>
-          <div class="col">
-            <p class="header">Set Goals and Reminders</p>
-            <div class="card icons">
-              <i class="fas fa-clipboard-list fa-5x"></i>
-            </div>
-          </div>
+
         </div>
       </div>
     </div>
-  </div>
-<pre>
+    <pre>
 
 </pre>
-<br>
-  <div id="letstalk" class="offset">
-    <div class="container-fluid">
-      <div class="col-12 narrow text-center">
-        <br>
-        <h1 class="title">LET'S TALK</h1>
+    <br>
+    <div id="letstalk" class="offset">
+      <div class="container-fluid">
+        <div class="col-12 narrow text-center">
+          <br>
+          <h1 class="title">LET'S TALK</h1>
 
-        <div class=" row narrow justify-content-center">
-          <div class="col-md-6 ">
-            <br>
-            <form id="contact-form" [formGroup]="contactForm" (ngSubmit)="submitDetails()">
-              <div class="row">
-                <!-- <h4>Please fill the details. We will contact you soon.</h4> -->
-                <div class="col text-left">
-                  <div class="form-group">
-                    <div class="controls">
-                      <input id="name" formControlName="name" placeholder="Full Name" class="form-control requiredField"
-                        data-new-placeholder="Your name" type="text" [(ngModel)]="service.contact.name" required>
+          <div class=" row narrow justify-content-center">
+            <div class="col-md-6 ">
+              <br>
+              <form id="contact-form" [formGroup]="contactForm" (ngSubmit)="submitDetails()">
+                <div class="row">
+                  <!-- <h4>Please fill the details. We will contact you soon.</h4> -->
+                  <div class="col text-left">
+                    <div class="form-group">
+                      <div class="controls">
+                        <input id="name" formControlName="name" placeholder="Full Name"
+                          class="form-control requiredField" data-new-placeholder="Your name" type="text"
+                          [(ngModel)]="service.contact.name" required>
 
-                      <div class="val" *ngIf="
+                        <div class="val" *ngIf="
                     contactForm.controls['name'].touched &&
                     !contactForm.controls['name'].valid
                   ">
-                        <small *ngIf="contactForm.controls['name'].hasError('required')">
-                          Please enter the name!
-                        </small>
-                        <small *ngIf="contactForm.controls['name'].hasError('pattern')">
-                          Please enter valid name!
-                        </small>
+                          <small *ngIf="contactForm.controls['name'].hasError('required')">
+                            Please enter the name!
+                          </small>
+                          <small *ngIf="contactForm.controls['name'].hasError('pattern')">
+                            Please enter valid name!
+                          </small>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div class="col">
-                  <div class="form-group">
-                    <div class=" controls">
-                      <input id="email" formControlName="email" placeholder="Email" class="form-control requiredField"
-                        data-new-placeholder="Your email" type="text" [(ngModel)]="service.contact.email" required>
-                      <!-- <i class="fa fa-envelope"></i> -->
-                      <div class="val" *ngIf="
+                  <div class="col">
+                    <div class="form-group">
+                      <div class=" controls">
+                        <input id="email" formControlName="email" placeholder="Email" class="form-control requiredField"
+                          data-new-placeholder="Your email" type="text" [(ngModel)]="service.contact.email" required>
+                        <!-- <i class="fa fa-envelope"></i> -->
+                        <div class="val" *ngIf="
                     contactForm.controls['email'].touched &&
                     !contactForm.controls['email'].valid
                   ">
-                        <small *ngIf="contactForm.controls['email'].hasError('required')">
-                          Please enter the email id!
-                        </small>
-                        <small *ngIf="contactForm.controls['email'].hasError('pattern')">
-                          Please enter valid email id!
-                        </small>
+                          <small *ngIf="contactForm.controls['email'].hasError('required')">
+                            Please enter the email id!
+                          </small>
+                          <small *ngIf="contactForm.controls['email'].hasError('pattern')">
+                            Please enter valid email id!
+                          </small>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <!-- <div class="col-12">
-                <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Phone number">
-                </div>
-              </div> -->
-              <div class="row">
                 <div class="col-12">
                   <div class="form-group">
-                    <div class="controls">
-                      <textarea id="message" name="comments" placeholder="Message" class="form-control requiredField"
-                        formControlName="message" data-new-placeholder="Message" rows="3"
-                        [(ngModel)]="service.contact.message" required></textarea>
-                      <!-- <i class="fa fa-comment"></i> -->
-                      <div class="val" *ngIf="
+                    <input type="text" class="form-control" placeholder="Phone number">
+                  </div>
+                </div> -->
+                <div class="row">
+                  <div class="col-12">
+                    <div class="form-group">
+                      <div class="controls">
+                        <textarea id="message" name="comments" placeholder="Message" class="form-control requiredField"
+                          formControlName="message" data-new-placeholder="Message" rows="3"
+                          [(ngModel)]="service.contact.message" required></textarea>
+                        <!-- <i class="fa fa-comment"></i> -->
+                        <div class="val" *ngIf="
                     contactForm.controls['message'].touched &&
                     !contactForm.controls['message'].valid
                   ">
-                        <small *ngIf="contactForm.controls['message'].hasError('required')">
-                          Please enter the message!
-                        </small>
+                          <small *ngIf="contactForm.controls['message'].hasError('required')">
+                            Please enter the message!
+                          </small>
+                        </div>
                       </div>
                     </div>
                   </div>
+                  <div class="col-12">
+                    <p><button name="submit" type="submit" class="btn btn-md btn-block"><i
+                          class="fa fa-paper-plane"></i> SUBMIT</button></p>
+                  </div>
                 </div>
-                <div class="col-12">
-                  <p><button name="submit" type="submit" class="btn btn-md btn-block"><i
-                        class="fa fa-paper-plane"></i> SUBMIT</button></p>
-                </div>
-              </div>
-            </form>
+              </form>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
     <div>
       <footer>
         <div class="row narrow text-center">
@@ -205,5 +212,6 @@
           </div>
         </div>
       </footer>
+    </div>
     </div>
 </body>

@@ -17,6 +17,8 @@ import { ActivitiesComponent } from './dashboard/activities/activities.component
 import { PledgesComponent } from './dashboard/pledges/pledges.component';
 import { HelpComponent } from './dashboard/help/help.component';
 import { ProfileComponent } from './dashboard/profile/profile.component';
+import { StripePaymentComponent } from './charityComponents/charity-user/stripe-payment/stripe-payment.component';
+import { StripeRespondComponent } from './charityComponents/charity-user/stripe-respond/stripe-respond.component';
 
 export const routes: Routes = [
   { path: 'home', component:StartPageComponent },
@@ -28,11 +30,13 @@ export const routes: Routes = [
   },
   { path:'dashboard', component:NavBarComponent,
 children:[
-  {path: 'summary', component:SummaryComponent},
-{ path:'activities', component:ActivitiesComponent },
-{ path: 'pledges', component:PledgesComponent },
-{ path: 'help', component:HelpComponent },
-{ path: 'profile', component:ProfileComponent }
+  { path: 'stripePayment', component:StripePaymentComponent },
+  { path: 'stripeRespond', component:StripeRespondComponent },
+  { path: 'summary', component:SummaryComponent},
+  { path:'activities', component:ActivitiesComponent },
+  { path: 'pledges', component:PledgesComponent },
+  { path: 'help', component:HelpComponent },
+  { path: 'profile/:id', component:ProfileComponent }
 ] },
   
   { path: "", redirectTo: "home", pathMatch: "full" }

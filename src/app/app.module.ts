@@ -44,6 +44,8 @@ import { environment } from '../environments/environment';
 import { FilterPipe} from './filter.pipe';
 
 
+import { StripePaymentComponent } from './charityComponents/charity-user/stripe-payment/stripe-payment.component';
+import { StripeRespondComponent } from './charityComponents/charity-user/stripe-respond/stripe-respond.component';
 
 
 
@@ -72,7 +74,9 @@ import { FilterPipe} from './filter.pipe';
     PledgesComponent,
     HelpComponent,
     ProfileComponent,
-    FilterPipe
+    FilterPipe,
+    StripePaymentComponent,
+    StripeRespondComponent,
   ],
   imports: [
     BrowserModule,

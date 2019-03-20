@@ -15,7 +15,7 @@ import 'jspdf-autotable';
 export class SummaryComponent implements OnInit {
 
   private page: number = 1;
-  public payments: any[];
+  public payments: any = [];
   public searchResults: any[]
   public id;
   public DonarName;
@@ -26,7 +26,8 @@ export class SummaryComponent implements OnInit {
   public items: any;
   public pageSize: number;
   public flag: any = false;
-
+  public bal : any;
+  public mes:any;
 
   public pagination = {
     currentPage: 1,
@@ -37,7 +38,7 @@ export class SummaryComponent implements OnInit {
   }
 
 
-  constructor(private service: DataService, private router: Router,@Inject('Window') private window: Window) { }
+  constructor(private service: DataService, private router: Router) { }
   setPage(i) {
     this.page = i;
     this.getReports();
@@ -45,33 +46,34 @@ export class SummaryComponent implements OnInit {
 
   ngOnInit() {
     this.getReports();
-    this.balance();
   }
   doPagination(itemsPerPage, total_pages, totalCount, pageNo, per_page) {
-    // console.log(this.pages, itemsPerPage, total_pages, totalCount, per_page);
+    console.log(this.pages, itemsPerPage, total_pages, totalCount, per_page);
     this.pagination.currentPage = parseInt(pageNo);
     this.pagination.noOfItemsPerPage = per_page;
     this.pagination.totalCount = totalCount;
   }
 
   onPageChange(e) {
-    // console.log('onPageChange', e);
+    console.log('onPageChange', e);
     this.setPage(e);
   }
 
   getReports() {
     this.service.getReport(this.page, this.amount, this.date, this.status).subscribe((Response: any) => {
       console.log(Response);
-      // this.length = Response.result.itemsPerPage;
+     
+      this.mes = Response.message;
+      if(Response.result){
       this.payments = Response.result.paginatedItems;
       this.doPagination(Response.result.itemsPerPage, Response.result.total_pages, Response.result.totalCount, Response.result.pageNo, Response.result.per_page)
-    })
+    }})
   }
 
   search() {
     var data = { "userName": this.DonarName }
     this.service.searchReport(data, this.page).subscribe((Response: any) => {
-      // console.log(Response);
+      console.log(Response);
       this.payments = Response.result.paginatedItems;
       this.doPagination(Response.result.itemsPerPage, Response.result.total_pages, Response.result.totalCount, Response.result.pageNo, Response.result.per_page)
     });

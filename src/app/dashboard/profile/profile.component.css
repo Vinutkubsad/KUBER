@@ -1,0 +1,23 @@
+
+.form-container {
+  background: #ddd;
+  padding: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h2 {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  margin: 50px;
+}
+.form {
+  width: 500px;
+  margin: auto;
+}
+
+input{
+  /* border: none; */
+}
+

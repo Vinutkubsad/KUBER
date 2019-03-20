@@ -1,1 +1,38 @@
-{{ message | async | json }}
+<div class="form-container">
+  <h2>Primary Details of Charity User </h2>
+  <div class="form">
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="firstname"> First name </label>
+          <input type="text" name="username" id="username" class="form-control" [(ngModel)]="firstname">
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="lastname"> Last name </label>
+          <input type="text" name="lastname" id="lastname" class="form-control" [(ngModel)]="lastname">
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="email"> Email </label>
+      <input type="text" name="email" id="email" class="form-control" [(ngModel)]="email">
+    </div>
+    <div class="form-group">
+      <label for="phone"> Phone Number </label>
+      <input type="text" name="primaryNumber" id="primaryNumber" class="form-control" [(ngModel)]="primarynumber">
+    </div>
+    <div class="form-group">
+      <label for="address">Address</label>
+      <input type="text" name="address" id="address" class="form-control" [(ngModel)]="address">
+    </div>
+    <!-- 
+  <div class="form-group">
+    <label for="firstname"> Payment profile </label>
+    <input type="text" name="paymentProfile" id="paymentProfile" class="form-control">
+  </div> -->
+    <button type="button" class="btn btn-outline-primary" (click)="updateProfile()"> <i class="fas fa-user-edit"></i>
+      Update profile </button>
+  </div>
+</div>

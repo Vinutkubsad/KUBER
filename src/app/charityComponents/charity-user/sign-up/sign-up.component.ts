@@ -16,8 +16,8 @@ import { DataService } from 'src/app/services/data.service';
 export class SignUpComponent implements OnInit {
 
   registerForm: FormGroup;
+  path: any;
 
-  
   // charityLogoFile: any;
   charityLogoFile: File = null;
   charityLogos(event){
@@ -54,7 +54,6 @@ export class SignUpComponent implements OnInit {
       taxId: [null, [Validators.required, Validators.pattern('^[A-Z0-9]{10}$')]],
       userEmail: [null,[Validators.required]],
       check:[null,Validators.required]
-
     });
   }
 
@@ -92,6 +91,8 @@ export class SignUpComponent implements OnInit {
         .subscribe((res) => {
           if (res) {
             console.log(res);
+            // if(this.flag){
+            // }
             swal("Great!","Succefully registered your charity", "success");
             this.registerForm.reset();
           } else {
@@ -114,7 +115,7 @@ export class SignUpComponent implements OnInit {
     return formData;
     }
 
-  login() {
+    Login() {
     this.router.navigate(['/signin']);
   }
   back(){
@@ -123,6 +124,11 @@ export class SignUpComponent implements OnInit {
 
   // navigateLogin() {
   //   this.router.navigate(['signup']);
+  // }
+  // Setup() {
+  //   this.charityServices.setupStripe().subscribe((res)=>{
+  //     console.log(res,'stripe');
+  //   })
   // }
 
 }
