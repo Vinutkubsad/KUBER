@@ -234,9 +234,10 @@ margin-right: 0px!important;
     /* background-color: rgb(180, 29, 218); */
 }
 .jumbotron{
-    background:rgb(95, 226, 198);
-    border: .5rem solid white;
-    border-style: double 
+  width: 100%;
+  height: 900px;
+  position: relative;
+  background: url(../../assets/Images/WebBG.png) center no-repeat;
 }
 .title{
   font-size: 3rem;
@@ -274,10 +275,10 @@ small{
   padding: 200px 0 120px 0;
 }
 
-#intro .intro-img {
+/* #intro .intro-img {
   width: 50%;
   float: right;
-}
+} */
 
 #intro .intro-info {
   width: 50%;
@@ -317,7 +318,7 @@ small{
 #intro .intro-info .btn-get-started:hover {
   background: none;
   border-color: #fff;
-  color: #fff;
+  color: black;
 }
 
 #intro .intro-info .btn-services {
