@@ -3,7 +3,7 @@
   font-weight: 700;
   font-size: 0.9rem;
   letter-spacing: .1rem;
-  background:white !important;
+  /* background:white !important; */
   opacity: .9;
 }
 .navbar-brand img{
@@ -17,4 +17,17 @@ padding-right: .7rem;
 .navbar-dark .navbar-nav .nav-link{
   color: black;
   padding-top: .8rem;
+}
+.badge-notify{
+  background:rgb(255, 255, 255);
+  position:relative;
+  top: -20px;
+  left: -35px;
+ 
+}
+fa-bell{
+  color: aquamarine;
+}
+ngbDropdownToggle{
+  color: transparent;
 }

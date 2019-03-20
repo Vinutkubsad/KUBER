@@ -45,13 +45,15 @@ padding-right: .7rem;
   max-width: 100%;
   position: absolute;
   top: 150px;
-  height: 350px;
+  height: 95vh;
   z-index: 1;
   color: rgb(232, 238, 238);
   text-transform: uppercase;
-  border-top-left-radius: 250px;
-  border-bottom-right-radius: 350px;
-  background-image:  linear-gradient(rgb(13, 184, 184), rgb(21, 201, 171), rgb(27, 208, 221)); 
+  /* border-top-left-radius: 250px; */
+  /* border-bottom-right-radius: 350px; */
+  background-image: linear-gradient; 
+  background-position: center;
+  background-size: cover;
 }
 .caption h1{
   font-size: 3.2rem;
