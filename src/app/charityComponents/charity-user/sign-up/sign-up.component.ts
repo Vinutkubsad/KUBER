@@ -7,6 +7,7 @@ import { DataService } from 'src/app/services/data.service';
 
 
 
+
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
@@ -24,7 +25,8 @@ export class SignUpComponent implements OnInit {
   this.charityLogoFile = event.target.files[0];
   }
 
-  constructor(private router: Router, private fb: FormBuilder, public charityServices: DataService) { 
+  constructor(private router: Router, private fb: FormBuilder, public charityServices: DataService
+    ) { 
 
   }
 
