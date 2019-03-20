@@ -6,9 +6,7 @@ import { ActivatedRoute, Params, Router } from "@angular/router";
   styleUrls: ["./stripe-payment.component.css"]
 })
 export class StripePaymentComponent implements OnInit {
-  public AccessCode;
-  path;
-
+  
   constructor() {}
 
   ngOnInit() {

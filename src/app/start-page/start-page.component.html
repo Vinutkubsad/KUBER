@@ -1,9 +1,9 @@
 <body data-spy="scroll" data-target="#navbarResponsive">
   <div class="home" id="home">
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
       <a class="navbar-brand" href="#"><img src="./assets/Images/kuber-HD.jpg" width="60" height="60"></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
-        <!-- aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"> -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -23,66 +23,113 @@
         </ul>
       </div>
     </nav>
+  </div> 
 
-    <div class="landing">
-      <div class="home-wrap">
-        <div class="home-inner">
 
-        </div>
-      </div>
-    </div>
-
-    <div class="caption text-center">
-      <!-- <h1>QUBER</h1> -->
-      <!-- <h3>GIVING MADE EASIER</h3> -->
-      <button class="btn btn-outline-light btn-lg" (click)="register()">REGISTER YOUR CHARITY</button>
-    </div>
-  </div>
-
-  <div id="about" class="offset">
-    <div class="jumbotron-fluid">
-      <div class="col-12  narrow text-center">
-        <h1 class="head">Hightlights</h1>
-        <p class="lead"> Challenges In Giving Today</p>
-        <div class="content">
-          <p>
-            Keeping track of donations given for financial planning as well for tax deductions.
-          </p>
-          <p>
-            Timelines of making the donation.</p>
-          <p>
-            End to end process of making a donation is cumbersome.</p>
-          <p> Lack of clarity of charitable goals.</p>
-          <p> Honorig pledes.</p>
-          <p>Lack of trust in giving due to lack of clarity about various charities.
-          </p>
-        </div>
-        <pre></pre>
-        <p class="lead">Quber's Digital Solution</p>
-        <div class="content">
-          <p>
-            Quber mobile app gives you ability to pull all the donations that you have given since the initiation of
-            your account.
-          </p>
-          <p>
-            Quber mobile app provieds the donar flexibility at their fingertips of making a donation anytime anywhere.
-          </p>
-          <p>The app experiance is seamless with minimal steps required to complete the donation.</p>
-          <p>Easily set up short, mid and long term charitable goals with remainder preferences.
-            This will help donars to stay on track and feel fulfilled by keeping their pledge.
-          </p>
-          <p>
-            Easy to make pledges on frequency of your choice and stay accountable to commitments.
-          </p>
-          <p>A rigorous and thorough process to vet out and approve the charities that are onboarded on the platform.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
+  <!-- intoduction -->
+  <section id="intro" class="clearfix">
+      <div class="container">
   
+        <div class="intro-img">
+          <img src="img/intro-img.svg" alt="" class="img-fluid">
+        </div>
+  
+        <div class="intro-info">
+          <h2>Quber <br> <span style="font-size:1.6rem;">Giving made easier </span> </h2>
+          <div>
+            <a href="#about" class="btn-get-started scrollto">Register here</a>
+            <!-- <a href="#services" class="btn-services scrollto">Our Services</a> -->
+          </div>
+        </div>
+  
+      </div>
+    </section>
+
+<!-- about section -->
+<!--==========================
+      About Us Section
+    ============================-->
+    <!-- <section id="about">
+        <div class="container">
+  
+          <header class="section-header">
+            <h3>About Us</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          </header>
+  
+          <div class="row about-container">
+  
+            <div class="col-lg-6 content order-lg-1 order-2">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+              </p>
+  
+              <div class="icon-box wow fadeInUp">
+                <div class="icon"><i class="fa fa-shopping-bag"></i></div>
+                <h4 class="title"><a href="">Eiusmod Tempor</a></h4>
+                <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
+              </div>
+  
+              <div class="icon-box wow fadeInUp" data-wow-delay="0.2s">
+                <div class="icon"><i class="fa fa-photo"></i></div>
+                <h4 class="title"><a href="">Magni Dolores</a></h4>
+                <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+              </div>
+  
+              <div class="icon-box wow fadeInUp" data-wow-delay="0.4s">
+                <div class="icon"><i class="fa fa-bar-chart"></i></div>
+                <h4 class="title"><a href="">Dolor Sitema</a></h4>
+                <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
+              </div>
+  
+            </div>
+  
+            <div class="col-lg-6 background order-lg-2 order-1 wow fadeInUp">
+              <img src="img/about-img.svg" class="img-fluid" alt="">
+            </div>
+          </div>
+  
+          <div class="row about-extra">
+            <div class="col-lg-6 wow fadeInUp">
+              <img src="img/about-extra-1.svg" class="img-fluid" alt="">
+            </div>
+            <div class="col-lg-6 wow fadeInUp pt-5 pt-lg-0">
+              <h4>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h4>
+              <p>
+                Ipsum in aspernatur ut possimus sint. Quia omnis est occaecati possimus ea. Quas molestiae perspiciatis occaecati qui rerum. Deleniti quod porro sed quisquam saepe. Numquam mollitia recusandae non ad at et a.
+              </p>
+              <p>
+                Ad vitae recusandae odit possimus. Quaerat cum ipsum corrupti. Odit qui asperiores ea corporis deserunt veritatis quidem expedita perferendis. Qui rerum eligendi ex doloribus quia sit. Porro rerum eum eum.
+              </p>
+            </div>
+          </div>
+  
+          <div class="row about-extra">
+            <div class="col-lg-6 wow fadeInUp order-1 order-lg-2">
+              <img src="img/about-extra-2.svg" class="img-fluid" alt="">
+            </div>
+  
+            <div class="col-lg-6 wow fadeInUp pt-4 pt-lg-0 order-2 order-lg-1">
+              <h4>Neque saepe temporibus repellat ea ipsum et. Id vel et quia tempora facere reprehenderit.</h4>
+              <p>
+               Delectus alias ut incidunt delectus nam placeat in consequatur. Sed cupiditate quia ea quis. Voluptas nemo qui aut distinctio. Cumque fugit earum est quam officiis numquam. Ducimus corporis autem at blanditiis beatae incidunt sunt. 
+              </p>
+              <p>
+                Voluptas saepe natus quidem blanditiis. Non sunt impedit voluptas mollitia beatae. Qui esse molestias. Laudantium libero nisi vitae debitis. Dolorem cupiditate est perferendis iusto.
+              </p>
+              <p>
+                Eum quia in. Magni quas ipsum a. Quis ex voluptatem inventore sint quia modi. Numquam est aut fuga mollitia exercitationem nam accusantium provident quia.
+              </p>
+            </div>
+            
+          </div>
+  
+        </div>
+      </section> -->
+      <!-- #about -->
+
 <hr>
-  <div id="letstalk" class="offset">
+<div id="letstalk" class="offset">
     <div class="col-12 narrow text-center">
       <h1 class="title">LET'S TALK</h1>
 
@@ -117,7 +164,7 @@
                   <div class=" controls">
                     <input id="email" formControlName="email" placeholder="Email" class="form-control requiredField"
                       data-new-placeholder="Your email" type="text" [(ngModel)]="service.contact.email" required>
-                    <!-- <i class="fa fa-envelope"></i> -->
+                     <i class="fa fa-envelope"></i>
                     <div class="val" *ngIf="
                     contactForm.controls['email'].touched &&
                     !contactForm.controls['email'].valid
@@ -132,18 +179,18 @@
                   </div>
                 </div>
               </div>
-              <!-- <div class="col-12">
+              <div class="col-12">
                 <div class="form-group">
                   <input type="text" class="form-control" placeholder="Phone number">
                 </div>
-              </div> -->
+              </div>
               <div class="col-12">
                 <div class="form-group">
                   <div class="controls">
                     <textarea id="message" name="comments" placeholder="Message" class="form-control requiredField"
                       formControlName="message" data-new-placeholder="Message" rows="3"
                       [(ngModel)]="service.contact.message" required></textarea>
-                    <!-- <i class="fa fa-comment"></i> -->
+                    <i class="fa fa-comment"></i>
                     <div  class="val" *ngIf="
                     contactForm.controls['message'].touched &&
                     !contactForm.controls['message'].valid
@@ -175,4 +222,4 @@
       </div>
     </footer>
   </div>
-</body>
+</body> 

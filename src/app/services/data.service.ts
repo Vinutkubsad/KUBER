@@ -96,9 +96,17 @@ export class DataService {
       headers: new HttpHeaders({  'Authorization': localStorage.getItem('jwt')  })
     }
     let url = AppSettings.BASE_URL + AppSettings.STIPE_ID + "?code=" + code;
-    return this.http.post(url + "?code" + code, httpOption)
+    return this.http.post(url, httpOption)
   }
   
+
+  charityReport() {
+    const httpOption = {
+      headers: new HttpHeaders({'Authorization': localStorage.getItem('jwt'), 'Content-Type': 'application/json' })
+    }
+    let url = AppSettings.BASE_URL + AppSettings.CHARITY_REPORT;
+    return this.http.get(url,httpOption);
+  } 
 
   // stipeDetail(stripe_id){
   //   const httpOption = {

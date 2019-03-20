@@ -55,12 +55,12 @@ export class SignInComponent implements OnInit {
     this.service.CharityLogin(data).subscribe((response: any) => {
       console.log(response);
       if(response) {
-        localStorage.setItem("jwt","true");
+        localStorage.setItem("jwt", response.result.jwt);
         localStorage.setItem('user',response.result.resp['_id']); 
         this.resetForm();
         // this.router.navigate(['dashboard/summary']);
       }
-      localStorage.setItem('jwt', response.result.resp.jwt); 
+      // localStorage.setItem('jwt', response.result.resp.jwt); 
       this.router.navigate(['dashboard/stripePayment']);  
     });
     if(error){
