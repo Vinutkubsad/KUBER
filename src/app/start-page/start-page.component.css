@@ -41,7 +41,11 @@
   text-transform: uppercase;
 }
 
-.active {
+.navbar ul li a:active {
+  color: brown;
+}
+
+.navbar ul li a:visited {
   color: brown;
 }
 
