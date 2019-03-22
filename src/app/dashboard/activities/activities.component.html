@@ -4,70 +4,141 @@
       <div class="col-12">
         <h4> Activities</h4>
       </div>
-      
+
       <div class="container padding">
         <div class="col-12">
           <div class="table-responsive">
-            <table  *ngIf="payments.length > 0" class="table">
-                <div class="col-12">
-                    <div class="row">
-                      <div class="form-group form-inline col-4">
-                        <input class="form-control ml-2" type="text"  placeholder="Seach" />
-                      </div>
-                      <div class="col">
-                        <div class="dropdown">
-                          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                            Payment Report
-                          </button>
-                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" (click)="donations()">Donations</a>
-                            <a class="dropdown-item" (click)="payouts()">Payouts</a>
-                            <a class="dropdown-item" (click)="refunds()">Refunds</a>
+            <div class="container-fluid col-12">
+              <div class="row">
+                  <div class="col">
+                      <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <i class="fa fa-filter" aria-hidden="true"></i> Date
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" (click)="filter30()">Last 30 days</a>
+                            <a class="dropdown-item" (click)="filter60()">Last 60 days</a>
+                            <a class="dropdown-item" (click)="filter18()">2018</a>
+                            <a class="dropdown-item" (click)="filter19()">2019</a>
+                           <form  class="px-4 py-3">
+                              <div class="form-group">
+                                  <!-- <input class="btn btn-primary" type="checkbox" data-toggle="collapse"
+                                    data-target=".multi-collapse2" aria-expanded="false" aria-controls="exampleCheck3">
+                                  <label class="form-check-label" for="exampleCheck3">Date-range</label> -->
+                                  <!-- <div class="collapse multi-collapse2" id="exampleCheck3"> -->
+                                    <div class="jumbotron-fluid">
+                                      <label for="date-range">Date-range</label>
+                                      <input type="date" class="form-control" id="date-range" name="start" [(ngModel)]="start">
+                                      <input type="date" class="form-control" id="date-range" name="end" [(ngModel)]="end">
+                                    </div>
+                                  <!-- </div> -->
+                                </div>
+                               
+                           </form>
+                           <button class="dropdown-item" style="margin-left: 142px;" type="button" class="btn btn-primary " (click)="filter()">Done</button>
                           </div>
-                        </div>
-                      </div>
-                      <div class="col">
-                        <div class="dropdown">
-                          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                            Find by days
-                          </button>
-                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item">30 days</a>
-                            <a class="dropdown-item">90 days</a>
-                            <a class="dropdown-item">2019</a>
-                            <a class="dropdown-item">2020</a>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col">
+    
+                        <!-- <div class="dropdown-menu">
+                          <form class="px-4 py-3" >
+                            <div class="form-group">
+                              <input class="btn btn-primary" type="checkbox" data-toggle="collapse"
+                                data-target=".multi-collapse" aria-expanded="false" aria-controls="exampleCheck1">
+                              <label class="form-check-label" for="exampleCheck1">Date</label>
+                              <div class="collapse multi-collapse" id="exampleCheck1">
+                                <div class="jumbotron-fluid">
+                                  <label for="days">days</label>
+                                  <input type="number" class="form-control" name="day" [(ngModel)]="day" >
+                                </div>
+                              </div>
+                            </div>
+    
+                            <div class="form-group">
+                              <input class="btn btn-primary" type="checkbox" data-toggle="collapse"
+                                data-target=".multi-collapse1" aria-expanded="false" aria-controls="exampleCheck2">
+                              <label class="form-check-label" for="exampleCheck2">Year</label>
+                              <div class="collapse multi-collapse1" id="exampleCheck2">
+                                <div class="jumbotron-fluid">
+                                  <label for="year">Year</label>
+                                  <input type="text" class="form-control" placeholder="year" name="year" [(ngModel)]="year" id="year">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <input class="btn btn-primary" type="checkbox" data-toggle="collapse"
+                                data-target=".multi-collapse2" aria-expanded="false" aria-controls="exampleCheck3">
+                              <label class="form-check-label" for="exampleCheck3">Date-range</label>
+                              <div class="collapse multi-collapse2" id="exampleCheck3">
+                                <div class="jumbotron-fluid">
+                                  <label for="date-range">Date-range</label>
+                                  <input type="date" class="form-control" id="date-range" name="start" [(ngModel)]="start">
+                                  <input type="date" class="form-control" id="date-range" name="end" [(ngModel)]="end">
+                                </div>
+                              </div>
+                            </div>
+                           
+                          </form>
+                          <button type="button" class="btn btn-primary ml-auto" (click)="filter()">Done</button>
+                        </div> -->
                       </div>
                     </div>
+                    <div class="col">
+                    </div>
+                <div class="form-group form-inline col-4">
+                  <input class="form-control ml-2" type="text" placeholder="Seach"/>
+                </div>
+                <div class="col">
+                  <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="fa fa-filter" aria-hidden="true"></i> Type
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" (click)="donations()">Donations</a>
+                      <a class="dropdown-item" (click)="payouts()">Payouts</a>
+                      <a class="dropdown-item" (click)="refunds()">Refunds</a>
+                    </div>
                   </div>
-                <thead class="thead">
-                    <tr>
-                      <th>Date<button class="btn btn-outline-light" (click)="sortDate()"><i class="fa fa-sort" aria-hidden="true"></i></button></th>
-                      <th>Type<button class="btn btn-outline-light" (click)="sortStatus()"><i class="fa fa-sort" aria-hidden="true"></i></button></th>
-                      <th>Name<button class="btn btn-outline-light" (click)="sortAmount()"><i class="fa fa-sort" aria-hidden="true"></i></button></th>
-                      <th>Donation Status<button class="btn btn-outline-light" (click)="sortDate()"><i class="fa fa-sort" aria-hidden="true"></i></button></th>
-                      <th>Total Amount<button class="btn btn-outline-light" (click)="sortDate()"><i class="fa fa-sort" aria-hidden="true"></i></button></th>
-                      <th>Fees<button class="btn btn-outline-light" (click)="sortDate()"><i class="fa fa-sort" aria-hidden="true"></i></button></th>
-                      <th>Net Amount<button class="btn btn-outline-light" (click)="sortDate()"><i class="fa fa-sort" aria-hidden="true"></i></button></th>
-                    </thead>
-                  <tbody>
-                    <tr *ngFor=" let p of payments; let i=index;">
-                      <td>{{p.date | date}}</td>
-                      <td>{{p.userName}}</td>
-                      <td>{{p.amount}}</td>
-                    </tr>
-                  </tbody>
+                </div>
+               
+              </div>
+            </div>
+            <table *ngIf="payments.length > 0" class="table">
+
+              <thead class="thead">
+                <tr>
+                  <th>Date<button class="btn btn-outline" (click)="sortDate()"><i class="fa fa-sort"
+                        aria-hidden="true"></i></button></th>
+                  <th>Type<button class="btn btn-outline" (click)="sortStatus()"><i class="fa fa-sort"
+                        aria-hidden="true"></i></button></th>
+                  <th>Name<button class="btn btn-outline" (click)="sortAmount()"><i class="fa fa-sort"
+                        aria-hidden="true"></i></button></th>
+                  <th>Donation Status<button class="btn btn-outline" (click)="sortDate()"><i class="fa fa-sort"
+                        aria-hidden="true"></i></button></th>
+                  <th>Total Amount<button class="btn btn-outline" (click)="sortDate()"><i class="fa fa-sort"
+                        aria-hidden="true"></i></button></th>
+                  <th>Fees<button class="btn btn-outline" (click)="sortDate()"><i class="fa fa-sort"
+                        aria-hidden="true"></i></button></th>
+                  <th>Net Amount<button class="btn btn-outline" (click)="sortDate()"><i class="fa fa-sort"
+                        aria-hidden="true"></i></button></th>
+              </thead>
+              <tbody>
+                <tr *ngFor=" let p of payments; let i=index;">
+                  <td>{{p.date | date}}</td>
+                  <td></td>
+                  <td>{{p.userName}}</td>
+                  <td>{{p.status}}</td>
+                  <td>{{p.amount}}</td>
+                  <td>{{p.application_fee_amount}}</td>
+                  <td>{{p.net}}</td>
+                </tr>
+              </tbody>
             </table>
             <hr>
             <div *ngIf="payments.length === 0" class="text-center">
-                <h5>No Transactions</h5>
-              </div>
-              <ngb-pagination class="d-flex justify-content-end" [(page)]="pagination.currentPage"
+              <h5>No Transactions</h5>
+            </div>
+            <ngb-pagination class="d-flex justify-content-end" [(page)]="pagination.currentPage"
               [pageSize]="pagination.noOfItemsPerPage" [collectionSize]="pagination.totalCount"
               aria-label="Default pagination" (pageChange)="onPageChange($event)" *ngIf="payments.length > 0">
             </ngb-pagination>

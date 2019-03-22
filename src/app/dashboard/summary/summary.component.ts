@@ -21,12 +21,12 @@ export class SummaryComponent implements OnInit {
   public DonarName;
   public pages: Array<number>;
   public amount: any;
-  public status: any;
+  public userName: any;
   public date: any;
   public items: any;
   public pageSize: number;
   public flag: any = false;
-  public bal : any;
+  public bal : any= [];
   public mes:any;
 
   public pagination = {
@@ -46,6 +46,7 @@ export class SummaryComponent implements OnInit {
 
   ngOnInit() {
     this.getReports();
+    this.balance();
   }
   doPagination(itemsPerPage, total_pages, totalCount, pageNo, per_page) {
     console.log(this.pages, itemsPerPage, total_pages, totalCount, per_page);
@@ -60,7 +61,7 @@ export class SummaryComponent implements OnInit {
   }
 
   getReports() {
-    this.service.getReport(this.page, this.amount, this.date, this.status).subscribe((Response: any) => {
+    this.service.getReport(this.page, this.amount, this.date, this.userName).subscribe((Response: any) => {
       console.log(Response);
      
       this.mes = Response.message;
@@ -84,12 +85,12 @@ export class SummaryComponent implements OnInit {
     if (this.flag === true) {
       this.amount = -1;
       this.date = undefined;
-      this.status = undefined;
+      this.userName = undefined;
       this.getReports();
     } else if (this.flag === false) {
       this.amount = 1;
       this.date = undefined;
-      this.status = undefined;
+      this.userName = undefined;
       this.getReports();
     }
   }
@@ -101,12 +102,12 @@ export class SummaryComponent implements OnInit {
     if (this.flag === true) {
       this.date = -1;
       this.amount = undefined;
-      this.status = undefined;
+      this.userName = undefined;
       this.getReports();
     } else if (this.flag === false) {
       this.date = 1;
       this.amount = undefined;
-      this.status = undefined;
+      this.userName = undefined;
       this.getReports();
     }
   }
@@ -114,12 +115,12 @@ export class SummaryComponent implements OnInit {
   sortStatus() {
     this.flag = !this.flag;
     if (this.flag === true) {
-      this.status = -1;
+      this.userName = -1;
       this.amount = undefined;
       this.date = undefined;
       this.getReports();
     } else if (this.flag === false) {
-      this.status = 1;
+      this.userName = 1;
       this.amount = undefined;
       this.date = undefined;
       this.getReports();
@@ -129,6 +130,8 @@ export class SummaryComponent implements OnInit {
   balance(){
     this.service.balance().subscribe((Response:any)=>{
       console.log(Response);
+      this.bal=Response.result.available;
+      
     })
   }
   download(){

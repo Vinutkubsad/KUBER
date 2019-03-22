@@ -22,17 +22,17 @@ export class DataService {
 
   constructor(private http: HttpClient) { }
 
-  public getReport(page, amount, date, status) {
+  public getReport(page, amount, date, userName) {
     const httpOption = {
       headers: new HttpHeaders({ 'Authorization': localStorage.getItem('jwt') })
     }
     let url = AppSettings.BASE_URL + AppSettings.PAYMENT_REPORT;
-    if (amount !== undefined && date === undefined && status === undefined)
+    if (amount !== undefined && date === undefined && userName === undefined)
       return this.http.get(url + "?page=" + page + "&amount=" + amount, httpOption);
-    else if (amount === undefined && date !== undefined && status === undefined) {
+    else if (amount === undefined && date !== undefined && userName === undefined) {
       return this.http.get(url + "?page=" + page + "&date=" + date, httpOption);
-    } else if (amount === undefined && date === undefined && status !== undefined) {
-      return this.http.get(url + "?page=" + page + "&status=" + status, httpOption);
+    } else if (amount === undefined && date === undefined && userName !== undefined) {
+      return this.http.get(url + "?page=" + page + "&userName=" + userName, httpOption);
     } else return this.http.get(url + "?page=" + page, httpOption);
   }
 
@@ -113,6 +113,14 @@ export class DataService {
     }
     let url = AppSettings.BASE_URL + AppSettings.STIPE_ID + "?code=" + code;
     return this.http.post(url, httpOption)
+  }
+
+  dateFilterActivity(data){
+    const httpOption = {
+      headers: new HttpHeaders({ 'Authorization': localStorage.getItem('jwt') })
+    }
+    let url = AppSettings.BASE_URL + AppSettings.DATE_FILTER;
+    return this.http.post(url, data, httpOption);
   }
   
   // stipeDetail(stripe_id){

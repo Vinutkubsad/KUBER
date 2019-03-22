@@ -12,6 +12,7 @@ export class AppSettings{
     public static SEND_MESSAGE= '/v1/userDetails/adminhelp';
     public static PLEDGES_LIST='/v1/gift/pledgeDetails';
     public static BALANCE = '/v1/charityAdmin/connectedBalance';
+    public static DATE_FILTER= '/v1/charityAdmin/dateFilter';
 
     public static GET_CHARITY_ID= '/v1/admin/getCharityById/'
     public static EDIT_CHARITY='/v1/admin/editCharity/';

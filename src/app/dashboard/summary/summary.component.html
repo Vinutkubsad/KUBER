@@ -1,10 +1,13 @@
 <div class="container-fluid padding">
   <div class="container">
     <div class="row welcome ">
-      <div class="col-12" style="color:rgb(106, 208, 226);">
+      <div class="col" style="color:rgb(106, 208, 226);">
         <h4 class="title">Recent Donations</h4>
-        <!-- <hr> -->
       </div>
+      <div class="col">
+        <h3 *ngFor= "let b of bal;">Total Balance:{{b.amount/100 | currency}}</h3>
+      </div>
+      
       <div class="container padding">
         <div class="row">
           <div class="col-12">
@@ -24,7 +27,7 @@
                   <tr *ngFor=" let p of payments; let i=index;">
                     <td>{{p.date | date}}</td>
                     <td>{{p.userName}}</td>
-                    <td>{{p.amount}}</td>
+                    <td>{{p.amount | currency}}</td>
                   </tr>
                 </tbody>
               </table>
@@ -41,14 +44,7 @@
               </ngb-pagination>
             </div>
           </div>
-          <!-- <div class="col-3">
-              <div class="card">
-                <div class="card-title narrow text-center">
-                  <h2>Total Balance</h2>
-                  <h2>{{bal}}</h2>
-                </div>
-              </div>
-            </div> -->
+         
         </div>
       </div>
     </div>
