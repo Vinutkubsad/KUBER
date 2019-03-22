@@ -41,7 +41,11 @@
   text-transform: uppercase;
 }
 
-.active {
+.navbar ul li a:active {
+  color: brown;
+}
+
+.navbar ul li a:visited {
   color: brown;
 }
 
@@ -70,16 +74,10 @@
   width: 100%;
   max-width: 100%;
   position: absolute;
-  top: 150px;
-  height: 95vh;
+  top: 75%;
   z-index: 1;
   color: rgb(232, 238, 238);
   text-transform: uppercase;
-  /* border-top-left-radius: 250px; */
-  /* border-bottom-right-radius: 350px; */
-  background-image: linear-gradient; 
-  background-position: center;
-  background-size: cover;
 }
 
 .caption h1 {
@@ -115,7 +113,7 @@ caption.btn {
   font-size: 1.1rem;
   font-weight: 700;
   color: white;
-  background: rgb(27, 223, 223);
+  background: rgb(15, 221, 228)
 }
 
 footer {
@@ -129,23 +127,23 @@ footer {
   padding: 1rem;
 }
 
-/*--- Bootstrap Mobile Gutter Fix --*/
+/* /--- Bootstrap Mobile Gutter Fix --/ */
 .row,
 .container-fluid {
   margin-left: 0px !important;
   margin-right: 0px !important;
 }
 
-/*--- Fix for Fixed Navbar jumping on scroll --*/
+/* /--- Fix for Fixed Navbar jumping on scroll --/ */
 /* .fixed-top  {
  -webkit-backface-visibility: hidden;
 } */
 
-/*--- Fixed Landing Page Section --*/
+/* /--- Fixed Landing Page Section --/ */
 .landing {
   position: relative;
   width: 100%;
-  height: 70vh;
+  height: 100vh;
   display: table;
   z-index: -1;
 }
@@ -171,9 +169,10 @@ footer {
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
   will-change: transform;
+
 }
 
-/*--- iOS Fixed Background Image --*/
+/* /--- iOS Fixed Background Image --/ */
 .fixed-background {
   position: relative;
   width: 100%;
@@ -538,7 +537,7 @@ color: #fff;
   width: 100%;
   max-width: 100%;
   /* position: absolute; */
-  margin-top: 10%;
+  /* top: 75%; */
   z-index: 1;
   color: black;
   text-transform: uppercase;
@@ -555,7 +554,7 @@ color: #fff;
 
 .controls {
   color: rgb(235, 42, 42) !important;
-  text-align: left;
+  text-align: left
 }
 
 small {
@@ -566,5 +565,3 @@ button.btn.btn-outline-light.btn-lg.btn-block:hover {
   background: white;
   border: 3px solid rgb(15, 221, 228);
 }
-
-

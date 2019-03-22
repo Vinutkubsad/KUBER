@@ -19,14 +19,16 @@
      color: rgb(41, 39, 39);;
  }
  
- .btn-outline{
-     background:rgb(106, 208, 226);
-     color: white;
-    
- }
+ .btn-outline {
+    color: #f8f9fa;
+    border-color: rgb(106, 208, 226);
+}
+
+
  .btn-outline:onClick{ 
     background:rgb(106, 208, 226);
     color: white;
+    border-color: rgb(106, 208, 226) !important;
 }
  .date{
      margin-left: 400px;
@@ -75,3 +77,4 @@
     margin: 5ox;
     border: none;
 }
+

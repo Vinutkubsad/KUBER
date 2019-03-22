@@ -125,47 +125,47 @@ export class ActivitiesComponent implements OnInit {
     }
   }
   
-  // filter30(){
-  //   var data = { "days":30 }
-  //   this.service.dateFilterActivity(data).subscribe((Response:any)=>{
-  //     console.log(Response);
-  //     this.payments= Response.result.paginatedItems;
-  //   })
-  // }
+  filter30(){
+    var data = { "days":30 }
+    this.service.dateFilterActivity(data).subscribe((Response:any)=>{
+      console.log(Response);
+      this.payments= Response.result.paginatedItems;
+    })
+  }
 
-  // filter60(){
-  //   var data = { "days":60 }
-  //   this.service.dateFilterActivity(data).subscribe((Response:any)=>{
-  //     console.log(Response);
-  //     this.payments= Response.result.paginatedItems;
-  //   })
-  // }
+  filter60(){
+    var data = { "days":60 }
+    this.service.dateFilterActivity(data).subscribe((Response:any)=>{
+      console.log(Response);
+      this.payments= Response.result.paginatedItems;
+    })
+  }
 
-  // filter18(){
-  //   var data = { "year": 2018 }
-  //   this.service.dateFilterActivity(data).subscribe((Response:any)=>{
-  //     console.log(Response);
-  //     this.payments= Response.result.paginatedItems;
-  //   })
-  // }
-  // filter19(){
-  //   var data = { "year": 2019 }
-  //   this.service.dateFilterActivity(data).subscribe((Response:any)=>{
-  //     console.log(Response);
-  //     this.payments= Response.result.paginatedItems;
-  //   })
-  // }
-  // filter(){
-  //   var data = { range:{"from":this.start, "to":this.end} }
-  //   this.service.dateFilterActivity(data).subscribe((Response:any)=>{
-  //     console.log(Response);
-  //     this.payments= Response.result.paginatedItems;
-  //   })
-  // }
+  filter18(){
+    var data = { "year": 2018 }
+    this.service.dateFilterActivity(data).subscribe((Response:any)=>{
+      console.log(Response);
+      this.payments= Response.result.paginatedItems;
+    })
+  }
+  filter19(){
+    var data = { "year": 2019 }
+    this.service.dateFilterActivity(data).subscribe((Response:any)=>{
+      console.log(Response);
+      this.payments= Response.result.paginatedItems;
+    })
+  }
+  filter(){
+    var data = { range:{"from":this.start, "to":this.end} }
+    this.service.dateFilterActivity(data).subscribe((Response:any)=>{
+      console.log(Response);
+      this.payments= Response.result.paginatedItems;
+    })
+  }
 
-  // download(){
+  download(){
     
-  // }
+  }
 
 
 }
