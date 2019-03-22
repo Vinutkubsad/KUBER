@@ -127,19 +127,19 @@ footer {
   padding: 1rem;
 }
 
-/*--- Bootstrap Mobile Gutter Fix --*/
+/* /--- Bootstrap Mobile Gutter Fix --/ */
 .row,
 .container-fluid {
   margin-left: 0px !important;
   margin-right: 0px !important;
 }
 
-/*--- Fix for Fixed Navbar jumping on scroll --*/
+/* /--- Fix for Fixed Navbar jumping on scroll --/ */
 /* .fixed-top  {
  -webkit-backface-visibility: hidden;
 } */
 
-/*--- Fixed Landing Page Section --*/
+/* /--- Fixed Landing Page Section --/ */
 .landing {
   position: relative;
   width: 100%;
@@ -172,7 +172,7 @@ footer {
 
 }
 
-/*--- iOS Fixed Background Image --*/
+/* /--- iOS Fixed Background Image --/ */
 .fixed-background {
   position: relative;
   width: 100%;
@@ -565,5 +565,3 @@ button.btn.btn-outline-light.btn-lg.btn-block:hover {
   background: white;
   border: 3px solid rgb(15, 221, 228);
 }
-
-

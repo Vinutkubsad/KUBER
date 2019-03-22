@@ -1,11 +1,12 @@
 .container-fluid{
-    background-image: url('../../../../assets/Images/login.jpeg');
+    /* background-image: url('../../../../assets/Images/login.jpeg'); */
     height: 100vh;
     background-position: center;
     background-size: cover;
     opacity: .9;
     font-family: 'lato', sans-serif;
     border-radius: 0%;
+    background-image:  url('../../../../assets/Images/login.jpeg');
 }
 
 .navbar{
@@ -13,14 +14,14 @@
     font-weight: 700;
     font-size: 0.9rem;
     letter-spacing: .1rem;
-    background-color: transparent !important;
+    background-color: white !important;
     /* background: rgba(0,0,0,0.6) !important; */
     /* opacity: .9; */
   }
   .navbar-brand img{
     height: 6rem;
     width: 6rem;
-    border-radius: 50%;
+    /* border-radius: 50%; */
   }
   .navbar-nav li{
   padding-right: .7rem;
@@ -36,7 +37,7 @@
     padding: 3rem;
     /* background-color: rgb(8, 7, 7); */
     opacity: 0.9;
-    margin-top: 30%;
+    margin-top: 10%;
     border-radius: 0%;
     width: 450px;
 }
@@ -63,7 +64,7 @@
   }
  
 .welcome{
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     font-weight: 600;
     color: rgb(12, 204, 204);
     text-shadow: .1rem .1rem .5rem rgb(236, 233, 233);
@@ -91,13 +92,58 @@
 .forgot-password:hover {
   letter-spacing: 1px;
 }
-small{
-    color: blue;
-    font-size: 1rem;
-}
+
 footer{
     background-color: #40474e;
     color: white;
     padding: 2rem 0 2rem;
     margin-top: 1rem;
   }
+
+  .form-input {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.form-input > label {
+    color: #2C3A47;
+    font-weight: bold;
+    margin: 0;
+    text-transform: uppercase;
+    transition: color 0.3s ease-in-out;
+}
+
+.form-input > input[type="text"]:focus + label,
+.form-input > input[type="password"]:focus + label {
+    color: #3E3ED9;
+}
+
+form input {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.form-input > input[type="text"],
+.form-input > input[type="password"] {
+    border: none;
+    border-bottom: 2px solid #2C3A47;
+    height: 30px;
+    outline: none;
+    transition: border-bottom .3s ease-in-out;
+}
+
+.form-input > input[type="text"]:focus,
+.form-input > input[type="password"]:focus {
+    border-bottom: 2px solid #FD7272;
+}
+.fa-eye{
+ margin-left: 90%;
+ margin-top: -1%;
+}
+.btn-lg{
+  color: #ffffff;
+  background: rgb(28, 240, 240);
+  border-radius: 0%;
+  font-size: 1rem;
+  font-weight: 700;
+}

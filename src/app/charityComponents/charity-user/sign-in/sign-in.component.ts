@@ -20,10 +20,6 @@ export class SignInComponent implements OnInit {
   constructor(public service: DataService, public router: Router, public fb: FormBuilder) { }
 
   ngOnInit() {
-    // let token = localStorage.getItem('jwt');
-    // if (token) {
-    //   this.router.navigate(['charity/paymentreport']);
-    // }
     this.resetForm();
     this.loginForm = this.fb.group({
       email: new FormControl(null, [Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]),
@@ -54,20 +50,18 @@ export class SignInComponent implements OnInit {
     var data = { "email": this.service.charityLogin.email, "password": this.service.charityLogin.password }
     this.service.CharityLogin(data).subscribe((response: any) => {
       console.log(response);
-      if(response) {
+      if(response.success) {
         localStorage.setItem("jwt", response.result.jwt);
         localStorage.setItem('user',response.result.resp['_id']); 
         this.resetForm();
-        // this.router.navigate(['dashboard/summary']);
+        this.router.navigate(['dashboard/stripePayment'])
+      } else {
+        swal("Sorry ","Email not found","error")
       }
-      // localStorage.setItem('jwt', response.result.resp.jwt); 
-      this.router.navigate(['dashboard/stripePayment']);  
+      
     });
-    if(error){
-     
-      this.router.navigate(['signin']);
-      // swal("Oops!", "Please enter valid email or password!", "warning");
-    }
+   
+    
   }
   register(){
     this.router.navigate(['signup']);

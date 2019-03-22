@@ -1,5 +1,5 @@
 .container-fluid{
-  background-image: url('../../../../assets/Images/HomePage.jpeg');
+  background-image:  radial-gradient(rgb(13, 184, 184), rgb(21, 201, 171), rgb(27, 208, 221));
   /* height: 100vh; */
   /* background-position: center; */
   background-size: cover;
@@ -14,14 +14,14 @@
   font-weight: 700;
   font-size: 0.9rem;
   letter-spacing: .1rem;
-  background-color: transparent !important;
+  background-color: white !important;
   /* background: rgba(0,0,0,0.6) !important; */
   /* opacity: .9; */
 }
 .navbar-brand img{
   height: 6rem;
   width: 6rem;
-  border-radius: 50%;
+  /* border-radius: 50%; */
 }
 .navbar-nav li{
 padding-right: .7rem;
@@ -32,7 +32,7 @@ padding-right: .7rem;
 }
 
 .btn-lg{
-  border-radius: 0;
+  border-radius: 25px;
   border-width: medium;
   padding: .6rem 1.3rem;
   font-size: 1.1rem;
@@ -73,6 +73,11 @@ small{
 }
 .form-check-label{
   color: black !important;
+}
+.image-upload img
+{
+width: 80px;
+cursor: pointer;
 }
 .image-upload > input
 {

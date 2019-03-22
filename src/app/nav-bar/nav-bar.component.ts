@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -8,10 +9,45 @@ import { Router } from '@angular/router';
 })
 export class NavBarComponent implements OnInit {
 
-  constructor( public router: Router ) { }
+  public page;
+  public payments: any;
+  // public pages: Array<number>;
+  public amount: any;
+  public status: any;
+  public date: any;
+  public length : number;
+
+  constructor(private service: DataService, private router: Router) { }
+  // setPage(i) {
+  //   this.page = i;
+  //   this.getReports();
+  // }
 
   ngOnInit() {
+    // this.getReports();
   }
+  // doPagination(itemsPerPage, total_pages, totalCount, pageNo, per_page) {
+  //   console.log(this.pages, itemsPerPage, total_pages, totalCount, per_page);
+  //   this.pagination.currentPage = parseInt(pageNo);
+  //   this.pagination.noOfItemsPerPage = per_page;
+  //   this.pagination.totalCount = totalCount;
+  // }
+
+  // onPageChange(e) {
+  //   // console.log('onPageChange', e);
+  //   this.setPage(e);
+  // }
+
+  // getReports() {
+  //   this.service.getReport(this.page, this.amount, this.date, this.status).subscribe((Response: any) => {
+  //     console.log(Response);
+  //     this.length = Response.result.paginatedItems.length;
+  //     this.payments =  Response.result.page;
+  //     this.payments = Response.result.paginatedItems;
+  //     this.doPagination(Response.result.itemsPerPage, Response.result.total_pages, Response.result.totalCount, Response.result.pageNo, Response.result.per_page)
+  //   })
+  // }
+
 
   summary(){
     this.router.navigate(['dashboard/summary']);

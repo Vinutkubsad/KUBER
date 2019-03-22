@@ -1,23 +1,22 @@
-<div class="container-fluid ">
-  <nav class="navbar navbar-expand-md navbar-dark bg-light fixed-top">
-    <a class="navbar-brand" href="#"><img src="./assets/Images/kuber-HD.jpg" width="60" height="60"></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
-      <!-- aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"> -->
+
+  <nav class="navbar navbar-expand-md navbar-light static-top">
+    <a class="navbar-brand" href="#"><img src="../../../assets/Images/Logo with Background.png" width="60" height="60"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarResponsive">
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
-
         <li class="nav-item ">
-          <button type="button" class="btn btn-outline-light btn-lg" (click)="login() ">LOGIN</button>
+          <button type="button" class="btn btn-lg" (click)="Login() ">LOGIN</button>
         </li>
       </ul>
+      
     </div>
   </nav>
+  <div class="container-fluid ">
   <pre>
-
-
-
 
  </pre>
   <div class="container">
@@ -67,7 +66,7 @@
                   <!-- <div class="col">
                       <div class="image-upload">
                         <label for="charityLogos">
-                        <i class="fas fa-cloud-upload-alt fa-5x" (click)="expression"></i>
+                        <i class="fas fa-cloud-upload-alt fa-5x" (click)="charityLogos()"></i>
                         Upload Charity Logo
                         </label>
                         <input id="charityLogos" type="file" formControlName = "charityLogos" [(ngModel)]="charityServices.selectedCharity.charityLogos" (change)="charityLogos($event)"/>
@@ -415,7 +414,14 @@
       </div>
     </div>
   </div>
+  <pre>
+    
+  </pre>
 </div>
+<<<<<<< HEAD
+<<<<<<< HEAD
+<app-footer></app-footer>
+=======
 
 <app-footer></app-footer>
 
@@ -426,3 +432,7 @@
 "token_type": "bearer", "stripe_publishable_key": "{PUBLISHABLE_KEY}", 
 "stripe_user_id": "{ACCOUNT_ID}", "scope": "express" }
 success -->
+>>>>>>> 19c9516d13811dcef82c64ac3f07a95c571cbd14
+=======
+<app-footer></app-footer>
+>>>>>>> dbdb9f56b0c1fdfc4f1a6d2f079c768148a19d74
