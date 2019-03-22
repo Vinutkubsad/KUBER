@@ -12,6 +12,7 @@ import { FormGroup, FormGroupDirective, NgForm, FormBuilder, FormControl, Valida
 export class StartPageComponent implements OnInit {
 
   
+  path;
 
   Login() {
     this.router.navigate(['/signin']);
@@ -23,10 +24,14 @@ export class StartPageComponent implements OnInit {
 
   contactForm: FormGroup;
 
-  constructor(public service: DataService, private router: Router, private fb: FormBuilder) { }
+  constructor(public service: DataService, public router: Router, private fb: FormBuilder) {
+    
+    console.log(this.path)
+   }
 
   ngOnInit(): void {
     this.resetForm();
+    this.path = this.router.url;
     this.contactForm = this.fb.group({
       name: [null, [Validators.required, Validators.pattern('[a-zA-Z]*')]],
       email: [null, [Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]],
