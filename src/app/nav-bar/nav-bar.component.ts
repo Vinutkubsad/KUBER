@@ -61,8 +61,10 @@ export class NavBarComponent implements OnInit {
   help(){
     this.router.navigate(['dashboard/help']);
   }
-  profile(){
-    this.router.navigate(['dashboard/profile']);
+  navProfile() {
+    var id=localStorage.getItem('user');
+    console.log(id);
+    this.router.navigate(['dashboard/profile/',id]);
   }
   logout(){
     this.router.navigate(['home']);

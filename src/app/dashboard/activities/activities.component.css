@@ -1,11 +1,16 @@
-/* 
+
 .container-fluid{
     margin-top:15px;
  }
  .container{
      font-family: 'Poppins', sans-serif;
  }
- 
+ h4 {
+    color:rgb(106, 208, 226);
+    font-size: 2rem;
+    font-weight: bold;
+ }
+
  .fa-search{
      color:rgb(16, 144, 204); 
     color:white;
@@ -28,7 +33,7 @@
  }
  
 
- .thead{
+ thead{
      background-color: rgb(16, 144, 204);
      color: white;
      padding: 15px;
@@ -49,4 +54,24 @@
     font-weight:900;
     color:rgb(106, 208, 226);
     font-family: 'poppins';
-} */
+}
+
+/* date select */
+.date-form {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    background: #ddd;
+}
+
+#from-date {
+    padding: 0.3rem;
+    margin: 5ox;
+    border: none;
+}
+
+#to-date {
+    padding: 0.3rem;
+    margin: 5ox;
+    border: none;
+}

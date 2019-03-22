@@ -46,8 +46,20 @@
           </div> -->
         </li>
         <li class="nav-item">
+<<<<<<< HEAD
           <!-- <a class="nav-link" href="#"><i class="fa fa-cog" aria-hidden="true"></i></a> -->
          
+=======
+          <!-- <a class="nav-link"><i class="fa fa-cog" aria-hidden="true"></i></a> -->
+          <div ngbDropdown placement="bottom-right" class="d-inline-block">
+            <button class="btn btn-outline" id="dropdownBasic1" ngbDropdownToggle><i class="fa fa-cog" aria-hidden="true"></i></button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+              <button ngbDropdownItem (click)="navProfile()" ><i class="fa fa-user" aria-hidden="true"></i> Profile</button>
+              <button ngbDropdownItem (click)="logout()"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Logout</button>
+              <button ngbDropdownItem>Refunds</button>
+            </div>
+          </div>
+>>>>>>> 19c9516d13811dcef82c64ac3f07a95c571cbd14
         </li>
       </ul>
      
