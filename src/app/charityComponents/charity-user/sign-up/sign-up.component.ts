@@ -90,9 +90,6 @@ export class SignUpComponent implements OnInit {
         .registerCharity(this.registerForm.value)
         .subscribe((res) => {
           if (res) {
-            console.log(res);
-            // if(this.flag){
-            // }
             swal("Great!","Succefully registered your charity", "success");
             this.registerForm.reset();
           } else {

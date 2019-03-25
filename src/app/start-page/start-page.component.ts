@@ -30,7 +30,7 @@ export class StartPageComponent implements OnInit {
       message: [null, [Validators.required]]
     })
   }
-
+ 
 
   resetForm(form?: NgForm) {
     if (form) form.reset();
@@ -42,7 +42,7 @@ export class StartPageComponent implements OnInit {
   }
 
   submitDetails() {
-    // console.log(this.contactForm.value);
+    console.log(this.contactForm.value);
     if(this.contactForm.valid) {
       this.service.sendMessage(this.contactForm.value).subscribe(res =>{
         if(res) {

@@ -1,8 +1,7 @@
 <body class="homepage">
   <div class="home" id="home">
     <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
-      <a class="navbar-brand" href="#"><img src="../../assets/Images/logo.png" width="60"
-          height="60"></a>
+      <a class="navbar-brand" href="#"><img src="./assets/Images/logo.png" width="60" height="60"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
         aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -10,7 +9,7 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link active"  href="#home">Home </a>
+            <a class="nav-link active" href="#home">Home </a>
           </li>
           <li class="nav-item ">
             <a class="nav-link active" href="#about">About Us</a>
@@ -76,7 +75,7 @@
         <h2 style="text-align: center; padding: 2.5rem;font-size: 40px;font-weight: 700;
         letter-spacing: 1px; text-transform: uppercase;">About Us</h2>
       </header>
- 
+
       <div class="row about-container">
         <div class="col-lg-5 content order-lg-1 order-2">
           <div class="icon-box wow fadeInUp" style="text-align:center;">
@@ -155,35 +154,40 @@
       <header class="wrap-contact">
         <h1> Let's Talk </h1>
       </header>
-      <div class="form-container">
+      <div class="form-container" [formGroup]="contactForm" (ngSubmit)="submitDetails()">
         <div class="form">
           <div class="row">
             <div class="col">
               <div class="form-group">
                 <div class="input-icon-wrap">
                   <span class="input-icon"><span><i class="fas fa-user"></i></span></span>
-                  <input type="text" class="input-with-icon" placeholder="Full Name" id="name" formControlName="name" 
-                  data-new-placeholder="Username" type="text" [(ngModel)]="service.contact.name" required />
-                  <div class="val" *ngIf="
-                  contactForm.controls['name'].touched &&
-                  !contactForm.controls['name'].valid
-                ">
-            <small *ngIf="contactForm.controls['name'].hasError('required')">
-              Please enter the name!
-            </small>
-            <small *ngIf="contactForm.controls['name'].hasError('pattern')">
-              Please enter valid name!
-            </small>
-          </div>
+                  <input type="text" class="input-with-icon" placeholder="Username" id="name" formControlName="name"
+                    type="text" [(ngModel)]="service.contact.name" required />
                 </div>
+                <p class="alert">
+                  <ngb-alert [dismissible]="false" *ngIf="
+                  contactForm.controls['name'].touched &&
+                  !contactForm.controls['name'].valid">
+                    <strong>Warning!</strong> Enter the Username.
+                  </ngb-alert>
+                </p>
               </div>
             </div>
             <div class="col">
               <div class="form-group">
                 <div class="input-icon-wrap">
                   <span class="input-icon"><span><i class="fas fa-envelope"></i></span></span>
-                  <input type="text" class="input-with-icon" placeholder="Email" id="form-name" >
+                  <input type="text" class="input-with-icon" placeholder="Email" id="email" formControlName="email"
+                  type="text" [(ngModel)]="service.contact.email" required>
                 </div>
+                <p class="alert">
+                  <ngb-alert [dismissible]="false" *ngIf="
+                  contactForm.controls['email'].touched &&
+                  !contactForm.controls['email'].valid">
+                    <strong *ngIf="registerForm.controls['contact'].hasError('required')">Warning!</strong> Enter the Email.
+                    <strong *ngIf="registerForm.controls['contact'].hasError('pattern')">Warning!</strong> Incorrect Email.
+                  </ngb-alert>
+                </p>
               </div>
             </div>
           </div>
@@ -192,27 +196,27 @@
               <div class="form-group">
                 <div class="input-icon-wrap">
                   <span class="input-icon"><span><i class="fas fa-comment-alt"></i> </span></span>
-                  <textarea type="text" class="input-with-icon" placeholder="Message" id="form-name" style="height:100px;"></textarea>
+                  <textarea type="text" class="input-with-icon" placeholder="Message" id="message"
+                  formControlName="message"
+                  type="text" [(ngModel)]="service.contact.message" style="height:100px;" required></textarea>
                 </div>
+                <p class="alert">
+                  <ngb-alert [dismissible]="false" *ngIf="
+                  contactForm.controls['message'].touched &&
+                  !contactForm.controls['message'].valid">
+                    <strong>Warning!</strong> Enter the message.
+                  </ngb-alert>
+                </p>
               </div>
             </div>
           </div>
           <div class="col-12">
-              <p><button name="submit" type="submit" class="btn btn-outline-light btn-lg btn-block"><i class="fa fa-paper-plane"></i>
-                  Contact Us</button></p>
-            </div>
+            <p><button name="submit" type="submit" class="btn btn-outline-light btn-lg btn-block" (click)="submitDetails()"><i
+                  class="fa fa-paper-plane"></i>
+                Send a message</button></p>
+          </div>
         </div>
       </div>
-      <!-- <form class="">
-        <div class="row">
-            <div class="input-group mb-3 col-sm-6">
-              <input type="text" class="form-control border-right-0" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-                <div class="input-group-prepend bg-white">
-                    <span class="input-group-text border-left-0 rounded-right bg-white" id="basic-addon1"><i class="fas fa-search"></i></span>
-                </div>
-            </div>
-        </div>
-    </form> -->
       <!-- <form id="contact-form" [formGroup]="contactForm" (ngSubmit)="submitDetails()">
         <div class="row">
           <h4>Please fill the details. We will contact you soon.</h4>

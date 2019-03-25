@@ -512,7 +512,8 @@ outline: none;
 #letstalk .input-with-icon {
   border: none;
   flex: 1;
-  /* color: rgb(76, 177, 172); */
+  /* color: rgb(76, 177, 172); */outline: none;
+
 }
 
 #letstalk .input-icon, .input-with-icon {
@@ -567,5 +568,9 @@ button.btn.btn-outline-light.btn-lg.btn-block:hover {
 }
 
 .val {
+  color: red;
+}
+
+ngb-alert {
   color: red;
 }
