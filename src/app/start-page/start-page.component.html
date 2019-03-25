@@ -1,7 +1,7 @@
 <body class="homepage">
   <div class="home" id="home">
     <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
-      <a class="navbar-brand" href="#"><img src="../../assets/Images/Logo with Background.png" width="60"
+      <a class="navbar-brand" [routerLink]="['home']" ><img src="./assets/Images/Logo with Background.png" width="60"
           height="60"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
         aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -64,7 +64,7 @@
         <!-- <h2>QUBER<br> <span style="font-size:1.6rem; color: white; text-transform: uppercase">Giving made easier </span></h2> -->
         <!-- <h3>Quber digitally transforms the philanthropic experience making it seamless, efficient and secure by leveraging latest technologies.</h3> -->
         <div>
-          <a href="#about" class="btn-get-started scrollto">REGISTER YOUR CHARITY</a>
+          <a href="" class="btn-get-started scrollto" (click)="register()">REGISTER YOUR CHARITY</a>
           <!-- <a href="#services" class="btn-services scrollto">Our Services</a> -->
         </div>
       </div>

@@ -1,21 +1,21 @@
+<nav class="navbar navbar-expand-md navbar-light static-top">
+  <a class="navbar-brand" href="#"><img src="./assets/Images/Logo with Background.png" width="60"
+      height="60"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-  <nav class="navbar navbar-expand-md navbar-light static-top">
-    <a class="navbar-brand" href="#"><img src="../../../assets/Images/Logo with Background.png" width="60" height="60"></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item ">
-          <button type="button" class="btn btn-lg" (click)="Login() ">LOGIN</button>
-        </li>
-      </ul>
-      
-    </div>
-  </nav>
-  <div class="container-fluid ">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item ">
+        <button type="button" class="btn btn-lg" (click)="Login() ">LOGIN</button>
+      </li>
+    </ul>
+
+  </div>
+</nav>
+<div class="container-fluid ">
   <pre>
 
  </pre>
@@ -29,7 +29,7 @@
             <h3 class="welcome text-center">Register your charity</h3>
             <hr>
             <h5>Charity details</h5>
-            <small>All fields are mandatory</small>
+            <small style="color:black">All fields are mandatory</small>
             <br>
             <form class="form-horizontal" role="form" [formGroup]="registerForm" (ngSubmit)="submitForm()"
               class="main-form">
@@ -63,7 +63,7 @@
                 </div> -->
               </div>
               <div class="row">
-                  <!-- <div class="col">
+                <!-- <div class="col">
                       <div class="image-upload">
                         <label for="charityLogos">
                         <i class="fas fa-cloud-upload-alt fa-5x" (click)="charityLogos()"></i>
@@ -254,7 +254,7 @@
               <div class="row">
                 <div class="col">
                   <h5>Primary contact details</h5>
-                  <small>All fields are mandatory</small>
+                  <small style="color:black">All fields are mandatory</small>
                 </div>
               </div>
               <div class="row">
@@ -382,7 +382,7 @@
 
 
               <div class="form-group">
-                <div class="form-check"  style="text-align:center" >
+                <div class="form-check" style="text-align:center">
                   <input formControlName="check" class="form-check-input is-invalid" type="checkbox" value="" id="check"
                     autofocus required>
                   <label class="form-check-label" for="invalidCheck3">
@@ -397,16 +397,16 @@
                       You must agree before submitting.
                     </small>
                   </div>
-                    <!-- <div class="invalid-feedback">
+                  <!-- <div class="invalid-feedback">
                     You must agree before submitting.
                   </div> -->
-                  </div>
                 </div>
-                <div class="text-center">
-                  <button type="button" class="btn btn-lg btn-outline-light" (click)="back()">BACK</button>
-                  <input type="submit" class="btn btn-lg btn-outline-light" [disabled]='registerForm.invalid'
-                    value="REGISTER">
-                </div>
+              </div>
+              <div class="text-center">
+                <button type="button" class="btn btn-lg btn-outline-light" (click)="back()">BACK</button>
+                <input type="submit" class="btn btn-lg btn-outline-light" [disabled]='registerForm.invalid'
+                  value="REGISTER">
+              </div>
             </form>
             <br>
           </div>
@@ -415,24 +415,7 @@
     </div>
   </div>
   <pre>
-    
+
   </pre>
 </div>
-<<<<<<< HEAD
-<<<<<<< HEAD
 <app-footer></app-footer>
-=======
-
-<app-footer></app-footer>
-
-
-
-<!-- { "access_token": "{ACCESS_TOKEN}", 
-"livemode": false, "refresh_token": "{REFRESH_TOKEN}", 
-"token_type": "bearer", "stripe_publishable_key": "{PUBLISHABLE_KEY}", 
-"stripe_user_id": "{ACCOUNT_ID}", "scope": "express" }
-success -->
->>>>>>> 19c9516d13811dcef82c64ac3f07a95c571cbd14
-=======
-<app-footer></app-footer>
->>>>>>> dbdb9f56b0c1fdfc4f1a6d2f079c768148a19d74

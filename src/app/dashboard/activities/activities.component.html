@@ -85,7 +85,8 @@
                     <div class="col">
                     </div>
                 <div class="form-group form-inline col-4">
-                  <input class="form-control ml-2" type="text" placeholder="Seach"/>
+                  <input class="form-control ml-2" type="text" [(ngModel)]="DonarName" placeholder="Search"/>
+                  <button class="btn btn-outline" (click)="search()"><i class="fa fa-search" aria-hidden="true"></i></button>
                 </div>
                 <div class="col">
                   <div class="dropdown">
@@ -111,11 +112,11 @@
                         aria-hidden="true"></i></button></th>
                   <th>Type<button class="btn btn-outline" (click)="sortStatus()"><i class="fa fa-sort"
                         aria-hidden="true"></i></button></th>
-                  <th>Name<button class="btn btn-outline" (click)="sortAmount()"><i class="fa fa-sort"
+                  <th>Name<button class="btn btn-outline" (click)="sortStatus()"><i class="fa fa-sort"
                         aria-hidden="true"></i></button></th>
-                  <th>Donation Status<button class="btn btn-outline" (click)="sortDate()"><i class="fa fa-sort"
+                  <th>Donation Status<button class="btn btn-outline" (click)="sortStatus()"><i class="fa fa-sort"
                         aria-hidden="true"></i></button></th>
-                  <th>Total Amount<button class="btn btn-outline" (click)="sortDate()"><i class="fa fa-sort"
+                  <th>Total Amount<button class="btn btn-outline" (click)="sortAmount()"><i class="fa fa-sort"
                         aria-hidden="true"></i></button></th>
                   <th>Fees<button class="btn btn-outline" (click)="sortDate()"><i class="fa fa-sort"
                         aria-hidden="true"></i></button></th>
@@ -128,9 +129,9 @@
                   <td></td>
                   <td>{{p.userName}}</td>
                   <td>{{p.status}}</td>
-                  <td>{{p.amount}}</td>
-                  <td>{{p.application_fee_amount}}</td>
-                  <td>{{p.net}}</td>
+                  <td>{{p.amount | currency}}</td>
+                  <td>{{p.application_fee_amount | currency}}</td>
+                  <td>{{p.net | currency}}</td>
                 </tr>
               </tbody>
             </table>
