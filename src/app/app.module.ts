@@ -94,7 +94,7 @@ import { StripeRespondComponent } from './charityComponents/charity-user/stripe-
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     AngularFireMessagingModule,
-    AngularFireModule.initializeApp(environment.firebase),
+    // AngularFireModule.initializeApp(environment.firebase),
     
   ],
   providers: [DataService,AuthGaurd,AuthGaurd1,MessagingService,AsyncPipe],

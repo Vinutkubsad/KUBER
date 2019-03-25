@@ -565,3 +565,7 @@ button.btn.btn-outline-light.btn-lg.btn-block:hover {
   background: white;
   border: 3px solid rgb(15, 221, 228);
 }
+
+.val {
+  color: red;
+}

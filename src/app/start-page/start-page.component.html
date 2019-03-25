@@ -1,7 +1,7 @@
 <body class="homepage">
   <div class="home" id="home">
     <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
-      <a class="navbar-brand" href="#"><img src="../../assets/Images/Logo with Background.png" width="60"
+      <a class="navbar-brand" href="#"><img src="../../assets/Images/logo.png" width="60"
           height="60"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
         aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,10 +46,6 @@
   <section id="intro" class="clearfix">
     <div class="container">
 
-      <div class="intro-img">
-        <img src="img/intro-img.svg" alt="" class="img-fluid">
-      </div>
-
       <div class="intro-info">
         <div class="brand-name">
           <p style="font-size:5rem; color: whitesmoke;">QUBER</p>
@@ -64,7 +60,7 @@
         <!-- <h2>QUBER<br> <span style="font-size:1.6rem; color: white; text-transform: uppercase">Giving made easier </span></h2> -->
         <!-- <h3>Quber digitally transforms the philanthropic experience making it seamless, efficient and secure by leveraging latest technologies.</h3> -->
         <div>
-          <a href="#about" class="btn-get-started scrollto">REGISTER YOUR CHARITY</a>
+          <a (click)="register()" class="btn-get-started scrollto">REGISTER YOUR CHARITY</a>
           <!-- <a href="#services" class="btn-services scrollto">Our Services</a> -->
         </div>
       </div>
@@ -166,7 +162,19 @@
               <div class="form-group">
                 <div class="input-icon-wrap">
                   <span class="input-icon"><span><i class="fas fa-user"></i></span></span>
-                  <input type="text" class="input-with-icon" placeholder="Full Name" id="form-name">
+                  <input type="text" class="input-with-icon" placeholder="Full Name" id="name" formControlName="name" 
+                  data-new-placeholder="Username" type="text" [(ngModel)]="service.contact.name" required />
+                  <div class="val" *ngIf="
+                  contactForm.controls['name'].touched &&
+                  !contactForm.controls['name'].valid
+                ">
+            <small *ngIf="contactForm.controls['name'].hasError('required')">
+              Please enter the name!
+            </small>
+            <small *ngIf="contactForm.controls['name'].hasError('pattern')">
+              Please enter valid name!
+            </small>
+          </div>
                 </div>
               </div>
             </div>
@@ -212,7 +220,7 @@
             <div class="form-group">
               <div class="controls">
                 
-                <input id="name" formControlName="name" placeholder="Name" class="form-control requiredField"
+                <input id="name" formControlName="name" 
                   data-new-placeholder="Username" type="text" [(ngModel)]="service.contact.name" required>
                 <div class="val" *ngIf="
                         contactForm.controls['name'].touched &&

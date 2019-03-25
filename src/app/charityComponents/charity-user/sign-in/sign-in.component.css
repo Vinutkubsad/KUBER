@@ -18,11 +18,7 @@
     /* background: rgba(0,0,0,0.6) !important; */
     /* opacity: .9; */
   }
-  .navbar-brand img{
-    height: 6rem;
-    width: 6rem;
-    /* border-radius: 50%; */
-  }
+
   .navbar-nav li{
   padding-right: .7rem;
   }

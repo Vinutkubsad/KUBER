@@ -14,14 +14,6 @@ export class StartPageComponent implements OnInit {
   
   path;
 
-  Login() {
-    this.router.navigate(['/signin']);
-  }
-  register(){
-    this.router.navigate(['/signup'])
-  }
-
-
   contactForm: FormGroup;
 
   constructor(public service: DataService, public router: Router, private fb: FormBuilder) {
@@ -63,6 +55,13 @@ export class StartPageComponent implements OnInit {
     } else {
       swal("Oops!","Please enter valid data!", "warning");
     }
+  }
+
+  Login() {
+    this.router.navigate(['/signin']);
+  }
+  register(){
+    this.router.navigate(['/signup'])
   }
 
 }

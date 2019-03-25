@@ -21,7 +21,7 @@ export class SignUpComponent implements OnInit {
   // charityLogoFile: any;
   charityLogoFile: File = null;
   charityLogos(event){
-  // console.log(event.target.files);
+  console.log(event.target.files);
   this.charityLogoFile = event.target.files[0];
   }
 
@@ -122,15 +122,9 @@ export class SignUpComponent implements OnInit {
     this.router.navigate(['/home']);
   }
 
-  // navigateLogin() {
-  //   this.router.navigate(['signup']);
-  // }
-  // Setup() {
-  //   this.charityServices.setupStripe().subscribe((res)=>{
-  //     console.log(res,'stripe');
-  //   })
-  // }
-
+  navigateLogin() {
+    this.router.navigate(['signup']);
+  }
 }
 
 

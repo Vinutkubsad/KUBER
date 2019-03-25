@@ -1,6 +1,6 @@
 
   <nav class="navbar navbar-expand-md navbar-light static-top">
-    <a class="navbar-brand" href="#"><img src="../../../assets/Images/Logo with Background.png" width="60" height="60"></a>
+    <a class="navbar-brand" [routerLink]="['/home']"><img src="../../../../assets/Images/logo.png" width="60" height="60"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -52,15 +52,9 @@
                     </div>
                   </div>
                 </div>
-                <!-- <div class="col">
-                  <div class="image-upload">
-                    <label for="charityLogos">
-                    <i class="fas fa-cloud-upload-alt fa-5x" (click)="expression"></i>
-                    Upload Charity Logo
-                    </label>
-                    <input id="charityLogos" type="file" formControlName = "charityLogos" [(ngModel)]="charityServices.selectedCharity.charityLogos" (change)="charityLogos($event)"/>
-                    </div>
-                </div> -->
+                <div class="col">
+                  <input type="file"  formControlName = "charityLogos" [(ngModel)]="charityServices.selectedCharity.charityLogos" (change)="charityLogos($event)"/>
+                </div>
               </div>
               <div class="row">
                   <!-- <div class="col">
@@ -418,21 +412,4 @@
     
   </pre>
 </div>
-<<<<<<< HEAD
-<<<<<<< HEAD
 <app-footer></app-footer>
-=======
-
-<app-footer></app-footer>
-
-
-
-<!-- { "access_token": "{ACCESS_TOKEN}", 
-"livemode": false, "refresh_token": "{REFRESH_TOKEN}", 
-"token_type": "bearer", "stripe_publishable_key": "{PUBLISHABLE_KEY}", 
-"stripe_user_id": "{ACCOUNT_ID}", "scope": "express" }
-success -->
->>>>>>> 19c9516d13811dcef82c64ac3f07a95c571cbd14
-=======
-<app-footer></app-footer>
->>>>>>> dbdb9f56b0c1fdfc4f1a6d2f079c768148a19d74
