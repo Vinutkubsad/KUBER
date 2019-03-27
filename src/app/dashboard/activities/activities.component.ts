@@ -60,7 +60,7 @@ export class ActivitiesComponent implements OnInit {
 
   getReports() {
     this.service.getReport(this.page, this.amount, this.date, this.status).subscribe((Response: any) => {
-      console.log(Response);
+      // console.log(Response);
      
       this.mes = Response.message;
       if(Response.result){
@@ -72,7 +72,7 @@ export class ActivitiesComponent implements OnInit {
   search() {
     var data = { "userName": this.DonarName }
     this.service.searchReport(data, this.page).subscribe((Response: any) => {
-      console.log(Response);
+      // console.log(Response);
       this.payments = Response.result.paginatedItems;
       this.doPagination(Response.result.itemsPerPage, Response.result.total_pages, Response.result.totalCount, Response.result.pageNo, Response.result.per_page)
     });
@@ -128,7 +128,7 @@ export class ActivitiesComponent implements OnInit {
   filter30(){
     var data = { "days":30 }
     this.service.dateFilterActivity(data).subscribe((Response:any)=>{
-      console.log(Response);
+      // console.log(Response);
       this.payments= Response.result.paginatedItems;
     })
   }
@@ -136,7 +136,7 @@ export class ActivitiesComponent implements OnInit {
   filter60(){
     var data = { "days":60 }
     this.service.dateFilterActivity(data).subscribe((Response:any)=>{
-      console.log(Response);
+      // console.log(Response);
       this.payments= Response.result.paginatedItems;
     })
   }
@@ -144,21 +144,21 @@ export class ActivitiesComponent implements OnInit {
   filter18(){
     var data = { "year": 2018 }
     this.service.dateFilterActivity(data).subscribe((Response:any)=>{
-      console.log(Response);
+      // console.log(Response);
       this.payments= Response.result.paginatedItems;
     })
   }
   filter19(){
     var data = { "year": 2019 }
     this.service.dateFilterActivity(data).subscribe((Response:any)=>{
-      console.log(Response);
+      // console.log(Response);
       this.payments= Response.result.paginatedItems;
     })
   }
   filter(){
     var data = { range:{"from":this.start, "to":this.end} }
     this.service.dateFilterActivity(data).subscribe((Response:any)=>{
-      console.log(Response);
+      // console.log(Response);
       this.payments= Response.result.paginatedItems;
     })
   }

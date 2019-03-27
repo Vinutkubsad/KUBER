@@ -70,3 +70,11 @@
 .btn-outline:onClick{
     border-color: rgb(106, 208, 226);
 }
+
+/* search box */
+.form-control[_ngcontent-c3] {
+    width: 90%;
+}
+
+/* Bootstrap 4 text input with search icon */
+  

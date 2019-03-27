@@ -12,7 +12,7 @@
               <div class="col-12">
             <div class="searchBar">
               <div class="row ">
-                <!-- <input type="text" class="form-control ml-auto"[(ngModel)]="searchText" placeholder="Search">            -->
+                 <!-- <input type="text" class="form-control ml-auto"[(ngModel)]="searchText" placeholder="Search">            -->
               </div>
             </div>
             <br>
@@ -48,6 +48,11 @@
                     </div>
                   </div>
             </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <input class="form-control ml-2" type="text" [(ngModel)]="searchText" placeholder="Seach"/>
+                  </div>
+            </div>
         </div>
             <br>
             <div class="container padding">
@@ -58,7 +63,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-9">
+            <div class="col-12">
               <div class="table-responsive">
                 <table class="table">
                   <thead class="thead">
@@ -70,11 +75,11 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr >
-                      <!-- <td>{{p.userDetails.Name }}</td>
-                      <td>{{p.interval}}</td>
-                      <td>{{p.amount}}</td>
-                      <td>{{p.startDate | date}}</td> -->
+                    <tr *ngFor="let data of pledgeReport | filterPipe: searchText">
+                      <td>{{data.userDetails.Name}}</td>
+                      <td>{{data.interval}}</td>
+                      <td>{{data.amount}}</td>
+                      <td>{{data.startDate | date}}</td>
                     </tr>
                   </tbody>
                 </table>

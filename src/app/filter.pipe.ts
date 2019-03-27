@@ -1,21 +1,20 @@
-import { Pipe, PipeTransform, Injectable } from '@angular/core';
+import { Pipe, PipeTransform, Injectable } from "@angular/core";
 
 @Pipe({
-  name: 'filter',
+  name: "filterPipe"
 })
 @Injectable()
-export class FilterPipe implements PipeTransform {
-  transform(items: any[], field: string, value: string): any[] {
-    if (!items) {
-      return [];
+export class SearchFilterPipe implements PipeTransform {
+  transform(value: any, args?: any): any {
+    if (!args) {
+      return value;
+    } else {
+      args = args.toUpperCase();
     }
-    if (!field || !value) {
-      return items;
-    } 
-    value = value.toLowerCase();
-    return items.filter((item) => {
-      var match = item[field].toLowerCase();
-      return match.indexOf(value) !== -1
+    return value.filter(items => {
+      return (
+        items.userDetails.Name.toUpperCase().startsWith(args.toUpperCase()) == true
+      );
     });
   }
 }
