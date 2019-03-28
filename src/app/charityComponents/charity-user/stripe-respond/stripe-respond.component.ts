@@ -15,15 +15,17 @@ export class StripeRespondComponent implements OnInit {
   public AccessCode;
 
 
+
   constructor(public service: DataService, public activatedRoute: ActivatedRoute, public router: Router) {
     // this.path = this.router.url;
     // console.log(this.path.split('=')[0], [1], '');
 
     this.activatedRoute.queryParams.subscribe((params)=> {
-      console.log(params['code']);
+      // console.log(params['code']);
+      this.AccessCode = params['code'];
       if(params){
-        this.service.stipeDetail(params['code']).subscribe((res)=>{
-          console.log(res);
+        this.service.stipeDetail(this.AccessCode).subscribe((res)=>{
+          // console.log(res);
         })
       }
     })

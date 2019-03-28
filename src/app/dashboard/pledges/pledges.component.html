@@ -1,4 +1,4 @@
-<div class="container-fluid padding">
+<div class="container-fluid padding" #conatent>
   <div class="container">
     <div class="row welcome ">
       <div class="col-12" style="color:rgb(106, 208, 226);">
@@ -12,7 +12,7 @@
               <div class="col-12">
             <div class="searchBar">
               <div class="row ">
-                <!-- <input type="text" class="form-control ml-auto"[(ngModel)]="searchText" placeholder="Search">            -->
+                 <!-- <input type="text" class="form-control ml-auto"[(ngModel)]="searchText" placeholder="Search">            -->
               </div>
             </div>
             <br>
@@ -48,6 +48,15 @@
                     </div>
                   </div>
             </div>
+            <div class="col-4">
+                <div class="form-group">
+                    <input class="form-control ml-2" [(ngModel)]="searchText" type="text" placeholder="Seach"/>
+                  </div>
+            </div>
+            <div class="col">
+              <button type="button" class="btn btn-outline-info" (click)="downloadPdf()" ><i class="fas fa-file-pdf"></i> Dowload pdf</button>
+            </div>
+            <div class="col"></div>
         </div>
             <br>
             <div class="container padding">
@@ -58,7 +67,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-9">
+            <div class="col-12">
               <div class="table-responsive">
                 <table class="table">
                   <thead class="thead">
@@ -70,17 +79,18 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr >
-                      <!-- <td>{{p.userDetails.Name }}</td>
-                      <td>{{p.interval}}</td>
-                      <td>{{p.amount}}</td>
-                      <td>{{p.startDate | date}}</td> -->
+                    <tr *ngFor="let data of pledgeReport| filter : '{userDetails.Name}' : searchText  | paginate: {itemsPerPage: 5, currentPage: p };">
+                      <td>{{data.userDetails.Name}}</td>
+                      <td>{{data.interval}}</td>
+                      <td>{{data.amount}}</td>
+                      <td>{{data.startDate | date}}</td>
                     </tr>
                   </tbody>
                 </table>
                 <hr>
               </div>
             </div>
+            <pagination-controls class="pagination" (pageChange)="p = $event"></pagination-controls>
             <!-- <div class="col-3">
               <div class="card narrow text-center">
                 <div class="card-title">

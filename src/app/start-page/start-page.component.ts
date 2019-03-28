@@ -16,10 +16,7 @@ export class StartPageComponent implements OnInit {
 
   contactForm: FormGroup;
 
-  constructor(public service: DataService, public router: Router, private fb: FormBuilder) {
-    
-    console.log(this.path)
-   }
+  constructor(public service: DataService, public router: Router, private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.resetForm();
@@ -42,7 +39,6 @@ export class StartPageComponent implements OnInit {
   }
 
   submitDetails() {
-    console.log(this.contactForm.value);
     if(this.contactForm.valid) {
       this.service.sendMessage(this.contactForm.value).subscribe(res =>{
         if(res) {

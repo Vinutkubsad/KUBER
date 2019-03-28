@@ -21,7 +21,7 @@ export class SignUpComponent implements OnInit {
   // charityLogoFile: any;
   charityLogoFile: File = null;
   charityLogos(event){
-  console.log(event.target.files);
+  // console.log(event.target.files);
   this.charityLogoFile = event.target.files[0];
   }
 
@@ -108,7 +108,7 @@ export class SignUpComponent implements OnInit {
     formData.append(key, formValues[key]);
     });
     formData.append('charityLogos', this.charityLogoFile);
-    console.log('formData', formData);
+    // console.log('formData', formData);
     return formData;
     }
 
