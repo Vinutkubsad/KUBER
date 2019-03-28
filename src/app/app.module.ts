@@ -46,6 +46,7 @@ import { FilterPipe} from './filter.pipe';
 
 import { StripePaymentComponent } from './charityComponents/charity-user/stripe-payment/stripe-payment.component';
 import { StripeRespondComponent } from './charityComponents/charity-user/stripe-respond/stripe-respond.component';
+import { PayoutsComponent } from './dashboard/payouts/payouts.component';
 
 
 
@@ -77,6 +78,7 @@ import { StripeRespondComponent } from './charityComponents/charity-user/stripe-
     FilterPipe,
     StripePaymentComponent,
     StripeRespondComponent,
+    PayoutsComponent,
   ],
   imports: [
     BrowserModule,
@@ -94,7 +96,7 @@ import { StripeRespondComponent } from './charityComponents/charity-user/stripe-
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     AngularFireMessagingModule,
-    AngularFireModule.initializeApp(environment.firebase),
+    // AngularFireModule.initializeApp(environment.firebase),
     
   ],
   providers: [DataService,AuthGaurd,AuthGaurd1,MessagingService,AsyncPipe],

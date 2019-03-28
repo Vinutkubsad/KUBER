@@ -14,14 +14,6 @@ export class StartPageComponent implements OnInit {
   
   path;
 
-  Login() {
-    this.router.navigate(['/signin']);
-  }
-  register(){
-    this.router.navigate(['/signup'])
-  }
-
-
   contactForm: FormGroup;
 
   constructor(public service: DataService, public router: Router, private fb: FormBuilder) {
@@ -38,7 +30,7 @@ export class StartPageComponent implements OnInit {
       message: [null, [Validators.required]]
     })
   }
-
+ 
 
   resetForm(form?: NgForm) {
     if (form) form.reset();
@@ -50,7 +42,7 @@ export class StartPageComponent implements OnInit {
   }
 
   submitDetails() {
-    // console.log(this.contactForm.value);
+    console.log(this.contactForm.value);
     if(this.contactForm.valid) {
       this.service.sendMessage(this.contactForm.value).subscribe(res =>{
         if(res) {
@@ -63,6 +55,13 @@ export class StartPageComponent implements OnInit {
     } else {
       swal("Oops!","Please enter valid data!", "warning");
     }
+  }
+
+  Login() {
+    this.router.navigate(['/signin']);
+  }
+  register(){
+    this.router.navigate(['/signup'])
   }
 
 }

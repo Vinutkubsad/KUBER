@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
 import { Router } from '@angular/router';
+import * as pdfMake from 'pdfmake/build/pdfmake.js';
+import * as pdfFonts from 'pdfmake/build/vfs_fonts.js';
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 
 @Component({
@@ -10,6 +13,7 @@ import { Router } from '@angular/router';
 })
 export class ActivitiesComponent implements OnInit {
 
+  private pdf: any;
   private page: number = 1;
   public payments: any = [];
   public searchResults: any[]
@@ -27,6 +31,7 @@ export class ActivitiesComponent implements OnInit {
   public day:number;
   public start: any;
   public end:any;
+  
 
   public pagination = {
     currentPage: 1,
@@ -35,6 +40,7 @@ export class ActivitiesComponent implements OnInit {
     maxSize: 10,
     totalCount: 0
   }
+  
 
 
   constructor(private service: DataService, private router: Router) { }
@@ -42,6 +48,7 @@ export class ActivitiesComponent implements OnInit {
     this.page = i;
     this.getReports();
   }
+  
 
   ngOnInit() {
     this.getReports();
@@ -162,11 +169,61 @@ export class ActivitiesComponent implements OnInit {
       this.payments= Response.result.paginatedItems;
     })
   }
-
-  download(){
+  
+  download() {
+    this.getReports();
     
+    console.log(Response);
+    let item = {};
+    this.pdf = pdfMake;
+    this.pdf.createPdf(buildPdf(item, this.getReports())).open();
+  }
+  
+}
+
+
+function getTableArr(responseArr){
+
+console.log(responseArr.result);
+
+  var tableArr=[];
+  var tableHeaderArr=[];
+  var tableContentArr=[];
+  var test=['One value goes here', 'Another one here', 'OK?'];
+  tableHeaderArr.push( [{text: 'Header 1', style: 'tableHeader', alignment: 'center'}]);
+  tableHeaderArr.push( [{text: 'Header 2', style: 'tableHeader', alignment: 'center'}]);
+  tableHeaderArr.push( [{text: 'Header 3', style: 'tableHeader', alignment: 'center'}]);
+tableArr.push(tableHeaderArr);
+for(var i=0;i<test.length;i++){
+tableContentArr.push(test[i]);
+tableArr.push(tableContentArr);
+}
+  return tableArr;
+
+}
+  function buildPdf(value,responseArr) {
+    console.log(responseArr);
+    var pdfContent = value;
+    var tableArr=[];
+    tableArr = getTableArr(responseArr);
+    
+    var docDefinition = {
+      content: [{text: 'Pledges', style: 'header', alignment:'center'},
+    
+      {
+        style: 'tableExample',
+        table: {
+          body: tableArr
+          // [
+          //   [{text: 'Header 1', style: 'tableHeader', alignment: 'center'}, {text: 'Header 2', style: 'tableHeader', alignment: 'center'}, {text: 'Header 3', style: 'tableHeader', alignment: 'center'}],
+          //   ['One value goes here', 'Another one here', 'OK?']
+          // ]
+        }
+      }]
+    }
+    console.log(pdfContent);
+    return docDefinition;
   }
 
 
-}
 

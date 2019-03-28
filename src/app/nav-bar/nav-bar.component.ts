@@ -61,6 +61,10 @@ export class NavBarComponent implements OnInit {
   help(){
     this.router.navigate(['dashboard/help']);
   }
+
+  payouts(){
+    this.router.navigate(['dashboard/payout']);
+  }
   navProfile() {
     var id=localStorage.getItem('user');
     console.log(id);
