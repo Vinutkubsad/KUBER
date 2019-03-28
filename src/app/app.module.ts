@@ -41,7 +41,9 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireModule } from '@angular/fire'; 
 import { environment } from '../environments/environment';
-import { SearchFilterPipe} from './filter.pipe';
+import { FilterPipe } from './filter.pipe';
+import { NgxPaginationModule } from 'ngx-pagination'
+import { FilterPipeModule } from 'ngx-filter-pipe';
 
 
 import { StripePaymentComponent } from './charityComponents/charity-user/stripe-payment/stripe-payment.component';
@@ -74,7 +76,7 @@ import { StripeRespondComponent } from './charityComponents/charity-user/stripe-
     PledgesComponent,
     HelpComponent,
     ProfileComponent,
-    SearchFilterPipe,
+    FilterPipe,
     StripePaymentComponent,
     StripeRespondComponent,
   ],
@@ -94,6 +96,8 @@ import { StripeRespondComponent } from './charityComponents/charity-user/stripe-
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     AngularFireMessagingModule,
+    NgxPaginationModule,
+    FilterPipeModule
     // AngularFireModule.initializeApp(environment.firebase),
     
   ],

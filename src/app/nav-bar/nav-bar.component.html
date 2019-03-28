@@ -7,20 +7,20 @@
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" role="button" (click)="summary()">Summary</a>
+        <li class="nav-item" [routerLink]="[ '/dashboard/summary' ]" routerLinkActive="active">
+          <a class="nav-link" role="button" outlet="outlet">Summary</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" role="button" (click)="activities()" >Activity</a>
+        <li class="nav-item" [routerLink]="[ '/dashboard/activities']" routerLinkActive="active">
+          <a class="nav-link" role="button" outlet="outlet" >Activity</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" role="button" (click)="pledges()">Pledges</a>
+        <li class="nav-item" [routerLink]="[ '/dashboard/pledges']"  routerLinkActive="active" >
+          <a class="nav-link" role="button" outlet="outlet">Pledges</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" role="button">Stripe account</a>
+        <li class="nav-item"  routerLinkActive="active">
+          <a class="nav-link" role="button" outlet="outlet">Stripe account</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" role="button" (click)="help()">Help</a>
+        <li class="nav-item" [routerLink]="[ '/dashboard/help']"  routerLinkActive="active">
+          <a class="nav-link" role="button" outlet="outlet">Help</a>
         </li>
       </ul>
       <ul class="navbar-nav ml-auto">

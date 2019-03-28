@@ -49,24 +49,10 @@ export class NavBarComponent implements OnInit {
   // }
 
 
-  summary(){
-    this.router.navigate(['dashboard/summary']);
-  }
-  activities(){
-    this.router.navigate(['dashboard/activities']);
-  }
-  pledges(){
-    this.router.navigate(['dashboard/pledges']);
-  }
-  help(){
-    this.router.navigate(['dashboard/help']);
-  }
-  navProfile() {
-    var id=localStorage.getItem('user');
-    console.log(id);
-    this.router.navigate(['dashboard/profile/',id]);
-  }
   logout(){
     this.router.navigate(['home']);
+    localStorage.removeItem('jwt');
+    localStorage.removeItem('randid');
+    localStorage.removeItem('user');
   }
 }

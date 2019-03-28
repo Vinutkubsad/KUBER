@@ -93,8 +93,6 @@ export class ActivitiesComponent implements OnInit {
     }
   }
 
-
-
   sortDate() {
     this.flag = !this.flag;
     if (this.flag === true) {
