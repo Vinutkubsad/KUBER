@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService } from 'src/app/services/data.service';
+import swal from 'sweetalert';
 
 @Component({
   selector: 'app-payouts',
@@ -24,8 +25,11 @@ export class PayoutsComponent implements OnInit {
   submit(){
     var data = { "isReccuring": this.rec, "interval": this.interval, "amount": this.amount,"startDate" : this.date}
     this.service.payout(data).subscribe((Response:any)=>{
-      console.log(data);
-      console.log(Response);
+      if (Response.success) {
+        swal("Great!","Payout is set", "success");
+      } else{
+        swal("", "error", "danger");
+      }
     })
   }
 

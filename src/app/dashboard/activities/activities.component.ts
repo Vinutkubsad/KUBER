@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
 import { Router } from '@angular/router';
-import * as pdfMake from 'pdfmake/build/pdfmake.js';
-import * as pdfFonts from 'pdfmake/build/vfs_fonts.js';
+import pdfMake from "pdfmake/build/pdfmake";
+import pdfFonts from "pdfmake/build/vfs_fonts";
+import { toDate } from '@angular/common/src/i18n/format_date';
+
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 
@@ -13,7 +15,7 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
 })
 export class ActivitiesComponent implements OnInit {
 
-  private pdf: any;
+  public pdf:any;
   private page: number = 1;
   public payments: any = [];
   public searchResults: any[]
@@ -26,12 +28,12 @@ export class ActivitiesComponent implements OnInit {
   public items: any;
   public pageSize: number;
   public flag: any = false;
-  public bal : any;
-  public mes:any;
-  public day:number;
+  public bal: any;
+  public mes: any;
+  public day: number;
   public start: any;
-  public end:any;
-  
+  public end: any;
+
 
   public pagination = {
     currentPage: 1,
@@ -40,7 +42,7 @@ export class ActivitiesComponent implements OnInit {
     maxSize: 10,
     totalCount: 0
   }
-  
+
 
 
   constructor(private service: DataService, private router: Router) { }
@@ -48,10 +50,11 @@ export class ActivitiesComponent implements OnInit {
     this.page = i;
     this.getReports();
   }
-  
+
 
   ngOnInit() {
     this.getReports();
+    this.getAllReport();
   }
   doPagination(itemsPerPage, total_pages, totalCount, pageNo, per_page) {
     console.log(this.pages, itemsPerPage, total_pages, totalCount, per_page);
@@ -64,16 +67,44 @@ export class ActivitiesComponent implements OnInit {
     console.log('onPageChange', e);
     this.setPage(e);
   }
+  
+  getAllReport(){
+    this.service.getPdf().subscribe((Response:any)=>{
+     console.log(Response);
+     
+      var tempArr = [];
+      for(let i = 0; i<Response.result.length; i++){
+        var one = Response.result[i].date;
+        one.toDate;
+        console.log(one);
+
+        tempArr.push({
+          date: Response.result[i].date,
+          userName: Response.result[i].userName,
+          status:Response.result[i].status,
+          amount:Response.result[i].amount,
+          application_fee_amount:Response.result[i].application_fee_amount,
+          net:Response.result[i].net
+        }); 
+      }
+      // console.log(tempArr);
+      return tempArr;
+
+    })
+  }
 
   getReports() {
     this.service.getReport(this.page, this.amount, this.date, this.status).subscribe((Response: any) => {
-      // console.log(Response);
-     
+      console.log(Response);
+
       this.mes = Response.message;
-      if(Response.result){
-      this.payments = Response.result.paginatedItems;
-      this.doPagination(Response.result.itemsPerPage, Response.result.total_pages, Response.result.totalCount, Response.result.pageNo, Response.result.per_page)
-    }})
+      if (Response.result) {
+        this.payments = Response.result.paginatedItems;
+        this.doPagination(Response.result.itemsPerPage, Response.result.total_pages, Response.result.totalCount, Response.result.pageNo, Response.result.per_page)
+
+
+      }
+    })
   }
 
   search() {
@@ -129,99 +160,83 @@ export class ActivitiesComponent implements OnInit {
       this.getReports();
     }
   }
-  
-  filter30(){
-    var data = { "days":30 }
-    this.service.dateFilterActivity(data).subscribe((Response:any)=>{
+
+  filter30() {
+    var data = { "days": 30 }
+    this.service.dateFilterActivity(data).subscribe((Response: any) => {
       // console.log(Response);
-      this.payments= Response.result.paginatedItems;
+      this.payments = Response.result.paginatedItems;
     })
   }
 
-  filter60(){
-    var data = { "days":60 }
-    this.service.dateFilterActivity(data).subscribe((Response:any)=>{
+  filter60() {
+    var data = { "days": 60 }
+    this.service.dateFilterActivity(data).subscribe((Response: any) => {
       // console.log(Response);
-      this.payments= Response.result.paginatedItems;
+      this.payments = Response.result.paginatedItems;
     })
   }
 
-  filter18(){
+  filter18() {
     var data = { "year": 2018 }
-    this.service.dateFilterActivity(data).subscribe((Response:any)=>{
+    this.service.dateFilterActivity(data).subscribe((Response: any) => {
       // console.log(Response);
-      this.payments= Response.result.paginatedItems;
+      this.payments = Response.result.paginatedItems;
     })
   }
-  filter19(){
+  filter19() {
     var data = { "year": 2019 }
-    this.service.dateFilterActivity(data).subscribe((Response:any)=>{
+    this.service.dateFilterActivity(data).subscribe((Response: any) => {
       // console.log(Response);
-      this.payments= Response.result.paginatedItems;
+      this.payments = Response.result.paginatedItems;
     })
   }
-  filter(){
-    var data = { range:{"from":this.start, "to":this.end} }
-    this.service.dateFilterActivity(data).subscribe((Response:any)=>{
+  filter() {
+    var data = { range: { "from": this.start, "to": this.end } }
+    this.service.dateFilterActivity(data).subscribe((Response: any) => {
       // console.log(Response);
-      this.payments= Response.result.paginatedItems;
+      this.payments = Response.result.paginatedItems;
     })
   }
+
   
-  download() {
-    this.getReports();
-    
-    console.log(Response);
-    let item = {};
-    this.pdf = pdfMake;
-    this.pdf.createPdf(buildPdf(item, this.getReports())).open();
-  }
-  
-}
+  createPdfTable(result) {
+    var tempArr = [];
+    for(let i = 0; i<result.length; i++){
 
-
-function getTableArr(responseArr){
-
-console.log(responseArr.result);
-
-  var tableArr=[];
-  var tableHeaderArr=[];
-  var tableContentArr=[];
-  var test=['One value goes here', 'Another one here', 'OK?'];
-  tableHeaderArr.push( [{text: 'Header 1', style: 'tableHeader', alignment: 'center'}]);
-  tableHeaderArr.push( [{text: 'Header 2', style: 'tableHeader', alignment: 'center'}]);
-  tableHeaderArr.push( [{text: 'Header 3', style: 'tableHeader', alignment: 'center'}]);
-tableArr.push(tableHeaderArr);
-for(var i=0;i<test.length;i++){
-tableContentArr.push(test[i]);
-tableArr.push(tableContentArr);
-}
-  return tableArr;
-
-}
-  function buildPdf(value,responseArr) {
-    console.log(responseArr);
-    var pdfContent = value;
-    var tableArr=[];
-    tableArr = getTableArr(responseArr);
-    
-    var docDefinition = {
-      content: [{text: 'Pledges', style: 'header', alignment:'center'},
-    
-      {
-        style: 'tableExample',
-        table: {
-          body: tableArr
-          // [
-          //   [{text: 'Header 1', style: 'tableHeader', alignment: 'center'}, {text: 'Header 2', style: 'tableHeader', alignment: 'center'}, {text: 'Header 3', style: 'tableHeader', alignment: 'center'}],
-          //   ['One value goes here', 'Another one here', 'OK?']
-          // ]
-        }
-      }]
+      // this.data.push(Response.data[i]);
+      if(i == 0) {
+        var ar = ['Date', 'Name', 'Donation Status', 'Total Amount', 'Fee', 'Net Amount'];
+        tempArr.push(ar);
+      }
+      var arr = [(result[i].date ? result[i].date : ' '), result[i].userName, result[i].status, result[i].amount, result[i].application_fee_amount,result[i].net];
+      tempArr.push(arr);
     }
-    console.log(pdfContent);
-    return docDefinition;
+    return tempArr;
+  }
+  
+
+  createPdfDoc(result) {
+    const doc = {
+      content: [
+        {
+          style: 'tableExample',
+          table: {
+            body: this.createPdfTable(result)
+          }
+        }
+      ]
+  }
+    return doc;
   }
 
-
-
+  downloadPdf() {
+    this.service.getPdf().subscribe((Response: any) => {
+      console.log(Response);
+      
+      var doc = this.createPdfDoc(Response.result);
+      // console.log('DOc Pdf', doc);
+      pdfMake.createPdf(doc).download();
+    })
+  }
+}

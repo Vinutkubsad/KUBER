@@ -130,6 +130,12 @@ export class DataService {
     let url = AppSettings.BASE_URL + AppSettings.PAYOUT;
     return this.http.post(url, data, httpOption);
   }
-  
+  getPdf(){
+    const httpOption = {
+      headers: new HttpHeaders({ 'Authorization': localStorage.getItem('jwt') })
+    }
+    let url = AppSettings.BASE_URL + AppSettings.REPORTS;
+    return this.http.get(url,httpOption);
+   }
 }
 

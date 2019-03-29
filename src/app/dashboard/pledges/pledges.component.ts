@@ -5,7 +5,7 @@ import { Router } from "@angular/router";
 // import html2canvas from 'html2canvas';  
 import pdfMake from "pdfmake/build/pdfmake";
 import pdfFonts from "pdfmake/build/vfs_fonts";
-import { from } from 'rxjs';
+
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 
@@ -34,6 +34,7 @@ export class PledgesComponent implements OnInit {
   getReports() {
     this.service.allPledges().subscribe((Response: any) => {
       console.log(Response)
+      if (Response.data){
       this.pledgeReport = Response.data;
       // console.log(Response.data[0].amount);
       var tempArr = [];
@@ -50,7 +51,7 @@ export class PledgesComponent implements OnInit {
       }
       console.log(tempArr);
       return tempArr;
-    });
+    }});
   }
   
 

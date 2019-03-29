@@ -1,17 +1,11 @@
 <nav class="navbar navbar-expand-md navbar-light static-top">
-  <a class="navbar-brand" href="#"><img src="./assets/Images/Logo with Background.png" width="60"
+  <a class="navbar-brand" href="#"><img src="./assets/Images/logo.png" width="60"
       height="60"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <nav class="navbar navbar-expand-md navbar-light static-top">
-    <a class="navbar-brand" [routerLink]="['/home']"><img src="./assets/Images/logo.png" width="60" height="60"></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
@@ -51,7 +45,7 @@
                 !registerForm.controls['charityName'].valid
               ">
                       <small *ngIf="registerForm.controls['charityName'].hasError('required')" style="color:red;">
-                        Please enter the charity name!
+                        Please enter the charity name
                       </small>
                       <!-- <small *ngIf="registerForm.controls['charityName'].hasError('pattern')" style="color:red;">
                 Charity name must contain minimum only 10 and maximum 50 characters!
@@ -83,10 +77,10 @@
                   !registerForm.controls['description'].valid
                 ">
                       <small *ngIf="registerForm.controls['description'].hasError('required')" style="color:red;">
-                        Please enter the description!
+                        Please enter the description
                       </small>
                       <small *ngIf="registerForm.controls['description'].hasError('pattern')" style="color:red;">
-                        Description must contain minimum 50 and maximum 250 characters!
+                        Description must contain minimum 50 and maximum 250 characters
                       </small>
                     </div>
                   </div>
@@ -104,10 +98,10 @@
                         !registerForm.controls['email'].valid 
                       ">
                         <small *ngIf="registerForm.controls['email'].hasError('required')" style="color:red;">
-                          Please enter the email Id!
+                          Please enter the email Id
                         </small>
                         <small *ngIf="registerForm.controls['email'].hasError('pattern')" style="color:red;">
-                          Please enter valid email Id!
+                          Please enter valid email Id
                         </small>
                       </div>
                     </div>
@@ -123,10 +117,10 @@
                   !registerForm.controls['phoneNumber'].valid
                 ">
                       <small *ngIf="registerForm.controls['phoneNumber'].hasError('required')" style="color:red;">
-                        please enter contact number!
+                        please enter contact number
                       </small>
                       <small *ngIf="registerForm.controls['phoneNumber'].hasError('pattern')" style="color:red;">
-                        please enter valid contact number!
+                        please enter valid contact number
                       </small>
                     </div>
                   </div>
@@ -143,10 +137,10 @@
                           !registerForm.controls['taxId'].valid 
                         ">
                         <small *ngIf="registerForm.controls['taxId'].hasError('required')" style="color:red;">
-                          Please enter the tax Id!
+                          Please enter the tax Id
                         </small>
                         <small *ngIf="registerForm.controls['taxId'].hasError('pattern')" style="color:red;">
-                          Please enter valid tax Id!
+                          Please enter valid 9 digit tax Id
                         </small>
                       </div>
                     </div>
@@ -165,10 +159,10 @@
                           !registerForm.controls['address'].valid 
                         ">
                         <small *ngIf="registerForm.controls['address'].hasError('required')" style="color:red;">
-                          Please enter the address!
+                          Please enter the address
                         </small>
                         <small *ngIf="registerForm.controls['address'].hasError('pattern')" style="color:red;">
-                          Address must contain minimum 20 characters!
+                          Address must contain minimum 20 characters
                         </small>
                       </div>
                     </div>
@@ -205,10 +199,10 @@
                       !registerForm.controls['state'].valid
                     ">
                       <small *ngIf="registerForm.controls['state'].hasError('required')" style="color:red;">
-                        Please enter the state!
+                        Please enter the state
                       </small>
                       <small *ngIf="registerForm.controls['state'].hasError('pattern')" style="color:red;">
-                        Please enter valid state!
+                        Please enter valid state
                       </small>
                     </div>
                   </div>
@@ -225,10 +219,10 @@
                               !registerForm.controls['city'].valid 
                             ">
                         <small *ngIf="registerForm.controls['city'].hasError('required')" style="color:red;">
-                          Please enter the city!
+                          Please enter the city
                         </small>
                         <small *ngIf="registerForm.controls['city'].hasError('pattern')" style="color:red;">
-                          Please enter valid city!
+                          Please enter valid city
                         </small>
                       </div>
                     </div>
@@ -243,10 +237,10 @@
                         !registerForm.controls['zipcode'].valid
                       ">
                       <small *ngIf="registerForm.controls['zipcode'].hasError('required')" style="color:red;">
-                        Please enter the zipcode!
+                        Please enter the zipcode
                       </small>
                       <small *ngIf="registerForm.controls['zipcode'].hasError('pattern')" style="color:red;">
-                        Please enter valid zipcode!
+                        Please enter valid 5 digit zipcode
                       </small>
                     </div>
                   </div>
@@ -268,7 +262,7 @@
                     !registerForm.controls['firstName'].valid
                   ">
                       <small *ngIf="registerForm.controls['firstName'].hasError('required')" style="color:red;">
-                        Please enter the first name!
+                        Please enter the first name
                       </small>
                       <!-- <small *ngIf="registerForm.controls['firstName'].hasError('pattern')" style="color:red;">
                   Please enter valid first name!
@@ -285,7 +279,7 @@
                         !registerForm.controls['lastName'].valid
                       ">
                       <small *ngIf="registerForm.controls['lastName'].hasError('required')" style="color:red;">
-                        Please enter the last name!
+                        Please enter the last name
                       </small>
                       <!-- <small *ngIf="registerForm.controls['lastName'].hasError('pattern')" style="color:red;">
                   Please enter valid last name!
@@ -305,11 +299,11 @@
                         !registerForm.controls['userEmail'].valid
                       ">
                       <small *ngIf="registerForm.controls['userEmail'].hasError('required')" style="color:red;">
-                        Please enter the email!
+                        Please enter the email
                       </small>
-                      <!-- <small *ngIf="registerForm.controls['userEmail'].hasError('pattern')" style="color:red;">
-                  Please enter the valid email!
-                </small> -->
+                      <small *ngIf="registerForm.controls['userEmail'].hasError('pattern')" style="color:red;">
+                  Please enter the valid email
+                </small>
                     </div>
                   </div>
                 </div>
@@ -323,10 +317,10 @@
                             !registerForm.controls['contact'].valid
                           ">
                       <small *ngIf="registerForm.controls['contact'].hasError('required')" style="color:red;">
-                        Please enter the phone number!
+                        Please enter the phone number
                       </small>
                       <small *ngIf="registerForm.controls['contact'].hasError('pattern')" style="color:red;">
-                        Please enter the valid phone number!
+                        Please enter the valid phone number
                       </small>
                     </div>
                   </div>
@@ -345,7 +339,7 @@
                           !registerForm.controls['userAddress'].valid
                         ">
                       <small *ngIf="registerForm.controls['userAddress'].hasError('required')" style="color:red;">
-                        Please enter the address!
+                        Please enter the address
                       </small>
                       <!-- <small *ngIf="registerForm.controls['userAddress'].hasError('pattern')" style="color:red;">
                   Address must contain minimum 20 characters!
@@ -365,10 +359,10 @@
                             !registerForm.controls['pincode'].valid
                           ">
                       <small *ngIf="registerForm.controls['pincode'].hasError('required')" style="color:red;">
-                        Please enter the pincode!
+                        Please enter the zipcode
                       </small>
                       <small *ngIf="registerForm.controls['pincode'].hasError('pattern')" style="color:red;">
-                        Please enter valid pincode!
+                        Please enter valid 5 digit zipcode
                       </small>
                     </div>
                   </div>

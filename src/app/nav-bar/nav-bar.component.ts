@@ -75,5 +75,5 @@ export class NavBarComponent implements OnInit {
     localStorage.removeItem('jwt');
     localStorage.removeItem('randid');
     localStorage.removeItem('user');
-  }
+  } 
 }

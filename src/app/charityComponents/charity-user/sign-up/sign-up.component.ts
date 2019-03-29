@@ -42,17 +42,17 @@ export class SignUpComponent implements OnInit {
       phoneNumber: [null, [Validators.required, Validators.pattern('^[0-9]{10}$')]],
       address: [null, [Validators.required]],
       userAddress: [null, [Validators.required]],
-      zipcode: [null, [Validators.required, Validators.pattern('^[0-9]{6}$')]],
-      city: [null, [Validators.required,Validators.pattern('^[a-zA-Z]{2,20}$')]],
-      state: [null, [Validators.required,Validators.pattern('^[a-zA-Z]{3,20}$')]],
+      zipcode: [null, [Validators.required, Validators.pattern('^[0-9]{5}$')]],
+      city: [null, [Validators.required,Validators.pattern('^[a-zA-Z]{1,20}$')]],
+      state: [null, [Validators.required,Validators.pattern('^[a-zA-Z]{1,20}$')]],
       country: [null, [Validators.required,Validators.pattern('^[a-zA-Z]{2,30}$')]],
       firstName: [null, [Validators.required]],
       lastName: [null, [Validators.required]],
       charityLogos: [null],
-      pincode:[null, [Validators.required, Validators.pattern('^[0-9]{6}$')]],
+      pincode:[null, [Validators.required, Validators.pattern('^[0-9]{5}$')]],
       contact: [null, [Validators.required,Validators.pattern('^[0-9]{10}$')]],
-      taxId: [null, [Validators.required, Validators.pattern('^[A-Z0-9]{10}$')]],
-      userEmail: [null,[Validators.required]],
+      taxId: [null, [Validators.required, Validators.pattern('^[0-9]{9}$')]],
+      userEmail: [null,[Validators.required,Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]],
       check:[null,Validators.required]
     });
   }
