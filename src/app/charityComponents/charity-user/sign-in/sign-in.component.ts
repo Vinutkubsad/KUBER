@@ -53,7 +53,7 @@ export class SignInComponent implements OnInit {
         localStorage.setItem("jwt", response.result.jwt);
         localStorage.setItem('user',response.result.resp['_id']); 
         this.resetForm();
-        this.router.navigate(['dashboard/stripePayment'])
+        this.router.navigate(['dashboard/summary'])
       } else {
         swal("Sorry ","Email not found","error")
       }

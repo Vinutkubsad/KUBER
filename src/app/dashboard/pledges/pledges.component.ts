@@ -38,8 +38,6 @@ export class PledgesComponent implements OnInit {
       // console.log(Response.data[0].amount);
       var tempArr = [];
       for(let i = 0; i<Response.data.length; i++){
-
-        // this.data.push(Response.data[i]);
         tempArr.push({
           name: Response.data[i].userDetails.Name,
           amount: Response.data[i].amount,
@@ -48,7 +46,6 @@ export class PledgesComponent implements OnInit {
           data:Response.data[i].startDate
         }); 
       }
-      console.log(tempArr);
       return tempArr;
     });
   }
@@ -58,7 +55,6 @@ export class PledgesComponent implements OnInit {
     var tempArr = [];
     for(let i = 0; i<data.length; i++){
 
-      // this.data.push(Response.data[i]);
       if(i == 0) {
         var ar = ['Name', 'Amount', 'Interval', 'paymentModeId', 'Date'];
         tempArr.push(ar);
@@ -88,18 +84,8 @@ export class PledgesComponent implements OnInit {
     this.pdf = pdfMake;
     this.service.allPledges().subscribe((Response: any) => {
       var doc = this.createPdfDoc(Response.data);
-      // console.log('DOc Pdf', doc);
       pdfMake.createPdf(doc).download();
     });
     
   }
-
-   // nextMonth(){
-  //   var data = moment().add(1, 'months');
-  //   this.service.allPledges().subscribe((Response:any)=>{
-  //     this.pledges = Response.data;
-  //     console.log(data);
-  //   })
-  // }
-
 }

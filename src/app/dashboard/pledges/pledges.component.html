@@ -50,7 +50,7 @@
             </div>
             <div class="col-4">
                 <div class="form-group">
-                    <input class="form-control ml-2" [(ngModel)]="searchText" type="text" placeholder="Seach"/>
+                    <input class="form-control ml-2"  type="text" placeholder="Seach"/>
                   </div>
             </div>
             <div class="col">
@@ -79,7 +79,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr *ngFor="let data of pledgeReport| filter : '{userDetails.Name}' : searchText  | paginate: {itemsPerPage: 5, currentPage: p };">
+                    <tr *ngFor="let data of pledgeReport| filter : '{interval}' | paginate: {itemsPerPage: 5, currentPage: p };">
                       <td>{{data.userDetails.Name}}</td>
                       <td>{{data.interval}}</td>
                       <td>{{data.amount}}</td>
@@ -91,16 +91,6 @@
               </div>
             </div>
             <pagination-controls class="pagination" (pageChange)="p = $event"></pagination-controls>
-            <!-- <div class="col-3">
-              <div class="card narrow text-center">
-                <div class="card-title">
-                  Total pledges
-                </div>
-                <div class="card-body">
-                  12678
-                </div>
-              </div>
-            </div> -->
           </div>
         </div>
       </div>

@@ -28,9 +28,7 @@ export class ProfileComponent implements OnInit {
   loadProject(id) {
     this.id = id;
     var data = { "Course_ID": id };
-    console.log(this.id);
     this.service.getCharityById(id).subscribe((res => {
-      console.log("Resulet of get by id", res);
       this.firstname = res['result'].firstName;
       this.lastname = res['result'].lastName;
       this.primarynumber = res['result'].phoneNumber;
@@ -44,7 +42,6 @@ export class ProfileComponent implements OnInit {
     'lastName': this.lastname, 'phoneNumber': this.primarynumber, 
     'userEmail': this.email, 'userAddress': this.address}
     this.service.editProfile(data,this.id).subscribe((res) =>{
-      console.log(res);
       if(res['message'] == 'Updated Successfuly') {
         swal("updated successfully");
       }else {
