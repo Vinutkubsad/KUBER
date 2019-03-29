@@ -88,4 +88,12 @@ export class PledgesComponent implements OnInit {
     });
     
   }
+
+  // dataChanged(event) {
+  //   this.service.allPledges().subscribe((res: any) => {
+  //       console.log(res);
+  //   });
+    
+  // }
+  
 }
