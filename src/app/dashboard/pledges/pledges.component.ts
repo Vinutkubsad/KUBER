@@ -1,13 +1,12 @@
 import { Component, OnInit, ElementRef, ViewChild } from "@angular/core";
 import { DataService } from "src/app/services/data.service";
 import { Router } from "@angular/router";
-// import * as jspdf from 'jspdf'; 
-// import html2canvas from 'html2canvas';  
+// import * as jspdf from 'jspdf';
+// import html2canvas from 'html2canvas';
 import pdfMake from "pdfmake/build/pdfmake";
 import pdfFonts from "pdfmake/build/vfs_fonts";
-import { from } from 'rxjs';
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
-
+import swal from 'sweetalert';
 
 
 // import * as moment from 'moment';
@@ -19,13 +18,15 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
 })
 export class PledgesComponent implements OnInit {
   public pledgeReport: any[];
-  userFilter: string
+  public pledgeReport1: any[];
+  userFilter: string;
   pdf: any;
   p: number = 1;
-  data =[];
+  data = [];
+  start;
+  end;
 
-
-  constructor(private service: DataService, private router: Router) { }
+  constructor(private service: DataService, private router: Router) {}
 
   ngOnInit() {
     this.getReports();
@@ -33,50 +34,60 @@ export class PledgesComponent implements OnInit {
 
   getReports() {
     this.service.allPledges().subscribe((Response: any) => {
-      // console.log(Response)
-      this.pledgeReport = Response.data;
-      // console.log(Response.data[0].amount);
-      var tempArr = [];
-      for(let i = 0; i<Response.data.length; i++){
-        tempArr.push({
-          name: Response.data[i].userDetails.Name,
-          amount: Response.data[i].amount,
-          interval:Response.data[i].interval,
-          paymentModeId:Response.data[i].paymentModeId,
-          data:Response.data[i].startDate
-        }); 
+      console.log(Response);
+      if (Response.data) {
+        this.pledgeReport = Response.data;
+        this.pledgeReport1 = Response.data;
+        // console.log(Response.data[0].amount);
+        // var tempArr = [];
+        // for(let i = 0; i<Response.data.length; i++){
+        //   tempArr.push({
+        //     // name: Response.data[i].userDetails.Name,
+        //     // amount: Response.data[i].amount,
+        //     // interval:Response.data[i].interval,
+        //     // paymentModeId:Response.data[i].paymentModeId,
+        //     // data:Response.data[i].startDate
+        //   });
+        // }
+        // return tempArr;
       }
-      return tempArr;
     });
   }
-  
+
+  refresh(): void{
+    window.location.reload();
+  }
 
   createPdfTable(data) {
     var tempArr = [];
-    for(let i = 0; i<data.length; i++){
-
-      if(i == 0) {
-        var ar = ['Name', 'Amount', 'Interval', 'paymentModeId', 'Date'];
+    for (let i = 0; i < data.length; i++) {
+      if (i == 0) {
+        var ar = ["Name", "Amount", "Interval", "paymentModeId", "Date"];
         tempArr.push(ar);
       }
-      var arr = [(data[i].userDetails.Name ? data[i].userDetails.Name : ' '), data[i].amount, data[i].interval, data[i].paymentModeId, data[i].startDate];
+      var arr = [
+        data[i].userDetails.Name ? data[i].userDetails.Name : " ",
+        data[i].amount,
+        data[i].interval,
+        data[i].paymentModeId,
+        data[i].startDate
+      ];
       tempArr.push(arr);
     }
     return tempArr;
   }
-  
 
   createPdfDoc(data) {
     const doc = {
       content: [
         {
-          style: 'tabl  eExample',
+          style: "tabl  eExample",
           table: {
             body: this.createPdfTable(data)
           }
         }
       ]
-  }
+    };
     return doc;
   }
 
@@ -86,14 +97,27 @@ export class PledgesComponent implements OnInit {
       var doc = this.createPdfDoc(Response.data);
       pdfMake.createPdf(doc).download();
     });
-    
   }
 
-  // dataChanged(event) {
-  //   this.service.allPledges().subscribe((res: any) => {
-  //       console.log(res);
-  //   });
-    
-  // }
-  
+  frequnecy(event) {
+    this.pledgeReport = this.pledgeReport1.filter(x => x.interval == event);
+    if(this.pledgeReport.length === 0){
+      swal("No Data avalable");
+      this.refresh();
+    }
+  }
+
+  Datefilter(event) {
+    {
+      var startDate = this.start;
+      var endDate = this.end;
+      this.pledgeReport = this.pledgeReport1.filter(
+        x => x.startDate >= startDate && x.startDate <= endDate
+      );
+      if(this.pledgeReport.length === 0){
+        swal("No data avalable");
+        this.refresh();
+      }
+    }
+  }
 }

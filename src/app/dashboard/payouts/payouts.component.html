@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="title text-center">
+    <h3>Set Payouts</h3>
+  </div>
+  
+  <div class="col form-group">
+    <div class="col">
+      <label for="">Recurring</label>
+      <select  [(ngModel)]="rec" class="form-control" name="" id="">
+        <option class="form-control" *ngFor="let reccur of reccuring" [ngValue]="reccur.value">{{reccur.name}}</option>
+      </select>
+    </div>
+    <br>
+   
+    <div class="col">
+        <label for="">Frequency</label>
+      <select [(ngModel)]="interval"   class="form-control" name="" id="">
+        <option class="form-control" *ngFor="let interval of intervals " [ngValue]="interval.value">{{interval.name}}
+        </option>
+      </select>
+    </div>
+    <br>
+    <div class="col">
+      <label for="">Start date</label>
+      <input type="date" class="form-control" [(ngModel)]="date">
+    </div>
+    <br>
+    <div class="col">
+      <label for="">Amount</label>
+      <input type="number" class="form-control" [(ngModel)]="amount" placeholder="Enter amount">
+    </div>
+    <br>
+    <div class="col text-center">
+    <button type="button" class="btn btn-primary" (click)="submit()">submit</button>
+    </div>
+  </div>
+
+ 
+</div>

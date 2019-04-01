@@ -21,22 +21,6 @@ export class NavBarComponent implements OnInit {
   ngOnInit() {
   }
 
-  summary() {
-    this.router.navigate(["dashboard/summary"]);
-  }
-  activities() {
-    this.router.navigate(["dashboard/activities"]);
-  }
-  pledges() {
-    this.router.navigate(["dashboard/pledges"]);
-  }
-  help() {
-    this.router.navigate(["dashboard/help"]);
-  }
-
-  payouts() {
-    this.router.navigate(["dashboard/payout"]);
-  }
   navProfile() {
     var id = localStorage.getItem("user");
     this.router.navigate(["dashboard/profile/", id]);

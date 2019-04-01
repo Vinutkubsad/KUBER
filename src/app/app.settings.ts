@@ -13,10 +13,11 @@ export class AppSettings{
     public static PLEDGES_LIST='/v1/gift/pledgeDetails';
     public static BALANCE = '/v1/charityAdmin/connectedBalance';
     public static DATE_FILTER= '/v1/charityAdmin/dateFilter';
+    public static REPORTS = '/v1/charityAdmin/getAllReports';
 
     public static GET_CHARITY_ID= '/v1/admin/getCharityById/'
     public static EDIT_CHARITY='/v1/admin/editCharity/';
     public static STIPE_ID='/v1/charities/authorize';
-  
-    // public static SEARCH_CHARITY='/v1/admin/search';
+    public static PAYOUT='/v1/charityAdmin/payout';
 }
+

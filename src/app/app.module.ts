@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-// import { NgxPaginationModule}  from 'ngx-pagination';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 // import { ModalModule } from 'ngx-bootstrap/modal';
@@ -35,7 +34,7 @@ import { PledgesComponent } from './dashboard/pledges/pledges.component';
 import { HelpComponent } from './dashboard/help/help.component';
 import { ProfileComponent } from './dashboard/profile/profile.component';
 import { MessagingService } from './services/messaging.service';
-import { AsyncPipe } from '@angular/common';
+import { AsyncPipe, DatePipe } from '@angular/common';
 import { AngularFireMessagingModule } from '@angular/fire/messaging';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth';
@@ -44,10 +43,12 @@ import { environment } from '../environments/environment';
 import { FilterPipe } from './filter.pipe';
 import { NgxPaginationModule } from 'ngx-pagination'
 import { FilterPipeModule } from 'ngx-filter-pipe';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 
 import { StripePaymentComponent } from './charityComponents/charity-user/stripe-payment/stripe-payment.component';
 import { StripeRespondComponent } from './charityComponents/charity-user/stripe-respond/stripe-respond.component';
+import { PayoutsComponent } from './dashboard/payouts/payouts.component';
 
 
 
@@ -79,6 +80,7 @@ import { StripeRespondComponent } from './charityComponents/charity-user/stripe-
     FilterPipe,
     StripePaymentComponent,
     StripeRespondComponent,
+    PayoutsComponent,
   ],
   imports: [
     BrowserModule,
@@ -87,7 +89,7 @@ import { StripeRespondComponent } from './charityComponents/charity-user/stripe-
     ReactiveFormsModule,
     RouterModule.forRoot(routes, {useHash:true}),
     HttpClientModule,
-    // NgxPaginationModule,
+    NgxPaginationModule,
     FormsModule,
     // BsDatepickerModule.forRoot(),
     // ModalModule.forRoot(),
@@ -97,11 +99,12 @@ import { StripeRespondComponent } from './charityComponents/charity-user/stripe-
     AngularFireAuthModule,
     AngularFireMessagingModule,
     NgxPaginationModule,
-    FilterPipeModule
+    FilterPipeModule,
+    MatDatepickerModule
     // AngularFireModule.initializeApp(environment.firebase),
     
   ],
-  providers: [DataService,AuthGaurd,AuthGaurd1,MessagingService,AsyncPipe],
+  providers: [DataService,DatePipe,AuthGaurd,AuthGaurd1,MessagingService,AsyncPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
