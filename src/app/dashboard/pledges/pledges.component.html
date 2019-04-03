@@ -49,9 +49,8 @@
                           <label for=""> To Date </label><input type="date" class="form-control" id="date-range" name="end" [(ngModel)]="end">
                         </div>
                       </div>
-                      
                     </form>
-                    <button class="dropdown-item" style="margin-left: 142px;" type="button" class="btn btn-primary "
+                    <button class="dropdown-item" style="margin-left: 142px;" type="button" class="btn btn-primary"
                       (click)="Datefilter()">Done</button>
                   </div>
                 </div>
@@ -119,7 +118,7 @@
                   </thead>
                   <tbody>
                     <tr
-                      *ngFor="let data of pledgeReport| filter : '{interval}' | paginate: {itemsPerPage: 5, currentPage: p };">
+                      *ngFor="let data of pledgeReport| filter : '{interval}' | paginate: {itemsPerPage: 6, currentPage: p };">
                       <td>{{data.userDetails.Name}}</td>
                       <td>{{data.interval}}</td>
                       <td>{{data.amount}}</td>

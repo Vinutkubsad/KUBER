@@ -107,7 +107,7 @@ export class PledgesComponent implements OnInit {
     }
   }
 
-  Datefilter(event) {
+  Datefilter() {
     {
       var startDate = this.start;
       var endDate = this.end;

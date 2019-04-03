@@ -3,7 +3,7 @@ import { DataService } from 'src/app/services/data.service';
 import { Router } from '@angular/router';
 import swal from 'sweetalert';
 import { FormGroup, FormBuilder, Validators, FormControl, NgForm, FormGroupDirective } from '@angular/forms';
-import { error } from '@angular/compiler/src/util';
+
 
 @Component({
   selector: 'app-sign-in',
@@ -48,22 +48,18 @@ export class SignInComponent implements OnInit {
 
   loginSubmit() {
     var data = { "email": this.service.charityLogin.email, "password": this.service.charityLogin.password }
-    this.service.CharityLogin(data).subscribe((response: any) => {
-      if(response.success) {
+    this.service.CharityLogin(data).subscribe((response:any) => {
+      if (response.success) {
         localStorage.setItem("jwt", response.result.jwt);
-        localStorage.setItem('user',response.result.resp['_id']); 
+        localStorage.setItem('user', response.result.resp['_id']);
         this.resetForm();
         this.router.navigate(['dashboard/summary'])
       } else {
-        swal("Sorry ","Email not found","error")
+        swal("", "please enter valid email or password", "error");
       }
-      
     });
-   
-    
   }
   register(){
     this.router.navigate(['signup']);
   }
 }
-   
