@@ -54,7 +54,7 @@ export class ActivitiesComponent implements OnInit {
 
   ngOnInit() {
     this.getReports();
-    this.getAllReport();
+    // this.getAllReport();
   }
   doPagination(itemsPerPage, total_pages, totalCount, pageNo, per_page) {
     console.log(this.pages, itemsPerPage, total_pages, totalCount, per_page);
@@ -68,30 +68,30 @@ export class ActivitiesComponent implements OnInit {
     this.setPage(e);
   }
   
-  getAllReport(){
-    this.service.getPdf().subscribe((Response:any)=>{
-     console.log(Response);
+  // getAllReport(){
+  //   this.service.getPdf().subscribe((Response:any)=>{
+  //    console.log(Response);
      
-      var tempArr = [];
-      for(let i = 0; i<Response.result.length; i++){
-        var one = Response.result[i].date;
-        one.toDate;
-        console.log(one);
+  //     var tempArr = [];
+  //     for(let i = 0; i<Response.result.length; i++){
+  //       var one = Response.result[i].date;
+  //       one.toDate;
+  //       console.log(one);
 
-        tempArr.push({
-          date: Response.result[i].date,
-          userName: Response.result[i].userName,
-          status:Response.result[i].status,
-          amount:Response.result[i].amount,
-          application_fee_amount:Response.result[i].application_fee_amount,
-          net:Response.result[i].net
-        }); 
-      }
-      // console.log(tempArr);
-      return tempArr;
+  //       tempArr.push({
+  //         date: Response.result[i].date,
+  //         userName: Response.result[i].userName,
+  //         status:Response.result[i].status,
+  //         amount:Response.result[i].amount,
+  //         application_fee_amount:Response.result[i].application_fee_amount,
+  //         net:Response.result[i].net
+  //       }); 
+  //     }
+  //     // console.log(tempArr);
+  //     return tempArr;
 
-    })
-  }
+  //   })
+  // }
 
   getReports() {
     this.service.getReport(this.page, this.amount, this.date, this.status).subscribe((Response: any) => {

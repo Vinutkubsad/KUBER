@@ -46,6 +46,8 @@ export class SignInComponent implements OnInit {
     }
   }
 
+ 
+
   loginSubmit() {
     var data = { "email": this.service.charityLogin.email, "password": this.service.charityLogin.password }
     this.service.CharityLogin(data).subscribe((response: any) => {

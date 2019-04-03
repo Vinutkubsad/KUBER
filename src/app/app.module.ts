@@ -66,7 +66,6 @@ import { PayoutsComponent } from './dashboard/payouts/payouts.component';
     AdminLoginComponent,
     AdminComponent,
     PaymentReportComponent,
-    // NgbdDatepickerPopup,
     FooterComponent,
     NavBarComponent,
     SidebarComponent,
@@ -91,8 +90,6 @@ import { PayoutsComponent } from './dashboard/payouts/payouts.component';
     HttpClientModule,
     NgxPaginationModule,
     FormsModule,
-    // BsDatepickerModule.forRoot(),
-    // ModalModule.forRoot(),
     NgbModule,
     NgbPaginationModule,
     AngularFireDatabaseModule,
@@ -100,8 +97,8 @@ import { PayoutsComponent } from './dashboard/payouts/payouts.component';
     AngularFireMessagingModule,
     NgxPaginationModule,
     FilterPipeModule,
-    MatDatepickerModule
-    // AngularFireModule.initializeApp(environment.firebase),
+    MatDatepickerModule,
+    AngularFireModule.initializeApp(environment.firebase),
     
   ],
   providers: [DataService,DatePipe,AuthGaurd,AuthGaurd1,MessagingService,AsyncPipe],

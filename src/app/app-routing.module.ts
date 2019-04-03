@@ -20,6 +20,7 @@ import { PayoutsComponent } from './dashboard/payouts/payouts.component';
 export const routes: Routes = [
   { path: 'home', component: StartPageComponent },
   { path: 'signup', component: SignUpComponent },
+  { path: 'notify', component:CharityPanelComponent },
   { path: 'signin', component: SignInComponent },
   {
     path: 'charity', component: CharityPanelComponent,
