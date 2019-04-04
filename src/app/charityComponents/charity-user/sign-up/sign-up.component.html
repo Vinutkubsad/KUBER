@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md navbar-light static-top">
-  <a class="navbar-brand" href="#"><img src="./assets/Images/logo.png" width="60"
+  <a class="navbar-brand"[routerLink]="[ '/home']"><img src="./assets/Images/logo.png" width="60"
       height="60"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -264,9 +264,9 @@
                       <small *ngIf="registerForm.controls['firstName'].hasError('required')" style="color:red;">
                         Please enter the first name
                       </small>
-                      <!-- <small *ngIf="registerForm.controls['firstName'].hasError('pattern')" style="color:red;">
-                  Please enter valid first name!
-                </small> -->
+                      <small *ngIf="registerForm.controls['firstName'].hasError('pattern')" style="color:red;">
+                  Please enter valid first name
+                </small>
                     </div>
                   </div>
                 </div>
@@ -281,9 +281,9 @@
                       <small *ngIf="registerForm.controls['lastName'].hasError('required')" style="color:red;">
                         Please enter the last name
                       </small>
-                      <!-- <small *ngIf="registerForm.controls['lastName'].hasError('pattern')" style="color:red;">
-                  Please enter valid last name!
-                </small> -->
+                      <small *ngIf="registerForm.controls['lastName'].hasError('pattern')" style="color:red;">
+                  Please enter valid last name
+                </small>
                     </div>
                   </div>
                 </div>

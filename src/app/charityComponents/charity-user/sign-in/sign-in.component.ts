@@ -59,10 +59,14 @@ export class SignInComponent implements OnInit {
         this.resetForm();
         this.router.navigate(['dashboard/summary'])
       } else {
-        swal("Sorry ","Email not found","error")
+        swal("Sorry ","Enter valid email or password","error")
       }
       
-    });
+    },(err)=>{
+      console.log(err,'err');
+      swal("Sorry","Enter valid email or password","error")
+    }
+    );
    
     
   }

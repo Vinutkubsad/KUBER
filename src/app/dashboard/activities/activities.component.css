@@ -12,11 +12,11 @@
  }
 
  .fa-search{
-     color:rgb(16, 144, 204); 
+     /* color:rgb(16, 144, 204);  */
     color:white;
  }
  .fa-sort-numeric-asc{
-     color: rgb(41, 39, 39);;
+     /* color: rgb(41, 39, 39);; */
  }
  
  .btn-outline {
@@ -28,8 +28,9 @@
  .btn-outline:onClick{ 
     background:rgb(106, 208, 226);
     color: white;
-    border-color: rgb(106, 208, 226) !important;
+    /* border-color: rgb(106, 208, 226) !important; */
 }
+
  .date{
      margin-left: 400px;
  }
@@ -77,4 +78,24 @@
     margin: 5ox;
     border: none;
 }
-
+.btn-outline-light{
+    border-radius: 0%;
+    border-color: rgb(106, 208, 226);
+    border-color: transparent;
+}
+.btn-outline-light:hover{
+    border-radius: 0%;
+    border-color: rgb(106, 208, 226);
+    background: rgb(106, 208, 226);
+    border-color: transparent !important;
+}
+.btn-outline-light:onClick{
+    border-color: transparent !important;
+}
+.fa-redo-alt{
+    color:info;
+    border-color: white !important;
+}
+.form-control {
+    border:info;
+}

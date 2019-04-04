@@ -25,6 +25,7 @@ export class PledgesComponent implements OnInit {
   data = [];
   start;
   end;
+  mes;
 
   constructor(private service: DataService, private router: Router) {}
 
@@ -35,23 +36,15 @@ export class PledgesComponent implements OnInit {
   getReports() {
     this.service.allPledges().subscribe((Response: any) => {
       console.log(Response);
+      this.mes = Response.message;
       if (Response.data) {
         this.pledgeReport = Response.data;
         this.pledgeReport1 = Response.data;
-        // console.log(Response.data[0].amount);
-        // var tempArr = [];
-        // for(let i = 0; i<Response.data.length; i++){
-        //   tempArr.push({
-        //     // name: Response.data[i].userDetails.Name,
-        //     // amount: Response.data[i].amount,
-        //     // interval:Response.data[i].interval,
-        //     // paymentModeId:Response.data[i].paymentModeId,
-        //     // data:Response.data[i].startDate
-        //   });
-        // }
-        // return tempArr;
       }
-    });
+    },(err)=>{
+      console.log(err,'err');
+    }
+    );
   }
 
   refresh(): void{

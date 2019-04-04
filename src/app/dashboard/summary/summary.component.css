@@ -28,8 +28,9 @@
  }
  .btn-outline:onClick{ 
     background:rgb(106, 208, 226);
-    color: white;
+    /* color: white; */
 }
+
  .date{
      margin-left: 400px;
  }

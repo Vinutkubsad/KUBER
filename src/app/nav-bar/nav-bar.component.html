@@ -1,4 +1,5 @@
-{{ message | async | json }}
+<!-- Current Message
+<h3> {{ message | async | json }} </h3> -->
 
 <nav class="navbar navbar-expand-md navbar-light static-top">
   <a class="navbar-brand" href="#"><img src="./assets/Images/logo.png" width="60" height="60"></a>
@@ -12,15 +13,14 @@
       <li class="nav-item" [routerLink]="[ '/dashboard/summary' ]" routerLinkActive="active">
         <a class="nav-link" role="button" outlet="outlet">Summary</a>
       </li>
-      <li class="nav-item" [routerLink]="[ '/dashboard/payout' ]" routerLinkActive="active">
-        <a class="nav-link" role="button" outlet="outlet">Payouts</a>
-      </li>
-
       <li class="nav-item" [routerLink]="[ '/dashboard/activities']" routerLinkActive="active">
         <a class="nav-link" role="button" outlet="outlet">Activity</a>
       </li>
       <li class="nav-item" [routerLink]="[ '/dashboard/pledges']" routerLinkActive="active">
         <a class="nav-link" role="button" outlet="outlet">Pledges</a>
+      </li>
+      <li class="nav-item" [routerLink]="[ '/dashboard/payout' ]" routerLinkActive="active">
+        <a class="nav-link" role="button" outlet="outlet">Payouts</a>
       </li>
       <li class="nav-item" routerLinkActive="active">
         <a class="nav-link" role="button" outlet="outlet">Stripe account</a>

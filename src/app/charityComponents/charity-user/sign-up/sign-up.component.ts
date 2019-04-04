@@ -46,8 +46,8 @@ export class SignUpComponent implements OnInit {
       city: [null, [Validators.required,Validators.pattern('^[a-zA-Z]{1,20}$')]],
       state: [null, [Validators.required,Validators.pattern('^[a-zA-Z]{1,20}$')]],
       country: [null, [Validators.required,Validators.pattern('^[a-zA-Z]{2,30}$')]],
-      firstName: [null, [Validators.required]],
-      lastName: [null, [Validators.required]],
+      firstName: [null, [Validators.required,Validators.pattern('^[a-zA-Z]{1,30}$')]],
+      lastName: [null, [Validators.required,Validators.pattern('^[a-zA-Z]{1,30}$')]],
       charityLogos: [null],
       pincode:[null, [Validators.required, Validators.pattern('^[0-9]{5}$')]],
       contact: [null, [Validators.required,Validators.pattern('^[0-9]{10}$')]],
@@ -89,6 +89,8 @@ export class SignUpComponent implements OnInit {
       this.charityServices
         .registerCharity(this.registerForm.value)
         .subscribe((res) => {
+          console.log(res);
+          
           if (res) {
             swal("Great!","Succefully registered your charity", "success");
             this.registerForm.reset();
@@ -97,8 +99,7 @@ export class SignUpComponent implements OnInit {
           }
         });
     } else {
-      swal("Oops!", "Please fill the form!", "warning");
-      
+      swal("Oops!", "Please fill the form!", "warning"); 
     }
   }
 
