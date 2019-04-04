@@ -17,8 +17,10 @@ import swal from 'sweetalert';
   styleUrls: ["./pledges.component.css"]
 })
 export class PledgesComponent implements OnInit {
+
   public pledgeReport: any[];
   public pledgeReport1: any[];
+  public searchResult: any;
   userFilter: string;
   pdf: any;
   p: number = 1;
@@ -34,22 +36,10 @@ export class PledgesComponent implements OnInit {
 
   getReports() {
     this.service.allPledges().subscribe((Response: any) => {
-      console.log(Response);
       if (Response.data) {
+        console.log(Response);
         this.pledgeReport = Response.data;
         this.pledgeReport1 = Response.data;
-        // console.log(Response.data[0].amount);
-        // var tempArr = [];
-        // for(let i = 0; i<Response.data.length; i++){
-        //   tempArr.push({
-        //     // name: Response.data[i].userDetails.Name,
-        //     // amount: Response.data[i].amount,
-        //     // interval:Response.data[i].interval,
-        //     // paymentModeId:Response.data[i].paymentModeId,
-        //     // data:Response.data[i].startDate
-        //   });
-        // }
-        // return tempArr;
       }
     });
   }

@@ -9,14 +9,6 @@
         <div class="col-12">
           <div class="form-group">
             <div class="row">
-              <div class="col-12">
-                <div class="searchBar">
-                  <div class="row ">
-                    <!-- <input type="text" class="form-control ml-auto"[(ngModel)]="searchText" placeholder="Search">            -->
-                  </div>
-                </div>
-                <br>
-              </div>
               <div class="col">
                 <select class="btn btn-outline" name="Frequency" id="" (change)="frequnecy($event.target.value)">
                   <option class="dropdown-item" value="week">Weekly</option>
@@ -85,24 +77,15 @@
                   </div>
                 </div>
               </div> -->
-              <div class="col-4">
-                <div class="form-group">
-                  <input class="form-control ml-2" type="text" placeholder="Seach" />
-                </div>
+              <div class="form-group form-inline col-4">
+                <input class="form-control ml-2" type="text" placeholder="Search name" [(ngModel)]="searchText" style="width:280px;"/>
               </div>
               <div class="col">
                 <button type="button" class="btn btn-outline-info" (click)="downloadPdf()"><i
                     class="fas fa-file-pdf"></i> Dowload pdf</button>
               </div>
-              <div class="col"></div>
             </div>
             <br>
-            <div class="container padding">
-              <div class="row">
-
-
-              </div>
-            </div>
           </div>
           <div class="row">
             <div class="col-12">
@@ -118,7 +101,7 @@
                   </thead>
                   <tbody>
                     <tr
-                      *ngFor="let data of pledgeReport| filter : '{interval}' | paginate: {itemsPerPage: 6, currentPage: p };">
+                      *ngFor="let data of pledgeReport| filter : 'Name' :searchText | paginate: {itemsPerPage: 12, currentPage: p };">
                       <td>{{data.userDetails.Name}}</td>
                       <td>{{data.interval}}</td>
                       <td>{{data.amount}}</td>
@@ -129,7 +112,9 @@
                 <hr>
               </div>
             </div>
-            <pagination-controls class="pagination" (pageChange)="p = $event"></pagination-controls>
+            <div class="paginate">
+              <pagination-controls class="paginate-wrap" (pageChange)="p = $event"></pagination-controls>
+            </div>
           </div>
         </div>
       </div>

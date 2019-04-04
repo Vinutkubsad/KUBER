@@ -1,0 +1,27 @@
+<div class="container">
+  <h1>
+     Browser push notification
+  </h1>
+  <button (click)="notify()">Show Notiication</button>
+  
+</div>
+
+<div class="notifyTable">
+  <table class="table" *ngFor="let item of data">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Alert</th>
+        <th scope="col">Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>yyyyy</td>
+        <td> {{item.title}} </td>
+        <td>{{item.alertContent}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
