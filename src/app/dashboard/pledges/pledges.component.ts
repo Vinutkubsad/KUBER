@@ -27,6 +27,7 @@ export class PledgesComponent implements OnInit {
   data = [];
   start;
   end;
+  mes;
 
   constructor(private service: DataService, private router: Router) {}
 
@@ -36,12 +37,15 @@ export class PledgesComponent implements OnInit {
 
   getReports() {
     this.service.allPledges().subscribe((Response: any) => {
+      // console.log(Response);
+      // this.mes = Response.message;
       if (Response.data) {
-        console.log(Response);
+        // console.log(Response);
         this.pledgeReport = Response.data;
         this.pledgeReport1 = Response.data;
       }
-    });
+    }
+    );
   }
 
   refresh(): void{

@@ -32,7 +32,7 @@
     "country-state-city": "^0.1.2",
     "datatables.net": "^1.10.19",
     "datatables.net-dt": "^1.10.19",
-    "firebase": "^5.8.6",
+    "firebase": "^5.9.2",
     "html2canvas": "^1.0.0-alpha.12",
     "jquery": "^3.3.1",
     "jspdf": "^1.5.3",

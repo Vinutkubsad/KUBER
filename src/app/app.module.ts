@@ -100,8 +100,8 @@ import { PayoutsComponent } from './dashboard/payouts/payouts.component';
     AngularFireMessagingModule,
     NgxPaginationModule,
     FilterPipeModule,
-    MatDatepickerModule
-    // AngularFireModule.initializeApp(environment.firebase),
+    MatDatepickerModule,
+    AngularFireModule.initializeApp(environment.firebase),
     
   ],
   providers: [DataService,DatePipe,AuthGaurd,AuthGaurd1,MessagingService,AsyncPipe],

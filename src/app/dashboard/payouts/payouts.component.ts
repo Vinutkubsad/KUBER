@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService } from 'src/app/services/data.service';
 import swal from 'sweetalert';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-payouts',
@@ -10,6 +11,7 @@ import swal from 'sweetalert';
 })
 export class PayoutsComponent implements OnInit {
 
+  public err;
   public reccuring : any = [{ name: 'Yes', value: true }, { name: 'No', value: false }];
   public intervals : any = [{ name : 'Weekly' , value: 'week'},{name : 'Biweekly', value : 'byweek'}, {name : 'Monthly', value : 'month'}, {name : 'Quarterly', value : 'quarter'}, {name : 'Half-yearly', value : 'half-year'},{ name: 'Yearly', value:"year"}, ];
   public amount : number;
@@ -28,9 +30,15 @@ export class PayoutsComponent implements OnInit {
       if (Response.success) {
         swal("Great!","Payout is set", "success");
       } else{
-        swal("", "error", "danger");
+        swal("Oops!", "error", "danger");
       }
-    })
+    },
+    (err)=>
+    {
+      console.log(err,'err');
+      this.err = Response.error;
+      swal ("oops!", "Please enter all fields ", "info");
+    });
   }
 
 }

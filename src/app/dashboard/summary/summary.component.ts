@@ -61,7 +61,7 @@ export class SummaryComponent implements OnInit {
   }
 
   getReports() {
-    this.service.getReport(this.page, this.amount, this.date, this.userName).subscribe((Response: any) => {
+    this.service.getReportSummary(this.page, this.amount, this.date, this.userName).subscribe((Response: any) => {
       console.log(Response);
      
       this.mes = Response.message;

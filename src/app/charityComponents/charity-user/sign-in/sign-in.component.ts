@@ -46,18 +46,29 @@ export class SignInComponent implements OnInit {
     }
   }
 
+ 
+
   loginSubmit() {
     var data = { "email": this.service.charityLogin.email, "password": this.service.charityLogin.password }
-    this.service.CharityLogin(data).subscribe((response:any) => {
-      if (response.success) {
+    this.service.CharityLogin(data).subscribe((response: any) => {
+      if(response.success) {
+        console.log(response);
+        
         localStorage.setItem("jwt", response.result.jwt);
         localStorage.setItem('user', response.result.resp['_id']);
         this.resetForm();
         this.router.navigate(['dashboard/summary'])
       } else {
-        swal("", "please enter valid email or password", "error");
+        swal("Sorry ","Enter valid email or password","error")
       }
-    });
+      
+    },(err)=>{
+      console.log(err,'err');
+      swal("Sorry","Enter valid email or password","error")
+    }
+    );
+   
+    
   }
   register(){
     this.router.navigate(['signup']);

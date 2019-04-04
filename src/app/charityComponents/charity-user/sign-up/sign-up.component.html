@@ -1,5 +1,6 @@
 <nav class="navbar navbar-expand-md navbar-light static-top">
-  <a class="navbar-brand"><img src="./assets/Images/logo.png" width="60" height="60"></a>
+  <a class="navbar-brand"[routerLink]="[ '/home']"><img src="./assets/Images/logo.png" width="60"
+      height="60"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -29,7 +30,7 @@
             <h3 class="welcome text-center">Register your charity</h3>
             <hr>
             <h5>Charity details</h5>
-            <small style="color:black">All fields are mandatory</small>
+            <!-- <small style="color:black">All fields are mandatory</small> -->
             <br>
             <form class="form-horizontal" role="form" [formGroup]="registerForm" (ngSubmit)="submitForm()"
               class="main-form">
@@ -181,10 +182,10 @@
                             !registerForm.controls['country'].valid 
                           ">
                         <small *ngIf="registerForm.controls['country'].hasError('required')" style="color:red;">
-                          Please enter the country!
+                          Please enter the country
                         </small>
                         <small *ngIf="registerForm.controls['country'].hasError('pattern')" style="color:red;">
-                          Please enter the valid country!
+                          Please enter the valid country
                         </small>
                       </div>
                     </div>
@@ -249,7 +250,7 @@
               <div class="row">
                 <div class="col">
                   <h5>Primary contact details</h5>
-                  <small style="color:black">All fields are mandatory</small>
+                  <!-- <small style="color:black">All fields are mandatory</small> -->
                 </div>
               </div>
               <div class="row">
@@ -264,9 +265,9 @@
                       <small *ngIf="registerForm.controls['firstName'].hasError('required')" style="color:red;">
                         Please enter the first name
                       </small>
-                      <!-- <small *ngIf="registerForm.controls['firstName'].hasError('pattern')" style="color:red;">
-                  Please enter valid first name!
-                </small> -->
+                      <small *ngIf="registerForm.controls['firstName'].hasError('pattern')" style="color:red;">
+                  Please enter valid first name
+                </small>
                     </div>
                   </div>
                 </div>
@@ -281,9 +282,9 @@
                       <small *ngIf="registerForm.controls['lastName'].hasError('required')" style="color:red;">
                         Please enter the last name
                       </small>
-                      <!-- <small *ngIf="registerForm.controls['lastName'].hasError('pattern')" style="color:red;">
-                  Please enter valid last name!
-                </small> -->
+                      <small *ngIf="registerForm.controls['lastName'].hasError('pattern')" style="color:red;">
+                  Please enter valid last name
+                </small>
                     </div>
                   </div>
                 </div>

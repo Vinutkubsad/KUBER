@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { DataService } from "../services/data.service";
+import { MessagingService } from '../services/messaging.service';
 
 @Component({
   selector: "app-nav-bar",
@@ -16,9 +17,14 @@ export class NavBarComponent implements OnInit {
   public date: any;
   public length: number;
 
-  constructor(private service: DataService, private router: Router) { }
+  message;
+  constructor(private service: DataService, private router: Router,private messagingService: MessagingService ) { }
 
   ngOnInit() {
+    const userId = 'user001';
+    this.messagingService.requestPermission(userId)
+    this.messagingService.receiveMessage()
+    this.message = this.messagingService.currentMessage
   }
 
   navProfile() {

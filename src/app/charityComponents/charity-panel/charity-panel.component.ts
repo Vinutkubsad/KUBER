@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService } from 'src/app/services/data.service';
+import { MessagingService } from 'src/app/services/messaging.service';
 
 @Component({
   selector: 'app-charity-panel',
@@ -9,23 +10,14 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class CharityPanelComponent implements OnInit {
 
-  public data;
-  public id:any;
-  public userName:any;
-  public page;
   
-
-  constructor( private rout:Router, private service:DataService ) { }
+  
+  constructor( ) { }
 
   ngOnInit() {
+   
   }
 
 
-  payments(){
-    // console.log(_id);
-    this.rout.navigate(["paymentreport"]);
-  //  this.service.getReport(this.id).subscribe((response:any)=>{
-  //   console.log(response);
-  // });
-  }
+
 }

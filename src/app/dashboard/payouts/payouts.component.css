@@ -1,7 +1,9 @@
 .container{
 width: 50%;
 }
-.title{
+.title h4{
     color: rgb(27, 202, 202);
-    font-weight: 700;
+    font-weight: bold;
+    font-size: 2rem;
+
 }

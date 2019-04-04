@@ -16,11 +16,12 @@ import { ProfileComponent } from './dashboard/profile/profile.component';
 import { StripePaymentComponent } from './charityComponents/charity-user/stripe-payment/stripe-payment.component';
 import { StripeRespondComponent } from './charityComponents/charity-user/stripe-respond/stripe-respond.component';
 import { PayoutsComponent } from './dashboard/payouts/payouts.component';
-import { NotificationComponent } from './notification/notification.component';
+// import { NotificationComponent } from './notification/notification.component';
 
 export const routes: Routes = [
   { path: 'home', component: StartPageComponent },
   { path: 'signup', component: SignUpComponent },
+  { path: 'notify', component:CharityPanelComponent },
   { path: 'signin', component: SignInComponent },
   {
     path: 'charity', component: CharityPanelComponent,
