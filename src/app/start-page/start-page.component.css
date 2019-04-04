@@ -12,6 +12,7 @@
 }
 .navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
   color: rgba(23, 216, 223, 0.9);
+  text-decoration: underline;
 }
 .navbar-light .navbar-nav .nav-link {
   color: #042a31;
@@ -53,12 +54,11 @@
 .navbar ul li a:visited {
   color: brown;
 } */
+.navbar-light .navbar-brand {
+  color: rgba(0,0,0,.9);
+  margin-left: 20%;
+}
 
-/* .navbar-brand img{
-  height: 6rem;
-  width: 6rem;
-  border-radius: 50%;
-} */
 .navbar-nav li {
   padding-right: .7rem;
 }
@@ -315,6 +315,7 @@ footer {
   background: #007bff;
   border: 2px solid #007bff;
   color: #fff;
+  cursor: pointer;
 }
 
 #intro .intro-info .btn-get-started:hover {
@@ -493,8 +494,7 @@ footer {
 
 #letstalk .form-container {
   /* border: 1px solid black; */
-  padding: 4rem;
-  margin: 50px;
+  height: 300px;
 }
 
 #letstalk .input-icon-wrap {

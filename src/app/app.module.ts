@@ -11,7 +11,6 @@ import {NgbModule,NgbPaginationModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule, routes } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CharityUserComponent } from './charityComponents/charity-user/charity-user.component';
 import { SignInComponent } from './charityComponents/charity-user/sign-in/sign-in.component';
 import { SignUpComponent } from './charityComponents/charity-user/sign-up/sign-up.component';
 import { RouterModule } from '@angular/router';
@@ -20,9 +19,7 @@ import { AdminLoginComponent } from './adminComponents/admin-login/admin-login.c
 import { AdminComponent } from './adminComponents/adminpanel/admin.component'; 
 import { AuthGaurd } from './services/AuthGuard.Admin';
 import { AuthGaurd1 } from './services/AuthGuard.Charity';
-import { PaymentReportComponent } from './charityComponents/charity-panel/payment-report/payment-report.component';
-// import { DataService } from '../app/data.service';
-import { CharityPanelComponent } from './charityComponents/charity-panel/charity-panel.component';
+
 import { FooterComponent } from './footer/footer.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
@@ -56,17 +53,12 @@ import { PayoutsComponent } from './dashboard/payouts/payouts.component';
 @NgModule({
   declarations: [
     AppComponent,
-    CharityUserComponent,
     SignInComponent,
     SignUpComponent,
-    CharityPanelComponent,
-    PaymentReportComponent,
     StartPageComponent,
     AdminComponent,
     AdminLoginComponent,
     AdminComponent,
-    PaymentReportComponent,
-    // NgbdDatepickerPopup,
     FooterComponent,
     NavBarComponent,
     SidebarComponent,
@@ -91,8 +83,6 @@ import { PayoutsComponent } from './dashboard/payouts/payouts.component';
     HttpClientModule,
     NgxPaginationModule,
     FormsModule,
-    // BsDatepickerModule.forRoot(),
-    // ModalModule.forRoot(),
     NgbModule,
     NgbPaginationModule,
     AngularFireDatabaseModule,
@@ -101,7 +91,7 @@ import { PayoutsComponent } from './dashboard/payouts/payouts.component';
     NgxPaginationModule,
     FilterPipeModule,
     MatDatepickerModule,
-    AngularFireModule.initializeApp(environment.firebase),
+    // AngularFireModule.initializeApp(environment.firebase),
     
   ],
   providers: [DataService,DatePipe,AuthGaurd,AuthGaurd1,MessagingService,AsyncPipe],

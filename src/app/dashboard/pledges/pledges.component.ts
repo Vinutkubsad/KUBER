@@ -17,8 +17,10 @@ import swal from 'sweetalert';
   styleUrls: ["./pledges.component.css"]
 })
 export class PledgesComponent implements OnInit {
+
   public pledgeReport: any[];
   public pledgeReport1: any[];
+  public searchResult: any;
   userFilter: string;
   pdf: any;
   p: number = 1;
@@ -35,14 +37,11 @@ export class PledgesComponent implements OnInit {
 
   getReports() {
     this.service.allPledges().subscribe((Response: any) => {
-      console.log(Response);
-      this.mes = Response.message;
-      if (Response.data) {
+      
+        // console.log(Response);
         this.pledgeReport = Response.data;
         this.pledgeReport1 = Response.data;
-      }
-    },(err)=>{
-      console.log(err,'err');
+      
     }
     );
   }
@@ -100,7 +99,7 @@ export class PledgesComponent implements OnInit {
     }
   }
 
-  Datefilter(event) {
+  Datefilter() {
     {
       var startDate = this.start;
       var endDate = this.end;

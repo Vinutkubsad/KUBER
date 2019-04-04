@@ -9,14 +9,6 @@
         <div class="col-12">
           <div class="form-group">
             <div class="row">
-              <div class="col-12">
-                <div class="searchBar">
-                  <div class="row ">
-                    <!-- <input type="text" class="form-control ml-auto"[(ngModel)]="searchText" placeholder="Search">            -->
-                  </div>
-                </div>
-                <br>
-              </div>
               <div class="col">
                 <select class="btn btn-outline" name="Frequency" id="" (change)="frequnecy($event.target.value)">
                   <option class="dropdown-item" value="week">Weekly</option>
@@ -49,61 +41,21 @@
                           <label for=""> To Date </label><input type="date" class="form-control" id="date-range" name="end" [(ngModel)]="end">
                         </div>
                       </div>
-                      
                     </form>
-                    <button class="dropdown-item" style="margin-left: 142px;" type="button" class="btn btn-primary "
+                    <button class="dropdown-item" style="margin-left: 142px;" type="button" class="btn btn-primary"
                       (click)="Datefilter()">Done</button>
                   </div>
                 </div>
               </div>
-              
-              <!-- <div class="col">
-                <div class="dropdown">
-                  <button class="btn btn-outline-info dropdown-toggle" type="button" id="dropdownMenuButton"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fa fa-filter" aria-hidden="true"></i> Date filter
-                  </button>
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"
-                    (change)="frequnecy1($event.target.value)">
-                    <form class="px-4 py-3">
-                      <div class="form-group">
-                        <div class="jumbotron-fluid">
-                          <label for="date-range">Date-range</label>
-                        <ngb-datepicker #dp (select)="onDateSelection($event)" [displayMonths]="1" [dayTemplate]="t"
-                          outsideDays="hidden">
-                        </ngb-datepicker>
-                        <ng-template #t let-date let-focused="focused"  style="color:black;" >
-                          <span class="custom-day" [class.focused]="focused" [class.range]="isRange(date)"
-                            [class.faded]="isHovered(date) || isInside(date)" (mouseenter)="hoveredDate = date"
-                            (mouseleave)="hoveredDate = null">
-                          </span>
-                        </ng-template>
-                        </div>
-                      </div>
-                    </form>
-                    <button class="dropdown-item" style="margin-left: 142px;" type="button" class="btn btn-primary "
-                      (click)="filter()">Done</button>
-                  </div>
-                </div>
-              </div> -->
-              <div class="col-4">
-                <div class="form-group">
-                  <input class="form-control ml-2" type="text" placeholder="Seach" />
-                </div>
+              <div class="form-group form-inline col-4">
+                <input class="form-control ml-2" type="text" placeholder="Search name"  style="width:280px;"/>
               </div>
               <div class="col">
                 <button type="button" class="btn btn-outline-info" (click)="downloadPdf()"><i
                     class="fas fa-file-pdf"></i> Dowload pdf</button>
               </div>
-              <div class="col"></div>
             </div>
             <br>
-            <div class="container padding">
-              <div class="row">
-
-
-              </div>
-            </div>
           </div>
           <div class="row">
             <div class="col-12">
@@ -119,7 +71,7 @@
                   </thead>
                   <tbody>
                     <tr
-                      *ngFor="let data of pledgeReport| filter : '{interval}' | paginate: {itemsPerPage: 5, currentPage: p };">
+                      *ngFor="let data of pledgeReport| filter : 'Name'  | paginate: {itemsPerPage: 12, currentPage: p };">
                       <td>{{data.userDetails.Name}}</td>
                       <td>{{data.interval}}</td>
                       <td>{{data.amount}}</td>
@@ -133,7 +85,9 @@
                   </div>
               </div>
             </div>
-            <pagination-controls class="pagination" (pageChange)="p = $event"></pagination-controls>
+            <div class="paginate">
+              <pagination-controls class="paginate-wrap" (pageChange)="p = $event"></pagination-controls>
+            </div>
           </div>
         </div>
       </div>
