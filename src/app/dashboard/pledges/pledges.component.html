@@ -63,7 +63,7 @@
           <div class="row">
             <div class="col-12">
               <div class="table-responsive">
-                <table  class="table">
+                <table *ngIf="pledgeReport?.length >0"  class="table">
                   <thead class="thead">
                     <tr>
                       <th>Name</th>
@@ -74,8 +74,8 @@
                   </thead>
                   <tbody>
                     <tr
-                      *ngFor="let data of pledgeReport| filter : 'userDetails':'Name': searchText  | paginate: {itemsPerPage: 12, currentPage: p };">
-                      <td>{{data.userDetails.Name}}</td>
+                      *ngFor="let data of pledgeReport| filter : 'userDetails':'name': searchText  | paginate: {itemsPerPage: 12, currentPage: p };">
+                      <td>{{data.userDetails.name}}</td>
                       <td>{{data.interval}}</td>
                       <td>{{data.amount}}</td>
                       <td>{{data.startDate | date}}</td>
@@ -83,7 +83,7 @@
                   </tbody>
                 </table>
                 <hr>
-                <div *ngIf="pledgeReport.length === 0" class="text-center">
+                <div *ngIf="pledgeReport?.length === 0" class="text-center">
                   <h5>No data</h5>
                 </div>
               </div>

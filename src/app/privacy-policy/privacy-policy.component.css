@@ -1,3 +1,20 @@
+.navbar{
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: .1rem;
+    background-color: white !important;
+    /* background: rgba(0,0,0,0.6) !important; */
+    /* opacity: .9; */
+  }
+
+  .navbar-nav li{
+  padding-right: .7rem;
+  }
+  .navbar-dark .navbar-nav .nav-link{
+    /* color: white; */
+    padding-top: .8rem;
+  }
 .welcome-text{
 color: rgb(32, 207, 207);
 font-weight: 700;

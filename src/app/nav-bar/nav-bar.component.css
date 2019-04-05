@@ -31,9 +31,9 @@ padding-right: .7rem;
 fa-bell{
   color: aquamarine;
 }
-ngbDropdownToggle{
+/* ngbDropdownToggle{
   color: transparent;
-}
+} */
 
 ul {
   list-style-type: none;

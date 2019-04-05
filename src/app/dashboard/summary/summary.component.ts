@@ -49,7 +49,7 @@ export class SummaryComponent implements OnInit {
     this.balance();
   }
   doPagination(itemsPerPage, total_pages, totalCount, pageNo, per_page) {
-    console.log(this.pages, itemsPerPage, total_pages, totalCount, per_page);
+    // console.log(this.pages, itemsPerPage, total_pages, totalCount, per_page);
     this.pagination.currentPage = parseInt(pageNo);
     this.pagination.noOfItemsPerPage = per_page;
     this.pagination.totalCount = totalCount;

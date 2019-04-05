@@ -20,7 +20,7 @@ export class PledgesComponent implements OnInit {
 
   public pledgeReport: any[];
   public pledgeReport1: any[];
-  public searchResult: any;
+  public searchText: string;
   userFilter: string;
   pdf: any;
   p: number = 1;
@@ -37,6 +37,8 @@ export class PledgesComponent implements OnInit {
 
   getReports() {
     this.service.allPledges().subscribe((Response: any) => {
+      // console.log(Response);
+      // this.mes=Response.message;
         this.pledgeReport = Response.data;
         this.pledgeReport1 = Response.data;
     }
@@ -55,7 +57,7 @@ export class PledgesComponent implements OnInit {
         tempArr.push(ar);
       }
       var arr = [
-        data[i].userDetails.Name ? data[i].userDetails.Name : " ",
+        data[i].userDetails.name ? data[i].userDetails.name : " ",
         data[i].amount,
         data[i].interval,
         data[i].paymentModeId,
