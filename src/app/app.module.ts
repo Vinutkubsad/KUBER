@@ -46,6 +46,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { StripePaymentComponent } from './charityComponents/charity-user/stripe-payment/stripe-payment.component';
 import { StripeRespondComponent } from './charityComponents/charity-user/stripe-respond/stripe-respond.component';
 import { PayoutsComponent } from './dashboard/payouts/payouts.component';
+import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 
 
 
@@ -73,6 +74,7 @@ import { PayoutsComponent } from './dashboard/payouts/payouts.component';
     StripePaymentComponent,
     StripeRespondComponent,
     PayoutsComponent,
+    PrivacyPolicyComponent,
   ],
   imports: [
     BrowserModule,
