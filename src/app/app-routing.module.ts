@@ -14,7 +14,8 @@ import { ProfileComponent } from './dashboard/profile/profile.component';
 import { StripePaymentComponent } from './charityComponents/charity-user/stripe-payment/stripe-payment.component';
 import { StripeRespondComponent } from './charityComponents/charity-user/stripe-respond/stripe-respond.component';
 import { PayoutsComponent } from './dashboard/payouts/payouts.component';
-// import { NotificationComponent } from './notification/notification.component';
+import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
+
 
 export const routes: Routes = [
   { path: 'home', component: StartPageComponent },
@@ -34,6 +35,7 @@ export const routes: Routes = [
       { path: 'profile/:id', component: ProfileComponent }
     ]
   },
+  { path: 'privacy-policy', component: PrivacyPolicyComponent },
 
   { path: "", redirectTo: "home", pathMatch: "full" }
 

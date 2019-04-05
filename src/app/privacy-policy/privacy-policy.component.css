@@ -1,0 +1,26 @@
+.welcome-text{
+color: rgb(32, 207, 207);
+font-weight: 700;
+margin-top:20px;
+font-size: 2rem;
+}
+.row .title {
+font-weight: 200;
+font-size: 1.5rem;
+color:#504f4f;
+}
+
+.row{
+font-weight: 200 !important;
+font-size: 1.1rem;
+color: #444242;
+}
+.row p{
+    font-size: 1rem;
+    color: #696666;
+}
+.title{
+    font-weight: 200;
+font-size: 1.5rem;
+color:#646262;
+}

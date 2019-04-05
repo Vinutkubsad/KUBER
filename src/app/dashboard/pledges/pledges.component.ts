@@ -91,8 +91,6 @@ export class PledgesComponent implements OnInit {
 
   frequnecy(event) {
     this.pledgeReport = this.pledgeReport1.filter(x => x.interval == event);
-    if(this.pledgeReport.length === 0){
-    }
   }
 
   Datefilter() {
@@ -102,8 +100,6 @@ export class PledgesComponent implements OnInit {
       this.pledgeReport = this.pledgeReport1.filter(
         x => x.startDate >= startDate && x.startDate <= endDate
       );
-      if(this.pledgeReport.length === 0){
-      }
     }
   }
 }

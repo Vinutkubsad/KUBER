@@ -52,7 +52,7 @@
               </div>
               <div class="col">
                 <button type="button" class="btn btn-outline-info" (click)="downloadPdf()"><i
-                    class="fas fa-file-pdf"></i> Dowload pdf</button>
+                    class="fas fa-file-pdf"></i> Dowload </button>
               </div>
               <div class="col">
                 <button type="button" class="btn btn-outline-info" (click)="refresh()"><i class="fas fa-redo-alt"></i></button>
@@ -83,7 +83,7 @@
                   </tbody>
                 </table>
                 <hr>
-                <div *ngIf="pledgeReport.length === 0" class="text-center">
+                <div *ngIf="pledgeReport?.length === 0" class="text-center">
                   <h5>No data</h5>
                 </div>
               </div>
