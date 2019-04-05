@@ -17,6 +17,7 @@ export class ProfileComponent implements OnInit {
   public primarynumber;
   public email;
   public address;
+  public searchText: any;
 
   constructor(public router: ActivatedRoute, public service: DataService) { }
 

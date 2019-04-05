@@ -1,6 +1,7 @@
 import { Component, OnInit, ElementRef, ViewChild } from "@angular/core";
 import { DataService } from "src/app/services/data.service";
 import { Router } from "@angular/router";
+import { FormGroup, FormBuilder, Validators, FormControl, NgForm, FormGroupDirective } from '@angular/forms';
 // import * as jspdf from 'jspdf';
 // import html2canvas from 'html2canvas';
 import pdfMake from "pdfmake/build/pdfmake";
@@ -20,7 +21,7 @@ export class PledgesComponent implements OnInit {
 
   public pledgeReport: any[];
   public pledgeReport1: any[];
-  public searchResult: any;
+  public searchText: string;
   userFilter: string;
   pdf: any;
   p: number = 1;
@@ -29,7 +30,7 @@ export class PledgesComponent implements OnInit {
   end;
   mes;
 
-  constructor(private service: DataService, private router: Router) {}
+  constructor(private service: DataService, private router: Router, public fb: FormBuilder) {}
 
   ngOnInit() {
     this.getReports();
