@@ -3,10 +3,7 @@ import { DataService } from 'src/app/services/data.service';
 import { Router } from '@angular/router';
 import pdfMake from "pdfmake/build/pdfmake";
 import pdfFonts from "pdfmake/build/vfs_fonts";
-
-
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
-
 
 @Component({
   selector: 'app-activities',
@@ -50,8 +47,6 @@ export class ActivitiesComponent implements OnInit {
   constructor(private service: DataService, private router: Router) { }
   setPage(i) {
     this.page = i;
-    // this.getReports();
-    // this.search();
     this.getReports();
   }
 
@@ -101,7 +96,7 @@ export class ActivitiesComponent implements OnInit {
     },
     (err)=>
     {
-      console.log(err,'err');
+      // console.log(err,'err');
       this.payments = Response.error;
     });
   }
@@ -234,6 +229,7 @@ export class ActivitiesComponent implements OnInit {
     this.service.dateFilterActivity(data).subscribe((Response: any) => {
       // console.log(Response);
       this.payments = Response.result.paginatedItems;
+      this.doPagination(Response.result.itemsPerPage, Response.result.total_pages, Response.result.totalCount, Response.result.pageNo, Response.result.per_page)
     },
     (err)=>
     {
@@ -247,6 +243,7 @@ export class ActivitiesComponent implements OnInit {
     this.service.dateFilterActivity(data).subscribe((Response: any) => {
       // console.log(Response);
       this.payments = Response.result.paginatedItems;
+      this.doPagination(Response.result.itemsPerPage, Response.result.total_pages, Response.result.totalCount, Response.result.pageNo, Response.result.per_page)
     },
     (err)=>
     {
@@ -260,6 +257,7 @@ export class ActivitiesComponent implements OnInit {
     this.service.dateFilterActivity(data).subscribe((Response: any) => {
       // console.log(Response);
       this.payments = Response.result.paginatedItems;
+      this.doPagination(Response.result.itemsPerPage, Response.result.total_pages, Response.result.totalCount, Response.result.pageNo, Response.result.per_page)
     },
     (err)=>
     {
@@ -273,6 +271,7 @@ export class ActivitiesComponent implements OnInit {
       // console.log(Response);
      
       this.payments = Response.result.paginatedItems;
+      this.doPagination(Response.result.itemsPerPage, Response.result.total_pages, Response.result.totalCount, Response.result.pageNo, Response.result.per_page)
     },
     (err)=>
     {
@@ -286,11 +285,12 @@ export class ActivitiesComponent implements OnInit {
       // console.log(Response);
       if(Response.success ){
         this.payments = Response.result.paginatedItems;
+        this.doPagination(Response.result.itemsPerPage, Response.result.total_pages, Response.result.totalCount, Response.result.pageNo, Response.result.per_page)
       } 
     },
     (err)=>
     {
-      console.log(err,'err');
+      // console.log(err,'err');
       this.payments = Response.error;
     });
   }
@@ -328,7 +328,7 @@ export class ActivitiesComponent implements OnInit {
 
   downloadPdf() {
     this.service.getPdf().subscribe((Response: any) => {
-      console.log(Response);
+      // console.log(Response);
       
       var doc = this.createPdfDoc(Response.result);
       // console.log('DOc Pdf', doc);

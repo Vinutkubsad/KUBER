@@ -37,18 +37,13 @@ export class PledgesComponent implements OnInit {
 
   getReports() {
     this.service.allPledges().subscribe((Response: any) => {
-      // console.log(Response);
-      // this.mes = Response.message;
-      if (Response.data) {
-        // console.log(Response);
         this.pledgeReport = Response.data;
         this.pledgeReport1 = Response.data;
-      }
     }
     );
   }
 
-  refresh(): void{
+  refresh(){
     window.location.reload();
   }
 
@@ -96,8 +91,6 @@ export class PledgesComponent implements OnInit {
   frequnecy(event) {
     this.pledgeReport = this.pledgeReport1.filter(x => x.interval == event);
     if(this.pledgeReport.length === 0){
-      swal("No Data avalable");
-      this.refresh();
     }
   }
 
@@ -109,8 +102,6 @@ export class PledgesComponent implements OnInit {
         x => x.startDate >= startDate && x.startDate <= endDate
       );
       if(this.pledgeReport.length === 0){
-        swal("No data avalable");
-        this.refresh();
       }
     }
   }

@@ -36,9 +36,6 @@
               <div *ngIf="payments.length === 0" class="text-center">
                 <h4>No data</h4>
               </div>
-
-
-
               <ngb-pagination class="d-flex justify-content-end" [(page)]="pagination.currentPage"
                 [pageSize]="pagination.noOfItemsPerPage" [collectionSize]="pagination.totalCount"
                 aria-label="Default pagination" (pageChange)="onPageChange($event)" *ngIf="payments.length > 0">

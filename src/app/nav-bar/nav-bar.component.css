@@ -1,9 +1,10 @@
 .navbar{
+  overflow: hidden;
+  top: 0;
   text-transform: uppercase;
   font-weight: 700;
   font-size: 0.9rem;
   letter-spacing: .1rem;
-  /* background:white !important; */
   opacity: .9;
 }
 .navbar-brand img{

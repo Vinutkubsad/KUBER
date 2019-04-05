@@ -62,7 +62,7 @@ export class SummaryComponent implements OnInit {
 
   getReports() {
     this.service.getReportSummary(this.page, this.amount, this.date, this.userName).subscribe((Response: any) => {
-      console.log(Response);
+      // console.log(Response);
      
       this.mes = Response.message;
       if(Response.result){
@@ -74,7 +74,7 @@ export class SummaryComponent implements OnInit {
   search() {
     var data = { "userName": this.DonarName }
     this.service.searchReport(data, this.page).subscribe((Response: any) => {
-      console.log(Response);
+      // console.log(Response);
       this.payments = Response.result.paginatedItems;
       this.doPagination(Response.result.itemsPerPage, Response.result.total_pages, Response.result.totalCount, Response.result.pageNo, Response.result.per_page)
     });
@@ -129,7 +129,7 @@ export class SummaryComponent implements OnInit {
 
   balance(){
     this.service.balance().subscribe((Response:any)=>{
-      console.log(Response);
+      // console.log(Response);
       this.bal=Response.result.available;
       
     })

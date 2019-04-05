@@ -35,7 +35,7 @@ export class PayoutsComponent implements OnInit {
     },
     (err)=>
     {
-      console.log(err,'err');
+      // console.log(err,'err');
       this.err = Response.error;
       swal ("oops!", "Please enter all fields ", "info");
     });
