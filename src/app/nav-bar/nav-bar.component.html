@@ -2,62 +2,60 @@
 <h3> {{ message | async | json }} </h3> -->
 
 <nav class="navbar navbar-expand-md navbar-light static-top">
-  <a class="navbar-brand" href="#"><img src="./assets/Images/logo.png" width="60" height="60"></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item" [routerLink]="[ '/dashboard/summary' ]" routerLinkActive="active">
-        <a class="nav-link" role="button" outlet="outlet">Summary</a>
-      </li>
-      <li class="nav-item" [routerLink]="[ '/dashboard/activities']" routerLinkActive="active">
-        <a class="nav-link" role="button" outlet="outlet">Activity</a>
-      </li>
-      <li class="nav-item" [routerLink]="[ '/dashboard/pledges']" routerLinkActive="active">
-        <a class="nav-link" role="button" outlet="outlet">Pledges</a>
-      </li>
-      <li class="nav-item" [routerLink]="[ '/dashboard/payout' ]" routerLinkActive="active">
-        <a class="nav-link" role="button" outlet="outlet">Payouts</a>
-      </li>
-      <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link"
-          href="https://connect.stripe.com/express/oauth/authorize?redirect_uri=http://18.222.254.228/quber/#/dashboard/stripeRespond&client_id=ca_EdhtAis45rg72LVFw9fzbFBCZDdAkBjc&state={STATE_VALUE}"
-          role="button" outlet="outlet">Stripe account</a>
-      </li>
-      <li class="nav-item" [routerLink]="[ '/dashboard/help']" routerLinkActive="active">
-        <a class="nav-link" role="button" outlet="outlet">Help</a>
-      </li>
-    </ul>
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
-        <div>
-          <button class="btn btn-default btn-lg" data-toggle="collapse" href="#collapseExample" role="button"
-            aria-expanded="false" aria-controls="collapseExample" style="font-size:26px; color: rgb(23, 179, 206)">
-            <i class="fa fa-bell" aria-hidden="true"></i><span class="badge badge-notify" style="color:red">6</span>
-          </button>
-        </div>
-
-      </li>
-      <li class="nav-item">
-        <div ngbDropdown placement="bottom-right" class="d-inline-block">
-          <button class="btn btn-outline" id="dropdownBasic1" ngbDropdownToggle><i class="fa fa-cog"
-              aria-hidden="true"></i></button>
-          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-            <button ngbDropdownItem (click)="navProfile()"><i class="fa fa-user" aria-hidden="true"></i>
-              Profile</button>
-            <button ngbDropdownItem (click)="logout()"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
-              Logout</button>
+    <a class="navbar-brand" href="#"><img src="./assets/Images/logo.png" width="60" height="60"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item" [routerLink]="[ '/dashboard/summary' ]" routerLinkActive="active">
+          <a class="nav-link" role="button" outlet="outlet">Summary</a>
+        </li>
+        <li class="nav-item" [routerLink]="[ '/dashboard/activities']" routerLinkActive="active">
+          <a class="nav-link" role="button" outlet="outlet">Activity</a>
+        </li>
+        <li class="nav-item" [routerLink]="[ '/dashboard/pledges']" routerLinkActive="active">
+          <a class="nav-link" role="button" outlet="outlet">Pledges</a>
+        </li>
+        <li class="nav-item" [routerLink]="[ '/dashboard/payout' ]" routerLinkActive="active">
+          <a class="nav-link" role="button" outlet="outlet">Payouts</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" role="button" outlet="outlet">Stripe account</a>
+        </li>
+        <li class="nav-item" [routerLink]="[ '/dashboard/help']" routerLinkActive="active">
+          <a class="nav-link" role="button" outlet="outlet">Help</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <!-- <li class="nav-item">
+          <div >
+            <button class="btn btn-default btn-lg" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" style="font-size:26px; color: rgb(23, 179, 206)">
+              <i class="fa fa-bell" aria-hidden="true"></i>
+            </button>
+            <span class="badge badge-notify">6</span>
           </div>
-        </div>
-      </li>
-    </ul>
+         
+        </li> -->
+        <li class="nav-item">
+          <div ngbDropdown placement="bottom-right" class="d-inline-block">
+            <button class="btn btn-outline" id="dropdownBasic1" ngbDropdownToggle><i class="fa fa-cog"
+                aria-hidden="true"></i></button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+              <button ngbDropdownItem (click)="navProfile()"><i class="fa fa-user" aria-hidden="true"></i>
+                Profile</button>
+              <button ngbDropdownItem (click)="logout()"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
+                Logout</button>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  
+  <div class="container-fluid">
+    <router-outlet></router-outlet>
   </div>
-</nav>
-
-<div class="wrap-container-fluid">
-  <router-outlet></router-outlet>
-</div>
-<app-footer></app-footer>
+  <app-footer></app-footer>
