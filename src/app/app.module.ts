@@ -35,7 +35,7 @@ import { AsyncPipe, DatePipe } from '@angular/common';
 import { AngularFireMessagingModule } from '@angular/fire/messaging';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-import { AngularFireModule } from '@angular/fire'; 
+// import { AngularFireModule } from '@angular/fire'; 
 import { environment } from '../environments/environment';
 import { FilterPipe } from './filter.pipe';
 import { NgxPaginationModule } from 'ngx-pagination'

@@ -11,56 +11,26 @@
               <div class="row">
                 <div class="col">
                   <div class="dropdown">
-                    <button
-                      class="btn btn-outline-info dropdown-toggle"
-                      type="button"
-                      id="dropdownMenuButton"
-                      data-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >
+                    <button class="btn btn-outline-info dropdown-toggle" type="button" id="dropdownMenuButton"
+                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       <i class="fa fa-filter" aria-hidden="true"></i> Date
                     </button>
-                    <div
-                      class="dropdown-menu"
-                      aria-labelledby="dropdownMenuButton"
-                    >
-                      <a class="dropdown-item" (click)="filter30()"
-                        >Last 30 days</a
-                      >
-                      <a class="dropdown-item" (click)="filter60()"
-                        >Last 60 days</a
-                      >
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" (click)="filter30()">Last 30 days</a>
+                      <a class="dropdown-item" (click)="filter60()">Last 60 days</a>
                       <a class="dropdown-item" (click)="filter18()">2018</a>
                       <a class="dropdown-item" (click)="filter19()">2019</a>
                       <form class="px-4 py-3">
                         <div class="form-group">
                           <div class="jumbotron-fluid">
                             <label for="date-range">Date-range</label>
-                            <input
-                              type="date"
-                              class="form-control"
-                              id="date-range"
-                              name="start"
-                              [(ngModel)]="start"
-                            />
-                            <input
-                              type="date"
-                              class="form-control"
-                              id="date-range"
-                              name="end"
-                              [(ngModel)]="end"
-                            />
+                            <input type="date" class="form-control" id="date-range" name="start" [(ngModel)]="start" />
+                            <input type="date" class="form-control" id="date-range" name="end" [(ngModel)]="end" />
                           </div>
                         </div>
                       </form>
-                      <button
-                        class="dropdown-item"
-                        style="margin-left: 142px;"
-                        type="button"
-                        class="btn btn-primary "
-                        (click)="filter()"
-                      >
+                      <button class="dropdown-item" style="margin-left: 142px;" type="button" class="btn btn-primary "
+                        (click)="filter()">
                         Done
                       </button>
                     </div>
@@ -68,28 +38,20 @@
                 </div>
 
                 <div class="form-group form-inline col-4">
-                  <input
-                    class="form-control ml-2"
-                    type="text"
-                    [(ngModel)]="DonarName"
-                    placeholder="Search name"
-                    (input)="search()"
-                  />
+                  <input class="form-control ml-2" type="text" [(ngModel)]="DonarName" placeholder="Search name"
+                    (input)="search()" />
                   <!-- <button class="btn btn-info" (click)="search()"><i class="fa fa-search" aria-hidden="true"></i></button> -->
                 </div>
                 <div class="">
-                  <button
-                    type="button"
-                    class="btn btn-outline-info"
-                    (click)="downloadPdf()"
-                  >
+                  <button type="button" class="btn btn-outline-info" (click)="downloadPdf()">
                     <i class="fas fa-file-pdf"></i> Dowload
                   </button>
                 </div>
                 <br>
                 &nbsp; &nbsp;
                 <div class="">
-                  <button type="button" class="btn btn-outline-info" (click)="refresh()"><i class="fas fa-redo-alt"></i></button>
+                  <button type="button" class="btn btn-outline-info" (click)="refresh()"><i
+                      class="fas fa-redo-alt"></i></button>
                 </div>
               </div>
             </div>
@@ -97,50 +59,32 @@
               <thead class="thead">
                 <tr>
                   <th>
-                    Date<button
-                      class="btn btn-outline-light"
-                      (click)="sortDate()"
-                    >
+                    Date<button class="btn btn-outline-light" (click)="sortDate()">
                       <i class="fa fa-sort" aria-hidden="true"></i>
                     </button>
                   </th>
                   <th>
-                    Name<button
-                      class="btn btn-outline-light"
-                      (click)="sortStatus()"
-                    >
+                    Name<button class="btn btn-outline-light" (click)="sortStatus()">
                       <i class="fa fa-sort" aria-hidden="true"></i>
                     </button>
                   </th>
                   <th>
-                    Donation Status<button
-                      class="btn btn-outline-light"
-                      (click)="sortName()"
-                    >
+                    Donation Status<button class="btn btn-outline-light" (click)="sortName()">
                       <i class="fa fa-sort" aria-hidden="true"></i>
                     </button>
                   </th>
                   <th>
-                    Total Amount<button
-                      class="btn btn-outline-light"
-                      (click)="sortAmount()"
-                    >
+                    Total Amount<button class="btn btn-outline-light" (click)="sortAmount()">
                       <i class="fa fa-sort" aria-hidden="true"></i>
                     </button>
                   </th>
                   <th>
-                    Fees<button
-                      class="btn btn-outline-light"
-                      (click)="sortAppfee()"
-                    >
+                    Fees<button class="btn btn-outline-light" (click)="sortAppfee()">
                       <i class="fa fa-sort" aria-hidden="true"></i>
                     </button>
                   </th>
                   <th>
-                    Net Amount<button
-                      class="btn btn-outline-light"
-                      (click)="sortNet()"
-                    >
+                    Net Amount<button class="btn btn-outline-light" (click)="sortNet()">
                       <i class="fa fa-sort" aria-hidden="true"></i>
                     </button>
                   </th>
@@ -162,15 +106,9 @@
             <div *ngIf="payments.length === 0" class="text-center">
               <h5>No data</h5>
             </div>
-            <ngb-pagination
-              class="d-flex justify-content-end"
-              [(page)]="pagination.currentPage"
-              [pageSize]="pagination.noOfItemsPerPage"
-              [collectionSize]="pagination.totalCount"
-              aria-label="Default pagination"
-              (pageChange)="onPageChange($event)"
-              *ngIf="payments.length > 0"
-            >
+            <ngb-pagination class="d-flex justify-content-end" [(page)]="pagination.currentPage"
+              [pageSize]="pagination.noOfItemsPerPage" [collectionSize]="pagination.totalCount"
+              aria-label="Default pagination" (pageChange)="onPageChange($event)" *ngIf="payments.length > 0">
             </ngb-pagination>
           </div>
         </div>

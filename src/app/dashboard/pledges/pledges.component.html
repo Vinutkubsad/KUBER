@@ -48,11 +48,14 @@
                 </div>
               </div>
               <div class="form-group form-inline col-4">
-                <input class="form-control ml-2" type="text" placeholder="Search name"  style="width:280px;"/>
+                <input class="form-control ml-2" type="text" [(ngModel)]="searchText" placeholder="Search name"  style="width:280px;"/>
               </div>
               <div class="col">
                 <button type="button" class="btn btn-outline-info" (click)="downloadPdf()"><i
                     class="fas fa-file-pdf"></i> Dowload pdf</button>
+              </div>
+              <div class="col">
+                <button type="button" class="btn btn-outline-info" (click)="refresh()"><i class="fas fa-redo-alt"></i></button>
               </div>
             </div>
             <br>
@@ -60,7 +63,7 @@
           <div class="row">
             <div class="col-12">
               <div class="table-responsive">
-                <table *ngIf="pledgeReport.length > 0" class="table">
+                <table  class="table">
                   <thead class="thead">
                     <tr>
                       <th>Name</th>
@@ -71,7 +74,7 @@
                   </thead>
                   <tbody>
                     <tr
-                      *ngFor="let data of pledgeReport| filter : 'Name'  | paginate: {itemsPerPage: 12, currentPage: p };">
+                      *ngFor="let data of pledgeReport| filter : 'userDetails':'Name': searchText  | paginate: {itemsPerPage: 12, currentPage: p };">
                       <td>{{data.userDetails.Name}}</td>
                       <td>{{data.interval}}</td>
                       <td>{{data.amount}}</td>
@@ -81,8 +84,8 @@
                 </table>
                 <hr>
                 <div *ngIf="pledgeReport.length === 0" class="text-center">
-                    <h5>No data</h5>
-                  </div>
+                  <h5>No data</h5>
+                </div>
               </div>
             </div>
             <div class="paginate">

@@ -3,10 +3,7 @@ import { DataService } from 'src/app/services/data.service';
 import { Router } from '@angular/router';
 import pdfMake from "pdfmake/build/pdfmake";
 import pdfFonts from "pdfmake/build/vfs_fonts";
-
-
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
-
 
 @Component({
   selector: 'app-activities',
