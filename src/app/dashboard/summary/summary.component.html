@@ -6,7 +6,7 @@
         <h4 class="title">Recent Donations</h4>
       </div>
       <div class="col">
-        <h3 *ngFor= "let b of bal;">Total Balance:{{b.amount/100 | currency}}</h3>
+        <h3 >Total Balance:{{bal | currency}}</h3>
       </div>
       
       <div class="container padding">
@@ -18,7 +18,7 @@
                   <tr>
                     <th>Date<button class="btn btn-outline-light" (click)="sortDate()"><i class="fa fa-sort"
                           aria-hidden="true"></i></button></th>
-                    <th>Name<button class="btn btn-outline-light" (click)="sortStatus()"><i class="fa fa-sort"
+                    <th>Name<button class="btn btn-outline-light" (click)="sortName()"><i class="fa fa-sort"
                           aria-hidden="true"></i></button></th>
                     <th>Amount <br>(Including fees)<button class="btn btn-outline-light" (click)="sortAmount()"><i
                           class="fa fa-sort" aria-hidden="true"></i>
