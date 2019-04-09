@@ -38,6 +38,7 @@ export class PledgesComponent implements OnInit {
 
   getReports() {
     this.service.allPledges().subscribe((Response: any) => {
+      console.log('response',Response);
         this.pledgeReport = Response.data;
         this.pledgeReport1 = Response.data;
     }
@@ -52,11 +53,11 @@ export class PledgesComponent implements OnInit {
     var tempArr = [];
     for (let i = 0; i < data.length; i++) {
       if (i == 0) {
-        var ar = ["Name", "Amount", "Interval", "paymentModeId", "Date"];
+        var ar = ["name", "Amount", "Interval", "paymentModeId", "Date"];
         tempArr.push(ar);
       }
       var arr = [
-        data[i].userDetails.Name ? data[i].userDetails.Name : " ",
+        data[i].userDetails.name ? data[i].userDetails.name : " ",
         data[i].amount,
         data[i].interval,
         data[i].paymentModeId,
