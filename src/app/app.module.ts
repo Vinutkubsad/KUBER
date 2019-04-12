@@ -41,7 +41,7 @@ import { FilterPipe } from './filter.pipe';
 import { NgxPaginationModule } from 'ngx-pagination'
 import { FilterPipeModule } from 'ngx-filter-pipe';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { StripePaymentComponent } from './charityComponents/charity-user/stripe-payment/stripe-payment.component';
 import { StripeRespondComponent } from './charityComponents/charity-user/stripe-respond/stripe-respond.component';
@@ -93,6 +93,7 @@ import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.componen
     NgxPaginationModule,
     FilterPipeModule,
     MatDatepickerModule,
+    MatProgressSpinnerModule,
     // AngularFireModule.initializeApp(environment.firebase),
     
   ],

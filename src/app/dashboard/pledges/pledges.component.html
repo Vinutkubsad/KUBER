@@ -9,8 +9,18 @@
         <div class="col-12">
           <div class="form-group">
             <div class="row">
-              <div class="col">
-                <select class="btn btn-outline" name="Frequency" id="" (change)="frequnecy($event.target.value)">
+              <div class="col-4">
+                <div class="input-group mb-2 mr-sm-2">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text"><i class="fas fa-search"></i></div>
+                  </div>
+                  <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Search Name "
+                    [(ngModel)]="searchText" style="outline:none">
+                </div>
+              </div>
+              <div class="col-2">
+                <select class="btn btn-outline" name="Frequency" id="" (change)="frequnecy($event.target.value)"
+                  style="width:100%;">
                   <option class="dropdown-item" value="week">Weekly</option>
                   <option class="dropdown-item" value="byweek">Biweekly</option>
                   <option class="dropdown-item" value="month">Monthly</option>
@@ -19,10 +29,10 @@
                   <option class="dropdown-item" value="year">Annually</option>
                 </select>
               </div>
-              <div class="col">
+              <div class="col-2">
                 <div class="dropdown">
                   <button class="btn btn-outline-info dropdown-toggle" type="button" id="dropdownMenuButton"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width:100%;">
                     <i class="fa fa-filter" aria-hidden="true"></i> Date
                   </button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -37,8 +47,10 @@
                           <label class="form-check-label" for="exampleCheck3">Date-range</label> -->
                         <!-- <div class="collapse multi-collapse2" id="exampleCheck3"> -->
                         <div class="jumbotron-fluid">
-                          <label for=""> From Date </label><input type="date" class="form-control" id="date-range" name="start" [(ngModel)]="start">
-                          <label for=""> To Date </label><input type="date" class="form-control" id="date-range" name="end" [(ngModel)]="end">
+                          <label for=""> From Date </label><input type="date" class="form-control" id="date-range"
+                            name="start" [(ngModel)]="start">
+                          <label for=""> To Date </label><input type="date" class="form-control" id="date-range"
+                            name="end" [(ngModel)]="end">
                         </div>
                       </div>
                     </form>
@@ -47,49 +59,65 @@
                   </div>
                 </div>
               </div>
-              <div class="form-group form-inline col-4">
-                <input class="form-control ml-2" type="text" [(ngModel)]="searchText" placeholder="Search name"  style="width:280px;"/>
-              </div>
-              <div class="col">
-                <button type="button" class="btn btn-outline-info" (click)="downloadPdf()"><i
-                    class="fas fa-file-pdf"></i> Dowload </button>
+              <div class="col-2">
+                <button type="button" class="btn btn-outline-info" (click)="downloadPdf()" style="width:100%;"><i
+                    class="fas fa-file-pdf"></i> Download </button>
               </div>
               <div class="col">
                 <button type="button" class="btn btn-outline-info" (click)="refresh()"><i class="fas fa-redo-alt"></i></button>
               </div>
+              <br>
             </div>
-            <br>
-          </div>
-          <div class="row">
-            <div class="col-12">
-              <div class="table-responsive">
-                <table  class="table">
-                  <thead class="thead">
-                    <tr>
-                      <th>Name</th>
-                      <th>Frequency</th>
-                      <th>Net Amount</th>
-                      <th>Date</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr
-                      *ngFor="let data of pledgeReport| filter : 'userDetails':'Name': searchText  | paginate: {itemsPerPage: 12, currentPage: p };">
-                      <td>{{data.userDetails.Name}}</td>
-                      <td>{{data.interval}}</td>
-                      <td>{{data.amount}}</td>
-                      <td>{{data.startDate | date}}</td>
-                    </tr>
-                  </tbody>
-                </table>
-                <hr>
-                <div *ngIf="pledgeReport?.length === 0" class="text-center">
-                  <h5>No data</h5>
+            <div class="row">
+              <div class="col-12">
+                <div class="table-responsive">
+                  <table class="table" *ngIf="pledgeReport.length > 0">
+                    <thead class="thead">
+                      <tr>
+                        <th>
+                          Date<button class="btn btn-outline-light" (click)="sortDate()">
+                            <i class="fa fa-sort" aria-hidden="true"></i>
+                          </button>
+                        </th>
+                        <th>
+                          Name<button class="btn btn-outline-light" (click)="sortName()">
+                            <i class="fa fa-sort" aria-hidden="true"></i>
+                          </button>
+                        </th>
+                        <th>
+                          Frequency<button class="btn btn-outline-light" (click)="sortInterval()">
+                            <i class="fa fa-sort" aria-hidden="true"></i>
+                          </button>
+                        </th>
+                        <th>
+                          Amount<button class="btn btn-outline-light" (click)="sortAmount()">
+                            <i class="fa fa-sort" aria-hidden="true"></i>
+                          </button>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr
+                        *ngFor="let data of pledgeReport| filter : 'userDetails':'Name': searchText  | paginate: {itemsPerPage: 12, currentPage: p };let i=index">
+                        <td>{{data.startDate | date}}</td>
+                        <td>{{data.userDetails.Name}}</td>
+                        <td>{{data.interval}}</td>
+                        <td>{{data.amount | currency }}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="spinner">
+                      <mat-spinner *ngIf="spinner"></mat-spinner>
+                  </div>
+                  <hr>
+                  <div *ngIf="pledgeReport?.length === 0" class="text-center">
+                    <h5>No data</h5>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="paginate">
-              <pagination-controls class="paginate-wrap" (pageChange)="p = $event"></pagination-controls>
+              <div class="paginate">
+                <pagination-controls class="paginate-wrap" (pageChange)="p = $event"></pagination-controls>
+              </div>
             </div>
           </div>
         </div>

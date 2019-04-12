@@ -15,10 +15,7 @@
      /* color:rgb(16, 144, 204);  */
     color:white;
  }
- .fa-sort-numeric-asc{
-     /* color: rgb(41, 39, 39);; */
- }
- 
+
  .btn-outline {
     color: #f8f9fa;
     border-color: rgb(106, 208, 226);
@@ -99,3 +96,10 @@
 .form-control {
     border:info;
 }
+
+.spinner {
+    color: blue;
+    display: flex;
+    justify-content: center;
+    margin: 50px;
+  }

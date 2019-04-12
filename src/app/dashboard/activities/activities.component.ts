@@ -34,6 +34,8 @@ export class ActivitiesComponent implements OnInit {
   public net : any;
   public application_fee_amount:any;
 
+  spinner: boolean;
+
 
   public pagination = {
     currentPage: 1,
@@ -53,8 +55,8 @@ export class ActivitiesComponent implements OnInit {
 
   ngOnInit() {
     this.getReports();
-   
   }
+
   doPagination(itemsPerPage, total_pages, totalCount, pageNo, per_page) {
     console.log(this.pages, itemsPerPage, total_pages, totalCount, per_page);
     this.pagination.currentPage = parseInt(pageNo);
@@ -72,15 +74,14 @@ export class ActivitiesComponent implements OnInit {
   }
 
   getReports() {
+    this.spinner = true;
     this.service.getReport(this.page, this.amount, this.date, this.status, this.userName, this.net,this.application_fee_amount).subscribe((Response: any) => {
-      // console.log(Response);
-
+      this.spinner = false;
       this.mes = Response.message;
       if (Response.result) {
         this.payments = Response.result.paginatedItems;
         this.doPagination(Response.result.itemsPerPage, Response.result.total_pages, Response.result.totalCount, Response.result.pageNo, Response.result.per_page)
       }
-      
     })
   }
 
