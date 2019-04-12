@@ -1,6 +1,7 @@
 import { Component, OnInit, ElementRef, ViewChild } from "@angular/core";
 import { DataService } from "src/app/services/data.service";
 import { Router } from "@angular/router";
+import { FormGroup, FormBuilder, Validators, FormControl, NgForm, FormGroupDirective } from '@angular/forms';
 // import * as jspdf from 'jspdf';
 // import html2canvas from 'html2canvas';
 import pdfMake from "pdfmake/build/pdfmake";
@@ -29,7 +30,7 @@ export class PledgesComponent implements OnInit {
   end;
   mes;
 
-  constructor(private service: DataService, private router: Router) {}
+  constructor(private service: DataService, private router: Router, public fb: FormBuilder) {}
 
   ngOnInit() {
     this.getReports();
@@ -38,7 +39,6 @@ export class PledgesComponent implements OnInit {
   getReports() {
     this.service.allPledges().subscribe((Response: any) => {
       // console.log(Response);
-      // this.mes=Response.message;
         this.pledgeReport = Response.data;
         this.pledgeReport1 = Response.data;
     }
@@ -57,7 +57,7 @@ export class PledgesComponent implements OnInit {
         tempArr.push(ar);
       }
       var arr = [
-        data[i].userDetails.name ? data[i].userDetails.name : " ",
+        data[i].userDetails.Name ? data[i].userDetails.Name : " ",
         data[i].amount,
         data[i].interval,
         data[i].paymentModeId,
@@ -92,8 +92,6 @@ export class PledgesComponent implements OnInit {
 
   frequnecy(event) {
     this.pledgeReport = this.pledgeReport1.filter(x => x.interval == event);
-    if(this.pledgeReport.length === 0){
-    }
   }
 
   Datefilter() {
@@ -103,8 +101,6 @@ export class PledgesComponent implements OnInit {
       this.pledgeReport = this.pledgeReport1.filter(
         x => x.startDate >= startDate && x.startDate <= endDate
       );
-      if(this.pledgeReport.length === 0){
-      }
     }
   }
 }

@@ -66,19 +66,21 @@
                 <table *ngIf="pledgeReport?.length >0"  class="table">
                   <thead class="thead">
                     <tr>
+                        <th>Date</th>
                       <th>Name</th>
                       <th>Frequency</th>
                       <th>Net Amount</th>
-                      <th>Date</th>
+                      
                     </tr>
                   </thead>
                   <tbody>
                     <tr
-                      *ngFor="let data of pledgeReport| filter : 'userDetails':'name': searchText  | paginate: {itemsPerPage: 12, currentPage: p };">
-                      <td>{{data.userDetails.name}}</td>
-                      <td>{{data.interval}}</td>
-                      <td>{{data.amount}}</td>
+                      *ngFor="let data of pledgeReport| filter : 'userDetails':'Name': searchText  | paginate: {itemsPerPage: 12, currentPage: p };">
                       <td>{{data.startDate | date}}</td>
+                      <td>{{data.userDetails.Name}}</td>
+                      <td>{{data.interval}}</td>
+                      <td>{{data.amount | currency}}</td>
+                      
                     </tr>
                   </tbody>
                 </table>

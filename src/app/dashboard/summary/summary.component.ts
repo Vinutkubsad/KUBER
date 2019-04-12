@@ -3,6 +3,7 @@ import { DataService } from 'src/app/services/data.service';
 import { Router } from '@angular/router';
 import * as jsPDF from 'jspdf';
 import 'jspdf-autotable';
+import { database } from 'firebase';
 
 @Component({
   selector: 'app-summary',
@@ -29,6 +30,7 @@ export class SummaryComponent implements OnInit {
   public bal:any;
   public mes:any;
   // public amt:0;
+
 
   public pagination = {
     currentPage: 1,
@@ -57,15 +59,14 @@ export class SummaryComponent implements OnInit {
   }
 
   onPageChange(e) {
-    console.log('onPageChange', e);
+    // console.log('onPageChange', e);
     this.setPage(e);
   }
 
   getReports() {
     this.service.getReportSummary(this.page, this.amount, this.date, this.userName).subscribe((Response: any) => {
-      // console.log(Response);
-     
       this.mes = Response.message;
+      // console.log(Response,'res');
       if(Response.result){
       this.payments = Response.result.paginatedItems;
       this.doPagination(Response.result.itemsPerPage, Response.result.total_pages, Response.result.totalCount, Response.result.pageNo, Response.result.per_page)
@@ -144,7 +145,7 @@ export class SummaryComponent implements OnInit {
         var amount = Response.result[i].amount;
         sum += parseInt(Response.result[i].amount);          
       }
-      console.log(sum);
+      // console.log(sum);
       this.bal = sum;
     })
   }
