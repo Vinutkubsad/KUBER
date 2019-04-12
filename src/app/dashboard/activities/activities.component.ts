@@ -58,7 +58,7 @@ export class ActivitiesComponent implements OnInit {
   }
 
   doPagination(itemsPerPage, total_pages, totalCount, pageNo, per_page) {
-    console.log(this.pages, itemsPerPage, total_pages, totalCount, per_page);
+    // console.log(this.pages, itemsPerPage, total_pages, totalCount, per_page);
     this.pagination.currentPage = parseInt(pageNo);
     this.pagination.noOfItemsPerPage = per_page;
     this.pagination.totalCount = totalCount;
@@ -303,10 +303,10 @@ export class ActivitiesComponent implements OnInit {
 
       // this.data.push(Response.data[i]);
       if(i == 0) {
-        var ar = ['Date', 'Name', 'Donation Status', 'Total Amount', 'Fee', 'Net Amount'];
+        var ar = ['Date', 'Name', 'Donation Status', 'Total Amount'];
         tempArr.push(ar);
       }
-      var arr = [(result[i].paymentDate ? result[i].paymentDate : ' '), result[i].userName, result[i].status, result[i].amount, result[i].application_fee_amount,result[i].net];
+      var arr = [(result[i].paymentDate ? result[i].paymentDate : ' '), result[i].userName, result[i].status, result[i].amount];
       tempArr.push(arr);
     }
     return tempArr;

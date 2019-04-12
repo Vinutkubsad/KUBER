@@ -59,10 +59,8 @@ export class PledgesComponent implements OnInit {
   getReports() {
     this.spinner = true;
     this.service.allPledges().subscribe((Response: any) => {
-      this.spinner=false;
-      console.log(Response,'res');
-      this.pledgeReport = Response.data;
-      this.pledgeReport1 = Response.data;
+        this.pledgeReport = Response.data;
+        this.pledgeReport1 = Response.data;
     }
     );
   }

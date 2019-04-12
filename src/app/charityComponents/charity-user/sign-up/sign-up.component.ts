@@ -89,14 +89,15 @@ export class SignUpComponent implements OnInit {
       this.charityServices
         .registerCharity(this.registerForm.value)
         .subscribe((res) => {
-          console.log(res);
+          // console.log(res);
           
           if (res) {
             swal("Great!","Succefully registered your charity", "success");
             this.registerForm.reset();
-          } else {
-            swal("Oops!","Email is already registerd", "info");
           }
+        },(err)=>{
+          console.log(err,'err');
+          swal("Oops!","Email is already registerd", "info");
         });
     } else {
       swal("Oops!", "Please fill the form!", "warning"); 
