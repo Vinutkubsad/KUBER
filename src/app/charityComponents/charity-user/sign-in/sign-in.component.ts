@@ -13,6 +13,7 @@ import { FormGroup, FormBuilder, Validators, FormControl, NgForm, FormGroupDirec
 export class SignInComponent implements OnInit {
 
   loginForm: FormGroup;
+  error;
 
   passwordType: string = 'password';
   passwordShown: boolean = false;
@@ -59,12 +60,14 @@ export class SignInComponent implements OnInit {
         this.resetForm();
         this.router.navigate(['dashboard/summary'])
       } else {
-        swal("Sorry ","Enter valid email or password","error")
+        console.log(response);
+        this.error = response;
+        
       }
       
     },(err)=>{
-      // console.log(err,'err');
-      swal("Sorry","Enter valid email or password","error")
+      
+      this.error = err.error;
     }
     );
    

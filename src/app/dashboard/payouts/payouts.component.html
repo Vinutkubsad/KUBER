@@ -1,38 +1,47 @@
-<div class="container">
-  <div class="title text-center">
-    <h4>Set Payouts</h4>
+<div class="container-fluid ">
+  <div class="container narrow col-md-6 ">
+    <div class=" row justify-content-center">
+      <div class="card ">
+        <div class="title text-center">
+          <h4>Set Payouts</h4>
+        </div>
+        <div *ngIf="error?.message" class="alert alert-danger" role="alert">
+          <strong>{{error.message}}</strong>
+        </div>
+        <div class="col form-group">
+
+          <br>
+
+          <div class="col">
+            <label for="">Frequency</label>
+            <select [(ngModel)]="interval" class="form-control" name="" id="">
+              <option class="form-control" *ngFor="let interval of intervals " [ngValue]="interval.value">
+                {{interval.name}}
+              </option>
+            </select>
+          </div>
+          <br>
+          <div class="col">
+            <label for="">Start date</label>
+            <input type="date" class="form-control" min="2019-04-01" [(ngModel)]="date">
+          </div>
+          <br>
+          <div class="col">
+            <label for="">Amount</label>
+            <input type="number" class="form-control" min="1" [(ngModel)]="amount" placeholder="Enter amount">
+          </div>
+          <br>
+          <div class="col">
+            <label for="">Recurring</label>
+            <br>
+            <input type="checkbox" class="regular-checkbox" [ngModel]="filter" (ngModelChange)="onFilterChange($event)">
+          </div>
+          <br>
+          <div class="col text-center">
+            <button type="button" class="btn btn-primary btn-lg" (click)="submit()">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  
-  <div class="col form-group">
-    <div class="col">
-      <label for="">Recurring</label>
-      <select  [(ngModel)]="rec" class="form-control" name="" id="">
-        <option class="form-control" *ngFor="let reccur of reccuring" [ngValue]="reccur.value">{{reccur.name}}</option>
-      </select>
-    </div>
-    <br>
-   
-    <div class="col">
-        <label for="">Frequency</label>
-      <select [(ngModel)]="interval"   class="form-control" name="" id="">
-        <option class="form-control" *ngFor="let interval of intervals " [ngValue]="interval.value">{{interval.name}}
-        </option>
-      </select>
-    </div>
-    <br>
-    <div class="col">
-      <label for="">Start date</label>
-      <input type="date" class="form-control" min="2019-04-01" [(ngModel)]="date">
-    </div>
-    <br>
-    <div class="col">
-      <label for="">Amount</label>
-      <input type="number" class="form-control" min="1" [(ngModel)]="amount" placeholder="Enter amount">
-    </div>
-    <br>
-    <div class="col text-center">
-    <button type="button" class="btn btn-primary btn-lg" (click)="submit()">Submit</button>
-    </div>
-  </div>
- 
 </div>

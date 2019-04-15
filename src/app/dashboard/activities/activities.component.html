@@ -11,7 +11,7 @@
               <div class="row">
                 <div class="col">
                   <div class="dropdown">
-                    <button class="btn btn-outline-info dropdown-toggle" type="button" id="dropdownMenuButton"
+                    <button class="btn btn-outline-info dropdown-toggle"  data-toggle="tooltip" data-placement="top" title="Filter by date" type="button" id="dropdownMenuButton"
                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       <i class="fa fa-filter" aria-hidden="true"></i> Date
                     </button>
@@ -43,14 +43,14 @@
                   <!-- <button class="btn btn-info" (click)="search()"><i class="fa fa-search" aria-hidden="true"></i></button> -->
                 </div>
                 <div class="">
-                  <button type="button" class="btn btn-outline-info" (click)="downloadPdf()">
+                  <button type="button" class="btn btn-outline-info"  data-toggle="tooltip" data-placement="top" title="Pdf" (click)="downloadPdf()">
                     <i class="fas fa-file-pdf"></i> Dowload
                   </button>
                 </div>
                 <br>
                 &nbsp; &nbsp;
                 <div class="">
-                  <button type="button" class="btn btn-outline-info" (click)="refresh()"><i
+                  <button type="button" class="btn btn-outline-info" data-toggle="tooltip" data-placement="top" title="Refresh" (click)="refresh()"><i
                       class="fas fa-redo-alt"></i></button>
                 </div>
               </div>

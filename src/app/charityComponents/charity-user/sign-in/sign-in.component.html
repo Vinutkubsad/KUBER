@@ -13,6 +13,10 @@
   <div class="container narrow col-md-6 ">
     <div class=" row justify-content-center">
       <div class="card ">
+        <!-- </div> -->
+        <div *ngIf="error?.message" class="alert alert-danger" role="alert">
+            <strong>{{error.message}}</strong>
+               </div>
         <h5 class="welcome text-center">Log in to Quber </h5>
         <form role="form" (ngSubmit)="loginSubmit()" [formGroup]="loginForm">
             <div class="form-input">
