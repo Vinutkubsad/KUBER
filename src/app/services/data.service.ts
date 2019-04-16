@@ -163,5 +163,12 @@ export class DataService {
       return this.http.get(url + "?page=" + page + "&userName=" + userName, httpOption);
     } else return this.http.get(url + "?page=" + page, httpOption);
   }
+  getStatus(){
+    const httpOption = {
+      headers: new HttpHeaders({ 'Authorization': localStorage.getItem('jwt') })
+    }
+    let url = AppSettings.BASE_URL + AppSettings.CHECK_STATUS;
+    return this.http.get(url,httpOption);
+   }
 }
 

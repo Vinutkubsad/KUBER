@@ -11,33 +11,42 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class PayoutsComponent implements OnInit {
 
-  public err;
-  public reccuring : any = [{ name: 'Yes', value: true }, { name: 'No', value: false }];
+  public error;
+  public reccuring : any = [{ name: 'Yes', value: '1' }, { name: 'No', value: '0' }];
   public intervals : any = [{ name : 'Weekly' , value: 'week'},{name : 'Biweekly', value : 'byweek'}, {name : 'Monthly', value : 'month'}, {name : 'Quarterly', value : 'quarter'}, {name : 'Half-yearly', value : 'half-year'},{ name: 'Yearly', value:"year"}, ];
   public amount : number;
   public date : any;
   public interval : any;
   public rec : any;
+  filter = false;
 
   constructor(private router:Router, private service : DataService) { }
 
   ngOnInit() {
   }
+  
+
+  onFilterChange(eve: any) {
+    this.filter = !this.filter;
+  }
 
   submit(){
-    var data = { "isReccuring": this.rec, "interval": this.interval, "amount": this.amount,"startDate" : this.date}
+
+    var data = { "isReccuring": this.filter, "interval": this.interval, "amount": this.amount,"startDate" : this.date}
+    console.log(data);
+    
     this.service.payout(data).subscribe((Response:any)=>{
+      console.log(Response);
+      
       if (Response.success) {
         swal("Great!","Payout is set", "success");
-      } else{
-        swal("Oops!", "error", "danger");
-      }
-    },
+        
+      }},
     (err)=>
     {
       console.log(err,'err');
-      this.err = Response.error;
-      swal ("oops!", "Please enter all fields ", "info");
+      this.error = err.error;
+      
     });
   }
 

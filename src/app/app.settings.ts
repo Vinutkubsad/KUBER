@@ -18,5 +18,6 @@ export class AppSettings{
     public static EDIT_CHARITY='/v1/admin/editCharity/';
     public static STIPE_ID='/v1/charityAdmin/authorize';
     public static PAYOUT='/v1/charityAdmin/payout';
+    public static CHECK_STATUS ='/v1/charityAdmin/statusCheckAll';
 }
 

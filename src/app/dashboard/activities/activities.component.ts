@@ -59,6 +59,8 @@ export class ActivitiesComponent implements OnInit {
 
   ngOnInit() {
     this.getReports();
+    this.getStatus();
+   
   }
 
   doPagination(itemsPerPage, total_pages, totalCount, pageNo, per_page) {
@@ -74,7 +76,9 @@ export class ActivitiesComponent implements OnInit {
   }
   
   refresh(){
-    window.location.reload();
+    this.getStatus();
+    this.getReports();
+    // window.location.reload();
   }
 
   getReports() {
@@ -88,7 +92,12 @@ export class ActivitiesComponent implements OnInit {
       }
     })
   }
-
+  getStatus(){
+    this.service.getStatus().subscribe((Response:any)=>{
+      console.log(Response);
+      
+    })
+  }
   search() {
     var data = { "userName": this.DonarName }
     this.service.searchReport(data, this.page).subscribe((Response: any) => {
