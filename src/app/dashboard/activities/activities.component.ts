@@ -74,7 +74,8 @@ export class ActivitiesComponent implements OnInit {
   
   refresh(){
     this.getStatus();
-    window.location.reload();
+    this.getReports();
+    // window.location.reload();
   }
 
   getReports() {

@@ -46,7 +46,8 @@ export class PledgesComponent implements OnInit {
   }
 
   refresh(){
-    window.location.reload();
+    this.getReports();
+    // window.location.reload();
   }
 
   createPdfTable(data) {

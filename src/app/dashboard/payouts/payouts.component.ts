@@ -40,13 +40,13 @@ export class PayoutsComponent implements OnInit {
       
       if (Response.success) {
         swal("Great!","Payout is set", "success");
-        window.location.reload();
+        
       }},
     (err)=>
     {
       console.log(err,'err');
       this.error = err.error;
-      // swal ("oops!", "Please enter all fields ", "info");
+      
     });
   }
 

@@ -1,9 +1,6 @@
   <nav class="navbar navbar-expand-md navbar-dark bg-light static-top">
     <a class="navbar-brand" [routerLink]="[ '/home']"><img src="./assets/Images/logo.png" width="60" height="60"></a>
-    <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"> -->
-      <!-- aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"> -->
-      <!-- <span class="navbar-toggler-icon"></span> -->
-    <!-- </button> -->
+   
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
       </ul>
@@ -13,7 +10,7 @@
   <div class="container narrow col-md-6 ">
     <div class=" row justify-content-center">
       <div class="card ">
-        <!-- </div> -->
+        
         <div *ngIf="error?.message" class="alert alert-danger" role="alert">
             <strong>{{error.message}}</strong>
                </div>
