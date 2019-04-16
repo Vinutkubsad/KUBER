@@ -94,10 +94,3 @@
   background: white;
 }
 
-
-.spinner {
-  color: blue;
-  display: flex;
-  justify-content: center;
-  margin: 50px;
-}

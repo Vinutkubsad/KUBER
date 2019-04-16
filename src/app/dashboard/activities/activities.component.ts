@@ -48,8 +48,12 @@ export class ActivitiesComponent implements OnInit {
 
   constructor(private service: DataService, private router: Router) { }
   setPage(i) {
-    this.page = i;
-    this.getReports();
+    this.page = i; 
+    if(this.DonarName == undefined ){
+      this.getReports();
+    }
+    else
+    this.search();
   }
 
 
@@ -171,7 +175,7 @@ export class ActivitiesComponent implements OnInit {
       this.amount = undefined;
       this.date = undefined;
       this.net = undefined;
-      this.userName = -1;
+      this.userName = 1;
       this.application_fee_amount= undefined;
       this.getReports();
     } else if (this.flag === false) {
@@ -179,7 +183,7 @@ export class ActivitiesComponent implements OnInit {
       this.amount = undefined;
       this.date = undefined;
       this.net = undefined;
-      this.userName = 1;
+      this.userName = -1;
       this.application_fee_amount= undefined;
       this.getReports();
     }
@@ -302,7 +306,8 @@ export class ActivitiesComponent implements OnInit {
     for(let i = 0; i<result.length; i++){
 
       // this.data.push(Response.data[i]);
-      if(i == 0) {
+     
+      if(i == 0) { 
         var ar = ['Date', 'Name', 'Donation Status', 'Total Amount'];
         tempArr.push(ar);
       }
@@ -330,7 +335,6 @@ export class ActivitiesComponent implements OnInit {
   downloadPdf() {
     this.service.getPdf().subscribe((Response: any) => {
       // console.log(Response);
-      
       var doc = this.createPdfDoc(Response.result);
       // console.log('DOc Pdf', doc);
       pdfMake.createPdf(doc).download();

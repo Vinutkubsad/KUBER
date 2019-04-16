@@ -1,8 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
 import { Router } from '@angular/router';
-import * as jsPDF from 'jspdf';
-import 'jspdf-autotable';
+
 
 @Component({
   selector: 'app-summary',
@@ -26,8 +25,9 @@ export class SummaryComponent implements OnInit {
   public items: any;
   public pageSize: number;
   public flag: any = false;
-  public bal : any= [];
+  public bal:any;
   public mes:any;
+  // public amt:0;
 
   public pagination = {
     currentPage: 1,
@@ -56,7 +56,7 @@ export class SummaryComponent implements OnInit {
   }
 
   onPageChange(e) {
-    console.log('onPageChange', e);
+    // console.log('onPageChange', e);
     this.setPage(e);
   }
 
@@ -65,6 +65,7 @@ export class SummaryComponent implements OnInit {
       // console.log(Response);
      
       this.mes = Response.message;
+      // console.log(Response,'res');
       if(Response.result){
       this.payments = Response.result.paginatedItems;
       this.doPagination(Response.result.itemsPerPage, Response.result.total_pages, Response.result.totalCount, Response.result.pageNo, Response.result.per_page)
@@ -112,36 +113,39 @@ export class SummaryComponent implements OnInit {
     }
   }
 
-  sortStatus() {
+  sortName() {
     this.flag = !this.flag;
     if (this.flag === true) {
-      this.userName = -1;
+      this.userName = 1;
       this.amount = undefined;
       this.date = undefined;
       this.getReports();
     } else if (this.flag === false) {
-      this.userName = 1;
+      this.userName = -1;
       this.amount = undefined;
       this.date = undefined;
       this.getReports();
     }
   }
 
-  balance(){
-    this.service.balance().subscribe((Response:any)=>{
-      // console.log(Response);
-      this.bal=Response.result.available;
+  // balance(){
+  //   this.service.balance().subscribe((Response:any)=>{
+  //     console.log(Response);
+  //     this.bal=Response.result.available;
       
+  //   })
+  // }
+  balance(){
+    this.service.getPdf().subscribe((Response:any)=>{
+      // console.log(Response);
+      var arr = Response.result;
+      var sum = 0;
+      for(let i = 0; i <arr.length; i++){
+        var amount = Response.result[i].amount;
+        sum += parseInt(Response.result[i].amount);          
+      }
+      // console.log(sum);
+      this.bal = sum;
     })
-  }
-  download(){
-    var doc = new jsPDF();
-        doc.text(20, 20, 'Hello world!');
-        doc.text(20, 30, 'This is client-side Javascript, pumping out a PDF.');
-        doc.addPage();
-        doc.text(20, 20, 'Do you like that?');
-       doc.text(20,20,'getReports') 
-        // Save the PDF
-        doc.save('Test.pdf');
   }
 }
