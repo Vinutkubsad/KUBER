@@ -47,13 +47,8 @@ export class ActivitiesComponent implements OnInit {
   constructor(private service: DataService, private router: Router) { }
   setPage(i) {
     this.page = i; 
-    if(this.DonarName == undefined ){
       this.getReports();
-    }
-    else
-    this.search();
   }
-
 
   ngOnInit() {
     this.getReports();
@@ -68,14 +63,15 @@ export class ActivitiesComponent implements OnInit {
   }
 
   onPageChange(e) {
-    console.log('onPageChange', e);
+    // console.log('onPageChange', e);
     this.setPage(e);
+    // this.setPageSearch(e);
   }
   
   refresh(){
-    this.getStatus();
-    this.getReports();
-    // window.location.reload();
+    // this.getStatus();
+    // this.getReports();
+    window.location.reload();
   }
 
   getReports() {
@@ -99,7 +95,7 @@ export class ActivitiesComponent implements OnInit {
   search() {
     var data = { "userName": this.DonarName }
     this.service.searchReport(data, this.page).subscribe((Response: any) => {
-      // console.log(Response);
+      console.log(Response);
       this.mes = Response.message;
       if(Response.success){
       this.payments = Response.result.paginatedItems;
