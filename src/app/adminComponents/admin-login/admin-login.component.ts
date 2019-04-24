@@ -33,7 +33,7 @@ export class AdminLoginComponent implements OnInit {
     }
   }
   submitForm(){
-    console.log(this.loginForm.value,"validity",this.loginForm.valid);
+    // console.log(this.loginForm.value,"validity",this.loginForm.valid);
     this.adminservices.AdminLogin(this.loginForm.value).subscribe((res)=>{
       if(res){
         localStorage.setItem('AdminLogin', 'true');

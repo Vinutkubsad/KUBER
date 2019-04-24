@@ -18,12 +18,12 @@ export class AdminComponent implements OnInit {
  
   getCharitydetails() {
     this.service.getCharitydetails().subscribe((res:any) => {
-      console.log(res);
+      // console.log(res);
       this.charityResult = res.result.paginatedItems;
     })
   }
   ApproveCharity(_id){
-    console.log(_id);
+    // console.log(_id);
     var data={"approved": true,"id":_id};
     this.service.approveCharity(data).subscribe((res)=>{
       if(res){

@@ -20,7 +20,7 @@ export class AdminDasComponent implements OnInit {
 
   getCharitydetails() {
     this.service.getCharitydetails().subscribe((res:any) => {
-      console.log(res);
+      // console.log(res);
       this.charityResult = res.result.paginatedItems;
     })
   }
