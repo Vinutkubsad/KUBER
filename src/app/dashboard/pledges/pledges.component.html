@@ -1,3 +1,4 @@
+<!-- <alert type="success"></alert> -->
 <div class="container-fluid padding" #conatent>
   <div class="container">
     <div class="row welcome ">
@@ -34,7 +35,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="form-group form-inline col-6">
+                <div class="form-group form-inline col-5">
                     <div class="input-group mb-2 mr-sm-2">
                         <div class="input-group-prepend">
                           <div class="input-group-text"><i class="fas fa-search"></i></div>
@@ -68,7 +69,6 @@
                 </div>
               </div>
             </div>
-
             <table *ngIf="pledgeReport?.length >0" class="table">
               <thead class="thead">
                 <tr>
@@ -81,14 +81,15 @@
               </thead>
               <tbody>
                 <tr
-                  *ngFor="let data of pledgeReport| filter : 'userDetails':'Name': searchText  | paginate: {itemsPerPage: 12, currentPage: p };">
-                  <td>{{data.startDate | date}}</td>
-                  <td>{{data.userDetails.Name}}</td>
-                  <td>{{data.amount | currency}}</td>
-                  <td>{{data.interval}}</td>
-                </tr>
+                *ngFor="let data of pledgeReport| filter : 'userDetails':'Name': searchText  | paginate: {itemsPerPage: 12, currentPage: p };let i=index">
+                <td>{{data.startDate | date}}</td>
+                <td>{{data.userDetails.Name}}</td>
+                <td>{{data.interval}}</td>
+                <td>{{data.amount | currency }}</td>
+              </tr>
               </tbody>
             </table>
+
             <hr>
             <div *ngIf="pledgeReport?.length === 0" class="text-center">
               <h5>No data</h5>

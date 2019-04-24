@@ -6,6 +6,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // import { ModalModule } from 'ngx-bootstrap/modal';
 import { DataService } from './services/data.service';
 import {NgbModule,NgbPaginationModule} from '@ng-bootstrap/ng-bootstrap';
+import { AlertModule, BsDropdownModule, BsDatepickerModule } from 'ngx-bootstrap';
+
 // import { NgbdDatepickerPopup } from './datepicker-popup';
 
 
@@ -86,6 +88,7 @@ import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.componen
     NgxPaginationModule,
     FormsModule,
     NgbModule,
+    AlertModule.forRoot(),
     NgbPaginationModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule,
@@ -94,6 +97,8 @@ import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.componen
     FilterPipeModule,
     MatDatepickerModule,
     MatProgressSpinnerModule,
+    BsDropdownModule.forRoot(),
+    BsDatepickerModule.forRoot()
     // AngularFireModule.initializeApp(environment.firebase),
     
   ],
