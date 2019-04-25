@@ -11,7 +11,9 @@ import swal from 'sweetalert';
   styleUrls: ['./admin-login.component.css']
 })
 export class AdminLoginComponent implements OnInit {
+  
   loginForm: FormGroup;
+
   constructor(private fb: FormBuilder, public adminservices: DataService, private router: Router) { }
 
   ngOnInit() {
@@ -33,7 +35,7 @@ export class AdminLoginComponent implements OnInit {
     }
   }
   submitForm(){
-    console.log(this.loginForm.value,"validity",this.loginForm.valid);
+    // console.log(this.loginForm.value,"validity",this.loginForm.valid);
     this.adminservices.AdminLogin(this.loginForm.value).subscribe((res)=>{
       if(res){
         localStorage.setItem('AdminLogin', 'true');

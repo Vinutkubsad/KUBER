@@ -95,3 +95,33 @@
   background: white;
 }
 
+#dropdownForm1 {
+  background: white;
+  border: 1px solid #17a2b8;
+  color: #17a2b8;
+  padding: 7px;
+  width: 150px;
+}
+
+#dropdownForm1:hover {
+  background: #17a2b8;
+  color: white;
+}
+
+#frequency {
+  background: white;
+  border: 1px solid #17a2b8;
+  color: #17a2b8;
+  padding: 7px;
+  width: 150px;
+}
+
+.spinner {
+  text-align: center;
+}
+
+
+.spinner .spinner-border {
+  height: 5rem;
+  width: 5rem;
+}

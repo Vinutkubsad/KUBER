@@ -1,73 +1,79 @@
-
-.container-fluid{
-    margin-top:15px;
- }
- .container{
-     font-family: 'lato', sans-serif;
- }
- .title{
-     font-size: 2rem;
-     font-weight: 700;
- }
- .form-control{
-     width:20%;
-     
- }
- .fa-search{
-     /* color:rgb(16, 144, 204);  */
-    color:white;
- }
- .fa-sort-numeric-asc{
-     color: rgb(41, 39, 39);;
- }
- 
- .btn-outline{
-     background:rgb(106, 208, 226);
-     color: white;
-    
- }
- .btn-outline:onClick{ 
-    background:rgb(106, 208, 226);
-    /* color: white; */
+.container-fluid {
+  margin-top: 15px;
+}
+.container {
+  font-family: "lato", sans-serif;
+}
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+}
+.form-control {
+  width: 20%;
+}
+.fa-search {
+  /* color:rgb(16, 144, 204);  */
+  color: white;
+}
+.fa-sort-numeric-asc {
+  color: rgb(41, 39, 39);
 }
 
- .date{
-     margin-left: 400px;
- }
- 
+.btn-outline {
+  background: rgb(106, 208, 226);
+  color: white;
+}
+.btn-outline:onclick {
+  background: rgb(106, 208, 226);
+  /* color: white; */
+}
 
- .thead{
-     /* background-color: rgb(16, 144, 204); */
-     color: white;
-     padding: 15px;
-     background: rgb(106, 208, 226);
-     background-image: linear-gradient(to left top(rgb(106, 208, 226), to bottom(rgb(45, 238, 196))));
+.date {
+  margin-left: 400px;
+}
 
- }
+.thead {
+  /* background-color: rgb(16, 144, 204); */
+  color: white;
+  padding: 15px;
+  background: rgb(106, 208, 226);
+  background-image: linear-gradient(
+    to left top(rgb(106, 208, 226), to bottom(rgb(45, 238, 196)))
+  );
+}
 
- .pagination{
-     margin-left: 440px;
- }
- 
-.pagination>.nav-item.active {
-    background-color: rgb(41, 39, 39);;
-    pointer-events: none;
-    color: white;
+.pagination {
+  margin-left: 440px;
 }
-.display{
-    font-weight:900;
-    color:rgb(106, 208, 226);
-    font-family: 'poppins';
+
+.pagination > .nav-item.active {
+  background-color: rgb(41, 39, 39);
+  pointer-events: none;
+  color: white;
 }
-.btn-outline-light{
-    border-radius: 0%;
-    border-color: rgb(106, 208, 226);
+.display {
+  font-weight: 900;
+  color: rgb(106, 208, 226);
+  font-family: "poppins";
 }
-.btn-outline-light:hover{
-    border-radius: 0%;
-    border-color: rgb(106, 208, 226);
-    background: rgb(106, 208, 226);
+.btn-outline-light {
+  border-radius: 0%;
+  border-color: rgb(106, 208, 226);
 }
-.btn-outline:onClick{
-    border-color: rgb(106, 208, 226);
+.btn-outline-light:hover {
+  border-radius: 0%;
+  border-color: rgb(106, 208, 226);
+  background: rgb(106, 208, 226);
+}
+.btn-outline:onclick {
+  border-color: rgb(106, 208, 226);
+}
+
+.spinner {
+  text-align: center;
+}
+.spinner .spinner-border {
+    margin: 20px;
+  height: 5rem;
+  width: 5rem;
 }

@@ -33,8 +33,7 @@ export class ActivitiesComponent implements OnInit {
   public userName: any;
   public net : any;
   public application_fee_amount:any;
-
-  spinner: boolean;
+  loading:boolean
 
 
   public pagination = {
@@ -82,9 +81,9 @@ export class ActivitiesComponent implements OnInit {
   }
 
   getReports() {
-    this.spinner = true;
+    this.loading = true;
     this.service.getReport(this.page, this.amount, this.date, this.status, this.userName, this.net,this.application_fee_amount).subscribe((Response: any) => {
-      this.spinner = false;
+      this.loading = false;
       this.mes = Response.message;
       if (Response.result) {
         this.payments = Response.result.paginatedItems;

@@ -1,105 +1,103 @@
-
-.container-fluid{
-    margin-top:15px;
- }
- .container{
-     font-family: 'Poppins', sans-serif;
- }
- h4 {
-    color:rgb(106, 208, 226);
-    font-size: 2rem;
-    font-weight: bold;
- }
-
- .fa-search{
-     /* color:rgb(16, 144, 204);  */
-    color:white;
- }
-
- .btn-outline {
-    color: #f8f9fa;
-    border-color: rgb(106, 208, 226);
+.container-fluid {
+  margin-top: 15px;
+}
+.container {
+  font-family: "Poppins", sans-serif;
+}
+h4 {
+  color: rgb(106, 208, 226);
+  font-size: 2rem;
+  font-weight: bold;
 }
 
-
- .btn-outline:onClick{ 
-    background:rgb(106, 208, 226);
-    color: white;
-    /* border-color: rgb(106, 208, 226) !important; */
+.fa-search {
+  /* color:rgb(16, 144, 204);  */
+  color: white;
 }
 
- .date{
-     margin-left: 400px;
- }
- 
-
- thead{
-     background-color: rgb(16, 144, 204);
-     color: white;
-     padding: 15px;
-     background: rgb(106, 208, 226);
-
- }
-
- .pagination{
-     margin-left: 440px;
- }
- 
-.pagination>.nav-item.active {
-    background-color: rgb(41, 39, 39);;
-    pointer-events: none;
-    color: white;
+.btn-outline {
+  color: #f8f9fa;
+  border-color: rgb(106, 208, 226);
 }
-.display{
-    font-weight:900;
-    color:rgb(106, 208, 226);
-    font-family: 'poppins';
+
+.btn-outline:onclick {
+  background: rgb(106, 208, 226);
+  color: white;
+  /* border-color: rgb(106, 208, 226) !important; */
+}
+
+.date {
+  margin-left: 400px;
+}
+
+thead {
+  background-color: rgb(16, 144, 204);
+  color: white;
+  padding: 15px;
+  background: rgb(106, 208, 226);
+}
+
+.pagination {
+  margin-left: 440px;
+}
+
+.pagination > .nav-item.active {
+  background-color: rgb(41, 39, 39);
+  pointer-events: none;
+  color: white;
+}
+.display {
+  font-weight: 900;
+  color: rgb(106, 208, 226);
+  font-family: "poppins";
 }
 
 /* date select */
 .date-form {
-    display: flex;
-    flex-direction: column;
-    padding: 1rem;
-    background: #ddd;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  background: #ddd;
 }
 
 #from-date {
-    padding: 0.3rem;
-    margin: 5ox;
-    border: none;
+  padding: 0.3rem;
+  margin: 5ox;
+  border: none;
 }
 
 #to-date {
-    padding: 0.3rem;
-    margin: 5ox;
-    border: none;
+  padding: 0.3rem;
+  margin: 5ox;
+  border: none;
 }
-.btn-outline-light{
-    border-radius: 0%;
-    border-color: rgb(106, 208, 226);
-    border-color: transparent;
+.btn-outline-light {
+  border-radius: 0%;
+  border-color: rgb(106, 208, 226);
+  border-color: transparent;
 }
-.btn-outline-light:hover{
-    border-radius: 0%;
-    border-color: rgb(106, 208, 226);
-    background: rgb(106, 208, 226);
-    border-color: transparent !important;
+.btn-outline-light:hover {
+  border-radius: 0%;
+  border-color: rgb(106, 208, 226);
+  background: rgb(106, 208, 226);
+  border-color: transparent !important;
 }
-.btn-outline-light:onClick{
-    border-color: transparent !important;
+.btn-outline-light:onclick {
+  border-color: transparent !important;
 }
-.fa-redo-alt{
-    color:info;
-    border-color: white !important;
+.fa-redo-alt {
+  color: info;
+  border-color: white !important;
 }
 .form-control {
-    border:info;
+  border: info;
 }
 
 .spinner {
-    color: blue;
-    display: flex;
-    justify-content: center;
-    margin: 50px;
-  }
+  text-align: center;
+}
+
+.spinner .spinner-border {
+  height: 5rem;
+  width: 5rem;
+}

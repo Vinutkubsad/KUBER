@@ -27,28 +27,9 @@ export class PledgesComponent implements OnInit {
   p: number = 1;
   data = [];
   start;
-  end; 
+  end;
   mes;
-  
-
-  private page: number = 1;
-  public payments: any = [];
-  public searchResults: any[]
-  public id;
-  public DonarName;
-  public pages: Array<number>;
-  public amount: any;
-  public status: any;
-  public startDate: any;
-  public items: any;
-  public pageSize: number;
-  public flag: any = false;
-  public bal: any;
-  public day: number;
-  public userName: any;
-  public net : any;
-  public application_fee_amount:any;
-  spinner: boolean;
+  loading:boolean;
 
   constructor(private service: DataService, private router: Router, public fb: FormBuilder) {}
 
@@ -57,8 +38,9 @@ export class PledgesComponent implements OnInit {
   }
 
   getReports() {
-    this.spinner = true;
+    this.loading = true;
     this.service.allPledges().subscribe((Response: any) => {
+      this.loading = false;
       // console.log(Response);
         this.pledgeReport = Response.data;
         this.pledgeReport1 = Response.data;
@@ -67,7 +49,8 @@ export class PledgesComponent implements OnInit {
   }
 
   refresh(){
-    location.reload();
+    this.getReports();
+    // window.location.reload();
   }
 
   createPdfTable(data) {
@@ -124,44 +107,4 @@ export class PledgesComponent implements OnInit {
       );
     }
   }
-
-  // sort
-  sortDate() {
-    this.flag = !this.flag;
-    if (this.flag === true) {
-      this.startDate = -1;
-      this.amount = undefined;
-      this.status = undefined;
-      this.net = undefined;
-      this.application_fee_amount= undefined;
-      this.getReports();
-    } else if (this.flag === false) {
-      this.startDate = 1;
-      this.amount = undefined;
-      this.status = undefined;
-      this.net = undefined;
-      this.application_fee_amount= undefined;
-      this.getReports();
-    }
-  }
-
-  sortAmount() {
-    this.flag = !this.flag;
-    if (this.flag === true) {
-      this.amount = -1;
-      this.startDate = undefined;
-      this.status = undefined;
-      this.net = undefined;
-      this.application_fee_amount= undefined;
-      this.getReports();
-    } else if (this.flag === false) {
-      this.amount = 1;
-      this.startDate = undefined;
-      this.status = undefined;
-      this.net = undefined;
-      this.application_fee_amount= undefined;
-      this.getReports();
-    }
-  }
-
 }
