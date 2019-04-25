@@ -163,7 +163,7 @@ export class DataService {
       return this.http.get(url + "?page=" + page + "&userName=" + userName, httpOption);
     }else return this.http.get(url + "?page=" + page, httpOption);
   }
-
+  
   getStatus(){
     const httpOption = {
       headers: new HttpHeaders({ 'Authorization': localStorage.getItem('jwt') })

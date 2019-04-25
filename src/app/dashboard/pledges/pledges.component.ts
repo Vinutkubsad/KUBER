@@ -29,6 +29,7 @@ export class PledgesComponent implements OnInit {
   start;
   end;
   mes;
+  loading:boolean;
 
   constructor(private service: DataService, private router: Router, public fb: FormBuilder) {}
 
@@ -37,7 +38,9 @@ export class PledgesComponent implements OnInit {
   }
 
   getReports() {
+    this.loading = true;
     this.service.allPledges().subscribe((Response: any) => {
+      this.loading = false;
       // console.log(Response);
         this.pledgeReport = Response.data;
         this.pledgeReport1 = Response.data;

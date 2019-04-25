@@ -9,37 +9,40 @@
           <div class="table-responsive">
             <div class="container-fluid col-12">
               <div class="row">
-                  <div class="col">
-                      <div class="dropdown">
-                        <button class="btn btn-outline-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="tooltip" title="Filter by date"
-                          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <i class="fa fa-filter" aria-hidden="true"></i> Date
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    
-                          <form class="px-4 py-3">
-                            <div class="form-group">
-    
-                              <div class="jumbotron-fluid">
-                                <label for=""> From Date </label><input type="date" class="form-control" id="date-range"
-                                  name="start" [(ngModel)]="start">
-                                <label for=""> To Date </label><input type="date" class="form-control" id="date-range"
-                                  name="end" [(ngModel)]="end">
-                              </div>
-                            </div>
-                          </form>
-                          <button class="dropdown-item" style="margin-left: 142px;" type="button" class="btn btn-primary"
-                            (click)="Datefilter()">Done</button>
+                <div class="col">
+                  <div ngbDropdown class="d-inline-block" autoClose="outside">
+                    <button class="btn btn-outline-primary" id="dropdownForm1" ngbDropdownToggle><i
+                      class="fas fa-filter"></i> Date</button>
+                    <div ngbDropdownMenu aria-labelledby="dropdownForm1">
+                      <form class="px-4 py-3">
+                        <div class="form-group">
+
+                          <div class="jumbotron-fluid">
+                            <label for=""> From Date </label><input type="date" class="form-control" id="date-range"
+                              name="start" [(ngModel)]="start">
+                            <label for=""> To Date </label><input type="date" class="form-control" id="date-range"
+                              name="end" [(ngModel)]="end">
+                          </div>
                         </div>
-                      </div>
+                      </form>
+                      <button class="dropdown-item" style="margin-left: 142px;" type="button" class="btn btn-primary"
+                        (click)="Datefilter()"> Done</button>
                     </div>
-                    <div class="form-group form-inline col-6">
-                        <input class="form-control ml-2" type="text" [(ngModel)]="searchText" placeholder="Search name"
-                          style="width:280px;" />
-                      </div>
+                  </div>
+                </div>
+                <div class="form-group form-inline col-6">
+                  <div class="input-group mb-2 mr-sm-2">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text"><i class="fas fa-search"></i></div>
+                    </div>
+                    <input type="text" class="form-control" id="inlineFormInputGroupUsername2"
+                      placeholder="Search Name " [(ngModel)]="searchText" style="outline:none">
+                  </div>
+                </div>
 
                 <div class="">
-                  <select class="btn btn-outline" name="Frequency" id="" (change)="frequnecy($event.target.value)">
+                  <select class="btn btn-outline" name="Frequency" id="frequency"
+                    (change)="frequnecy($event.target.value)">
                     <option class="dropdown-item" value="week">Weekly</option>
                     <option class="dropdown-item" value="byweek">Biweekly</option>
                     <option class="dropdown-item" value="month">Monthly</option>
@@ -48,17 +51,17 @@
                     <option class="dropdown-item" value="year">Annually</option>
                   </select>
                 </div>
-               
-               &nbsp; &nbsp;
+
+                &nbsp; &nbsp;
                 <div class="">
-                  <button type="button" class="btn btn-outline-info" data-toggle="tooltip" data-placement="top" title="Pdf" (click)="downloadPdf()"><i
-                      class="fas fa-file-pdf"></i> Dowload </button>
+                  <button type="button" class="btn btn-outline-info" data-toggle="tooltip" data-placement="top"
+                    title="Pdf" (click)="downloadPdf()"><i class="fas fa-file-pdf"></i> Dowload </button>
                 </div>
                 <br>
                 &nbsp; &nbsp;
                 <div class="">
-                  <button type="button" data-toggle="tooltip" data-placement="top" title="Refresh" class="btn btn-outline-info" (click)="refresh()"><i
-                      class="fas fa-redo-alt"></i></button>
+                  <button type="button" data-toggle="tooltip" data-placement="top" title="Refresh"
+                    class="btn btn-outline-info" (click)="refresh()"><i class="fas fa-redo-alt"></i></button>
                 </div>
               </div>
             </div>
@@ -70,7 +73,7 @@
                   <th>Name</th>
                   <th>Net Amount</th>
                   <th>Frequency</th>
-
+                 
                 </tr>
               </thead>
               <tbody>
@@ -79,13 +82,19 @@
                   <td>{{data.startDate | date}}</td>
                   <td>{{data.userDetails.Name}}</td>
                   <td>{{data.amount | currency}}</td>
-                 <td>{{data.interval}}</td>           
-               </tr>
+                  <td>{{data.interval}}</td>
+                  
+                </tr>
               </tbody>
             </table>
             <hr>
             <div *ngIf="pledgeReport?.length === 0" class="text-center">
               <h5>No data</h5>
+            </div>
+            <div class="spinner" *ngIf="loading">
+              <div class="spinner-border text-primary" role="status">
+                <span class="sr-only">Loading...</span>
+              </div>
             </div>
           </div>
         </div>

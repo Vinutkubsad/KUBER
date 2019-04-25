@@ -1,5 +1,6 @@
 .container-fluid {
   margin-top: 15px;
+  height: fit-content;
 }
 
 .container {
@@ -77,49 +78,50 @@
   border-color: rgb(106, 208, 226);
 }
 
-/* search box */
 
+.btn-outline[_ngcontent-c3] {
+  background: white;
+  border: 1px solid #17a2b8;
+  color: #17a2b8;
+  padding: 7px;
+}
+
+.btn-outline[_ngcontent-c3]:hover {
+  background: #17a2b8;
+  color: white;
+}
 
 .dropdown-item {
   background: white;
 }
 
-/* Bootstrap 4 text input with search icon */
-/* search box */
-#custom-search-form {
-  margin:0;
-  margin-top: 5px;
-  padding: 0;
+#dropdownForm1 {
+  background: white;
+  border: 1px solid #17a2b8;
+  color: #17a2b8;
+  padding: 7px;
+  /* width: 150px; */
 }
 
-#custom-search-form .search-query {
-  padding-right: 3px;
-  padding-right: 4px \9;
-  padding-left: 3px;
-  padding-left: 4px \9;
-  /* IE7-8 doesn't have border-radius, so don't indent the padding */
-
-  margin-bottom: 0;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
+#dropdownForm1:hover {
+  background: #17a2b8;
+  color: white;
 }
 
-#custom-search-form button {
-  border: 0;
-  background: none;
-  /** belows styles are working good */
-  padding: 2px 5px;
-  margin-top: 2px;
-  position: relative;
-  left: -28px;
-  /* IE7-8 doesn't have border-radius, so don't indent the padding */
-  margin-bottom: 0;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
+#frequency {
+  background: white;
+  border: 1px solid #17a2b8;
+  color: #17a2b8;
+  padding: 7px;
+  /* width: 150px; */
 }
 
-.search-query:focus + button {
-  z-index: 3;   
+.spinner {
+  text-align: center;
+}
+
+
+.spinner .spinner-border {
+  height: 5rem;
+  width: 5rem;
 }

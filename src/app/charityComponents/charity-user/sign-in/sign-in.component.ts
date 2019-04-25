@@ -14,6 +14,7 @@ export class SignInComponent implements OnInit {
 
   loginForm: FormGroup;
   error;
+  loading: boolean;
 
   passwordType: string = 'password';
   passwordShown: boolean = false;
@@ -50,17 +51,19 @@ export class SignInComponent implements OnInit {
  
 
   loginSubmit() {
+    console.log("logged in");
+    this.loading = true;
     var data = { "email": this.service.charityLogin.email, "password": this.service.charityLogin.password }
     this.service.CharityLogin(data).subscribe((response: any) => {
       if(response.success) {
-        // console.log(response);
         
+        this.loading = false;
         localStorage.setItem("jwt", response.result.jwt);
         localStorage.setItem('user', response.result.resp['_id']);
         this.resetForm();
         this.router.navigate(['dashboard/summary'])
       } else {
-        // console.log(response);
+        
         this.error = response;
         
       }

@@ -42,13 +42,17 @@
               <!-- <label for="password">password</label>  -->
             </div>
             <input type="submit" class="btn btn-lg btn-outline-light" value="LOGIN">
+            <div class="spinner" *ngIf="loading">
+              <div class="spinner-border text-primary" role="status">
+                <span class="sr-only">Loading...</span>
+              </div>
+            </div>
             <!-- <a href="#" class="forgot-password">forgot password?</a> -->
           </form>
         <div class="reg row narrow text-center">
           <div class="col">
-           <button type="button" class="btn btn-outline-light" style="color:blue" (click)="register()">Not yet registered? Register</button> 
+           <button type="button" class="btn btn-outline-light" style="color:blue" (click)="register()">Not registered? Click to Register</button> 
           </div>
-        
         </div>
       </div>
     </div>

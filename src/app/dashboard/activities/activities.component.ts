@@ -35,6 +35,8 @@ export class ActivitiesComponent implements OnInit {
   public year: any; 
   public from : any;
   public to : any;
+  loading:boolean
+
 
   public pagination = {
     currentPage: 1,
@@ -56,6 +58,7 @@ export class ActivitiesComponent implements OnInit {
     this.getStatus();
    
   }
+
   doPagination(itemsPerPage, total_pages, totalCount, pageNo, per_page) {
     // console.log(this.pages, itemsPerPage, total_pages, totalCount, per_page);
     this.pagination.currentPage = parseInt(pageNo);
@@ -75,19 +78,15 @@ export class ActivitiesComponent implements OnInit {
   }
 
   getReports() {
+    this.loading = true;
     this.service.getReport(this.page, this.amount, this.date, this.userName,this.status,  this.net,this.application_fee_amount,this.days,this.year,this.from,this.to).subscribe((Response: any) => {
-      console.log(Response);
-
-      this.mes = Response.message;
-      console.log(this.mes);
-      
+      this.loading = false;
       if (Response.success== true) {
         this.payments = Response.result.paginatedItems;
         this.doPagination(Response.result.itemsPerPage, Response.result.total_pages, Response.result.totalCount, Response.result.pageNo, Response.result.per_page)
       }
        else if(Response.success == false) {
-        this.payments = [];
-        console.log(Response);
+        this.payments = Response;
        }  
     });
   }
@@ -98,6 +97,10 @@ export class ActivitiesComponent implements OnInit {
   }
   search(){
     this.userName = this.DonarName;
+    this.days = undefined;
+    this.year = undefined;
+    this.from = undefined;
+    this.to = undefined;
     console.log(this.DonarName);
     this.getReports();
   }
@@ -230,6 +233,7 @@ export class ActivitiesComponent implements OnInit {
     this.year = undefined;
     this.from = undefined;
     this.to = undefined;
+    this.userName = undefined;
     this.getReports();
   }
 
@@ -238,6 +242,7 @@ export class ActivitiesComponent implements OnInit {
     this.year = undefined;
     this.from = undefined;
     this.to = undefined;
+    this.userName = undefined;
     this.getReports();
   }
   
@@ -246,6 +251,7 @@ export class ActivitiesComponent implements OnInit {
     this.days = undefined;
     this.from = undefined;
     this.to = undefined;
+    this.userName = undefined;
     console.log(this.year);
     
     this.getReports();
@@ -256,6 +262,7 @@ export class ActivitiesComponent implements OnInit {
     this.days = undefined;
     this.from = undefined;
     this.to = undefined;
+    this.userName = undefined;
     this.getReports();
   }
 
@@ -264,6 +271,7 @@ export class ActivitiesComponent implements OnInit {
     this.to = this.end;
     this.days = undefined;
     this.year = undefined;
+    this.userName = undefined;
     console.log(this.start,this.end); 
     this.getReports();
   }
