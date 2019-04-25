@@ -71,7 +71,7 @@ export class ActivitiesComponent implements OnInit {
   refresh(){
     
     window.location.reload();
-    this.getStatus();
+    // this.getStatus();
   }
 
   getReports() {
@@ -93,8 +93,7 @@ export class ActivitiesComponent implements OnInit {
   }
   getStatus(){
     this.service.getStatus().subscribe((Response:any)=>{
-      // console.log(Response);
-      
+      // console.log(Response); 
     })
   }
   search(){
@@ -267,6 +266,18 @@ export class ActivitiesComponent implements OnInit {
     this.year = undefined;
     console.log(this.start,this.end); 
     this.getReports();
+  }
+
+  checkStatus(payment_id){
+   this.id = payment_id;
+   console.log(this.id);
+  //  console.log(payment_id);
+   
+    this.service.getSingleStatus(this.id).subscribe((Response:any)=>{
+      console.log(Response);
+      this.getReports();
+    });
+   
   }
 
   createPdfTable(result) {

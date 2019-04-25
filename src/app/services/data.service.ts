@@ -54,6 +54,8 @@ export class DataService {
     } 
     else if (from !== undefined && to !== undefined ){
       return this.http.get(url + "?page=" + page + "&from=" + from + '&to=' + to ,httpOption);
+    } else if( from !== undefined && to == undefined){
+      return this.http.get(url + "?page=" + page + "&from=" + from ,httpOption);
     }
     else if (userName !== undefined  ){
       return this.http.get(url + "?page=" + page + "&userName" + userName, httpOption);
@@ -161,6 +163,7 @@ export class DataService {
       return this.http.get(url + "?page=" + page + "&userName=" + userName, httpOption);
     }else return this.http.get(url + "?page=" + page, httpOption);
   }
+
   getStatus(){
     const httpOption = {
       headers: new HttpHeaders({ 'Authorization': localStorage.getItem('jwt') })
@@ -168,5 +171,14 @@ export class DataService {
     let url = AppSettings.BASE_URL + AppSettings.CHECK_STATUS;
     return this.http.get(url,httpOption);
    }
+
+   getSingleStatus(id){
+    const httpOption = {
+      headers: new HttpHeaders({ 'Authorization': localStorage.getItem('jwt') })
+    }
+    let url = AppSettings.BASE_URL + AppSettings.CHECK_SINGLE_STATUS;
+    return this.http.get(url + "?payment_id=" +id ,httpOption);
+   }
+   
 }
 
