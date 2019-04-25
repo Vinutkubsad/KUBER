@@ -22,18 +22,19 @@ export class ActivitiesComponent implements OnInit {
   public amount: any;
   public status: any;
   public date: any;
-  public items: any;
   public pageSize: number;
   public flag: any = false;
   public bal: any;
   public mes: any;
-  public day: number;
   public start: any;
   public end: any;
   public userName: any;
   public net : any;
   public application_fee_amount:any;
-
+  public days: any;
+  public year: any; 
+  public from : any;
+  public to : any;
 
   public pagination = {
     currentPage: 1,
@@ -74,16 +75,21 @@ export class ActivitiesComponent implements OnInit {
   }
 
   getReports() {
-    this.service.getReport(this.page, this.amount, this.date, this.status, this.userName, this.net,this.application_fee_amount).subscribe((Response: any) => {
-      // console.log(Response);
+    this.service.getReport(this.page, this.amount, this.date, this.userName,this.status,  this.net,this.application_fee_amount,this.days,this.year,this.from,this.to).subscribe((Response: any) => {
+      console.log(Response);
 
       this.mes = Response.message;
-      if (Response.result) {
+      console.log(this.mes);
+      
+      if (Response.success== true) {
         this.payments = Response.result.paginatedItems;
         this.doPagination(Response.result.itemsPerPage, Response.result.total_pages, Response.result.totalCount, Response.result.pageNo, Response.result.per_page)
       }
-      
-    })
+       else if(Response.success == false) {
+        this.payments = [];
+        console.log(Response);
+       }  
+    });
   }
   getStatus(){
     this.service.getStatus().subscribe((Response:any)=>{
@@ -91,21 +97,10 @@ export class ActivitiesComponent implements OnInit {
       
     })
   }
-  search() {
-    var data = { "userName": this.DonarName }
-    this.service.searchReport(data, this.page).subscribe((Response: any) => {
-      // console.log(Response);
-      this.mes = Response.message;
-      if(Response.success){
-      this.payments = Response.result.paginatedItems;
-      this.doPagination(Response.result.itemsPerPage, Response.result.total_pages, Response.result.totalCount, Response.result.pageNo, Response.result.per_page)
-      }
-    },
-    (err)=>
-    {
-      // console.log(err,'err');
-      this.payments = Response.error;
-    });
+  search(){
+    this.userName = this.DonarName;
+    console.log(this.DonarName);
+    this.getReports();
   }
 
   sortAmount() {
@@ -132,7 +127,7 @@ export class ActivitiesComponent implements OnInit {
   sortDate() {
     this.flag = !this.flag;
     if (this.flag === true) {
-      this.date = -1;
+      this.date = 1;
       this.amount = undefined;
       this.status = undefined;
       this.net = undefined;
@@ -140,7 +135,7 @@ export class ActivitiesComponent implements OnInit {
       this.application_fee_amount= undefined;
       this.getReports();
     } else if (this.flag === false) {
-      this.date = 1;
+      this.date = -1;
       this.amount = undefined;
       this.status = undefined;
       this.net = undefined;
@@ -151,26 +146,6 @@ export class ActivitiesComponent implements OnInit {
   }
 
   sortStatus() {
-    this.flag = !this.flag;
-    if (this.flag === true) {
-      this.status = 1;
-      this.amount = undefined;
-      this.date = undefined;
-      this.net = undefined;
-      this.userName = undefined;
-      this.application_fee_amount= undefined;
-      this.getReports();
-    } else if (this.flag === false) {
-      this.status = -1;
-      this.amount = undefined;
-      this.date = undefined;
-      this.net = undefined;
-      this.userName = undefined;
-      this.application_fee_amount= undefined;
-      this.getReports();
-    }
-  }
-  sortName() {
     this.flag = !this.flag;
     if (this.flag === true) {
       this.status = undefined;
@@ -186,6 +161,26 @@ export class ActivitiesComponent implements OnInit {
       this.date = undefined;
       this.net = undefined;
       this.userName = -1;
+      this.application_fee_amount= undefined;
+      this.getReports();
+    }
+  }
+  sortName() {
+    this.flag = !this.flag;
+    if (this.flag === true) {
+      this.status = 1;
+      this.amount = undefined;
+      this.date = undefined;
+      this.net = undefined;
+      this.userName =  undefined;
+      this.application_fee_amount= undefined;
+      this.getReports();
+    } else if (this.flag === false) {
+      this.status = -1;
+      this.amount = undefined;
+      this.date = undefined;
+      this.net = undefined;
+      this.userName =  undefined;
       this.application_fee_amount= undefined;
       this.getReports();
     }
@@ -231,83 +226,53 @@ export class ActivitiesComponent implements OnInit {
     }
   }
 
-  filter30() {
-    var data = { "days": 30 }
-    this.service.dateFilterActivity(data).subscribe((Response: any) => {
-      // console.log(Response);
-      this.payments = Response.result.paginatedItems;
-      this.doPagination(Response.result.itemsPerPage, Response.result.total_pages, Response.result.totalCount, Response.result.pageNo, Response.result.per_page)
-    },
-    (err)=>
-    {
-      // console.log(err,'err');
-      this.payments = Response.error;
-    });
+  filter30(){
+    this.days = 30;
+    this.year = undefined;
+    this.from = undefined;
+    this.to = undefined;
+    this.getReports();
   }
 
-  filter60() {
-    var data = { "days": 60 }
-    this.service.dateFilterActivity(data).subscribe((Response: any) => {
-      // console.log(Response);
-      this.payments = Response.result.paginatedItems;
-      this.doPagination(Response.result.itemsPerPage, Response.result.total_pages, Response.result.totalCount, Response.result.pageNo, Response.result.per_page)
-    },
-    (err)=>
-    {
-      // console.log(err,'err');
-      this.payments = Response.error;
-    });
+  filter60(){
+    this.days = 60;
+    this.year = undefined;
+    this.from = undefined;
+    this.to = undefined;
+    this.getReports();
   }
-
-  filter18() {
-    var data = { "year": 2018 }
-    this.service.dateFilterActivity(data).subscribe((Response: any) => {
-      // console.log(Response);
-      this.payments = Response.result.paginatedItems;
-      this.doPagination(Response.result.itemsPerPage, Response.result.total_pages, Response.result.totalCount, Response.result.pageNo, Response.result.per_page)
-    },
-    (err)=>
-    {
-      // console.log(err,'err');
-      this.payments = Response.error;
-    });
-  }
-  filter19() {
-    var data = { "year": 2019 }
-    this.service.dateFilterActivity(data).subscribe((Response: any) => {
-      // console.log(Response);
-     
-      this.payments = Response.result.paginatedItems;
-      this.doPagination(Response.result.itemsPerPage, Response.result.total_pages, Response.result.totalCount, Response.result.pageNo, Response.result.per_page)
-    },
-    (err)=>
-    {
-      // console.log(err,'err');
-      this.payments = Response.error;
-    });
-  }
-  filter() {
-    var data = { range: { "from": this.start, "to": this.end } }
-    this.service.dateFilterActivity(data).subscribe((Response: any) => {
-      // console.log(Response);
-      if(Response.success ){
-        this.payments = Response.result.paginatedItems;
-        this.doPagination(Response.result.itemsPerPage, Response.result.total_pages, Response.result.totalCount, Response.result.pageNo, Response.result.per_page)
-      } 
-    },
-    (err)=>
-    {
-      // console.log(err,'err');
-      this.payments = Response.error;
-    });
-  }
-
   
+  filter18(){
+    this.year = 2018;
+    this.days = undefined;
+    this.from = undefined;
+    this.to = undefined;
+    console.log(this.year);
+    
+    this.getReports();
+  }
+
+  filter19(){
+    this.year = 2019;
+    this.days = undefined;
+    this.from = undefined;
+    this.to = undefined;
+    this.getReports();
+  }
+
+  filter(){
+    this.from = this.start;
+    this.to = this.end;
+    this.days = undefined;
+    this.year = undefined;
+    console.log(this.start,this.end); 
+    this.getReports();
+  }
+
   createPdfTable(result) {
     var tempArr = [];
     for(let i = 0; i<result.length; i++){
 
-      // this.data.push(Response.data[i]);
      
       if(i == 0) { 
         var ar = ['Date', 'Name', 'Donation Status', 'Total Amount'];

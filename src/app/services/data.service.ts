@@ -22,30 +22,43 @@ export class DataService {
 
   constructor(private http: HttpClient) { }
 
-  public getReport(page, amount, date, userName, status, net,application_fee_amount ) {
+  public getReport(page, amount, date, userName, status, net,application_fee_amount,days,year,from,to ) {
     const httpOption = {
       headers: new HttpHeaders({ 'Authorization': localStorage.getItem('jwt') })
     }
     let url = AppSettings.BASE_URL + AppSettings.PAYMENT_REPORT;
-    if (amount !== undefined && date === undefined && userName === undefined && status === undefined && net === undefined && application_fee_amount === undefined)
+
+    if (amount !== undefined )
       return this.http.get(url + "?page=" + page + "&amount=" + amount, httpOption);
 
-    else if (amount === undefined && date !== undefined && userName === undefined && status === undefined && net === undefined && application_fee_amount === undefined) {
+    else if ( date !== undefined) {
       return this.http.get(url + "?page=" + page + "&paymentDate=" + date, httpOption);
 
-    } else if (amount === undefined && date === undefined && userName !== undefined  && status === undefined && net === undefined && application_fee_amount === undefined) {
+    } else if ( userName !== undefined) {
       return this.http.get(url + "?page=" + page + "&userName=" + userName, httpOption);
 
-    }else if (amount === undefined && date === undefined && userName === undefined  && status !== undefined && net === undefined && application_fee_amount === undefined) {
+    }else if ( status !== undefined) {
       return this.http.get(url + "?page=" + page + "&status=" + status, httpOption);
 
-    }else if (amount === undefined && date === undefined && userName === undefined  && status === undefined && net !== undefined && application_fee_amount === undefined) {
+    }else if (net !== undefined ) {
       return this.http.get(url + "?page=" + page + "&net=" + net, httpOption);
 
-    }else if (amount === undefined && date === undefined && userName === undefined  && status === undefined && net === undefined && application_fee_amount !== undefined) {
+    }else if (application_fee_amount !== undefined) {
       return this.http.get(url + "?page=" + page + "&application_fee_amount=" + application_fee_amount, httpOption);
 
-    }else return this.http.get(url + "?page=" + page, httpOption);
+    } else if (days !== undefined){
+      return this.http.get(url + "?page=" + page + "&days=" + days, httpOption);
+    } 
+     else if (year !== undefined  ){
+      return this.http.get(url + "?page=" + page + "&year=" + year, httpOption);
+    } 
+    else if (from !== undefined && to !== undefined ){
+      return this.http.get(url + "?page=" + page + "&from=" + from + '&to=' + to ,httpOption);
+    }
+    else if (userName !== undefined  ){
+      return this.http.get(url + "?page=" + page + "&userName" + userName, httpOption);
+    }
+      else return this.http.get(url + "?page=" + page, httpOption);
   }
 
   registerCharity(data: Charity) {
@@ -73,14 +86,6 @@ export class DataService {
     return this.http.post(url, data);
   }
 
-  //Search 
-  public searchReport(data, page) {
-    const httpOption = {
-      headers: new HttpHeaders({ 'Authorization': localStorage.getItem('jwt') })
-    }
-    let url = AppSettings.BASE_URL + AppSettings.SEARCH_REPORT;
-    return this.http.post(url + "?page=" + page, data, httpOption);
-  }
 
   sendMessage(data: Contact) {
     let url = AppSettings.BASE_URL + AppSettings.SEND_MESSAGE;
@@ -127,14 +132,7 @@ export class DataService {
     return this.http.post(url, httpOption)
   }
 
-  dateFilterActivity(data){
-    const httpOption = {
-      headers: new HttpHeaders({ 'Authorization': localStorage.getItem('jwt') })
-    }
-    let url = AppSettings.BASE_URL + AppSettings.DATE_FILTER;
-    return this.http.post(url, data, httpOption);
-  }
-  
+
   payout(data){
     const httpOption = {
       headers: new HttpHeaders({ 'Authorization': localStorage.getItem('jwt') })
@@ -155,13 +153,13 @@ export class DataService {
       headers: new HttpHeaders({ 'Authorization': localStorage.getItem('jwt') })
     }
     let url = AppSettings.BASE_URL + AppSettings.PAYMENT_REPORT;
-    if (amount !== undefined && date === undefined && userName === undefined)
+    if (amount !== undefined )
       return this.http.get(url + "?page=" + page + "&amount=" + amount, httpOption);
-    else if (amount === undefined && date !== undefined && userName === undefined) {
+    else if (date !== undefined ) {
       return this.http.get(url + "?page=" + page + "&paymentDate=" + date, httpOption);
-    } else if (amount === undefined && date === undefined && userName !== undefined) {
+    } else if (userName !== undefined) {
       return this.http.get(url + "?page=" + page + "&userName=" + userName, httpOption);
-    } else return this.http.get(url + "?page=" + page, httpOption);
+    }else return this.http.get(url + "?page=" + page, httpOption);
   }
   getStatus(){
     const httpOption = {
