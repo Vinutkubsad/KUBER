@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
 import { Router } from '@angular/router';
+import { faSort } from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
@@ -12,6 +13,7 @@ import { Router } from '@angular/router';
   ]
 })
 export class SummaryComponent implements OnInit {
+  faSort = faSort;
 
   private page: number = 1;
   public payments: any = [];
