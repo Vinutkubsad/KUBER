@@ -98,6 +98,7 @@ export class PledgesComponent implements OnInit {
     this.pledgeReport = this.pledgeReport1.filter(x => x.interval == event);
   }
 
+
   Datefilter() {
     {
       var startDate = this.start;
