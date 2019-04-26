@@ -463,7 +463,6 @@ footer {
 
 #about .about-extra .icons .icon-header i {
   border: 3px solid rgb(76, 177, 172);
-  ;
   padding: 2rem;
   border-radius: 50%;
   color: rgb(76, 177, 172);
@@ -596,6 +595,21 @@ ngb-alert {
     background-color: blue;
   }
 } */
-.fa-icon[icon]{
-  size: 10px;
+
+.icon-header fa-icon{
+  font-size: 75px;
+  border: 3px solid rgb(76, 177, 172);
+  padding-right: 3rem;
+  padding-left: 3rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  border-radius: 50%;
+  color: rgb(76, 177, 172);
+}
+.nav-item fa-icon{
+  color: rgb(76, 177, 172);
+}
+.icon-box fa-icon{
+  font-size: 75px;
+  color: rgb(76, 177, 172);
 }

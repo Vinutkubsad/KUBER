@@ -132,9 +132,14 @@ form input {
 .form-input > input[type="password"]:focus {
     border-bottom: 2px solid #FD7272;
 }
-.fa-eye{
+.form-input .showicon{
+ width: 100%;
  margin-left: 90%;
- margin-top: -1%;
+ /* margin-top: 1%; */
+ text-transform: uppercase;
+ font-weight: bold;
+ cursor: pointer;
+ font-size: 0.8rem;
 }
 .btn-lg{
   color: #ffffff;
@@ -147,4 +152,9 @@ form input {
 .spinner {
   width: 100%;
   text-align: center;
+}
+.form-input fa-icon{
+  font-size: 10px;
+  /* margin-left: 90%;
+  margin-top: -1%; */
 }
