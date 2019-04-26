@@ -5,6 +5,7 @@ import { faFilePdf } from '@fortawesome/free-solid-svg-icons';
 import { faRedoAlt } from '@fortawesome/free-solid-svg-icons';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faFilter } from '@fortawesome/free-solid-svg-icons';
+import { faSort } from '@fortawesome/free-solid-svg-icons';
 
 
 import pdfMake from "pdfmake/build/pdfmake";
@@ -22,6 +23,7 @@ export class ActivitiesComponent implements OnInit {
   faRedoAlt = faRedoAlt;
   faSearch = faSearch;
   faFilter = faFilter;
+  faSort = faSort;
 
   public pdf:any;
   private page: number = 1;
@@ -93,7 +95,7 @@ export class ActivitiesComponent implements OnInit {
     this.service.getReport(this.page, this.amount, this.date, this.userName,this.status,  this.net,this.application_fee_amount,this.days,this.year,this.from,this.to).subscribe((Response: any) => {
       this.loading = false;
       if (Response.success== true) {
-        console.log(Response);
+        // console.log(Response);
         
         this.payments = Response.result.paginatedItems;
         this.doPagination(Response.result.itemsPerPage, Response.result.total_pages, Response.result.totalCount, Response.result.pageNo, Response.result.per_page)
