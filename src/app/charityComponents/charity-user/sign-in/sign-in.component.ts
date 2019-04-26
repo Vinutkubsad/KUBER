@@ -3,6 +3,7 @@ import { DataService } from 'src/app/services/data.service';
 import { Router } from '@angular/router';
 import swal from 'sweetalert';
 import { FormGroup, FormBuilder, Validators, FormControl, NgForm, FormGroupDirective } from '@angular/forms';
+import { faEye } from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
@@ -15,6 +16,7 @@ export class SignInComponent implements OnInit {
   loginForm: FormGroup;
   error;
   loading: boolean;
+  faEye = faEye;
 
   passwordType: string = 'password';
   passwordShown: boolean = false;
@@ -36,9 +38,10 @@ export class SignInComponent implements OnInit {
       password: ''
     }
   }
-
+ 
   // toggel Password
   togglePwd() {
+    this.passwordShown = false;
     if(this.passwordShown){
       this.passwordShown = false;
       this.passwordType = 'password';
@@ -51,7 +54,7 @@ export class SignInComponent implements OnInit {
  
 
   loginSubmit() {
-    console.log("logged in");
+    // console.log("logged in");
     this.loading = true;
     var data = { "email": this.service.charityLogin.email, "password": this.service.charityLogin.password }
     this.service.CharityLogin(data).subscribe((response: any) => {
@@ -62,10 +65,6 @@ export class SignInComponent implements OnInit {
         localStorage.setItem('user', response.result.resp['_id']);
         this.resetForm();
         this.router.navigate(['dashboard/summary'])
-      } else {
-        
-        this.error = response;
-        
       }
       
     },(err)=>{

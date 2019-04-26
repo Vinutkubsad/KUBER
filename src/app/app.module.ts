@@ -4,9 +4,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DataService } from './services/data.service';
 import {NgbModule,NgbPaginationModule} from '@ng-bootstrap/ng-bootstrap';
-import { AlertModule, BsDropdownModule, BsDatepickerModule } from 'ngx-bootstrap';
-
-
 import { AppRoutingModule, routes } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SignInComponent } from './charityComponents/charity-user/sign-in/sign-in.component';
@@ -15,10 +12,8 @@ import { RouterModule } from '@angular/router';
 import { StartPageComponent } from './start-page/start-page.component';
 import { AuthGaurd } from './services/AuthGuard.Admin';
 import { AuthGaurd1 } from './services/AuthGuard.Charity';
-
 import { FooterComponent } from './footer/footer.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
 import { SummaryComponent } from './dashboard/summary/summary.component';
 import { ActivitiesComponent } from './dashboard/activities/activities.component';
 import { PledgesComponent } from './dashboard/pledges/pledges.component';
@@ -32,15 +27,13 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 // import { AngularFireModule } from '@angular/fire'; 
 import { FilterPipe } from './filter.pipe';
 import { NgxPaginationModule } from 'ngx-pagination'
-// import { FilterPipeModule } from 'ngx-filter-pipe';
-// import {MatDatepickerModule} from '@angular/material/datepicker';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { FilterPipeModule } from 'ngx-filter-pipe';
 
 import { StripePaymentComponent } from './charityComponents/charity-user/stripe-payment/stripe-payment.component';
 import { StripeRespondComponent } from './charityComponents/charity-user/stripe-respond/stripe-respond.component';
 import { PayoutsComponent } from './dashboard/payouts/payouts.component';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
-import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 
@@ -54,7 +47,6 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
     StartPageComponent,
     FooterComponent,
     NavBarComponent,
-    SidebarComponent,
     SummaryComponent,
     ActivitiesComponent,
     PledgesComponent,
@@ -65,6 +57,7 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
     StripeRespondComponent,
     PayoutsComponent,
     PrivacyPolicyComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -73,21 +66,17 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
     ReactiveFormsModule,
     RouterModule.forRoot(routes, {useHash:true}),
     HttpClientModule,
-    NgxPaginationModule,
     FormsModule,
     NgbModule,
-    AlertModule.forRoot(),
     NgbPaginationModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     AngularFireMessagingModule,
     NgxPaginationModule,
-    // FilterPipeModule,
-    // MatDatepickerModule,
-    MatProgressSpinnerModule,
-    BsDropdownModule.forRoot(),
-    BsDatepickerModule.forRoot(),
-    AngularFontAwesomeModule,
+    FilterPipeModule,
+    FontAwesomeModule
+  
+   
     // AngularFireModule.initializeApp(environment.firebase),
 
   ],
