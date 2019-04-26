@@ -19,7 +19,6 @@ import { AuthGaurd1 } from './services/AuthGuard.Charity';
 import { FooterComponent } from './footer/footer.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { AboutComponent } from './about/about.component';
 import { SummaryComponent } from './dashboard/summary/summary.component';
 import { ActivitiesComponent } from './dashboard/activities/activities.component';
 import { PledgesComponent } from './dashboard/pledges/pledges.component';
@@ -51,10 +50,11 @@ import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.componen
     SignInComponent,
     SignUpComponent,
     StartPageComponent,
+  
     FooterComponent,
     NavBarComponent,
     SidebarComponent,
-    AboutComponent,
+    
     SummaryComponent,
     ActivitiesComponent,
     PledgesComponent,

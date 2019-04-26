@@ -33,10 +33,10 @@ export class PayoutsComponent implements OnInit {
   submit(){
 
     var data = { "isReccuring": this.filter, "interval": this.interval, "amount": this.amount,"startDate" : this.date}
-    console.log(data);
+    // console.log(data);
     
     this.service.payout(data).subscribe((Response:any)=>{
-      console.log(Response);
+      // console.log(Response);
       
       if (Response.success) {
         swal("Great!","Payout is set", "success");
@@ -44,7 +44,7 @@ export class PayoutsComponent implements OnInit {
       }},
     (err)=>
     {
-      console.log(err,'err');
+      // console.log(err,'err');
       this.error = err.error;
       
     });

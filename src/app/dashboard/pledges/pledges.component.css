@@ -100,7 +100,7 @@
   border: 1px solid #17a2b8;
   color: #17a2b8;
   padding: 7px;
-  width: 150px;
+  /* width: 150px; */
 }
 
 #dropdownForm1:hover {
@@ -113,7 +113,7 @@
   border: 1px solid #17a2b8;
   color: #17a2b8;
   padding: 7px;
-  width: 150px;
+  /* width: 150px; */
 }
 
 .spinner {

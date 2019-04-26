@@ -96,7 +96,7 @@ export class SignUpComponent implements OnInit {
             this.registerForm.reset();
           }
         },(err)=>{
-          console.log(err,'err');
+          // console.log(err,'err');
           swal("Oops!","Email is already registerd", "info");
         });
     } else {

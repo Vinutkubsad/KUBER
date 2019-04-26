@@ -24,7 +24,7 @@ export const routes: Routes = [
   
   {
     path: 'dashboard', component: NavBarComponent,
-    // canActivate:[AuthGaurd1],
+    canActivate:[AuthGaurd1],
     children: [
       { path: 'stripePayment', component: StripePaymentComponent },
       { path: 'stripeRespond', component: StripeRespondComponent },

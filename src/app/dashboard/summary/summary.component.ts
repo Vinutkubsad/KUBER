@@ -68,19 +68,13 @@ export class SummaryComponent implements OnInit {
       this.loading = false;
       this.mes = Response.message;
       // console.log(Response,'res');
-      if(Response.result){
+      if(Response.success == true){
       this.payments = Response.result.paginatedItems;
       this.doPagination(Response.result.itemsPerPage, Response.result.total_pages, Response.result.totalCount, Response.result.pageNo, Response.result.per_page)
-    }})
-  }
-
-  search() {
-    var data = { "userName": this.DonarName }
-    this.service.searchReport(data, this.page).subscribe((Response: any) => {
-      // console.log(Response);
-      this.payments = Response.result.paginatedItems;
-      this.doPagination(Response.result.itemsPerPage, Response.result.total_pages, Response.result.totalCount, Response.result.pageNo, Response.result.per_page)
-    });
+    }
+  else if(Response.success == false){
+    this.payments = Response;
+  }})
   }
 
   sortAmount() {
@@ -98,17 +92,15 @@ export class SummaryComponent implements OnInit {
     }
   }
 
-
-
   sortDate() {
     this.flag = !this.flag;
     if (this.flag === true) {
-      this.date = -1;
+      this.date = 1;
       this.amount = undefined;
       this.userName = undefined;
       this.getReports();
     } else if (this.flag === false) {
-      this.date = 1;
+      this.date = -1;
       this.amount = undefined;
       this.userName = undefined;
       this.getReports();
@@ -130,13 +122,6 @@ export class SummaryComponent implements OnInit {
     }
   }
 
-  // balance(){
-  //   this.service.balance().subscribe((Response:any)=>{
-  //     console.log(Response);
-  //     this.bal=Response.result.available;
-      
-  //   })
-  // }
   balance(){
     this.service.getPdf().subscribe((Response:any)=>{
       // console.log(Response);
