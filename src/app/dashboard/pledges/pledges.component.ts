@@ -47,7 +47,6 @@ export class PledgesComponent implements OnInit {
     this.loading = true;
     this.service.allPledges().subscribe((Response: any) => {
       this.loading = false;
-      console.log(Response);
         this.pledgeReport = Response.data;
         this.pledgeReport1 = Response.data;
     }

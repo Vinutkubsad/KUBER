@@ -41,7 +41,7 @@ export class SignInComponent implements OnInit {
  
   // toggel Password
   togglePwd() {
-    this.passwordShown = false;
+     this.passwordShown = false;
     if(this.passwordShown){
       this.passwordShown = false;
       this.passwordType = 'password';

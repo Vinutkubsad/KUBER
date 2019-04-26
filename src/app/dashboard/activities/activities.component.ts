@@ -95,8 +95,6 @@ export class ActivitiesComponent implements OnInit {
     this.service.getReport(this.page, this.amount, this.date, this.userName,this.status,  this.net,this.application_fee_amount,this.days,this.year,this.from,this.to).subscribe((Response: any) => {
       this.loading = false;
       if (Response.success== true) {
-        // console.log(Response);
-        
         this.payments = Response.result.paginatedItems;
         this.doPagination(Response.result.itemsPerPage, Response.result.total_pages, Response.result.totalCount, Response.result.pageNo, Response.result.per_page)
       }
@@ -293,11 +291,7 @@ export class ActivitiesComponent implements OnInit {
 
   checkStatus(payment_id){
    this.id = payment_id;
-  //  console.log(this.id);
-  //  console.log(payment_id);
-   
-    this.service.getSingleStatus(this.id).subscribe((Response:any)=>{
-      // console.log(Response);
+      this.service.getSingleStatus(this.id).subscribe((Response:any)=>{
       this.getReports();
     });
    
@@ -309,7 +303,7 @@ export class ActivitiesComponent implements OnInit {
 
      
       if(i == 0) { 
-        var ar = ['Date', 'Name', 'Donation Status', 'Total Amount'];
+        var ar = ['Date', 'Name', 'Donation Status', 'Total Amount(USD)'];
         tempArr.push(ar);
       }
       var arr = [(result[i].paymentDate ? result[i].paymentDate : ' '), result[i].userName, result[i].status, result[i].amount];
