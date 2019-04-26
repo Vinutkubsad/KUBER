@@ -40,6 +40,8 @@ import { StripePaymentComponent } from './charityComponents/charity-user/stripe-
 import { StripeRespondComponent } from './charityComponents/charity-user/stripe-respond/stripe-respond.component';
 import { PayoutsComponent } from './dashboard/payouts/payouts.component';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+
 
 
 
@@ -50,11 +52,9 @@ import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.componen
     SignInComponent,
     SignUpComponent,
     StartPageComponent,
-  
     FooterComponent,
     NavBarComponent,
     SidebarComponent,
-    
     SummaryComponent,
     ActivitiesComponent,
     PledgesComponent,
@@ -86,9 +86,10 @@ import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.componen
     // MatDatepickerModule,
     MatProgressSpinnerModule,
     BsDropdownModule.forRoot(),
-    BsDatepickerModule.forRoot()
+    BsDatepickerModule.forRoot(),
+    AngularFontAwesomeModule,
     // AngularFireModule.initializeApp(environment.firebase),
-    
+
   ],
   providers: [DataService,DatePipe,AuthGaurd,AuthGaurd1,MessagingService,AsyncPipe],
   bootstrap: [AppComponent]
