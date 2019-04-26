@@ -28,7 +28,7 @@ export class StripeRespondComponent implements OnInit {
           // console.log(res);
         })
       }
-    })
+    });
 
     // this.path.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
     //   params[key] = value;

@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
-import { Router } from '@angular/router';
 import { faSort } from '@fortawesome/free-solid-svg-icons';
+import { Router, ActivatedRoute, Params, UrlTree, UrlSegmentGroup, UrlSegment, PRIMARY_OUTLET, } from '@angular/router';
 
 
 @Component({
@@ -31,6 +31,8 @@ export class SummaryComponent implements OnInit {
   public mes:any;
   // public amt:0;
   loading:boolean
+  public AccessCode;
+
 
   public pagination = {
     currentPage: 1,
@@ -41,7 +43,17 @@ export class SummaryComponent implements OnInit {
   }
 
 
-  constructor(private service: DataService, private router: Router) { }
+  constructor(private service: DataService, private router: Router, public activatedRoute: ActivatedRoute,) {
+    this.activatedRoute.queryParams.subscribe((params)=> {
+      // console.log(params['code']);
+      this.AccessCode = params['code'];
+      if(params){
+        this.service.stipeDetail(this.AccessCode).subscribe((res)=>{
+          // console.log(res);
+        })
+      }
+    });
+   }
   setPage(i) {
     this.page = i;
     this.getReports();
@@ -51,6 +63,8 @@ export class SummaryComponent implements OnInit {
     this.getReports();
     this.balance();
   }
+
+
   doPagination(itemsPerPage, total_pages, totalCount, pageNo, per_page) {
     // console.log(this.pages, itemsPerPage, total_pages, totalCount, per_page);
     this.pagination.currentPage = parseInt(pageNo);
