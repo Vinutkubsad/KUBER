@@ -131,7 +131,7 @@ export class DataService {
       headers: new HttpHeaders({  'Authorization': localStorage.getItem('jwt')  })
     }
     let url = AppSettings.BASE_URL + AppSettings.STIPE_ID + "?code=" + code;
-    return this.http.post(url, httpOption)
+    return this.http.post(url,{},httpOption);
   }
 
 
