@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { DataService } from "../services/data.service";
+import { faCog } from '@fortawesome/free-solid-svg-icons';
+
 // import { MessagingService } from '../services/messaging.service';
 
 @Component({
@@ -9,6 +11,7 @@ import { DataService } from "../services/data.service";
   styleUrls: ["./nav-bar.component.css"]
 })
 export class NavBarComponent implements OnInit {
+  faCog = faCog;
   public page;
   public payments: any;
   // public pages: Array<number>;

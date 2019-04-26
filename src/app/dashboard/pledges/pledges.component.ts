@@ -2,15 +2,15 @@ import { Component, OnInit, ElementRef, ViewChild } from "@angular/core";
 import { DataService } from "src/app/services/data.service";
 import { Router } from "@angular/router";
 import { FormGroup, FormBuilder, Validators, FormControl, NgForm, FormGroupDirective } from '@angular/forms';
-// import * as jspdf from 'jspdf';
-// import html2canvas from 'html2canvas';
 import pdfMake from "pdfmake/build/pdfmake";
 import pdfFonts from "pdfmake/build/vfs_fonts";
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 import swal from 'sweetalert';
+import { faFilePdf } from '@fortawesome/free-solid-svg-icons';
+import { faRedoAlt } from '@fortawesome/free-solid-svg-icons';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faFilter } from '@fortawesome/free-solid-svg-icons';
 
-
-// import * as moment from 'moment';
 
 @Component({
   selector: "app-pledges",
@@ -18,6 +18,11 @@ import swal from 'sweetalert';
   styleUrls: ["./pledges.component.css"]
 })
 export class PledgesComponent implements OnInit {
+
+  faFilePdf = faFilePdf;
+  faRedoAlt = faRedoAlt;
+  faSearch = faSearch;
+  faFilter = faFilter;
 
   public pledgeReport: any[];
   public pledgeReport1: any[];
@@ -50,7 +55,7 @@ export class PledgesComponent implements OnInit {
 
   refresh(){
     this.getReports();
-    // window.location.reload();
+    window.location.reload();
   }
 
   createPdfTable(data) {

@@ -1,7 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { DataService } from '../services/data.service';
+import { DataService } from '../services/data.service'
+import swal from 'sweetalert';
 import { FormGroup, FormGroupDirective, NgForm, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { faHome } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
+import { faClock } from '@fortawesome/free-solid-svg-icons';
+import { faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons';
+import { faHandshake } from '@fortawesome/free-solid-svg-icons';
+import { faHandHoldingUsd } from '@fortawesome/free-solid-svg-icons';
+import { faClipboardCheck } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-start-page',
@@ -11,6 +20,14 @@ import { FormGroup, FormGroupDirective, NgForm, FormBuilder, FormControl, Valida
 
 export class StartPageComponent implements OnInit {
 
+  faHome= faHome;
+  faEnvelope = faEnvelope;
+  faInfoCircle = faInfoCircle;
+  faClock = faClock;
+  faAngleDoubleRight = faAngleDoubleRight;
+  faHandshake = faHandshake;
+  faHandHoldingUsd = faHandHoldingUsd;
+  faClipboardCheck = faClipboardCheck;
   
   path;
 

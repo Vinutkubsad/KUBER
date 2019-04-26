@@ -9,13 +9,13 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <i class="fas fa-home"></i><a class="nav-link" href="#home">Home </a>
+            <fa-icon [icon]="faHome"></fa-icon><a class="nav-link" href="#home">Home </a>
           </li>
           <li class="nav-item ">
-            <i class="fas fa-info-circle"></i><a class="nav-link" href="#about">About Us</a>
+            <fa-icon [icon]="faInfoCircle"></fa-icon><a class="nav-link" href="#about">About Us</a>
           </li>
           <li class="nav-item ">
-            <i class="fas fa-envelope"></i><a class="nav-link" href="#letstalk">Contact</a>
+            <fa-icon [icon]="faEnvelope"></fa-icon><a class="nav-link" href="#letstalk">Contact</a>
           </li>
           <li class="nav-item">
             <button type="button" class="btn btn-outline-light btn-lg" (click)="Login()">LOGIN</button>
@@ -58,21 +58,21 @@
       </header>
 
       <div class="row about-container">
-        <div class="col-lg-5 content order-lg-1 order-2">
+        <!-- <div class="col-lg-5 content order-lg-1 order-2">
           <div class="icon-box wow fadeInUp" style="text-align:center;">
-            <i class="fas fa-angle-double-right fa-6x"></i>
+            <fa-icon [icon]="faAngleDoubleRight" ></fa-icon>
             <p> </p>
           </div>
 
           <div class="icon-box wow fadeInUp" data-wow-delay="0.4s" style="text-align:center;">
-            <i class="fas fa-clock fa-6x"></i>
+            <fa-icon [icon]="faClock"></fa-icon>
           </div>
 
           <div class="icon-box wow fadeInUp" data-wow-delay="0.4s" style="text-align:center;">
-            <i class="fas fa-handshake fa-6x"></i>
+            <fa-icon [icon]="faHandshake"></fa-icon>
           </div>
-        </div>
-        <div class="col-lg-6 content order-lg-1 order-2">
+        </div> -->
+        <div class="col-lg-12 content order-lg-1 order-2">
           <div class="icon-box wow fadeInUp" style="text-align:center;">
             <h3 style="color:black; font-weight:bold; padding:1rem;">Track Donation</h3>
             <p>We help you keep track of donations for financial planning and tax deductions</p>
@@ -93,15 +93,15 @@
         <div class="icons">
           <div class="icon-header">
             <p> Make Donations </p>
-            <i class="fas fa-hand-holding-usd fa-5x"></i>
+            <fa-icon [icon]="faHandHoldingUsd"></fa-icon>
           </div>
           <div class="icon-header">
             <p>Keep Track of Donations</p>
-            <i class="fas fa-angle-double-right fa-5x"></i>
+            <fa-icon [icon]="faAngleDoubleRight" ></fa-icon>
           </div>
           <div class="icon-header">
             <p> Set Goals & reminders </p>
-            <i class="fas fa-clipboard fa-5x"></i>
+            <fa-icon [icon]="faClipboardCheck"></fa-icon>
           </div>
         </div>
       </div>

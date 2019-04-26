@@ -51,7 +51,7 @@ export class SignInComponent implements OnInit {
  
 
   loginSubmit() {
-    console.log("logged in");
+    // console.log("logged in");
     this.loading = true;
     var data = { "email": this.service.charityLogin.email, "password": this.service.charityLogin.password }
     this.service.CharityLogin(data).subscribe((response: any) => {
@@ -62,10 +62,6 @@ export class SignInComponent implements OnInit {
         localStorage.setItem('user', response.result.resp['_id']);
         this.resetForm();
         this.router.navigate(['dashboard/summary'])
-      } else {
-        
-        this.error = response;
-        
       }
       
     },(err)=>{

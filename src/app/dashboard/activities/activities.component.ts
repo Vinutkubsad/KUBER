@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
 import { Router } from '@angular/router';
+import { faFilePdf } from '@fortawesome/free-solid-svg-icons';
+import { faRedoAlt } from '@fortawesome/free-solid-svg-icons';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faFilter } from '@fortawesome/free-solid-svg-icons';
+
+
 import pdfMake from "pdfmake/build/pdfmake";
 import pdfFonts from "pdfmake/build/vfs_fonts";
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
@@ -11,6 +17,11 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
   styleUrls: ['./activities.component.css']
 })
 export class ActivitiesComponent implements OnInit {
+
+  faFilePdf = faFilePdf;
+  faRedoAlt = faRedoAlt;
+  faSearch = faSearch;
+  faFilter = faFilter;
 
   public pdf:any;
   private page: number = 1;
@@ -72,9 +83,9 @@ export class ActivitiesComponent implements OnInit {
   }
   
   refresh(){
-    
+    this.getStatus();
     window.location.reload();
-    // this.getStatus();
+    
   }
 
   getReports() {
@@ -82,6 +93,8 @@ export class ActivitiesComponent implements OnInit {
     this.service.getReport(this.page, this.amount, this.date, this.userName,this.status,  this.net,this.application_fee_amount,this.days,this.year,this.from,this.to).subscribe((Response: any) => {
       this.loading = false;
       if (Response.success== true) {
+        console.log(Response);
+        
         this.payments = Response.result.paginatedItems;
         this.doPagination(Response.result.itemsPerPage, Response.result.total_pages, Response.result.totalCount, Response.result.pageNo, Response.result.per_page)
       }
@@ -252,7 +265,7 @@ export class ActivitiesComponent implements OnInit {
     this.from = undefined;
     this.to = undefined;
     this.userName = undefined;
-    console.log(this.year);
+    // console.log(this.year);
     
     this.getReports();
   }
@@ -272,17 +285,17 @@ export class ActivitiesComponent implements OnInit {
     this.days = undefined;
     this.year = undefined;
     this.userName = undefined;
-    console.log(this.start,this.end); 
+    // console.log(this.start,this.end); 
     this.getReports();
   }
 
   checkStatus(payment_id){
    this.id = payment_id;
-   console.log(this.id);
+  //  console.log(this.id);
   //  console.log(payment_id);
    
     this.service.getSingleStatus(this.id).subscribe((Response:any)=>{
-      console.log(Response);
+      // console.log(Response);
       this.getReports();
     });
    
