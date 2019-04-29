@@ -45,14 +45,10 @@ export class SummaryComponent implements OnInit {
 
   constructor(private service: DataService, private router: Router, public activatedRoute: ActivatedRoute,) {
     this.activatedRoute.queryParams.subscribe((params)=> {
-      console.log(params['code']);
       this.AccessCode = params['code'];
       if(params){
         this.service.stipeDetail(this.AccessCode).subscribe((res: any)=>{
-          if(res) {
-            localStorage.setItem("jwt", res.result.jwt);
-          }
-          console.log(res);
+          
         })
       }
     });
