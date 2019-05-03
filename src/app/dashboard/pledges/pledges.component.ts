@@ -1,16 +1,22 @@
 import { Component, OnInit, ElementRef, ViewChild } from "@angular/core";
 import { DataService } from "src/app/services/data.service";
 import { Router } from "@angular/router";
-import { FormGroup, FormBuilder, Validators, FormControl, NgForm, FormGroupDirective } from '@angular/forms';
+import {
+  FormGroup,
+  FormBuilder,
+  Validators,
+  FormControl,
+  NgForm,
+  FormGroupDirective
+} from "@angular/forms";
 import pdfMake from "pdfmake/build/pdfmake";
 import pdfFonts from "pdfmake/build/vfs_fonts";
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
-import swal from 'sweetalert';
-import { faFilePdf } from '@fortawesome/free-solid-svg-icons';
-import { faRedoAlt } from '@fortawesome/free-solid-svg-icons';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import { faFilter } from '@fortawesome/free-solid-svg-icons';
-
+import swal from "sweetalert";
+import { faFilePdf } from "@fortawesome/free-solid-svg-icons";
+import { faRedoAlt } from "@fortawesome/free-solid-svg-icons";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faFilter } from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: "app-pledges",
@@ -18,7 +24,6 @@ import { faFilter } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ["./pledges.component.css"]
 })
 export class PledgesComponent implements OnInit {
-
   faFilePdf = faFilePdf;
   faRedoAlt = faRedoAlt;
   faSearch = faSearch;
@@ -34,10 +39,14 @@ export class PledgesComponent implements OnInit {
   start;
   end;
   mes;
-  loading:boolean;
+  loading: boolean;
   amount;
 
-  constructor(private service: DataService, private router: Router, public fb: FormBuilder) {}
+  constructor(
+    private service: DataService,
+    private router: Router,
+    public fb: FormBuilder
+  ) { }
 
   ngOnInit() {
     this.getReports();
@@ -47,14 +56,12 @@ export class PledgesComponent implements OnInit {
     this.loading = true;
     this.service.allPledges().subscribe((Response: any) => {
       this.loading = false;
-      console.log(Response);
-        this.pledgeReport = Response.data;
-        this.pledgeReport1 = Response.data;
-    }
-    );
+      this.pledgeReport = Response.data;
+      this.pledgeReport1 = Response.data;
+    });
   }
 
-  refresh(){
+  refresh() {
     this.getReports();
     window.location.reload();
   }
@@ -63,14 +70,14 @@ export class PledgesComponent implements OnInit {
     var tempArr = [];
     for (let i = 0; i < data.length; i++) {
       if (i == 0) {
-        var ar = ["Name", "Amount", "Interval", "paymentModeId", "Date"];
+        var ar = ["Name", "Amount", "Interval", "Date"];
         tempArr.push(ar);
       }
       var arr = [
         data[i].userDetails.Name ? data[i].userDetails.Name : " ",
         data[i].amount,
         data[i].interval,
-        data[i].paymentModeId,
+        // data[i].paymentModeId,
         data[i].startDate
       ];
       tempArr.push(arr);
@@ -95,7 +102,9 @@ export class PledgesComponent implements OnInit {
   downloadPdf() {
     this.pdf = pdfMake;
     this.service.allPledges().subscribe((Response: any) => {
+      console.log(Response,'pdf');
       var doc = this.createPdfDoc(Response.data);
+      console.log('doc',doc);
       pdfMake.createPdf(doc).download();
     });
   }
@@ -103,7 +112,6 @@ export class PledgesComponent implements OnInit {
   frequnecy(event) {
     this.pledgeReport = this.pledgeReport1.filter(x => x.interval == event);
   }
-
 
   Datefilter() {
     {

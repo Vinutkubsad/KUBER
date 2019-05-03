@@ -40,21 +40,20 @@ export class SignInComponent implements OnInit {
   }
  
   // toggel Password
-  togglePwd() {
-    this.passwordShown = false;
+  togglePwd() {    
+    this.passwordShown = !this.passwordShown;
     if(this.passwordShown){
-      this.passwordShown = false;
-      this.passwordType = 'password';
-    }else {
       this.passwordShown = true;
       this.passwordType = 'text';
+  
+    }else {
+
+      this.passwordShown = false;
+      this.passwordType = 'password';
     }
   }
 
- 
-
-  loginSubmit() {
-    // console.log("logged in");
+  loginSubmit() {``
     this.loading = true;
     var data = { "email": this.service.charityLogin.email, "password": this.service.charityLogin.password }
     this.service.CharityLogin(data).subscribe((response: any) => {
@@ -66,9 +65,7 @@ export class SignInComponent implements OnInit {
         this.resetForm();
         this.router.navigate(['dashboard/summary'])
       }
-      
     },(err)=>{
-      
       this.error = err.error;
     }
     );

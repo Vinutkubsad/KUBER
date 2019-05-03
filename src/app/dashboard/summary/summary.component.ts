@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
 import { faSort } from '@fortawesome/free-solid-svg-icons';
 import { Router, ActivatedRoute, Params, UrlTree, UrlSegmentGroup, UrlSegment, PRIMARY_OUTLET, } from '@angular/router';
+import swal from 'sweetalert';
 
 
 @Component({
@@ -45,15 +46,17 @@ export class SummaryComponent implements OnInit {
 
   constructor(private service: DataService, private router: Router, public activatedRoute: ActivatedRoute,) {
     this.activatedRoute.queryParams.subscribe((params)=> {
+      // console.log(params['code']);
       this.AccessCode = params['code'];
       if(params){
         this.service.stipeDetail(this.AccessCode).subscribe((res: any)=>{
-          
+          if(res.success) {
+            swal("","Successfully added your account!","success")
+          }
         })
       }
     });
    }
-
   setPage(i) {
     this.page = i;
     this.getReports();

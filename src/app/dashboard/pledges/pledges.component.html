@@ -41,7 +41,8 @@
 
                 <div class="">
                   <select class="btn btn-outline" name="Frequency" id="frequency"
-                    (change)="frequnecy($event.target.value)">
+                    (change)="frequnecy($event.target.value)" placeholder = "Frequency" > 
+                    <!-- <option class="dropdown-item">Frequency</option> -->
                     <option class="dropdown-item" value="week">Weekly</option>
                     <option class="dropdown-item" value="byweek">Biweekly</option>
                     <option class="dropdown-item" value="month">Monthly</option>
@@ -72,7 +73,6 @@
                   <th>Name</th>
                   <th>Net Amount</th>
                   <th>Frequency</th>
-                 
                 </tr>
               </thead>
               <tbody>
@@ -81,8 +81,7 @@
                   <td>{{data.startDate | date}}</td>
                   <td>{{data.userDetails.Name}}</td>
                   <td>{{data.amount | currency}}</td>
-                  <td>{{data.interval}}</td>
-                  
+                  <td>{{data.interval != "" && data.interval != null?data.interval:"no data"}}</td>
                 </tr>
               </tbody>
             </table>
