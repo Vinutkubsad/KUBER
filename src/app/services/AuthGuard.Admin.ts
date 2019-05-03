@@ -6,7 +6,7 @@ import { Injectable } from "@angular/core";
 export class AuthGaurd implements CanActivate{
      constructor(private authService: DataService, public router:Router ){}
    canActivate(route :ActivatedRouteSnapshot,state: RouterStateSnapshot){
-     let tocken = localStorage.getItem('AdminLogin');
+     let tocken = localStorage.getItem('jwt');
      if(tocken){
        return true;
      }

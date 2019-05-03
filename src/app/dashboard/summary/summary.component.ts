@@ -30,6 +30,7 @@ export class SummaryComponent implements OnInit {
   public flag: any = false;
   public bal:any;
   public mes:any;
+  message;
   // public amt:0;
   loading:boolean
   public AccessCode;

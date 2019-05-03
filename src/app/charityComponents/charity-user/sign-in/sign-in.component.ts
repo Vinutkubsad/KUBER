@@ -53,7 +53,7 @@ export class SignInComponent implements OnInit {
     }
   }
 
-  loginSubmit() {``
+  loginSubmit() {
     this.loading = true;
     var data = { "email": this.service.charityLogin.email, "password": this.service.charityLogin.password }
     this.service.CharityLogin(data).subscribe((response: any) => {
@@ -69,8 +69,6 @@ export class SignInComponent implements OnInit {
       this.error = err.error;
     }
     );
-   
-    
   }
   register(){
     this.router.navigate(['signup']);

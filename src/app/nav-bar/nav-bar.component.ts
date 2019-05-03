@@ -2,6 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { DataService } from "../services/data.service";
 import { faCog } from '@fortawesome/free-solid-svg-icons';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { faArrowAltCircleLeft } from '@fortawesome/free-solid-svg-icons';
 
 // import { MessagingService } from '../services/messaging.service';
 
@@ -12,6 +14,10 @@ import { faCog } from '@fortawesome/free-solid-svg-icons';
 })
 export class NavBarComponent implements OnInit {
   faCog = faCog;
+  faUser = faUser;
+  faArrowAltCircleLeft=faArrowAltCircleLeft;
+  
+
   public page;
   public payments: any;
   // public pages: Array<number>;

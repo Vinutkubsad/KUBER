@@ -58,6 +58,8 @@ export class PledgesComponent implements OnInit {
       this.loading = false;
       this.pledgeReport = Response.data;
       this.pledgeReport1 = Response.data;
+      console.log(this.pledgeReport1,'pledgereport');
+      
     });
   }
 
@@ -91,6 +93,8 @@ export class PledgesComponent implements OnInit {
         {
           style: "tabl  eExample",
           table: {
+            headerRows: 1,
+            widths: [ '*', 'auto', 100, '*' ],
             body: this.createPdfTable(data)
           }
         }
@@ -102,9 +106,7 @@ export class PledgesComponent implements OnInit {
   downloadPdf() {
     this.pdf = pdfMake;
     this.service.allPledges().subscribe((Response: any) => {
-      console.log(Response,'pdf');
       var doc = this.createPdfDoc(Response.data);
-      console.log('doc',doc);
       pdfMake.createPdf(doc).download();
     });
   }
