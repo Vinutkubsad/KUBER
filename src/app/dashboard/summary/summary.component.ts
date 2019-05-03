@@ -3,6 +3,7 @@ import { DataService } from 'src/app/services/data.service';
 import { faSort } from '@fortawesome/free-solid-svg-icons';
 import { Router, ActivatedRoute, Params, UrlTree, UrlSegmentGroup, UrlSegment, PRIMARY_OUTLET, } from '@angular/router';
 import swal from 'sweetalert';
+import { concatMap, timeout, catchError, delay } from 'rxjs/operators';
 
 
 @Component({
@@ -83,7 +84,7 @@ export class SummaryComponent implements OnInit {
 
   getReports() {
     this.loading = true;
-    this.service.getReportSummary(this.page, this.amount, this.date, this.userName).subscribe((Response: any) => {
+    this.service.getReportSummary(this.page, this.amount, this.date, this.userName).pipe(timeout(6000),catchError(e=>{this.logout1(); return null})).subscribe((Response: any) => {
       // console.log(Response);
       this.loading = false;
       this.mes = Response.message;
@@ -96,6 +97,14 @@ export class SummaryComponent implements OnInit {
     this.payments = Response;
   }})
   }
+
+  logout1(){
+    this.router.navigate(["home"]);
+    localStorage.removeItem("jwt");
+    localStorage.removeItem("randid");
+    localStorage.removeItem("user");
+  }
+
 
   sortAmount() {
     this.flag = !this.flag;

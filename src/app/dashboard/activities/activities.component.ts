@@ -6,6 +6,7 @@ import { faRedoAlt } from '@fortawesome/free-solid-svg-icons';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faFilter } from '@fortawesome/free-solid-svg-icons';
 import { faSort } from '@fortawesome/free-solid-svg-icons';
+import { concatMap, timeout, catchError, delay } from 'rxjs/operators';
 
 
 import pdfMake from "pdfmake/build/pdfmake";
@@ -66,6 +67,7 @@ export class ActivitiesComponent implements OnInit {
       this.getReports();
   }
 
+
   ngOnInit() {
     this.getReports();
     this.getStatus();
@@ -92,7 +94,7 @@ export class ActivitiesComponent implements OnInit {
 
   getReports() {
     this.loading = true;
-    this.service.getReport(this.page, this.amount, this.date, this.userName,this.status,  this.net,this.application_fee_amount,this.days,this.year,this.from,this.to).subscribe((Response: any) => {
+    this.service.getReport(this.page, this.amount, this.date, this.userName,this.status,  this.net,this.application_fee_amount,this.days,this.year,this.from,this.to).pipe(timeout(6000),catchError(e=>{this.logout1(); return null})).subscribe((Response: any) => {
       this.loading = false;
       if (Response.success== true) {
         this.payments = Response.result.paginatedItems;
@@ -108,6 +110,13 @@ export class ActivitiesComponent implements OnInit {
     this.service.getStatus().subscribe((Response:any)=>{
       // console.log(Response); 
     })
+  }
+
+  logout1(){
+    this.router.navigate(["home"]);
+    localStorage.removeItem("jwt");
+    localStorage.removeItem("randid");
+    localStorage.removeItem("user");
   }
 
   search(){

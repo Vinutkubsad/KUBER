@@ -1,6 +1,7 @@
 import { Component, OnInit, ElementRef, ViewChild } from "@angular/core";
 import { DataService } from "src/app/services/data.service";
 import { Router } from "@angular/router";
+import { concatMap, timeout, catchError, delay } from 'rxjs/operators';
 import {
   FormGroup,
   FormBuilder,
@@ -17,6 +18,7 @@ import { faFilePdf } from "@fortawesome/free-solid-svg-icons";
 import { faRedoAlt } from "@fortawesome/free-solid-svg-icons";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { faFilter } from "@fortawesome/free-solid-svg-icons";
+import { of } from 'rxjs';
 
 @Component({
   selector: "app-pledges",
@@ -41,12 +43,14 @@ export class PledgesComponent implements OnInit {
   mes;
   loading: boolean;
   amount;
+  logout= false;
+  timer;
 
-  constructor(
-    private service: DataService,
-    private router: Router,
-    public fb: FormBuilder
-  ) { }
+  constructor(private service: DataService,  private router: Router, public fb: FormBuilder ) {
+    setTimeout(() => {
+      this.logout = true;
+    }, 2000);
+   }
 
   ngOnInit() {
     this.getReports();
@@ -54,20 +58,25 @@ export class PledgesComponent implements OnInit {
 
   getReports() {
     this.loading = true;
-    this.service.allPledges().subscribe((Response: any) => {
-      this.loading = false;
-      this.pledgeReport = Response.data;
-      this.pledgeReport1 = Response.data;
-      console.log(this.pledgeReport1,'pledgereport');
-      
+    this.service.allPledges().pipe(timeout(6000),catchError(e=>{this.logout1(); return of(null)})).subscribe((Response: any) => {
+        this.loading = false;
+        this.pledgeReport = Response.data;
+        this.pledgeReport1 = Response.data;
     });
+  }
+
+  logout1(){
+    this.router.navigate(["home"]);
+    localStorage.removeItem("jwt");
+    localStorage.removeItem("randid");
+    localStorage.removeItem("user");
   }
 
   refresh() {
     this.getReports();
     window.location.reload();
   }
-
+  hello
   createPdfTable(data) {
     var tempArr = [];
     for (let i = 0; i < data.length; i++) {
