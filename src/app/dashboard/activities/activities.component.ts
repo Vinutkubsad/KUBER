@@ -103,11 +103,13 @@ export class ActivitiesComponent implements OnInit {
        }  
     });
   }
+
   getStatus(){
     this.service.getStatus().subscribe((Response:any)=>{
       // console.log(Response); 
     })
   }
+
   search(){
     this.userName = this.DonarName;
     this.days = undefined;
@@ -180,6 +182,7 @@ export class ActivitiesComponent implements OnInit {
       this.getReports();
     }
   }
+
   sortName() {
     this.flag = !this.flag;
     if (this.flag === true) {
@@ -200,6 +203,7 @@ export class ActivitiesComponent implements OnInit {
       this.getReports();
     }
   }
+
   sortNet() {
     this.flag = !this.flag;
     if (this.flag === true) {
@@ -220,6 +224,7 @@ export class ActivitiesComponent implements OnInit {
       this.getReports();
     }
   }
+
   sortAppfee() {
     this.flag = !this.flag;
     if (this.flag === true) {
@@ -287,6 +292,7 @@ export class ActivitiesComponent implements OnInit {
     this.userName = undefined;
     // console.log(this.start,this.end); 
     this.getReports();
+    
   }
 
   checkStatus(payment_id){
@@ -312,7 +318,6 @@ export class ActivitiesComponent implements OnInit {
     return tempArr;
   }
   
-
   createPdfDoc(result) {
     const doc = {
       content: [

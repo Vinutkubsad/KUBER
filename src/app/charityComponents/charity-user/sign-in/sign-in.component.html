@@ -31,7 +31,7 @@
             <div class="form-input">
               <input [type]="passwordType" id="password" placeholder="Password" formControlName="password" [(ngModel)]="service.charityLogin.password"> 
               <div class="showicon">
-                <span (click)="togglePwd()">Show</span>
+                <span (click)="togglePwd()"> Show</span>
               </div>  
               <div *ngIf="
                       loginForm.controls['password'].touched &&
