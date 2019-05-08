@@ -45,6 +45,8 @@ export class PledgesComponent implements OnInit {
   amount;
   logout= false;
   timer;
+  freq:any;
+
 
   constructor(private service: DataService,  private router: Router, public fb: FormBuilder ) {
     setTimeout(() => {
@@ -52,6 +54,19 @@ export class PledgesComponent implements OnInit {
     }, 2000);
    }
 
+   downloadPdf(e){
+     this.pdf = true;
+     this.getReports();
+    //  if(this.pdf == true){
+    //   this.getReports();
+    //  }
+    //  this.freq = true;
+    // if(this.freq == true){
+    //   this.frequnecy(event);
+    // }
+  
+   }
+   
   ngOnInit() {
     this.getReports();
   }
@@ -62,6 +77,11 @@ export class PledgesComponent implements OnInit {
         this.loading = false;
         this.pledgeReport = Response.data;
         this.pledgeReport1 = Response.data;
+        if(this.pdf === true){
+          var doc = this.createPdfDoc(Response.data);
+          pdfMake.createPdf(doc).download();
+          this.pdf = false;
+        }
     });
   }
 
@@ -76,7 +96,7 @@ export class PledgesComponent implements OnInit {
     this.getReports();
     window.location.reload();
   }
-  hello
+
   createPdfTable(data) {
     var tempArr = [];
     for (let i = 0; i < data.length; i++) {
@@ -112,16 +132,20 @@ export class PledgesComponent implements OnInit {
     return doc;
   }
 
-  downloadPdf() {
-    this.pdf = pdfMake;
-    this.service.allPledges().subscribe((Response: any) => {
-      var doc = this.createPdfDoc(Response.data);
-      pdfMake.createPdf(doc).download();
-    });
-  }
+  // downloadPdf() {
+  //   this.pdf = pdfMake;
+  //   this.service.allPledges().subscribe((Response: any) => {
+  //     var doc = this.createPdfDoc(Response.data);
+  //     pdfMake.createPdf(doc).download();
+  //   });
+  // }
 
-  frequnecy(event) {
+  frequnecy(event){
     this.pledgeReport = this.pledgeReport1.filter(x => x.interval == event);
+    // if(this.freq = true)
+    // var doc = this.createPdfDoc(this.pledgeReport1.filter(x => x.interval == event));
+    //   pdfMake.createPdf(doc).download();
+    //   this.freq = false;
   }
 
   Datefilter() {
