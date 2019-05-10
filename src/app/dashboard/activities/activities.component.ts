@@ -26,29 +26,30 @@ export class ActivitiesComponent implements OnInit {
   faFilter = faFilter;
   faSort = faSort;
 
-  private pdf: boolean = false;
-  private page: number = 1;
-  private payments: any = [];
-  private id;
-  private DonarName;
-  private pages: Array<number>;
-  private amount: any;
-  private status: any;
-  private date: any;
-  private pageSize: number;
-  private flag: any = false;
-  private mes: any;
-  private start: Date;
-  private end: Date;
-  private userName: any;
-  private net: any;
-  private application_fee_amount: any;
-  private days: any;
-  private year: any;
-  private from: any;
-  private to: any;
-  loading: boolean;
-  // private downloadPdf:boolean = false;
+  public pdf: any;
+  public page: number = 1;
+  public payments: any = [];
+  public searchResults: any[]
+  public id;
+  public DonarName;
+  public pages: Array<number>;
+  public amount: any;
+  public status: any;
+  public date: any;
+  public pageSize: number;
+  public flag: any = false;
+  public bal: any;
+  public mes: any;
+  public start: Date;
+  public end: Date;
+  public userName: any;
+  public net: any;
+  public application_fee_amount: any;
+  public days: any;
+  public year: any;
+  public from: any;
+  public to: any;
+  loading: boolean
 
 
   public pagination = {
@@ -85,12 +86,11 @@ export class ActivitiesComponent implements OnInit {
     // console.log('onPageChange', e);
     this.setPage(e);
   }
-  
+
   downloadPdf(e){
     this.pdf = true;
     this.getReports();
-   }
-
+  }
   refresh() {
     this.getStatus();
     window.location.reload();
@@ -103,20 +103,18 @@ export class ActivitiesComponent implements OnInit {
       this.loading = false;
       if (Response.success == true) {
         this.payments = Response.result.paginatedItems;
-        this.doPagination(Response.result.itemsPerPage, Response.result.total_pages, Response.result.totalCount, Response.result.pageNo, Response.result.per_page);
-        if(this.pdf == true){
-          var doc = this.createPdfDoc(Response.result.paginatedItems);
-          pdfMake.createPdf(doc).download();
-          this.pdf = false;
-        }  
+        this.doPagination(Response.result.itemsPerPage, Response.result.total_pages, Response.result.totalCount, Response.result.pageNo, Response.result.per_page); 
+      }
+      if(this.pdf === true){
+        var doc = this.createPdfDoc( Response.result.paginatedItems);
+        pdfMake.createPdf(doc).download();
+        this.pdf = false;
       }
       else if (Response.success == false) {
         this.payments = Response;
       }
     });
   }
-
- 
 
   getStatus() {
     this.service.getStatus().subscribe((Response: any) => {
@@ -345,8 +343,6 @@ export class ActivitiesComponent implements OnInit {
         {
           style: 'tableExample',
           table: {
-            title:["Activities"],
-            widths: [ '*', 'auto', 100, '*' ],
             body: this.createPdfTable(result)
           }
         }
@@ -357,10 +353,14 @@ export class ActivitiesComponent implements OnInit {
 
   // downloadPdf() {
   //   this.service.getPdf().subscribe((Response: any) => {
-  //     // console.log(Response);
+     
   //     var doc = this.createPdfDoc(Response.result);
-  //     // console.log('DOc Pdf', doc);
+     
   //     pdfMake.createPdf(doc).download();
   //   })
   // }
+
+  onChangeDate(event, field) {
+    console.log("onChnage-->",event);
+  }
 }

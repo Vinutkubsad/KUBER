@@ -120,7 +120,7 @@ export class PledgesComponent implements OnInit {
     const doc = {
       content: [
         {
-          style: "tabl  eExample",
+          style: "tableExample",
           table: {
             headerRows: 1,
             widths: [ '*', 'auto', 100, '*' ],
