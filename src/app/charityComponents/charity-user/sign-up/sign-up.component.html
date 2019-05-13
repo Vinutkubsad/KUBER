@@ -185,8 +185,8 @@
                 </div>
                 <div class="col">
                   <div class="form-group">
-                    <input formControlName="state" type="number" id="state" placeholder="State" class="form-control"
-                      [(ngModel)]="charityServices.selectedCharity.state" autofocus required />
+                    <input formControlName="state" type="text" id="state" placeholder="State" class="form-control"
+                      [(ngModel)]="charityServices.selectedCharity.state" autofocus required/>
                     <div *ngIf="
                       registerForm.controls['state'].touched &&
                       !registerForm.controls['state'].valid
