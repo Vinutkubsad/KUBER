@@ -59,6 +59,7 @@ export class PledgesComponent implements OnInit {
   getReports() {
     this.loading = true;
     this.service.allPledges().pipe(timeout(6000),catchError(e=>{this.logout1(); return of(null)})).subscribe((Response: any) => {
+      console.log('res', Response)
         this.loading = false;
         this.pledgeReport = Response.data;
         this.pledgeReport1 = Response.data;
@@ -122,6 +123,7 @@ export class PledgesComponent implements OnInit {
 
   frequnecy(event) {
     this.pledgeReport = this.pledgeReport1.filter(x => x.interval == event);
+    console.log('frequency', this.pledgeReport);
   }
 
   Datefilter() {
