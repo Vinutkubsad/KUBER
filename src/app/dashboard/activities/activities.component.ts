@@ -7,6 +7,8 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faFilter } from '@fortawesome/free-solid-svg-icons';
 import { faSort } from '@fortawesome/free-solid-svg-icons';
 import { concatMap, timeout, catchError, delay } from 'rxjs/operators';
+import * as moment from 'moment';
+
 
 
 import pdfMake from "pdfmake/build/pdfmake";
@@ -39,7 +41,7 @@ export class ActivitiesComponent implements OnInit {
   public pageSize: number;
   public flag: any = false;
   public bal: any;
-  public mes: any;
+  public mes: any = [];
   public start: Date;
   public end: Date;
   public userName: any;
@@ -87,7 +89,7 @@ export class ActivitiesComponent implements OnInit {
     this.setPage(e);
   }
 
-  downloadPdf(e){
+  downloadPdf(e) {
     this.pdf = true;
     this.getReports();
   }
@@ -97,16 +99,26 @@ export class ActivitiesComponent implements OnInit {
 
   }
 
-  getReports() { 
+  getReports() {
     this.loading = true;
     this.service.getReport(this.page, this.amount, this.date, this.userName, this.status, this.net, this.application_fee_amount, this.days, this.year, this.from, this.to).pipe(timeout(6000), catchError(e => { this.logout1(); return null })).subscribe((Response: any) => {
       this.loading = false;
       if (Response.success == true) {
+        console.log(Response);
+
         this.payments = Response.result.paginatedItems;
-        this.doPagination(Response.result.itemsPerPage, Response.result.total_pages, Response.result.totalCount, Response.result.pageNo, Response.result.per_page); 
+        // var arr = Response.result.paginatedItems;
+        // for (let i = 0; i < arr.length; i++) {
+        //   Response.result.paginatedItems[i].paymentDate = moment(Response.result.paginatedItems[i].paymentDate).format('MMMM Do YYYY, h:mm a');
+        //   // this.mes =  Paymentdate;
+        // }
+        
+        console.log(this.mes);
+
+        this.doPagination(Response.result.itemsPerPage, Response.result.total_pages, Response.result.totalCount, Response.result.pageNo, Response.result.per_page);
       }
-      if(this.pdf === true){
-        var doc = this.createPdfDoc( Response.result.paginatedItems);
+      if (this.pdf === true) {
+        var doc = this.createPdfDoc(Response.result.paginatedItems);
         pdfMake.createPdf(doc).download();
         this.pdf = false;
       }
@@ -309,7 +321,7 @@ export class ActivitiesComponent implements OnInit {
     this.days = undefined;
     this.year = undefined;
     this.userName = undefined;
-    console.log(this.start,this.end); 
+    // console.log(this.start,this.end); 
     this.getReports();
 
   }
@@ -353,14 +365,14 @@ export class ActivitiesComponent implements OnInit {
 
   // downloadPdf() {
   //   this.service.getPdf().subscribe((Response: any) => {
-     
+
   //     var doc = this.createPdfDoc(Response.result);
-     
+
   //     pdfMake.createPdf(doc).download();
   //   })
   // }
 
   onChangeDate(event, field) {
-    console.log("onChnage-->",event);
+    console.log("onChnage-->", event);
   }
 }

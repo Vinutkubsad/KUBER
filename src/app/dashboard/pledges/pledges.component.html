@@ -18,7 +18,7 @@
 
                           <div class="jumbotron-fluid">
                             <label for=""> From Date </label><input type="date" class="form-control" id="date-range"
-                              name="start" [(ngModel)]="start">
+                              name="start" max="{{today}}" [(ngModel)]="start">
                             <label for=""> To Date </label><input type="date" class="form-control" id="date-range" min="{{start}}"
                               name="end" [(ngModel)]="end">
                           </div>
