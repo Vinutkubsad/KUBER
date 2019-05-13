@@ -3,13 +3,14 @@
     <div class="row welcome">
       <div class="col-12">
         <h4>Activities</h4>
+        <!-- current date: {{currentDate}}? -->
         <div style="text-align:center">
 
         </div>
       </div>
       <div class="container padding">
         <div class="col-12">
-          <div class="table-responsive">
+        
             <div class="container-fluid col-12">
               <div class="row">
                 <div class="col-2">
@@ -27,8 +28,12 @@
                         <div class="form-group">
                           <div class="jumbotron-fluid">
                             <label for="date-range">Date-range</label>
-                            <input type="date" class="form-control" id="date-range" name="start" [(ngModel)]="start" />
-                            <input type="date" class="form-control" id="date-range" name="end" [(ngModel)]="end" />
+                            <input type="date" class="form-control" id="date-range" 
+                            (onchange)="onChangeDate($event, 'start')"
+                             max="{{today}}" name="start" 
+                            [(ngModel)]="start" />
+                            <input type="date" class="form-control" id="date-range"
+                             min="{{start}}"  max="{{today}}" name="end" [(ngModel)]="end" />
                           </div>
                         </div>
                       </form>
@@ -50,9 +55,9 @@
                       placeholder="Search Name " [(ngModel)]="DonarName" (input)="search()" style="outline:none">
                   </div>
                 </div> &nbsp;&nbsp;&nbsp;
-                <div class="">
+                <div class="" >
                   <button type="button" class="btn btn-outline-info" data-toggle="tooltip" data-placement="top"
-                    title="Pdf" (click)="downloadPdf()">
+                    title="Pdf" (click)="downloadPdf($event)">
                     <fa-icon [icon]="faFilePdf"></fa-icon> Dowload
                   </button>
                 </div>
@@ -66,6 +71,7 @@
                 </div>
               </div>
             </div>
+            <div class="table-responsive">
             <table *ngIf="payments.length > 0" class="table">
               <thead class="thead">
                 <tr>
@@ -75,12 +81,12 @@
                     </button>
                   </th>
                   <th>
-                    Name<button class="btn btn-outline-light" (click)="sortStatus()">
+                    Name<button class="btn btn-outline-light" (click)="sortName()">
                       <fa-icon [icon]="faSort"></fa-icon>
                     </button>
                   </th>
                   <th>
-                    Donation Status<button class="btn btn-outline-light" (click)="sortName()">
+                    Donation Status<button class="btn btn-outline-light" (click)="sortStatus()">
                       <fa-icon [icon]="faSort"></fa-icon>
                     </button>
                   </th>

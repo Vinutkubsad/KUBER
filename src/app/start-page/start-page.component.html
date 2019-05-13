@@ -57,7 +57,7 @@
         letter-spacing: 1px; text-transform: uppercase;">About Us</h2>
       </header>
 
-      <div class="row about-container">
+      <!-- <div class="row about-container">
         <div class="col-lg-5 content order-lg-1 order-2">
           <div class="icon-box wow fadeInUp" style="text-align:center;">
             <fa-icon [icon]="faAngleDoubleRight" ></fa-icon>
@@ -86,10 +86,25 @@
             <p>We provide details of all different charities building trust between donar and the charity</p>
           </div>
         </div>
+      </div> -->
+
+      <div class="row about-container">
+        <div class="col-lg content">
+          <p>We help you keep track of donations for financial planning and tax deductions</p>
+        </div>
+        <div class="col-lg content">
+          <p>We provide timelines that help you with donations so that the process does not become cumbersome</p>
+        </div>
+        <div class="col-lg content">
+          <p>We provide details of all different charities building trust between donar and the charity</p>
+        </div>
       </div>
 
       <div class="about-extra">
         <header class="about-solution"> quber's digital solution </header>
+        <div class="header-extra">
+          <p>check out our mobile app:</p>
+        </div>
         <div class="icons">
           <div class="icon-header">
             <p> Make Donations </p>
@@ -105,7 +120,6 @@
           </div>
         </div>
       </div>
-
     </div>
   </section>
   <!-- #about -->
@@ -122,7 +136,7 @@
             <div class="col">
               <div class="form-group">
                 <div class="input-icon-wrap">
-                  <span class="input-icon"><span><i class="fas fa-user"></i></span></span>
+                  <span class="input-icon"><span><fa-icon [icon]="faUser"></fa-icon></span></span>
                   <input type="text" class="input-with-icon" placeholder="Username" id="name" formControlName="name"
                     type="text" [(ngModel)]="service.contact.name" required />
                 </div>
@@ -138,7 +152,7 @@
             <div class="col">
               <div class="form-group">
                 <div class="input-icon-wrap">
-                  <span class="input-icon"><span><i class="fas fa-envelope"></i></span></span>
+                  <span class="input-icon"><span><fa-icon [icon]="faEnvelope"></fa-icon></span></span>
                   <input type="text" class="input-with-icon" placeholder="Email" id="email" formControlName="email"
                   type="text" [(ngModel)]="service.contact.email" required>
                 </div>
@@ -157,7 +171,7 @@
             <div class="col">
               <div class="form-group">
                 <div class="input-icon-wrap">
-                  <span class="input-icon"><span><i class="fas fa-comment-alt"></i> </span></span>
+                  <span class="input-icon"><span><fa-icon [icon]="faCommentDots"></fa-icon></span></span>
                   <textarea type="text" class="input-with-icon" placeholder="Message" id="message"
                   formControlName="message"
                   type="text" [(ngModel)]="service.contact.message" style="height:100px;" required></textarea>
@@ -173,9 +187,9 @@
             </div>
           </div>
           <div class="col-12">
-            <p><button name="submit" type="submit" class="btn btn-outline-light btn-lg btn-block" (click)="submitDetails()"><i
-                  class="fa fa-paper-plane"></i>
-                Send a message</button></p>
+            <p><button name="submit" type="submit" class="btn btn-outline-light btn-lg btn-block" (click)="submitDetails()">
+              <!-- <fa-icon [icon]="faPaperPlane"></fa-icon> -->
+                SUBMIT</button></p>
           </div>
         </div>
       </div>

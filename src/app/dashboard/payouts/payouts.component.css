@@ -1,7 +1,7 @@
 /* .container{
 width: 50%;
 } */
-.card{
+/* .card{
     width: 50%;
 }
 .title h4{
@@ -37,4 +37,25 @@ width: 50%;
 	top: 0px;
 	left: 3px;
 	color: #99a1a7;
+} */
+/* .custom-day {
+	text-align: center;
+	padding: 0.185rem 0.25rem;
+	display: inline-block;
+	height: 2rem;
+	width: 2rem;
+  }
+  .custom-day.focused {
+	background-color: #e6e6e6;
+  }
+  .custom-day.range, .custom-day:hover {
+	background-color: rgb(2, 117, 216);
+	color: white;
+  }
+  .custom-day.faded {
+	background-color: rgba(2, 117, 216, 0.5);
+  } */
+  div{
+    padding: 15px;
+    border: solid 2px steelblue;
 }

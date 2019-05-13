@@ -11,6 +11,10 @@ import { faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons';
 import { faHandshake } from '@fortawesome/free-solid-svg-icons';
 import { faHandHoldingUsd } from '@fortawesome/free-solid-svg-icons';
 import { faClipboardCheck } from '@fortawesome/free-solid-svg-icons';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { faCommentDots } from '@fortawesome/free-solid-svg-icons';
+import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
+
 
 @Component({
   selector: 'app-start-page',
@@ -28,6 +32,9 @@ export class StartPageComponent implements OnInit {
   faHandshake = faHandshake;
   faHandHoldingUsd = faHandHoldingUsd;
   faClipboardCheck = faClipboardCheck;
+  faUser = faUser;
+  faCommentDots = faCommentDots;
+  faPaperPlane = faPaperPlane;
   
   path;
 

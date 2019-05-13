@@ -32,7 +32,6 @@
 .navbar ul {
   display: flex;
   list-style: none;
-  width: 100%;
   justify-content: center;
 }
 
@@ -58,7 +57,6 @@
 
 .navbar-light .navbar-brand {
   color: rgba(0,0,0,.9);
-  margin-left: 20%;
 }
 
 .navbar-nav li {
@@ -96,7 +94,7 @@ caption h3 {
 
 }
 
-caption.btn {
+caption {
   border-radius: 0;
   border-width: medium;
   padding: .6rem 1.3rem;
@@ -105,14 +103,14 @@ caption.btn {
   color: rgb(15, 228, 217) !important;
 }
 
-.btn-lg {
+#home .btn-lg {
   border-radius: 25px;
   border-width: medium;
   padding: .6rem 1.3rem;
   font-size: 1.1rem;
   font-weight: 700;
   color: white;
-  background: rgb(15, 221, 228)
+  background: rgb(15, 221, 228);
 }
 
 footer {
@@ -344,7 +342,18 @@ footer {
 }
 
 #about .about-container .content {
-  background: #fff;
+  border: 3px solid rgb(76, 177, 172);
+  border-radius: 8px;
+  margin: 30px;
+  text-align: center; 
+  color: #042a31;
+}
+#about .about-container .content p {
+  padding-right: 1rem;
+  padding-left: 1rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  font-size: 1.6rem;
 }
 
 #about .about-container .title {
@@ -407,6 +416,17 @@ footer {
   font-size: 2.5rem;
   color: whitesmoke;
   word-spacing: 0.8rem;
+}
+#about .about-extra .header-extra {
+  text-align: center;
+  margin: 20px;
+}
+
+#about .about-extra .header-extra p {
+  padding: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 2rem;
 }
 
 #about .about-extra .icons {
@@ -511,6 +531,7 @@ footer {
   font-weight: 700;
   letter-spacing: 1px;
   color: #fff;
+  text-transform: uppercase;
 }
 
 .title {
@@ -545,10 +566,21 @@ small {
   color: red;
 }
 
-button.btn.btn-outline-light.btn-lg.btn-block:hover {
+#letstalk .btn-lg {
+  border-radius: 25px;
+  border-width: medium;
+  padding: .6rem 1.3rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  width: 30%;
+  margin: auto;
   color: rgb(15, 221, 228);
   background: white;
-  border: 3px solid rgb(15, 221, 228);
+  border: 2px solid white;
+}
+
+#letstalk .btn-lg:hover {
+  border: 2px solid rgb(76, 177, 172);
 }
 
 .val {

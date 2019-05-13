@@ -26,8 +26,8 @@ export class ActivitiesComponent implements OnInit {
   faFilter = faFilter;
   faSort = faSort;
 
-  public pdf:any;
-  private page: number = 1;
+  public pdf: any;
+  public page: number = 1;
   public payments: any = [];
   public searchResults: any[]
   public id;
@@ -40,16 +40,16 @@ export class ActivitiesComponent implements OnInit {
   public flag: any = false;
   public bal: any;
   public mes: any;
-  public start: any;
-  public end: any;
+  public start: Date;
+  public end: Date;
   public userName: any;
-  public net : any;
-  public application_fee_amount:any;
+  public net: any;
+  public application_fee_amount: any;
   public days: any;
-  public year: any; 
-  public from : any;
-  public to : any;
-  loading:boolean
+  public year: any;
+  public from: any;
+  public to: any;
+  loading: boolean
 
 
   public pagination = {
@@ -63,15 +63,16 @@ export class ActivitiesComponent implements OnInit {
 
   constructor(private service: DataService, private router: Router) { }
   setPage(i) {
-    this.page = i; 
-      this.getReports();
+    this.page = i;
+    this.getReports();
   }
 
+  today = new Date();
 
   ngOnInit() {
     this.getReports();
     this.getStatus();
-   
+
   }
 
   doPagination(itemsPerPage, total_pages, totalCount, pageNo, per_page) {
@@ -85,41 +86,50 @@ export class ActivitiesComponent implements OnInit {
     // console.log('onPageChange', e);
     this.setPage(e);
   }
-  
-  refresh(){
+
+  downloadPdf(e){
+    this.pdf = true;
+    this.getReports();
+  }
+  refresh() {
     this.getStatus();
     window.location.reload();
-    
+
   }
 
-  getReports() {
+  getReports() { 
     this.loading = true;
-    this.service.getReport(this.page, this.amount, this.date, this.userName,this.status,  this.net,this.application_fee_amount,this.days,this.year,this.from,this.to).pipe(timeout(6000),catchError(e=>{this.logout1(); return null})).subscribe((Response: any) => {
+    this.service.getReport(this.page, this.amount, this.date, this.userName, this.status, this.net, this.application_fee_amount, this.days, this.year, this.from, this.to).pipe(timeout(6000), catchError(e => { this.logout1(); return null })).subscribe((Response: any) => {
       this.loading = false;
-      if (Response.success== true) {
+      if (Response.success == true) {
         this.payments = Response.result.paginatedItems;
-        this.doPagination(Response.result.itemsPerPage, Response.result.total_pages, Response.result.totalCount, Response.result.pageNo, Response.result.per_page)
+        this.doPagination(Response.result.itemsPerPage, Response.result.total_pages, Response.result.totalCount, Response.result.pageNo, Response.result.per_page); 
       }
-       else if(Response.success == false) {
+      if(this.pdf === true){
+        var doc = this.createPdfDoc( Response.result.paginatedItems);
+        pdfMake.createPdf(doc).download();
+        this.pdf = false;
+      }
+      else if (Response.success == false) {
         this.payments = Response;
-       }  
+      }
     });
   }
 
-  getStatus(){
-    this.service.getStatus().subscribe((Response:any)=>{
+  getStatus() {
+    this.service.getStatus().subscribe((Response: any) => {
       // console.log(Response); 
     })
   }
 
-  logout1(){
+  logout1() {
     this.router.navigate(["home"]);
     localStorage.removeItem("jwt");
     localStorage.removeItem("randid");
     localStorage.removeItem("user");
   }
 
-  search(){
+  search() {
     this.userName = this.DonarName;
     this.days = undefined;
     this.year = undefined;
@@ -137,7 +147,7 @@ export class ActivitiesComponent implements OnInit {
       this.status = undefined;
       this.net = undefined;
       this.userName = undefined;
-      this.application_fee_amount= undefined;
+      this.application_fee_amount = undefined;
       this.getReports();
     } else if (this.flag === false) {
       this.amount = 1;
@@ -145,7 +155,7 @@ export class ActivitiesComponent implements OnInit {
       this.status = undefined;
       this.net = undefined;
       this.userName = undefined;
-      this.application_fee_amount= undefined;
+      this.application_fee_amount = undefined;
       this.getReports();
     }
   }
@@ -158,7 +168,7 @@ export class ActivitiesComponent implements OnInit {
       this.status = undefined;
       this.net = undefined;
       this.userName = undefined;
-      this.application_fee_amount= undefined;
+      this.application_fee_amount = undefined;
       this.getReports();
     } else if (this.flag === false) {
       this.date = -1;
@@ -166,28 +176,7 @@ export class ActivitiesComponent implements OnInit {
       this.status = undefined;
       this.net = undefined;
       this.userName = undefined;
-      this.application_fee_amount= undefined;
-      this.getReports();
-    }
-  }
-
-  sortStatus() {
-    this.flag = !this.flag;
-    if (this.flag === true) {
-      this.status = undefined;
-      this.amount = undefined;
-      this.date = undefined;
-      this.net = undefined;
-      this.userName = 1;
-      this.application_fee_amount= undefined;
-      this.getReports();
-    } else if (this.flag === false) {
-      this.status = undefined;
-      this.amount = undefined;
-      this.date = undefined;
-      this.net = undefined;
-      this.userName = -1;
-      this.application_fee_amount= undefined;
+      this.application_fee_amount = undefined;
       this.getReports();
     }
   }
@@ -195,20 +184,41 @@ export class ActivitiesComponent implements OnInit {
   sortName() {
     this.flag = !this.flag;
     if (this.flag === true) {
+      this.status = undefined;
+      this.amount = undefined;
+      this.date = undefined;
+      this.net = undefined;
+      this.userName = 1;
+      this.application_fee_amount = undefined;
+      this.getReports();
+    } else if (this.flag === false) {
+      this.status = undefined;
+      this.amount = undefined;
+      this.date = undefined;
+      this.net = undefined;
+      this.userName = -1;
+      this.application_fee_amount = undefined;
+      this.getReports();
+    }
+  }
+
+  sortStatus() {
+    this.flag = !this.flag;
+    if (this.flag === true) {
       this.status = 1;
       this.amount = undefined;
       this.date = undefined;
       this.net = undefined;
-      this.userName =  undefined;
-      this.application_fee_amount= undefined;
+      this.userName = undefined;
+      this.application_fee_amount = undefined;
       this.getReports();
     } else if (this.flag === false) {
       this.status = -1;
       this.amount = undefined;
       this.date = undefined;
       this.net = undefined;
-      this.userName =  undefined;
-      this.application_fee_amount= undefined;
+      this.userName = undefined;
+      this.application_fee_amount = undefined;
       this.getReports();
     }
   }
@@ -221,7 +231,7 @@ export class ActivitiesComponent implements OnInit {
       this.date = undefined;
       this.net = -1;
       this.userName = undefined;
-      this.application_fee_amount= undefined;
+      this.application_fee_amount = undefined;
       this.getReports();
     } else if (this.flag === false) {
       this.status = undefined;
@@ -229,7 +239,7 @@ export class ActivitiesComponent implements OnInit {
       this.date = undefined;
       this.net = 1;
       this.userName = undefined;
-      this.application_fee_amount= undefined;
+      this.application_fee_amount = undefined;
       this.getReports();
     }
   }
@@ -242,7 +252,7 @@ export class ActivitiesComponent implements OnInit {
       this.date = undefined;
       this.net = undefined;
       this.userName = undefined;
-      this.application_fee_amount= -1;
+      this.application_fee_amount = -1;
       this.getReports();
     } else if (this.flag === false) {
       this.status = undefined;
@@ -250,12 +260,12 @@ export class ActivitiesComponent implements OnInit {
       this.date = undefined;
       this.net = undefined;
       this.userName = undefined;
-      this.application_fee_amount= 1;
+      this.application_fee_amount = 1;
       this.getReports();
     }
   }
 
-  filter30(){
+  filter30() {
     this.days = 30;
     this.year = undefined;
     this.from = undefined;
@@ -264,7 +274,7 @@ export class ActivitiesComponent implements OnInit {
     this.getReports();
   }
 
-  filter60(){
+  filter60() {
     this.days = 60;
     this.year = undefined;
     this.from = undefined;
@@ -272,19 +282,19 @@ export class ActivitiesComponent implements OnInit {
     this.userName = undefined;
     this.getReports();
   }
-  
-  filter18(){
+
+  filter18() {
     this.year = 2018;
     this.days = undefined;
     this.from = undefined;
     this.to = undefined;
     this.userName = undefined;
     // console.log(this.year);
-    
+
     this.getReports();
   }
 
-  filter19(){
+  filter19() {
     this.year = 2019;
     this.days = undefined;
     this.from = undefined;
@@ -293,31 +303,31 @@ export class ActivitiesComponent implements OnInit {
     this.getReports();
   }
 
-  filter(){
+  filter() {
     this.from = this.start;
     this.to = this.end;
     this.days = undefined;
     this.year = undefined;
     this.userName = undefined;
-    // console.log(this.start,this.end); 
+    console.log(this.start,this.end); 
     this.getReports();
-    
+
   }
 
-  checkStatus(payment_id){
-   this.id = payment_id;
-      this.service.getSingleStatus(this.id).subscribe((Response:any)=>{
+  checkStatus(payment_id) {
+    this.id = payment_id;
+    this.service.getSingleStatus(this.id).subscribe((Response: any) => {
       this.getReports();
     });
-   
+
   }
 
   createPdfTable(result) {
     var tempArr = [];
-    for(let i = 0; i<result.length; i++){
+    for (let i = 0; i < result.length; i++) {
 
-     
-      if(i == 0) { 
+
+      if (i == 0) {
         var ar = ['Date', 'Name', 'Donation Status', 'Total Amount(USD)'];
         tempArr.push(ar);
       }
@@ -326,7 +336,7 @@ export class ActivitiesComponent implements OnInit {
     }
     return tempArr;
   }
-  
+
   createPdfDoc(result) {
     const doc = {
       content: [
@@ -337,16 +347,20 @@ export class ActivitiesComponent implements OnInit {
           }
         }
       ]
-  }
+    }
     return doc;
   }
 
-  downloadPdf() {
-    this.service.getPdf().subscribe((Response: any) => {
-      // console.log(Response);
-      var doc = this.createPdfDoc(Response.result);
-      // console.log('DOc Pdf', doc);
-      pdfMake.createPdf(doc).download();
-    })
+  // downloadPdf() {
+  //   this.service.getPdf().subscribe((Response: any) => {
+     
+  //     var doc = this.createPdfDoc(Response.result);
+     
+  //     pdfMake.createPdf(doc).download();
+  //   })
+  // }
+
+  onChangeDate(event, field) {
+    console.log("onChnage-->",event);
   }
 }
