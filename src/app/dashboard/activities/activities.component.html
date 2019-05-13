@@ -28,10 +28,12 @@
                         <div class="form-group">
                           <div class="jumbotron-fluid">
                             <label for="date-range">Date-range</label>
+                            <label for=""> From Date </label>
                             <input type="date" class="form-control" id="date-range" 
                             (onchange)="onChangeDate($event, 'start')"
                              max="{{today}}" name="start" 
                             [(ngModel)]="start" />
+                            <label for=""> To Date </label>
                             <input type="date" class="form-control" id="date-range"
                              min="{{start}}"  max="{{today}}" name="end" [(ngModel)]="end" />
                           </div>
@@ -99,7 +101,7 @@
               </thead>
               <tbody>
                 <tr *ngFor="let p of payments; let i = index">
-                  <td>{{ p.paymentDate | date }}</td>
+                  <td>{{ p.paymentDate | date}}</td>
                   <td>{{ p.userName }}</td>
                   <td *ngIf="p.status === 'succeeded'"><a class="btn btn-outline-success">{{p.status}}</a></td>
 
@@ -133,5 +135,3 @@
     </div>
   </div>
 </div>
-
-<!-- <button class="btn btn-primary" (click)="downloadPdf()">download</button> -->

@@ -54,7 +54,7 @@
                   </div>
                 </div>
                 <div class="col">
-                  <input type="file" formControlName="charityLogos"
+                  <label for="">Charity Logo: </label>&nbsp;<input type="file" formControlName="charityLogos"
                     [(ngModel)]="charityServices.selectedCharity.charityLogos" (change)="charityLogos($event)" />
                     <!-- <button type="button" (click)="onUpload()"> Upload Charity Logo </button> -->
                 </div>
@@ -62,9 +62,9 @@
               <div class="row">
                 <div class="col">
                   <div class="form-group">
-                    <textarea formControlName="description" type="text" placeholder="Description" id="description"
+                    <input formControlName="description" type="text" placeholder="Description" id="description"
                       class="form-control" rows="3" [(ngModel)]="charityServices.selectedCharity.description" autofocus
-                      required></textarea>
+                      required>
                     <div *ngIf="
                   registerForm.controls['description'].touched &&
                   !registerForm.controls['description'].valid
@@ -102,7 +102,7 @@
                 </div>
                 <div class="col">
                   <div class="form-group">
-                    <input formControlName="phoneNumber" type="text" placeholder="Phone number" id="phoneNumber"
+                    <input formControlName="phoneNumber" type="number" placeholder="Phone number" id="phoneNumber"
                       class="form-control" [(ngModel)]="charityServices.selectedCharity.phoneNumber" autofocus
                       required />
                     <div *ngIf="
@@ -123,7 +123,7 @@
                 <div class="col">
                   <div class="form-group">
                     <div class="">
-                      <input formControlName="taxId" type="text" id="taxId" placeholder="Tax Id" class="form-control"
+                      <input formControlName="taxId" type="number" id="taxId" placeholder="Tax Id" class="form-control"
                         [(ngModel)]="charityServices.selectedCharity.taxId" autofocus required />
                       <div *ngIf="
                           registerForm.controls['taxId'].touched &&
@@ -139,14 +139,14 @@
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="row">
+              <!-- </div> -->
+              <!-- <div class="row"> -->
                 <div class="col">
                   <div class="form-group">
                     <div class="">
-                      <textarea formControlName="address" type="text" id="address" placeholder="Address "
+                      <input formControlName="address" type="text" id="address" placeholder="Address "
                         class="form-control" [(ngModel)]="charityServices.selectedCharity.address" autofocus
-                        required></textarea>
+                        required>
                       <div *ngIf="
                           registerForm.controls['address'].touched &&
                           !registerForm.controls['address'].valid 
@@ -185,7 +185,7 @@
                 </div>
                 <div class="col">
                   <div class="form-group">
-                    <input formControlName="state" type="text" id="state" placeholder="State" class="form-control"
+                    <input formControlName="state" type="number" id="state" placeholder="State" class="form-control"
                       [(ngModel)]="charityServices.selectedCharity.state" autofocus required />
                     <div *ngIf="
                       registerForm.controls['state'].touched &&
@@ -223,7 +223,7 @@
                 </div>
                 <div class="col">
                   <div class="form-group">
-                    <input formControlName="zipcode" type="text" id="zipcode" placeholder="Zipcode" class="form-control"
+                    <input formControlName="zipcode" type="number" id="zipcode" placeholder="Zipcode" class="form-control"
                       [(ngModel)]="charityServices.selectedCharity.zipcode" autofocus required />
                     <div *ngIf="
                         registerForm.controls['zipcode'].touched &&
@@ -303,7 +303,7 @@
                 <div class="col">
                   <div class="form-group">
 
-                    <input formControlName="contact" type="text" id="contact" placeholder="Phone Number"
+                    <input formControlName="contact" type="number" id="contact" placeholder="Phone Number"
                       class="form-control" [(ngModel)]="charityServices.selectedCharity.contact" autofocus required />
                     <div *ngIf="
                             registerForm.controls['contact'].touched &&
@@ -324,9 +324,9 @@
                 <div class="col">
                   <div class="form-group">
 
-                    <textarea formControlName="userAddress" type="text" id="userAddress" placeholder="Address"
+                    <input formControlName="userAddress" rows="2" type="text" id="userAddress" placeholder="Address"
                       class="form-control" [(ngModel)]="charityServices.selectedCharity.userAddress" autofocus
-                      required></textarea>
+                      required>
                     <div *ngIf="
                           registerForm.controls['userAddress'].touched &&
                           !registerForm.controls['userAddress'].valid
@@ -345,7 +345,7 @@
                 <div class="col">
                   <div class="form-group">
 
-                    <input formControlName="pincode" type="text" id="pincode" placeholder="Zipcode" class="form-control"
+                    <input formControlName="pincode" type="number" id="pincode" placeholder="Zipcode" class="form-control"
                       [(ngModel)]="charityServices.selectedCharity.pincode" autofocus required />
                     <div *ngIf="
                             registerForm.controls['pincode'].touched &&
