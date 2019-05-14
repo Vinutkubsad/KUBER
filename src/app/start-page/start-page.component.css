@@ -41,12 +41,14 @@
   align-items: center;
   margin: 0 1rem;
   padding: 1rem;
+ 
 }
 .navbar ul li i {
   color: rgb(76, 177, 172);
 }
 
 .navbar ul li a {
+  color: rgb(76, 177, 172);
   text-decoration: none;  
   font-weight: bold;
 }

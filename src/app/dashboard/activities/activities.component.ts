@@ -101,7 +101,7 @@ export class ActivitiesComponent implements OnInit {
 
   getReports() {
     this.loading = true;
-    this.service.getReport(this.page, this.amount, this.date, this.userName, this.status, this.net, this.application_fee_amount, this.days, this.year, this.from, this.to).pipe(timeout(6000), catchError(e => { this.logout1(); return null })).subscribe((Response: any) => {
+    this.service.getReport(this.page, this.amount, this.date, this.userName, this.status, this.net, this.application_fee_amount, this.days, this.year, this.from, this.to).pipe(timeout(10000), catchError(e => { this.logout1(); return null })).subscribe((Response: any) => {
       this.loading = false;
       if (Response.success == true) {
         console.log(Response);

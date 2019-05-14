@@ -18,7 +18,7 @@
 
                           <div class="jumbotron-fluid">
                             <label for=""> From Date </label><input type="date" class="form-control" id="date-range"
-                              name="start" max="{{today}}" [(ngModel)]="start">
+                              name="start" [(ngModel)]="start">
                             <label for=""> To Date </label><input type="date" class="form-control" id="date-range" min="{{start}}"
                               name="end" [(ngModel)]="end">
                           </div>
@@ -42,7 +42,7 @@
                 <div class="">
                   <select class="btn btn-outline" name="Frequency" id="frequency"
                     (change)="frequnecy($event.target.value)" placeholder = "Frequency">
-                    <option class="dropdown-item" value="">All Data</option>
+                    <option class="dropdown-item" value="allData">All Data</option>
                     <option class="dropdown-item" value="week">Weekly</option>
                     <option class="dropdown-item" value="byweek">Biweekly</option>
                     <option class="dropdown-item" value="month">Monthly</option>
@@ -55,7 +55,7 @@
                 &nbsp; &nbsp;
                 <div class="">
                   <button type="button" class="btn btn-outline-info" data-toggle="tooltip" data-placement="top"
-                    title="Pdf" (click)="downloadPdf($event)"> <fa-icon [icon]="faFilePdf"></fa-icon> Dowload </button>
+                    title="Pdf" (click)="downloadPdf()"> <fa-icon [icon]="faFilePdf"></fa-icon> Dowload </button>
                 </div>
                 <br>
                 &nbsp; &nbsp;
@@ -78,7 +78,7 @@
               <tbody>
                 <tr
                   *ngFor="let data of pledgeReport| filter : 'userDetails':'Name': searchText  | paginate: {itemsPerPage: 12, currentPage: p };">
-                  <td>{{data.startDate | date}}</td>
+                  <td>{{data.startDate | date:'yyyy-MM-dd'}}</td> 
                   <td>{{data.userDetails.Name}}</td>
                   <td>{{data.amount | currency}}</td>
                   <td>{{data.interval != "" && data.interval != null?data.interval:"-"}}</td>

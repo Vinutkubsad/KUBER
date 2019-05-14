@@ -2,14 +2,7 @@ import { Component, OnInit, ElementRef, ViewChild } from "@angular/core";
 import { DataService } from "src/app/services/data.service";
 import { Router } from "@angular/router";
 import { concatMap, timeout, catchError, delay } from 'rxjs/operators';
-import {
-  FormGroup,
-  FormBuilder,
-  Validators,
-  FormControl,
-  NgForm,
-  FormGroupDirective
-} from "@angular/forms";
+import { FormGroup, FormBuilder, Validators, FormControl, NgForm, FormGroupDirective } from "@angular/forms";
 import pdfMake from "pdfmake/build/pdfmake";
 import pdfFonts from "pdfmake/build/vfs_fonts";
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
@@ -45,6 +38,7 @@ export class PledgesComponent implements OnInit {
   amount;
   logout= false;
   timer;
+  tempPledge;
 
   constructor(private service: DataService,  private router: Router, public fb: FormBuilder ) {
     setTimeout(() => {
@@ -58,11 +52,12 @@ export class PledgesComponent implements OnInit {
 
   getReports() {
     this.loading = true;
-    this.service.allPledges().pipe(timeout(6000),catchError(e=>{this.logout1(); return of(null)})).subscribe((Response: any) => {
-      console.log('res', Response)
+    this.service.allPledges().pipe(timeout(10000),catchError(e=>{this.logout1(); return of(null)})).subscribe((Response: any) => {
         this.loading = false;
         this.pledgeReport = Response.data;
         this.pledgeReport1 = Response.data;
+        this.tempPledge=Response.data;
+        console.log(this.pledgeReport);
     });
   }
 
@@ -122,18 +117,29 @@ export class PledgesComponent implements OnInit {
   }
 
   frequnecy(event) {
-    this.pledgeReport = this.pledgeReport1.filter(x => x.interval == event);
-    console.log('frequency', this.pledgeReport);
-  }
-  Datefilter() {
-    {
-      var startDate = this.start;
-      var endDate = this.end;
-      this.pledgeReport = this.pledgeReport1.filter(
-        x => x.startDate >= startDate && x.startDate <= endDate
-      );
+    console.log(event);
+    
+    if(event == 'allData'){
+      this.pledgeReport=this.tempPledge;
+    }
+    else{
+      this.pledgeReport = this.pledgeReport1.filter(x => x.interval == event);
     }
   }
+
+  Datefilter() {
+    {
+      var startDate = new Date;
+      var start = this.start;
+      var endDate = this.end;
+      this.pledgeReport = this.pledgeReport1.filter( m => {
+        if(m.startDate > this.start && m.startDate < this.end)
+        return m;
+      });
+      console.log(this.pledgeReport,'date');
+    }
+  }
+
   onChangeDate(event, field) {
     console.log("onChnage-->",event);
   }
