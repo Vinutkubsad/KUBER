@@ -1,7 +1,7 @@
 <body class="homepage" data-spy="scroll">
   <div class="home" id="home">
     <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
-      <a class="navbar-brand" href="#"><img src="./assets/Images/logo.png" width="60" height="60"></a>
+      <a class="navbar-brand" href="#"><img src="./assets/Images/logo.png" width="60" height="60" /></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
         aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -18,32 +18,35 @@
             <fa-icon [icon]="faEnvelope"></fa-icon><a class="nav-link" href="#letstalk">Contact</a>
           </li>
           <li class="nav-item">
-            <button type="button" class="btn btn-outline-light btn-lg" (click)="Login()">LOGIN</button>
+            <button type="button" class="btn btn-outline-light btn-lg" (click)="Login()">
+              LOGIN
+            </button>
           </li>
         </ul>
       </div>
     </nav>
   </div>
 
-
   <!-- intoduction -->
   <section id="intro" class="clearfix">
     <div class="container">
-
       <div class="intro-info">
         <div class="brand-name">
           <p style="font-size:5rem; color: whitesmoke;">QUBER</p>
-          <h3 style="margin-left:10px; text-transform: uppercase; word-spacing: 0.6rem; color: whitesmoke;">giving made
-            easier</h3>
+          <h3 style="margin-left:10px; text-transform: uppercase; word-spacing: 0.6rem; color: whitesmoke;">
+            giving made easier
+          </h3>
         </div>
 
         <div class="mission">
-          <p>Quber digitally transforms the philanthropic experience making it seamless, efficient and secure by
-            leveraging latest technologies.</p>
+          <p>
+            Quber digitally transforms the philanthropic experience making it
+            seamless, efficient and secure by leveraging latest technologies.
+          </p>
         </div>
         <div>
           <a (click)="register()" class="btn-get-started scrollto">REGISTER YOUR CHARITY</a>
-        </div> 
+        </div>
       </div>
     </div>
   </section>
@@ -51,10 +54,11 @@
   <!-- about section -->
   <section id="about">
     <div class="container">
-
       <header class="section-header">
         <h2 style="text-align: center; padding: 2.5rem;font-size: 40px;font-weight: 700;
-        letter-spacing: 1px; text-transform: uppercase;">About Us</h2>
+        letter-spacing: 1px; text-transform: uppercase;">
+          About Us
+        </h2>
       </header>
 
       <!-- <div class="row about-container">
@@ -90,32 +94,41 @@
 
       <div class="row about-container">
         <div class="col-lg content">
-          <p>We help you keep track of donations for financial planning and tax deductions</p>
+          <p>
+            We help you keep track of donations for financial planning and tax
+            deductions
+          </p>
         </div>
         <div class="col-lg content">
-          <p>We provide timelines that help you with donations so that the process does not become cumbersome</p>
+          <p>
+            We provide timelines that help you with donations so that the
+            process does not become cumbersome
+          </p>
         </div>
         <div class="col-lg content">
-          <p>We provide details of all different charities building trust between donar and the charity</p>
+          <p>
+            We provide details of all different charities building trust between
+            donar and the charity
+          </p>
         </div>
       </div>
 
       <div class="about-extra">
-        <header class="about-solution"> quber's digital solution </header>
+        <header class="about-solution">quber's digital solution</header>
         <div class="header-extra">
           <p>check out our mobile app:</p>
         </div>
-        <div class="icons">
-          <div class="icon-header">
-            <p> Make Donations </p>
+        <div class="row icons narrow text-center">
+          <div class="col-sm icon-header">
+            <p>Make Donations</p>
             <fa-icon [icon]="faHandHoldingUsd"></fa-icon>
           </div>
-          <div class="icon-header">
+          <div class="col-sm icon-header">
             <p>Keep Track of Donations</p>
-            <fa-icon [icon]="faAngleDoubleRight" ></fa-icon>
+            <fa-icon [icon]="faAngleDoubleRight"></fa-icon>
           </div>
-          <div class="icon-header">
-            <p> Set Goals & reminders </p>
+          <div class="col-sm icon-header">
+            <p>Set Goals & reminders</p>
             <fa-icon [icon]="faClipboardCheck"></fa-icon>
           </div>
         </div>
@@ -128,22 +141,24 @@
   <section class="clearfix" id="letstalk">
     <div class="container">
       <header class="wrap-contact">
-        <h1> Let's Talk </h1>
+        <h1>Let's Talk</h1>
       </header>
       <div class="form-container" [formGroup]="contactForm" (ngSubmit)="submitDetails()">
-        <div class="form">
           <div class="row">
             <div class="col">
               <div class="form-group">
                 <div class="input-icon-wrap">
-                  <span class="input-icon"><span><fa-icon [icon]="faUser"></fa-icon></span></span>
+                  <span class="input-icon"><span>
+                      <fa-icon [icon]="faUser"></fa-icon>
+                    </span></span>
                   <input type="text" class="input-with-icon" placeholder="Username" id="name" formControlName="name"
                     type="text" [(ngModel)]="service.contact.name" required />
                 </div>
                 <p class="alert">
                   <ngb-alert [dismissible]="false" *ngIf="
-                  contactForm.controls['name'].touched &&
-                  !contactForm.controls['name'].valid">
+                      contactForm.controls['name'].touched &&
+                      !contactForm.controls['name'].valid
+                    ">
                     <strong>Warning!</strong> Enter the Username.
                   </ngb-alert>
                 </p>
@@ -152,18 +167,27 @@
             <div class="col">
               <div class="form-group">
                 <div class="input-icon-wrap">
-                  <span class="input-icon"><span><fa-icon [icon]="faEnvelope"></fa-icon></span></span>
+                  <span class="input-icon"><span>
+                      <fa-icon [icon]="faEnvelope"></fa-icon>
+                    </span></span>
                   <input type="text" class="input-with-icon" placeholder="Email" id="email" formControlName="email"
-                  type="text" [(ngModel)]="service.contact.email" required>
+                    type="text" [(ngModel)]="service.contact.email" required />
                 </div>
                 <p class="alert">
-                  <ngb-alert [dismissible]="false" *ngIf="
-                  contactForm.controls['email'].touched &&
-                  !contactForm.controls['email'].valid">
-                    <strong *ngIf="registerForm.controls['contact'].hasError('required')">Warning!</strong> Enter the Email.
-                    <strong *ngIf="registerForm.controls['contact'].hasError('pattern')">Warning!</strong> Incorrect Email.
+                  <ngb-alert [dismissible]="false" *ngIf="contactForm.controls['email'].touched && !contactForm.controls['email'].valid">
+                    <strong>Warning!</strong> Enter the Email. 
                   </ngb-alert>
-                </p>
+                </p> 
+                <!-- <div *ngIf="contactForm.controls['email'].touched && !contactForm.controls['email'].valid">
+                  <ngb-alert *ngIf="
+                      registerForm.controls['email'].hasError('required')
+                    ">
+                    <strong>Warning!</strong> Enter the Email!
+                  </ngb-alert>
+                  <ngb-alert *ngIf="registerForm.controls['email'].hasError('pattern')">
+                    <strong>Warning!</strong> Incorrect Email!
+                  </ngb-alert>
+                </div> -->
               </div>
             </div>
           </div>
@@ -171,15 +195,18 @@
             <div class="col">
               <div class="form-group">
                 <div class="input-icon-wrap">
-                  <span class="input-icon"><span><fa-icon [icon]="faCommentDots"></fa-icon></span></span>
+                  <span class="input-icon"><span>
+                      <fa-icon [icon]="faCommentDots"></fa-icon>
+                    </span></span>
                   <textarea type="text" class="input-with-icon" placeholder="Message" id="message"
-                  formControlName="message"
-                  type="text" [(ngModel)]="service.contact.message" style="height:100px;" required></textarea>
+                    formControlName="message" type="text" [(ngModel)]="service.contact.message" style="height:100px; resize: unset;"
+                    required></textarea>
                 </div>
                 <p class="alert">
                   <ngb-alert [dismissible]="false" *ngIf="
-                  contactForm.controls['message'].touched &&
-                  !contactForm.controls['message'].valid">
+                      contactForm.controls['message'].touched &&
+                      !contactForm.controls['message'].valid
+                    ">
                     <strong>Warning!</strong> Enter the message.
                   </ngb-alert>
                 </p>
@@ -187,23 +214,28 @@
             </div>
           </div>
           <div class="col-12">
-            <p><button name="submit" type="submit" class="btn btn-outline-light btn-lg btn-block" (click)="submitDetails()">
-              <!-- <fa-icon [icon]="faPaperPlane"></fa-icon> -->
-                SUBMIT</button></p>
+            <p>
+              <button name="submit" type="submit" class="btn btn-outline-light btn-lg btn-block"
+                (click)="submitDetails()">
+                <!-- <fa-icon [icon]="faPaperPlane"></fa-icon> -->
+                SUBMIT
+              </button>
+            </p>
           </div>
-        </div>
       </div>
     </div>
   </section>
-<!-- #contact section -->
+  <!-- #contact section -->
 
-<!-- footer -->
+  <!-- footer -->
   <div>
     <footer>
       <div class="row narrow text-center">
         <div class="col-12">
-          <p>&copy; 2019 Quber. All Rights Reserved. <a href="#">Privacy policy
-          </a></p>
+          <p>
+            &copy; 2019 Quber. All Rights Reserved.
+            <a href="#">Privacy policy </a>
+          </p>
         </div>
       </div>
     </footer>

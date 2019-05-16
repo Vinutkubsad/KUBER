@@ -35,7 +35,7 @@ export class StartPageComponent implements OnInit {
   faUser = faUser;
   faCommentDots = faCommentDots;
   faPaperPlane = faPaperPlane;
-  
+  collapse = false;
   path;
 
   contactForm: FormGroup;

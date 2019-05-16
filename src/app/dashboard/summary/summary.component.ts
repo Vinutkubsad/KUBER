@@ -84,7 +84,7 @@ export class SummaryComponent implements OnInit {
 
   getReports() {
     this.loading = true;
-    this.service.getReportSummary(this.page, this.amount, this.date, this.userName).pipe(timeout(6000),catchError(e=>{this.logout1(); return null})).subscribe((Response: any) => {
+    this.service.getReportSummary(this.page, this.amount, this.date, this.userName).pipe(timeout(10000),catchError(e=>{this.logout1(); return null})).subscribe((Response: any) => {
       // console.log(Response);
       this.loading = false;
       this.mes = Response.message;

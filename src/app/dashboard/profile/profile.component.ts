@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router, Params, ActivatedRoute } from '@angular/router'
 import { DataService } from 'src/app/services/data.service';
 import swal from 'sweetalert';
-
+import { faUserEdit } from '@fortawesome/free-solid-svg-icons';
+import { faArrowAltCircleLeft } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-profile',
@@ -18,7 +19,10 @@ export class ProfileComponent implements OnInit {
   public email;
   public address;
 
-  constructor(public router: ActivatedRoute, public service: DataService) { }
+  faUserEdit = faUserEdit;
+  faArrowAltCircleLeft = faArrowAltCircleLeft;
+
+  constructor(public route: Router, public router: ActivatedRoute, public service: DataService) { }
 
   ngOnInit() {
     this.router.params.subscribe((params: Params) => {
@@ -48,6 +52,10 @@ export class ProfileComponent implements OnInit {
         swal( 'Error', 'warning')
       }
     });
+  }
+
+  back() {
+    this.route.navigate(['dashboard/summary'])
   }
 }
 

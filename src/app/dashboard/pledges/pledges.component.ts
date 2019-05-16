@@ -116,9 +116,7 @@ export class PledgesComponent implements OnInit {
     });
   }
 
-  frequnecy(event) {
-    console.log(event);
-    
+  frequnecy(event) {    
     if(event == 'allData'){
       this.pledgeReport=this.tempPledge;
     }
@@ -129,18 +127,17 @@ export class PledgesComponent implements OnInit {
 
   Datefilter() {
     {
-      var startDate = new Date;
-      var start = this.start;
-      var endDate = this.end;
+      let firstDate = this.start 
+      var endDate = this.end
       this.pledgeReport = this.pledgeReport1.filter( m => {
-        if(m.startDate > this.start && m.startDate < this.end)
+        if(m.startDate > firstDate && m.startDate < endDate)
         return m;
       });
       console.log(this.pledgeReport,'date');
     }
   }
 
-  onChangeDate(event, field) {
-    console.log("onChnage-->",event);
-  }
+  // onChangeDate(event, field) {
+  //   console.log("onChnage-->",event);
+  // }
 }
