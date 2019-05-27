@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import swal from 'sweetalert';
 import { FormGroup, FormBuilder, Validators, FormControl, NgForm, FormGroupDirective } from '@angular/forms';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
-
+import { faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-sign-in',
@@ -17,6 +17,7 @@ export class SignInComponent implements OnInit {
   error;
   loading: boolean;
   faEye = faEye;
+  faEyeSlash = faEyeSlash;
 
   passwordType: string = 'password';
   passwordShown: boolean = false;

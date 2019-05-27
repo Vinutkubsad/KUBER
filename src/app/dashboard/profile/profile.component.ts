@@ -33,6 +33,7 @@ export class ProfileComponent implements OnInit {
     this.id = id;
     var data = { "Course_ID": id };
     this.service.getCharityById(id).subscribe((res => {
+      console.log('data', res);
       this.firstname = res['result'].firstName;
       this.lastname = res['result'].lastName;
       this.primarynumber = res['result'].phoneNumber;

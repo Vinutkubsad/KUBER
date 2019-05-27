@@ -17,9 +17,6 @@
   </div>
 </nav>
 <div class="container-fluid ">
-  <pre>
-
- </pre>
   <div class="container">
     <div class="row">
       <div class="col">
@@ -30,10 +27,25 @@
             <h3 class="welcome text-center">Register your charity</h3>
             <hr>
             <h5>Charity details</h5>
-            <!-- <small style="color:black">All fields are mandatory</small> -->
             <br>
             <form class="form-horizontal" role="form" [formGroup]="registerForm" (ngSubmit)="submitForm()"
               class="main-form">
+              <div class="row">
+                <div class="col">
+                    <img [src]="url" height="200" *ngIf="url" class="content" (click)="preview()"> <br /><br />
+                    <input type="file" (change)="onSelectFile($event.target.files)" #Image accept="image/*">
+                    <div class="content-modal" *ngIf="flag">
+                      <span class="close-btn" (click)="closeBtn()">&times;</span>
+                      <div class="wrap-img">
+                        <img [src]="url" height="200" *ngIf="url">
+                      </div>
+                    </div>
+
+                  <!-- <label for="">Charity Logo: </label>&nbsp;<input type="file" formControlName="charityLogos"
+                    [(ngModel)]="charityServices.selectedCharity.charityLogos" (change)="charityLogos($event)" #Image accept="Images/*" /> -->
+                    <!-- <button type="button" (click)="onUpload()"> Upload Charity Logo </button> -->
+                </div>
+              </div>
               <div class="row">
                 <div class="col">
                   <div class="form-group">
@@ -52,11 +64,6 @@
                 </small> -->
                     </div>
                   </div>
-                </div>
-                <div class="col">
-                  <label for="">Charity Logo: </label>&nbsp;<input type="file" formControlName="charityLogos"
-                    [(ngModel)]="charityServices.selectedCharity.charityLogos" (change)="charityLogos($event)" />
-                    <!-- <button type="button" (click)="onUpload()"> Upload Charity Logo </button> -->
                 </div>
               </div>
               <div class="row">
