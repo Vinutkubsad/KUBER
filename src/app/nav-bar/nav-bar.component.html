@@ -18,11 +18,14 @@
       <li class="nav-item" [routerLink]="[ '/dashboard/pledges']" routerLinkActive="active">
         <a class="nav-link" role="button" outlet="outlet">Pledges</a>
       </li>
-      <li class="nav-item" routerLinkActive="active">
+      <li class="nav-item" [routerLink]="[ '/dashboard/payout']" routerLinkActive="active">
+        <a class="nav-link" role="button" outlet="outlet">Payout</a>
+      </li>
+      <!-- <li class="nav-item" routerLinkActive="active">
         <a class="nav-link"
           href="https://connect.stripe.com/express/oauth/authorize?client_id=ca_EdhtAis45rg72LVFw9fzbFBCZDdAkBjc#/"
           role="button">Stripe account</a>
-      </li>
+      </li> -->
       <!-- <li class="nav-item" [routerLink]="[ '/dashboard/help']" routerLinkActive="active">
         <a class="nav-link" role="button" outlet="outlet">Help</a>
       </li> -->

@@ -17,29 +17,22 @@ export class SignUpComponent implements OnInit {
 
   registerForm: FormGroup;
   path: any;
-  url: string = "../../../../assets/Images/logo.png";
-  fileToUpload : File = null;
-  public flag = false;
 
   // charityLogoFile: any;
   charityLogoFile: File = null;
-  charityLogos(event: any) {
-    this.charityLogoFile = event.target.files[0];
-    console.log('image upload', event.target.files);
-    if (event.image.files && event.image.files[0]) {
-      let reader = new FileReader();
-      reader.onload = (event: any) => {
-        this.url = event.target.File
-      }
-      // reader.readAsDataURL(event.target.files[0]);
-    }
+  charityLogos(event){
+  // console.log(event.target.files);
+  this.charityLogoFile = event.target.files[0];
   }
 
-  constructor(private router: Router, private fb: FormBuilder, public charityServices: DataService) { }
+  constructor(private router: Router, private fb: FormBuilder, public charityServices: DataService
+    ) { 
+
+  }
 
   ngOnInit(): void {
 
-
+    
 
     this.resetForm();
     this.registerForm = this.fb.group({
@@ -50,17 +43,17 @@ export class SignUpComponent implements OnInit {
       address: [null, [Validators.required]],
       userAddress: [null, [Validators.required]],
       zipcode: [null, [Validators.required, Validators.pattern('^[0-9]{5}$')]],
-      city: [null, [Validators.required, Validators.pattern('^[a-zA-Z]{1,20}$')]],
-      state: [null, [Validators.required, Validators.pattern('^[a-zA-Z]{1,20}$')]],
-      country: [null, [Validators.required, Validators.pattern('^[a-zA-Z]{2,30}$')]],
-      firstName: [null, [Validators.required, Validators.pattern('^[a-zA-Z]{1,30}$')]],
-      lastName: [null, [Validators.required, Validators.pattern('^[a-zA-Z]{1,30}$')]],
+      city: [null, [Validators.required,Validators.pattern('^[a-zA-Z]{1,20}$')]],
+      state: [null, [Validators.required,Validators.pattern('^[a-zA-Z]{1,20}$')]],
+      country: [null, [Validators.required,Validators.pattern('^[a-zA-Z]{2,30}$')]],
+      firstName: [null, [Validators.required,Validators.pattern('^[a-zA-Z]{1,30}$')]],
+      lastName: [null, [Validators.required,Validators.pattern('^[a-zA-Z]{1,30}$')]],
       charityLogos: [null],
-      pincode: [null, [Validators.required, Validators.pattern('^[0-9]{5}$')]],
-      contact: [null, [Validators.required, Validators.pattern('^[0-9]{10}$')]],
+      pincode:[null, [Validators.required, Validators.pattern('^[0-9]{5}$')]],
+      contact: [null, [Validators.required,Validators.pattern('^[0-9]{10}$')]],
       taxId: [null, [Validators.required, Validators.pattern('^[0-9]{9}$')]],
-      userEmail: [null, [Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]],
-      check: [null, Validators.required]
+      userEmail: [null,[Validators.required,Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]],
+      check:[null,Validators.required]
     });
   }
 
@@ -85,8 +78,8 @@ export class SignUpComponent implements OnInit {
       taxId: "",
       contact: null,
       userEmail: "",
-      pincode: null,
-      check: null,
+      pincode:null,
+      check:null,
     };
   }
 
@@ -97,34 +90,34 @@ export class SignUpComponent implements OnInit {
         .registerCharity(this.registerForm.value)
         .subscribe((res) => {
           // console.log(res);
-
+          
           if (res) {
-            swal("Great!", "Succefully registered your charity", "success");
+            swal("Great!","Succefully registered your charity", "success");
             this.registerForm.reset();
           }
-        }, (err) => {
+        },(err)=>{
           // console.log(err,'err');
-          swal("Oops!", "Email is already registerd", "info");
+          swal("Oops!","Email is already registerd", "info");
         });
     } else {
-      swal("Oops!", "Please fill the form!", "warning");
+      swal("Oops!", "Please fill the form!", "warning"); 
     }
   }
 
   createFormData(formValues) {
     const formData = new FormData();
     Object.keys(formValues).map((key) => {
-      formData.append(key, formValues[key]);
+    formData.append(key, formValues[key]);
     });
     formData.append('charityLogos', this.charityLogoFile);
     // console.log('formData', formData);
     return formData;
-  }
+    }
 
-  Login() {
+    Login() {
     this.router.navigate(['/signin']);
   }
-  back() {
+  back(){
     this.router.navigate(['/home']);
   }
 
@@ -132,5 +125,3 @@ export class SignUpComponent implements OnInit {
     this.router.navigate(['signup']);
   }
 }
-
-
